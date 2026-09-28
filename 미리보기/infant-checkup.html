@@ -1065,6 +1065,42 @@
 #hkLoc .root_daum_roughmap .wrap_map iframe{min-height:0 !important;height:400px !important;}
 #hkLoc .root_daum_roughmap .map_border{display:none !important;}
 #hkLoc .root_daum_roughmap .wrap_controllers{border:0 !important;border-top:1px solid var(--hk-line) !important;background:#fff !important;font-family:inherit !important;}
+#hkLoc .root_daum_roughmap{position:relative !important;z-index:1 !important;background:transparent !important;}
+#hkLoc .hk_map.hk_nomap .root_daum_roughmap{display:none !important;}
+
+/* 지도가 안 뜰 때 보이는 안내 (지도 아래에 깔려 있다가, 지도가 안 오면 그대로 보임) */
+#hkLoc .hk_mapfb{
+  position:absolute !important;inset:0 !important;z-index:0 !important;
+  display:flex !important;flex-direction:column !important;align-items:center !important;justify-content:center !important;gap:10px !important;
+  padding:24px !important;text-align:center !important;
+  background:linear-gradient(135deg,var(--hk-sky-l),#fff 60%,var(--hk-well-l)) !important;
+}
+#hkLoc .hk_mapfb .hk_pin{display:flex !important;align-items:center !important;justify-content:center !important;width:54px !important;height:54px !important;border-radius:50% !important;background:#fff !important;box-shadow:0 10px 24px -12px rgba(31,58,77,.45) !important;color:var(--hk-sky-d) !important;}
+#hkLoc .hk_mapfb .hk_pin svg{width:24px !important;height:24px !important;}
+#hkLoc .hk_mapfb b{display:block !important;font-size:17px !important;font-weight:800 !important;color:var(--hk-ink) !important;letter-spacing:-.03em !important;}
+#hkLoc .hk_mapfb small{display:block !important;font-size:13.5px !important;color:var(--hk-body) !important;}
+#hkLoc .hk_kbtn{
+  display:inline-flex !important;align-items:center !important;gap:7px !important;
+  height:44px !important;padding:0 20px !important;border-radius:999px !important;margin-top:6px !important;
+  background:#FEE500 !important;color:#191919 !important;font-size:14px !important;font-weight:800 !important;letter-spacing:-.03em !important;
+  box-shadow:0 10px 22px -12px rgba(0,0,0,.45) !important;
+  transition:transform .25s var(--hk-ease),box-shadow .25s var(--hk-ease) !important;
+}
+#hkLoc .hk_kbtn:hover{transform:translateY(-2px) !important;box-shadow:0 14px 26px -12px rgba(0,0,0,.5) !important;}
+#hkLoc .hk_kbtn svg{width:14px !important;height:14px !important;}
+
+/* 지도 왼쪽 위 '카카오맵에서 보기' (항상 보임) */
+#hkLoc .hk_mapgo{
+  position:absolute !important;top:12px !important;left:12px !important;z-index:2 !important;
+  display:inline-flex !important;align-items:center !important;gap:6px !important;
+  height:36px !important;padding:0 14px !important;border-radius:999px !important;
+  background:#FEE500 !important;color:#191919 !important;font-size:12.5px !important;font-weight:800 !important;letter-spacing:-.03em !important;
+  box-shadow:0 8px 18px -8px rgba(0,0,0,.4) !important;
+  transition:transform .25s var(--hk-ease) !important;
+}
+#hkLoc .hk_mapgo:hover{transform:translateY(-2px) !important;}
+#hkLoc .hk_mapgo svg{width:13px !important;height:13px !important;}
+#hkLoc .hk_map.hk_nomap .hk_mapgo{display:none !important;}
 #hkLoc .hk_side{display:flex !important;flex-direction:column !important;gap:12px !important;}
 #hkLoc .hk_card{
   position:relative !important;overflow:hidden !important;
@@ -1227,7 +1263,14 @@
     <!-- 지도 + 주소 -->
     <div class="hk_main hk_rv hk_d1">
       <div class="hk_map">
+        <div class="hk_mapfb">
+          <span class="hk_pin"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+          <b>행복한어린이병원</b>
+          <small>부산 강서구 명지국제1로 25 · 우진메디컬프라자 8~9층</small>
+          <a class="hk_kbtn" href="https://map.kakao.com/?q=%ED%96%89%EB%B3%B5%ED%95%9C%EC%96%B4%EB%A6%B0%EC%9D%B4%EB%B3%91%EC%9B%90%20%EB%AA%85%EC%A7%80" target="_blank" rel="noopener">카카오맵에서 보기<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M8 7h9v9"/></svg></a>
+        </div>
         <div id="daumRoughmapContainer1607930741646" class="root_daum_roughmap root_daum_roughmap_landing"></div>
+        <a class="hk_mapgo" href="https://map.kakao.com/?q=%ED%96%89%EB%B3%B5%ED%95%9C%EC%96%B4%EB%A6%B0%EC%9D%B4%EB%B3%91%EC%9B%90%20%EB%AA%85%EC%A7%80" target="_blank" rel="noopener">카카오맵에서 보기<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M8 7h9v9"/></svg></a>
       </div>
 
       <div class="hk_side">
@@ -1370,6 +1413,12 @@
       if (++n > 120) return;
       setTimeout(tick, 150);
     }
+
+    /* 18초가 지나도 지도가 안 붙으면 지도 칸을 치우고 '카카오맵에서 보기' 안내만 남김
+       (그 전에도 지도가 비어 있는 동안은 아래에 깔린 안내가 그대로 보입니다) */
+    setTimeout(function () {
+      if (!box.querySelector('iframe')) box.parentNode.classList.add('hk_nomap');
+    }, 18000);
 
     add('https://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js', 'loader');
     tick();
