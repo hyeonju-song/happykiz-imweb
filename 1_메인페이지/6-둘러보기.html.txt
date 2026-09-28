@@ -1,0 +1,232 @@
+<!-- ══════════════════════════════════════════════════════════════
+     [행복한어린이병원] 06. 둘러보기 (진료환경 갤러리)  (아임웹 코드 위젯용)
+     ─────────────────────────────────────────────────────────────
+     PC : 마우스로 잡아끌거나 오른쪽 아래 화살표로 넘깁니다.
+     모바일 : 손가락으로 옆으로 밉니다.
+     ══════════════════════════════════════════════════════════════ -->
+<style>
+@import url('https://cdn.jsdelivr.net/gh/sun-typeface/suit@2/fonts/variable/woff2/SUIT-Variable.css');
+
+#hkEnv{
+  --hk-sky:#3FA7E6; --hk-sky-d:#1E7FC2; --hk-sky-l:#EAF6FD;
+  --hk-sun:#FFC93C; --hk-ink:#1F3A4D; --hk-body:#4A5E6B; --hk-gray:#8697A2; --hk-line:#E6EDF1; --hk-paper2:#F5F9FB;
+  --hk-ease:cubic-bezier(.16,1,.3,1);
+  --hk-maxw:1400px; --hk-pad:32px;
+  line-height:1.75 !important;
+
+  display:block !important;position:relative !important;float:none !important;clear:both !important;
+  width:100% !important;max-width:100% !important;margin:0 !important;padding:96px 0 !important;
+  background:var(--hk-paper2) !important;border-top:1px solid var(--hk-line) !important;
+  box-sizing:border-box !important;overflow:hidden !important;
+}
+#hkEnv,#hkEnv *,#hkEnv *::before,#hkEnv *::after{
+  box-sizing:border-box !important;
+  font-family:'SUIT Variable','SUIT',-apple-system,BlinkMacSystemFont,'Pretendard','Apple SD Gothic Neo',sans-serif !important;
+  word-break:keep-all !important;
+}
+#hkEnv p,#hkEnv h2,#hkEnv span,#hkEnv div,#hkEnv a,#hkEnv figure,#hkEnv i{margin:0 !important;padding:0 !important;}
+#hkEnv a{text-decoration:none !important;color:inherit !important;}
+#hkEnv img{max-width:100% !important;display:block !important;border:0 !important;}
+#hkEnv button{font:inherit !important;color:inherit !important;background:none !important;border:0 !important;padding:0 !important;margin:0 !important;cursor:pointer !important;}
+#hkEnv .hk_wrap{max-width:var(--hk-maxw) !important;margin:0 auto !important;padding:0 var(--hk-pad) !important;width:100% !important;}
+#hkEnv .hk_rv{opacity:0 !important;transform:translateY(26px) !important;transition:opacity .9s var(--hk-ease),transform .9s var(--hk-ease) !important;}
+#hkEnv .hk_rv.hk_in{opacity:1 !important;transform:none !important;}
+
+#hkEnv .hk_head{display:flex !important;align-items:flex-end !important;justify-content:space-between !important;gap:40px !important;margin-bottom:40px !important;}
+#hkEnv .hk_eyebrow{display:flex !important;align-items:center !important;gap:10px !important;font-size:12px !important;font-weight:800 !important;letter-spacing:.16em !important;color:var(--hk-sky-d) !important;}
+#hkEnv .hk_eyebrow::before{content:'' !important;display:block !important;width:22px !important;height:2px !important;border-radius:2px !important;background:var(--hk-sun) !important;}
+#hkEnv .hk_h2{display:block !important;margin-top:14px !important;font-size:clamp(26px,3.4vw,40px) !important;font-weight:800 !important;line-height:1.35 !important;letter-spacing:-.045em !important;color:var(--hk-ink) !important;}
+#hkEnv .hk_lead{display:block !important;margin-top:12px !important;font-size:clamp(14.5px,1.6vw,16.5px) !important;color:var(--hk-body) !important;}
+#hkEnv .hk_btn{
+  display:inline-flex !important;align-items:center !important;gap:8px !important;flex:none !important;
+  height:46px !important;padding:0 20px !important;border-radius:999px !important;
+  background:#fff !important;border:1px solid var(--hk-line) !important;
+  font-size:13.5px !important;font-weight:800 !important;color:var(--hk-ink) !important;
+  transition:background .25s var(--hk-ease),color .25s var(--hk-ease),border-color .25s var(--hk-ease) !important;
+}
+#hkEnv .hk_btn:hover{background:var(--hk-ink) !important;color:#fff !important;border-color:var(--hk-ink) !important;}
+#hkEnv .hk_btn svg{width:14px !important;height:14px !important;}
+
+#hkEnv .hk_rail{
+  display:flex !important;gap:18px !important;overflow-x:auto !important;overflow-y:hidden !important;
+  -webkit-overflow-scrolling:touch !important;scroll-snap-type:x mandatory !important;
+  padding:0 0 22px !important;margin:0 !important;scrollbar-width:none !important;-ms-overflow-style:none !important;cursor:grab !important;
+}
+#hkEnv .hk_rail::-webkit-scrollbar{display:none !important;width:0 !important;height:0 !important;}
+#hkEnv .hk_rail.hk_dragging{cursor:grabbing !important;scroll-snap-type:none !important;}
+#hkEnv .hk_rail.hk_anim{scroll-snap-type:none !important;}
+#hkEnv .hk_rail.hk_dragging img{pointer-events:none !important;}
+#hkEnv .hk_rail img{-webkit-user-drag:none !important;user-select:none !important;-webkit-user-select:none !important;}
+#hkEnv .hk_card{
+  flex:0 0 clamp(260px,30vw,400px) !important;scroll-snap-align:start !important;
+  aspect-ratio:49/25 !important;border-radius:20px !important;overflow:hidden !important;background:#fff !important;position:relative !important;
+  border:1px solid var(--hk-line) !important;
+}
+#hkEnv .hk_card img{width:100% !important;height:100% !important;object-fit:cover !important;transition:transform .8s var(--hk-ease) !important;}
+#hkEnv .hk_card:hover img{transform:scale(1.05) !important;}
+#hkEnv .hk_card figcaption{
+  position:absolute !important;left:12px !important;bottom:12px !important;
+  height:28px !important;padding:0 12px !important;border-radius:999px !important;display:inline-flex !important;align-items:center !important;
+  background:rgba(255,255,255,.92) !important;font-size:12px !important;font-weight:800 !important;color:var(--hk-ink) !important;
+}
+#hkEnv .hk_bar2{display:flex !important;align-items:center !important;gap:18px !important;margin-top:6px !important;}
+#hkEnv .hk_track{display:block !important;flex:1 !important;height:3px !important;border-radius:3px !important;background:var(--hk-line) !important;position:relative !important;overflow:hidden !important;}
+#hkEnv .hk_fill{position:absolute !important;left:0 !important;top:0 !important;height:100% !important;width:22% !important;border-radius:3px !important;background:var(--hk-sky) !important;transition:width .2s linear,left .2s linear !important;}
+#hkEnv .hk_hint{font-size:11.5px !important;font-weight:700 !important;letter-spacing:.04em !important;color:var(--hk-gray) !important;white-space:nowrap !important;}
+#hkEnv .hk_hint_m{display:none !important;}
+#hkEnv .hk_navs{display:flex !important;align-items:center !important;gap:8px !important;flex:none !important;}
+#hkEnv .hk_nav{display:flex !important;align-items:center !important;justify-content:center !important;width:44px !important;height:44px !important;flex:none !important;border-radius:999px !important;border:1px solid var(--hk-line) !important;background:#fff !important;color:var(--hk-ink) !important;transition:border-color .3s var(--hk-ease),color .3s var(--hk-ease),background .3s var(--hk-ease),opacity .3s var(--hk-ease) !important;}
+#hkEnv .hk_nav svg{width:17px !important;height:17px !important;stroke:currentColor !important;fill:none !important;stroke-width:2.2 !important;stroke-linecap:round !important;stroke-linejoin:round !important;}
+#hkEnv .hk_nav:hover{border-color:var(--hk-sky) !important;background:var(--hk-sky) !important;color:#fff !important;}
+#hkEnv .hk_nav[disabled]{opacity:.3 !important;cursor:default !important;}
+#hkEnv .hk_nav[disabled]:hover{border-color:var(--hk-line) !important;background:#fff !important;color:var(--hk-ink) !important;}
+
+@media (max-width:1180px){#hkEnv{--hk-pad:26px;}}
+@media (max-width:860px){
+  #hkEnv{--hk-pad:20px;padding:70px 0 !important;}
+  #hkEnv .hk_head{flex-direction:column !important;align-items:flex-start !important;gap:16px !important;margin-bottom:26px !important;}
+  #hkEnv .hk_rail{margin:0 calc(-1 * var(--hk-pad)) !important;padding:0 var(--hk-pad) 18px !important;cursor:auto !important;}
+  #hkEnv .hk_card{flex:0 0 78% !important;border-radius:16px !important;}
+  #hkEnv .hk_navs,#hkEnv .hk_hint_p{display:none !important;}
+  #hkEnv .hk_hint_m{display:inline !important;}
+}
+</style>
+
+<section id="hkEnv">
+  <div class="hk_wrap">
+    <div class="hk_head hk_rv">
+      <div>
+        <span class="hk_eyebrow">OUR SPACE</span>
+        <h2 class="hk_h2">안정된 진료를 위해<br>편안한 공간으로 배려합니다</h2>
+        <span class="hk_lead">우진메디컬프라자 8~9층 외래·병동, 10층 하늘정원까지 아이 눈높이에 맞춘 공간입니다.</span>
+      </div>
+      <a class="hk_btn" href="/tour">전체 둘러보기
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+
+    <div class="hk_rail hk_rv">
+      <figure class="hk_card"><img src="https://www.happykiz.kr/Resources/images/sub/est01.jpg" alt="행복한어린이병원 전경" loading="lazy"><figcaption>병원 전경</figcaption></figure>
+      <figure class="hk_card"><img src="https://www.happykiz.kr/Resources/images/sub/est02.jpg" alt="웰존과 시크존 구분" loading="lazy"><figcaption>Well Zone · Sick Zone 구분</figcaption></figure>
+      <figure class="hk_card"><img src="https://www.happykiz.kr/Resources/images/sub/est13.jpg" alt="웰존 전경" loading="lazy"><figcaption>Well Zone 전경</figcaption></figure>
+      <figure class="hk_card"><img src="https://www.happykiz.kr/Resources/images/sub/est04.jpg" alt="시크존 대기실" loading="lazy"><figcaption>Sick Zone 대기실</figcaption></figure>
+      <figure class="hk_card"><img src="https://www.happykiz.kr/Resources/images/sub/est14.jpg" alt="웰존 예방접종실" loading="lazy"><figcaption>예방접종실</figcaption></figure>
+      <figure class="hk_card"><img src="https://www.happykiz.kr/Resources/images/sub/est07.jpg" alt="시크존 수액실" loading="lazy"><figcaption>수액실</figcaption></figure>
+      <figure class="hk_card"><img src="https://www.happykiz.kr/Resources/images/sub/est18.jpg" alt="언어심리 발달센터" loading="lazy"><figcaption>언어심리 발달센터</figcaption></figure>
+      <figure class="hk_card"><img src="https://www.happykiz.kr/Resources/images/sub/est29.jpg" alt="1인실 VIP실" loading="lazy"><figcaption>1인실 VIP실</figcaption></figure>
+      <figure class="hk_card"><img src="https://www.happykiz.kr/Resources/images/sub/est31.jpg" alt="10층 하늘정원" loading="lazy"><figcaption>10층 하늘정원</figcaption></figure>
+    </div>
+
+    <div class="hk_bar2">
+      <span class="hk_track"><span class="hk_fill"></span></span>
+      <span class="hk_hint"><span class="hk_hint_p">드래그하거나 화살표로 넘겨보세요</span><span class="hk_hint_m">옆으로 밀어서 더 보기</span></span>
+      <div class="hk_navs">
+        <button class="hk_nav hk_prev" type="button" aria-label="이전 사진 보기"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></button>
+        <button class="hk_nav hk_next" type="button" aria-label="다음 사진 보기"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function () {
+  var root = document.getElementById('hkEnv');
+  if (!root || root.dataset.hkReady) return;
+  root.dataset.hkReady = '1';
+
+  var els = root.querySelectorAll('.hk_rv');
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !window.IntersectionObserver) {
+    Array.prototype.forEach.call(els, function (el) { el.classList.add('hk_in'); });
+  } else {
+    var obs = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('hk_in'); obs.unobserve(e.target); } });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    Array.prototype.forEach.call(els, function (el) { obs.observe(el); });
+  }
+
+  var rail = root.querySelector('.hk_rail');
+  var fill = root.querySelector('.hk_fill');
+  var prev = root.querySelector('.hk_prev');
+  var next = root.querySelector('.hk_next');
+  function paint() {
+    var max = rail.scrollWidth - rail.clientWidth;
+    var w = Math.max((rail.clientWidth / rail.scrollWidth) * 100, 12);
+    var p = max > 0 ? rail.scrollLeft / max : 0;
+    fill.style.width = w + '%';
+    fill.style.left = (p * (100 - w)) + '%';
+    if (prev && next) { prev.disabled = rail.scrollLeft <= 2; next.disabled = rail.scrollLeft >= max - 2; }
+  }
+  rail.addEventListener('scroll', paint, { passive: true });
+  window.addEventListener('resize', paint);
+  function stepSize() {
+    var card = rail.querySelector('.hk_card');
+    if (!card) return rail.clientWidth * 0.8;
+    return card.getBoundingClientRect().width + 18;
+  }
+  /* 브라우저 기본 부드러운 스크롤이 막혀 있는 환경이 있어 직접 애니메이션합니다 */
+  var animId = null, animTimer = null, target = null;
+  function finish() {
+    if (animId) { cancelAnimationFrame(animId); animId = null; }
+    if (animTimer) { clearTimeout(animTimer); animTimer = null; }
+    if (target !== null) { rail.scrollLeft = target; target = null; }
+    rail.classList.remove('hk_anim');
+    paint();
+  }
+  function animateTo(to) {
+    var max = rail.scrollWidth - rail.clientWidth;
+    if (to < 0) to = 0;
+    if (to > max) to = max;
+    if (animId) { cancelAnimationFrame(animId); animId = null; }
+    if (animTimer) { clearTimeout(animTimer); animTimer = null; }
+    var start = rail.scrollLeft, diff = to - start, t0 = null, dur = 420;
+    if (Math.abs(diff) < 1) { finish(); return; }
+    target = to;
+    rail.classList.add('hk_anim');
+    animTimer = setTimeout(finish, dur + 260);
+    function frame(ts) {
+      if (t0 === null) t0 = ts;
+      var p = (ts - t0) / dur; if (p > 1) p = 1;
+      var e = 1 - Math.pow(1 - p, 3);
+      rail.scrollLeft = start + diff * e;
+      if (p < 1) animId = requestAnimationFrame(frame); else { animId = null; finish(); }
+    }
+    animId = requestAnimationFrame(frame);
+  }
+  function go(dir) {
+    var base = (target === null) ? rail.scrollLeft : target;
+    if (window.requestAnimationFrame) animateTo(base + stepSize() * dir); else rail.scrollLeft = base + stepSize() * dir;
+  }
+  if (prev) prev.addEventListener('click', function () { go(-1); });
+  if (next) next.addEventListener('click', function () { go(1); });
+
+  /* 마우스로 잡아끌어서 넘기기 */
+  var down = false, startX = 0, startLeft = 0, moved = false;
+  rail.addEventListener('pointerdown', function (e) {
+    if (e.pointerType !== 'mouse' || e.button !== 0) return;
+    if (animId || animTimer) finish();
+    down = true; moved = false; startX = e.clientX; startLeft = rail.scrollLeft;
+    rail.classList.add('hk_dragging');
+    try { rail.setPointerCapture(e.pointerId); } catch (err) {}
+  });
+  rail.addEventListener('pointermove', function (e) {
+    if (!down) return;
+    var dx = e.clientX - startX;
+    if (Math.abs(dx) > 4) moved = true;
+    rail.scrollLeft = startLeft - dx; e.preventDefault();
+  });
+  function endDrag(e) {
+    if (!down) return;
+    down = false; rail.classList.remove('hk_dragging');
+    try { rail.releasePointerCapture(e.pointerId); } catch (err) {}
+    paint();
+  }
+  rail.addEventListener('pointerup', endDrag);
+  rail.addEventListener('pointercancel', endDrag);
+  rail.addEventListener('lostpointercapture', endDrag);
+  rail.addEventListener('click', function (e) { if (moved) { e.preventDefault(); e.stopPropagation(); moved = false; } }, true);
+  rail.addEventListener('dragstart', function (e) { e.preventDefault(); });
+
+  paint();
+  window.addEventListener('load', paint);
+})();
+</script>

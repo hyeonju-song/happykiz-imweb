@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>행복한어린이병원 미리보기</title>
+<link rel="icon" href="../4_사이트설정_이미지/favicon.ico">
+<style>
+@import url('https://cdn.jsdelivr.net/gh/sun-typeface/suit@2/fonts/variable/woff2/SUIT-Variable.css');
+:root{
+  --ink:#1F3A4D; --body:#4A5E6B; --gray:#8697A2; --line:#E3EAEE; --paper:#F3F7F9; --white:#fff;
+  --sky:#3FA7E6; --sky-d:#1E7FC2; --sky-l:#EAF6FD; --well:#2FBF9B; --sick:#FF7A6B; --sun:#FFC93C;
+  --side:268px; --bar:58px;
+}
+*{box-sizing:border-box;}
+html,body{margin:0;height:100%;}
+body{font-family:'SUIT Variable',-apple-system,'Apple SD Gothic Neo',sans-serif;background:var(--paper);color:var(--ink);letter-spacing:-.02em;overflow:hidden;}
+button{font:inherit;cursor:pointer;}
+
+/* 왼쪽 페이지 목록 */
+.side{position:fixed;top:0;left:0;bottom:0;width:var(--side);background:var(--white);border-right:1px solid var(--line);display:flex;flex-direction:column;}
+.brand{padding:18px 20px 14px;border-bottom:1px solid var(--line);}
+.brand b{display:block;font-size:16px;font-weight:800;}
+.brand small{display:block;font-size:12px;color:var(--gray);margin-top:2px;}
+.rainbow{height:4px;background:linear-gradient(90deg,#FF7A6B 0%,#FFC93C 30%,#2FBF9B 62%,#3FA7E6 100%);}
+.list{flex:1;overflow-y:auto;padding:8px 10px 24px;}
+.grp{margin-top:12px;}
+.grp h3{margin:0 0 4px;padding:0 10px;font-size:11.5px;font-weight:800;color:var(--gray);letter-spacing:.02em;display:flex;align-items:center;gap:6px;}
+.grp h3 i{width:7px;height:7px;border-radius:50%;background:var(--c,var(--sky));}
+.pg{display:flex;align-items:center;gap:8px;width:100%;border:0;background:none;text-align:left;padding:7px 10px;border-radius:9px;font-size:13.5px;color:var(--body);}
+.pg em{font-style:normal;font-size:11px;color:var(--gray);margin-left:auto;font-variant-numeric:tabular-nums;}
+.pg:hover{background:var(--paper);color:var(--ink);}
+.pg.on{background:var(--sky-l);color:var(--sky-d);font-weight:800;}
+.pg.on em{color:var(--sky-d);}
+
+/* 위쪽 도구 막대 */
+.main{position:fixed;top:0;left:var(--side);right:0;bottom:0;display:flex;flex-direction:column;}
+.bar{height:var(--bar);flex:none;display:flex;align-items:center;gap:10px;padding:0 16px;background:var(--white);border-bottom:1px solid var(--line);}
+.now{min-width:0;display:flex;align-items:baseline;gap:8px;margin-right:auto;}
+.now b{font-size:15px;font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.now code{font-size:12px;color:var(--gray);font-family:ui-monospace,Consolas,monospace;}
+.seg{display:flex;background:var(--paper);border-radius:10px;padding:3px;}
+.seg button{border:0;background:none;padding:6px 11px;border-radius:8px;font-size:12.5px;font-weight:700;color:var(--body);white-space:nowrap;}
+.seg button.on{background:var(--white);color:var(--ink);box-shadow:0 1px 3px rgba(31,58,77,.15);}
+.ic{border:1px solid var(--line);background:var(--white);height:34px;min-width:34px;padding:0 10px;border-radius:9px;display:inline-flex;align-items:center;justify-content:center;gap:5px;font-size:12.5px;font-weight:700;color:var(--body);text-decoration:none;white-space:nowrap;}
+.ic:hover{border-color:var(--sky);color:var(--sky-d);}
+.ic svg{width:15px;height:15px;}
+
+/* 미리보기 영역 */
+.stage{flex:1;position:relative;overflow:hidden;}
+.frame{position:absolute;top:16px;left:50%;transform-origin:top center;background:#fff;box-shadow:0 0 0 1px var(--line),0 18px 40px -24px rgba(31,58,77,.4);transition:width .25s;}
+.frame.mo{border-radius:22px;overflow:hidden;box-shadow:0 0 0 10px #1F3A4D,0 24px 50px -20px rgba(31,58,77,.6);top:26px;}
+.frame iframe{display:block;width:100%;height:100%;border:0;}
+.size{position:absolute;right:14px;bottom:10px;font-size:11.5px;color:var(--gray);background:rgba(255,255,255,.85);padding:3px 8px;border-radius:6px;}
+
+/* 아직 페이지를 만들지 않았을 때 */
+.empty{display:none;position:absolute;inset:0;align-items:center;justify-content:center;padding:24px;}
+.empty.show{display:flex;}
+.empty div{max-width:520px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:28px;line-height:1.75;font-size:14px;color:var(--body);}
+.empty b{color:var(--ink);font-size:16px;display:block;margin-bottom:6px;}
+.empty code{display:block;margin-top:10px;background:var(--paper);padding:10px 12px;border-radius:8px;font-size:12.5px;color:var(--ink);word-break:break-all;}
+
+.menuBtn{display:none;}
+@media (max-width:900px){
+  :root{--side:0px;}
+  .side{width:280px;transform:translateX(-100%);transition:transform .25s;z-index:10;box-shadow:0 0 40px rgba(0,0,0,.2);}
+  body.nav .side{transform:none;}
+  .menuBtn{display:inline-flex;}
+  .seg button{padding:6px 8px;}
+  .now code,.hideS{display:none;}
+}
+</style>
+</head>
+<body>
+
+<aside class="side">
+  <div class="rainbow"></div>
+  <div class="brand"><b>행복한어린이병원</b><small>아임웹 위젯 미리보기 · 26페이지</small></div>
+  <nav class="list" id="list"></nav>
+</aside>
+
+<main class="main">
+  <div class="bar">
+    <button class="ic menuBtn" id="menuBtn" aria-label="페이지 목록"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    <div class="now"><b id="nowName">홈</b><code id="nowSlug">/</code></div>
+    <button class="ic hideS" id="prev" title="이전 페이지 (←)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></button>
+    <button class="ic hideS" id="next" title="다음 페이지 (→)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
+    <div class="seg" id="seg">
+      <button data-w="1440">PC</button>
+      <button data-w="1280">노트북</button>
+      <button data-w="820">태블릿</button>
+      <button data-w="390">모바일</button>
+    </div>
+    <button class="ic" id="reload" title="새로고침"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 11a8 8 0 1 0-2.3 5.7M20 4v7h-7"/></svg></button>
+    <a class="ic hideS" id="open" target="_blank" title="새 창으로 열기"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-9 9M19 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"/></svg>새 창</a>
+  </div>
+  <div class="stage" id="stage">
+    <div class="frame" id="frame"><iframe id="ifr" title="페이지 미리보기"></iframe></div>
+    <div class="size" id="size"></div>
+    <div class="empty" id="empty"><div>
+      <b>미리보기 페이지가 아직 없습니다</b>
+      이 폴더에서 아래 명령을 한 번 실행하면 위젯 파일을 합쳐 페이지를 만듭니다.
+      위젯 코드를 고친 뒤에도 다시 실행하면 미리보기가 새로 바뀝니다.
+      <code>powershell -ExecutionPolicy Bypass -File build-preview.ps1</code>
+    </div></div>
+  </div>
+</main>
+
+<script>
+var GROUPS = [
+  { name:'홈', c:'var(--sky)', pages:[['home','홈 (메인)','/']] },
+  { name:'병원소개', c:'var(--sky)', pages:[['about','병원소개'],['doctors','의료진 소개'],['ci','CI 소개'],['tour','둘러보기'],['location','오시는 길 · 주차안내']] },
+  { name:'진료안내', c:'var(--sky)', pages:[['outpatient','외래진료 안내'],['schedule','진료시간표'],['reservation','예약안내'],['admission','입퇴원 안내'],['certificate','증명서 발급안내'],['fees','비급여 진료비']] },
+  { name:'Well Zone · 튼튼클리닉', c:'var(--well)', pages:[['wellzone','Well Zone 소개'],['vaccination','예방접종'],['infant-checkup','영유아 건강검진'],['school-checkup','학교검진'],['checkup','소아청소년 종합검진'],['growth','성장 · 저신장'],['puberty','성조숙'],['obesity','비만']] },
+  { name:'Sick Zone · 호흡기/일반', c:'var(--sick)', pages:[['sickzone','Sick Zone 소개'],['iv-therapy','맞춤형 영양수액'],['allergy','알레르기 클리닉']] },
+  { name:'아동발달 클리닉', c:'var(--sun)', pages:[['development','아동발달 클리닉']] },
+  { name:'병원소식 (게시판)', c:'var(--gray)', pages:[['notice','공지사항'],['news','우리병원 소식']] }
+];
+
+var PAGES = [], btns = {};
+var list = document.getElementById('list');
+GROUPS.forEach(function (g) {
+  var box = document.createElement('div'); box.className = 'grp'; box.style.setProperty('--c', g.c);
+  box.innerHTML = '<h3><i></i>' + g.name + '</h3>';
+  g.pages.forEach(function (p) {
+    var idx = PAGES.length, slug = p[0];
+    PAGES.push({ slug:slug, name:p[1], path:p[2] || '/' + slug });
+    var b = document.createElement('button'); b.className = 'pg';
+    b.innerHTML = '<span>' + p[1] + '</span><em>' + (idx === 0 ? '홈' : String(idx).padStart(2, '0')) + '</em>';
+    b.onclick = function () { go(slug); document.body.classList.remove('nav'); };
+    box.appendChild(b); btns[slug] = b;
+  });
+  list.appendChild(box);
+});
+
+var ifr = document.getElementById('ifr'), frame = document.getElementById('frame'), stage = document.getElementById('stage');
+var cur = 'home', width = 1440;
+
+function store(k, v) { try { localStorage.setItem('hkPreview.' + k, v); } catch (e) {} }
+function load(k) { try { return localStorage.getItem('hkPreview.' + k); } catch (e) { return null; } }
+
+function mark(slug) {
+  var p = PAGES.filter(function (x) { return x.slug === slug; })[0]; if (!p) return;
+  cur = slug;
+  Object.keys(btns).forEach(function (k) { btns[k].classList.toggle('on', k === slug); });
+  document.getElementById('nowName').textContent = p.name;
+  document.getElementById('nowSlug').textContent = p.path;
+  document.getElementById('open').href = slug + '.html';
+  if (location.hash !== '#' + slug) history.replaceState(null, '', '#' + slug);
+  store('page', slug);
+}
+function go(slug) { mark(slug); ifr.src = slug + '.html'; }
+
+/* 미리보기 안에서 메뉴를 눌러 이동해도 목록 표시를 맞춤 (브라우저가 막으면 조용히 넘어감) */
+ifr.addEventListener('load', function () {
+  var ok = true;
+  try {
+    var path = ifr.contentWindow.location.pathname, m = path.match(/([a-z0-9-]+)\.html$/);
+    if (m && m[1] !== cur) mark(m[1]);
+    ok = !!ifr.contentDocument && ifr.contentDocument.body && ifr.contentDocument.body.innerHTML.length > 0;
+  } catch (e) {}
+  document.getElementById('empty').classList.toggle('show', !ok);
+});
+
+function fit() {
+  var sw = stage.clientWidth - 32, sh = stage.clientHeight - 32, mobile = width <= 430;
+  var s = Math.min(1, sw / width);
+  frame.classList.toggle('mo', mobile);
+  var h = mobile ? Math.min(844, (sh - 20) / s) : sh / s;
+  frame.style.width = width + 'px';
+  frame.style.height = h + 'px';
+  frame.style.transform = 'translateX(-50%) scale(' + s + ')';
+  document.getElementById('size').textContent = width + 'px' + (s < 1 ? ' · ' + Math.round(s * 100) + '% 축소' : '');
+}
+function setWidth(w) {
+  width = w; store('width', w);
+  [].forEach.call(document.querySelectorAll('#seg button'), function (b) { b.classList.toggle('on', +b.dataset.w === w); });
+  fit();
+}
+[].forEach.call(document.querySelectorAll('#seg button'), function (b) { b.onclick = function () { setWidth(+b.dataset.w); }; });
+window.addEventListener('resize', fit);
+
+function step(d) {
+  var i = PAGES.findIndex(function (p) { return p.slug === cur; });
+  go(PAGES[(i + d + PAGES.length) % PAGES.length].slug);
+}
+document.getElementById('prev').onclick = function () { step(-1); };
+document.getElementById('next').onclick = function () { step(1); };
+document.getElementById('reload').onclick = function () { ifr.src = cur + '.html?t=' + Date.now(); };
+document.getElementById('menuBtn').onclick = function () { document.body.classList.toggle('nav'); };
+document.addEventListener('keydown', function (e) {
+  if (e.target.tagName === 'INPUT') return;
+  if (e.key === 'ArrowLeft') step(-1);
+  if (e.key === 'ArrowRight') step(1);
+});
+
+setWidth(+(load('width') || 1440));
+var start = location.hash.slice(1) || load('page') || 'home';
+go(btns[start] ? start : 'home');
+</script>
+</body>
+</html>

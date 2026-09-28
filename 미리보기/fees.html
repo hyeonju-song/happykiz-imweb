@@ -1,0 +1,1971 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>비급여 진료비 · 행복한어린이병원 (미리보기)</title>
+<link rel="icon" href="../4_사이트설정_이미지/favicon.ico">
+<style>html,body{margin:0;padding:0;background:#fff;}</style>
+</head>
+<body>
+<!-- 미리보기용 파일입니다. 아임웹에는 원본 위젯 파일(.html.txt)을 붙여넣으세요. -->
+<!-- ══════════════════════════════════════════════════════════════
+     [행복한어린이병원] 01. 상단메뉴(고정) · 전체메뉴  (아임웹 코드 위젯용)
+     ─────────────────────────────────────────────────────────────
+     ※ 모든 페이지 맨 위 코드 위젯에 똑같이 넣습니다.
+        아임웹 [디자인 > 헤더] 는 '사용 안 함' 으로 두세요.
+     ※ 모든 스타일은 #hkHd 안에서만 적용됩니다.
+     ※ 이미지 주소는 기존 사이트(www.happykiz.kr)를 가리킵니다.
+        아임웹에 이미지를 올린 뒤 주소만 바꿔 쓰세요. (00-읽어보세요.txt 참고)
+     ══════════════════════════════════════════════════════════════ -->
+<style>
+@import url('https://cdn.jsdelivr.net/gh/sun-typeface/suit@2/fonts/variable/woff2/SUIT-Variable.css');
+
+#hkHd{
+  --hk-sky:#3FA7E6; --hk-sky-d:#1E7FC2; --hk-sky-l:#EAF6FD;
+  --hk-sun:#FFC93C; --hk-well:#2FBF9B; --hk-well-l:#E4F8F2; --hk-sick:#FF7A6B; --hk-sick-l:#FFEDEA;
+  --hk-ink:#1F3A4D; --hk-body:#4A5E6B; --hk-gray:#8697A2; --hk-line:#E6EDF1; --hk-paper2:#F5F9FB;
+  --hk-ease:cubic-bezier(.16,1,.3,1);
+  --hk-maxw:1400px; --hk-pad:32px; --hk-h:88px;
+  line-height:1.7 !important;
+
+  position:fixed !important; top:0 !important; left:0 !important; right:0 !important;
+  display:block !important; float:none !important; clear:both !important;
+  width:100% !important; max-width:100% !important;
+  margin:0 !important; padding:0 !important;
+  z-index:9000 !important; overflow:visible !important; box-sizing:border-box !important;
+}
+#hkHd,#hkHd *,#hkHd *::before,#hkHd *::after{
+  box-sizing:border-box !important;
+  font-family:'SUIT Variable','SUIT',-apple-system,BlinkMacSystemFont,'Pretendard','Apple SD Gothic Neo',sans-serif !important;
+  word-break:keep-all !important;
+}
+#hkHd ul,#hkHd ol,#hkHd li{list-style:none !important;margin:0 !important;padding:0 !important;background-image:none !important;}
+#hkHd li::before,#hkHd li::after{display:none !important;content:none !important;}
+#hkHd p,#hkHd b,#hkHd small,#hkHd span,#hkHd a,#hkHd nav,#hkHd div,#hkHd em{margin:0 !important;padding:0 !important;}
+#hkHd a{text-decoration:none !important;color:inherit !important;}
+#hkHd button{font:inherit !important;color:inherit !important;background:none !important;border:0 !important;margin:0 !important;padding:0 !important;cursor:pointer !important;}
+#hkHd svg{display:block !important;}
+#hkHd img{max-width:none !important;display:block !important;border:0 !important;}
+
+#hkHd .hk_wrap{max-width:var(--hk-maxw) !important;margin:0 auto !important;padding:0 var(--hk-pad) !important;width:100% !important;}
+
+/* 맨 위 무지개 줄 (병원 로고 색) */
+#hkHd .hk_rainbow{height:4px !important;background:linear-gradient(90deg,#FF7A6B 0%,#FFC93C 30%,#2FBF9B 62%,#3FA7E6 100%) !important;}
+
+/* ── 헤더 바 ── */
+#hkHd .hk_bar{
+  position:relative !important;height:var(--hk-h) !important;background:#fff !important;
+  display:flex !important;align-items:center !important;
+  box-shadow:0 1px 0 var(--hk-line) !important;
+  transition:height .3s var(--hk-ease),box-shadow .3s var(--hk-ease) !important;
+}
+#hkHd.hk_solid .hk_bar{height:72px !important;box-shadow:0 10px 30px -22px rgba(31,58,77,.35),0 1px 0 var(--hk-line) !important;}
+#hkHd .hk_bar .hk_wrap{display:flex !important;align-items:center !important;gap:26px !important;height:100% !important;}
+
+/* 로고 : 원본 로고 이미지 그대로 */
+#hkHd .hk_logo{display:flex !important;align-items:center !important;flex:none !important;height:100% !important;}
+#hkHd .hk_logo img{height:50px !important;width:auto !important;transition:height .3s var(--hk-ease) !important;}
+#hkHd.hk_solid .hk_logo img{height:42px !important;}
+
+/* 메뉴 */
+#hkHd .hk_gnb{display:flex !important;gap:2px !important;margin-left:auto !important;}
+#hkHd .hk_gnb > li > a{
+  display:block !important;padding:10px 15px !important;border-radius:999px !important;
+  font-size:15.5px !important;font-weight:700 !important;color:var(--hk-ink) !important;letter-spacing:-.03em !important;
+  transition:background .25s var(--hk-ease),color .25s var(--hk-ease) !important;
+}
+#hkHd .hk_gnb > li > a:hover,#hkHd .hk_gnb > li.hk_hot > a{background:var(--hk-sky-l) !important;color:var(--hk-sky-d) !important;}
+#hkHd .hk_gnb > li[data-g="2"] > a:hover,#hkHd .hk_gnb > li[data-g="2"].hk_hot > a{background:var(--hk-well-l) !important;color:#1C8F72 !important;}
+#hkHd .hk_gnb > li[data-g="3"] > a:hover,#hkHd .hk_gnb > li[data-g="3"].hk_hot > a{background:var(--hk-sick-l) !important;color:#D9503F !important;}
+
+/* 우측 버튼 */
+#hkHd .hk_act{display:flex !important;align-items:center !important;gap:7px !important;flex:none !important;}
+#hkHd .hk_btn{
+  display:inline-flex !important;align-items:center !important;justify-content:center !important;gap:6px !important;
+  height:42px !important;padding:0 15px !important;border-radius:999px !important;
+  font-size:13px !important;font-weight:800 !important;letter-spacing:-.03em !important;white-space:nowrap !important;
+  transition:background .25s var(--hk-ease),border-color .25s var(--hk-ease),color .25s var(--hk-ease),transform .25s var(--hk-ease),box-shadow .25s var(--hk-ease) !important;
+}
+#hkHd .hk_btn svg{width:14px !important;height:14px !important;flex:none !important;}
+#hkHd .hk_btn:hover{transform:translateY(-2px) !important;}
+#hkHd .hk_bBlog{border:1px solid var(--hk-line) !important;color:var(--hk-body) !important;background:#fff !important;}
+#hkHd .hk_bBlog:hover{background:#03C75A !important;border-color:#03C75A !important;color:#fff !important;}
+#hkHd .hk_bSchool{background:var(--hk-well-l) !important;color:#1C8F72 !important;}
+#hkHd .hk_bSchool:hover{background:var(--hk-well) !important;color:#fff !important;}
+#hkHd .hk_bTime{background:var(--hk-sky-l) !important;color:var(--hk-sky-d) !important;}
+#hkHd .hk_bTime:hover{background:var(--hk-sky) !important;color:#fff !important;}
+#hkHd .hk_bApp{background:var(--hk-sun) !important;color:#5A3E00 !important;}
+#hkHd .hk_bApp:hover{background:#FFB700 !important;box-shadow:0 8px 18px -8px rgba(255,201,60,.9) !important;}
+#hkHd .hk_bTel{background:var(--hk-ink) !important;color:#fff !important;padding:0 17px !important;font-size:13.5px !important;}
+#hkHd .hk_bTel:hover{background:var(--hk-sky-d) !important;box-shadow:0 8px 18px -8px rgba(30,127,194,.8) !important;}
+
+/* ── PC 전체메뉴 패널 ── */
+#hkHd .hk_mega{
+  background:#fff !important;border-top:1px solid var(--hk-line) !important;
+  max-height:0 !important;overflow:hidden !important;opacity:0 !important;
+  box-shadow:0 30px 44px -34px rgba(31,58,77,.45) !important;
+  transition:max-height .42s var(--hk-ease),opacity .3s var(--hk-ease) !important;
+}
+#hkHd.hk_open .hk_mega{max-height:520px !important;opacity:1 !important;}
+#hkHd .hk_mcols{display:grid !important;grid-template-columns:repeat(6,minmax(0,1fr)) !important;gap:8px 20px !important;padding:30px 0 38px !important;}
+#hkHd .hk_mcol > b{
+  display:flex !important;align-items:center !important;gap:8px !important;
+  font-size:14.5px !important;font-weight:800 !important;color:var(--hk-ink) !important;letter-spacing:-.03em !important;
+  padding-bottom:12px !important;margin-bottom:8px !important;border-bottom:1px solid var(--hk-line) !important;
+  transition:color .25s var(--hk-ease),border-color .25s var(--hk-ease) !important;
+}
+#hkHd .hk_mcol > b i{display:block !important;width:8px !important;height:8px !important;border-radius:50% !important;background:var(--hk-sky) !important;flex:none !important;}
+#hkHd .hk_mcol[data-g="2"] > b i{background:var(--hk-well) !important;}
+#hkHd .hk_mcol[data-g="3"] > b i{background:var(--hk-sick) !important;}
+#hkHd .hk_mcol[data-g="4"] > b i{background:var(--hk-sun) !important;}
+#hkHd .hk_mcol.hk_hot > b{color:var(--hk-sky-d) !important;border-color:var(--hk-sky) !important;}
+#hkHd .hk_mcol[data-g="2"].hk_hot > b{color:#1C8F72 !important;border-color:var(--hk-well) !important;}
+#hkHd .hk_mcol[data-g="3"].hk_hot > b{color:#D9503F !important;border-color:var(--hk-sick) !important;}
+#hkHd .hk_mcol a{
+  display:block !important;padding:6px 0 !important;font-size:13.5px !important;font-weight:500 !important;
+  color:var(--hk-body) !important;letter-spacing:-.03em !important;line-height:1.6 !important;
+  transition:color .2s var(--hk-ease),padding-left .2s var(--hk-ease) !important;
+}
+#hkHd .hk_mcol a:hover{color:var(--hk-sky-d) !important;padding-left:4px !important;}
+#hkHd .hk_mcol a.hk_sm{font-size:12.5px !important;color:var(--hk-gray) !important;}
+
+/* ── 햄버거 ── */
+#hkHd .hk_burger{display:none !important;width:44px !important;height:44px !important;margin-left:auto !important;position:relative !important;flex:none !important;}
+#hkHd .hk_burger i{position:absolute !important;left:11px !important;width:22px !important;height:2px !important;background:var(--hk-ink) !important;border-radius:2px !important;transition:all .3s var(--hk-ease) !important;}
+#hkHd .hk_burger i:nth-child(1){top:15px !important;}
+#hkHd .hk_burger i:nth-child(2){top:21px !important;}
+#hkHd .hk_burger i:nth-child(3){top:27px !important;}
+#hkHd.hk_mo .hk_burger i:nth-child(1){top:21px !important;transform:rotate(45deg) !important;}
+#hkHd.hk_mo .hk_burger i:nth-child(2){opacity:0 !important;}
+#hkHd.hk_mo .hk_burger i:nth-child(3){top:21px !important;transform:rotate(-45deg) !important;}
+
+/* ── 모바일 전체메뉴 ── */
+#hkHd .hk_mm{
+  position:fixed !important;top:0 !important;left:0 !important;right:0 !important;bottom:0 !important;
+  z-index:-2 !important;background:#fff !important;
+  padding:calc(var(--hk-h) + 12px) 20px 48px !important;overflow-y:auto !important;-webkit-overflow-scrolling:touch !important;
+  opacity:0 !important;visibility:hidden !important;transform:translateY(-10px) !important;
+  transition:opacity .35s var(--hk-ease),visibility .35s,transform .35s var(--hk-ease) !important;
+}
+#hkHd.hk_mo .hk_mm{opacity:1 !important;visibility:visible !important;transform:none !important;}
+#hkHd .hk_mg{border-bottom:1px solid var(--hk-line) !important;}
+#hkHd .hk_mh{
+  display:flex !important;width:100% !important;align-items:center !important;justify-content:space-between !important;
+  padding:17px 4px !important;font-size:18px !important;font-weight:800 !important;color:var(--hk-ink) !important;letter-spacing:-.035em !important;text-align:left !important;
+}
+#hkHd .hk_mh svg{width:18px !important;height:18px !important;stroke:var(--hk-sky) !important;stroke-width:2.4 !important;fill:none !important;flex:none !important;transition:transform .3s var(--hk-ease) !important;}
+#hkHd .hk_mg.hk_on .hk_mh svg{transform:rotate(180deg) !important;}
+#hkHd .hk_mc{max-height:0 !important;overflow:hidden !important;transition:max-height .4s var(--hk-ease) !important;}
+#hkHd .hk_mg.hk_on .hk_mc{max-height:620px !important;}
+#hkHd .hk_mc a{
+  display:block !important;margin-left:3px !important;padding:10px 4px 10px 15px !important;
+  border-left:2px solid var(--hk-line) !important;
+  font-size:15px !important;font-weight:500 !important;color:var(--hk-body) !important;letter-spacing:-.03em !important;
+}
+#hkHd .hk_mc a:last-child{padding-bottom:18px !important;}
+#hkHd .hk_mg.hk_single .hk_mh{color:var(--hk-ink) !important;}
+#hkHd .hk_mtel{margin-top:30px !important;display:grid !important;grid-template-columns:1fr 1fr !important;gap:9px !important;}
+#hkHd .hk_mtel a{
+  display:inline-flex !important;align-items:center !important;justify-content:center !important;gap:7px !important;
+  height:52px !important;border-radius:14px !important;
+  font-size:14px !important;font-weight:800 !important;letter-spacing:-.03em !important;
+}
+#hkHd .hk_mtel a svg{width:14px !important;height:14px !important;flex:none !important;}
+#hkHd .hk_mtel .hk_p{background:var(--hk-ink) !important;color:#fff !important;}
+#hkHd .hk_mtel .hk_a{background:var(--hk-sun) !important;color:#5A3E00 !important;}
+#hkHd .hk_mtel .hk_t{background:var(--hk-sky-l) !important;color:var(--hk-sky-d) !important;}
+#hkHd .hk_mtel .hk_g{border:1px solid var(--hk-line) !important;color:var(--hk-body) !important;}
+#hkHd .hk_mtel .hk_s{grid-column:1 / -1 !important;background:var(--hk-well-l) !important;color:#1C8F72 !important;}
+
+/* ── 반응형 ── */
+/* 화면이 좁아지면 블로그 → 학교검진 → 진료시간표 버튼 순서로 숨깁니다 (전체메뉴에는 그대로 있음) */
+@media (max-width:1499px){
+  #hkHd .hk_bBlog{display:none !important;}
+}
+@media (max-width:1319px){
+  #hkHd .hk_bSchool{display:none !important;}
+}
+@media (max-width:1399px){
+  #hkHd{--hk-pad:26px;}
+  #hkHd .hk_gnb > li > a{padding:10px 11px !important;font-size:14.5px !important;}
+}
+@media (max-width:1240px){
+  #hkHd .hk_bTime{display:none !important;}
+  #hkHd .hk_gnb > li > a{padding:10px 9px !important;font-size:14px !important;}
+  #hkHd .hk_bar .hk_wrap{gap:16px !important;}
+  #hkHd .hk_btn{height:38px !important;padding:0 12px !important;font-size:12px !important;}
+  #hkHd .hk_mcols{gap:8px 12px !important;}
+  #hkHd .hk_mcol > b{font-size:13.5px !important;}
+  #hkHd .hk_mcol a{font-size:12.5px !important;}
+}
+@media (max-width:1024px){
+  #hkHd .hk_gnb,#hkHd .hk_act,#hkHd .hk_mega{display:none !important;}
+  #hkHd .hk_burger{display:block !important;}
+}
+@media (max-width:860px){
+  #hkHd{--hk-pad:20px;--hk-h:66px;}
+  #hkHd.hk_solid .hk_bar{height:62px !important;}
+  #hkHd .hk_logo img,#hkHd.hk_solid .hk_logo img{height:38px !important;}
+}
+</style>
+
+<div id="hkHd">
+  <div class="hk_rainbow"></div>
+  <header class="hk_bar">
+    <div class="hk_wrap">
+      <a class="hk_logo" href="home.html">
+        <img src="https://www.happykiz.kr/Resources/images/logo_m.png" alt="행복한어린이병원">
+      </a>
+
+      <nav aria-label="주요 메뉴">
+        <ul class="hk_gnb">
+          <li data-g="0"><a href="about.html">병원소개</a></li>
+          <li data-g="1"><a href="outpatient.html">진료안내</a></li>
+          <li data-g="2"><a href="wellzone.html">Well Zone</a></li>
+          <li data-g="3"><a href="sickzone.html">Sick Zone</a></li>
+          <li data-g="4"><a href="development.html">아동발달 클리닉</a></li>
+          <li data-g="5"><a href="notice.html">병원소식</a></li>
+        </ul>
+      </nav>
+
+      <div class="hk_act">
+        <a class="hk_btn hk_bBlog" href="https://blog.naver.com/jooya057" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.27 4.3v6.52L7.74 4.3H3v15.4h4.72v-6.52l8.53 6.52H21V4.3z"/></svg>
+          블로그
+        </a>
+        <a class="hk_btn hk_bSchool" href="https://eo-m.com/2022/HSP/HSP_Student.asp?hNo=21203369" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10l9-5 9 5-9 5z"/><path d="M7 12.2V17c0 1.2 2.2 2.5 5 2.5s5-1.3 5-2.5v-4.8"/></svg>
+          학생검진 문진표
+        </a>
+        <a class="hk_btn hk_bTime" href="schedule.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+          진료시간표
+        </a>
+        <a class="hk_btn hk_bApp" href="https://goodoc.onelink.me/7srm/u0yjku3b" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="3"/><path d="M11 18h2"/></svg>
+          굿닥 앱 예약
+        </a>
+        <a class="hk_btn hk_bTel" href="tel:051-264-9500">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.13.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.11L8.1 9.9a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.9z"/></svg>
+          051-264-9500
+        </a>
+      </div>
+
+      <button class="hk_burger" type="button" aria-label="메뉴 열기" aria-expanded="false"><i></i><i></i><i></i></button>
+    </div>
+  </header>
+
+  <div class="hk_mega">
+    <div class="hk_wrap">
+      <div class="hk_mcols">
+        <div class="hk_mcol" data-g="0">
+          <b><i></i>병원소개</b>
+          <a href="about.html">인사말 · 비전</a>
+          <a href="doctors.html">의료진 소개</a>
+          <a href="ci.html">CI 소개</a>
+          <a href="tour.html">둘러보기</a>
+          <a href="location.html">오시는 길 · 주차안내</a>
+        </div>
+        <div class="hk_mcol" data-g="1">
+          <b><i></i>진료안내</b>
+          <a href="outpatient.html">외래진료 안내</a>
+          <a href="schedule.html">진료시간표</a>
+          <a href="reservation.html">진료예약 안내</a>
+          <a href="admission.html">입퇴원 안내</a>
+          <a href="certificate.html">증명서 발급 안내</a>
+          <a href="fees.html">비급여 진료비</a>
+        </div>
+        <div class="hk_mcol" data-g="2">
+          <b><i></i>Well Zone · 튼튼클리닉</b>
+          <a href="wellzone.html">Well Zone 소개</a>
+          <a href="vaccination.html">예방접종</a>
+          <a href="infant-checkup.html">영유아 건강검진</a>
+          <a href="school-checkup.html">학교검진</a>
+          <a href="checkup.html">소아청소년 종합검진</a>
+          <a href="growth.html">성장(저신장)</a>
+          <a href="puberty.html">성조숙</a>
+          <a href="obesity.html">비만</a>
+        </div>
+        <div class="hk_mcol" data-g="3">
+          <b><i></i>Sick Zone · 호흡기/일반</b>
+          <a href="sickzone.html">Sick Zone 소개</a>
+          <a href="iv-therapy.html">맞춤형 영양수액 클리닉</a>
+          <a href="allergy.html">알레르기 클리닉</a>
+          <a class="hk_sm" href="sickzone.html#resp">호흡기 클리닉</a>
+          <a class="hk_sm" href="sickzone.html#ent">소아 귀목코 클리닉</a>
+          <a class="hk_sm" href="sickzone.html#infect">소아 감염</a>
+          <a class="hk_sm" href="sickzone.html#gi">소화기 영양 클리닉</a>
+          <a class="hk_sm" href="sickzone.html#kidney">소아 신장 클리닉</a>
+          <a class="hk_sm" href="sickzone.html#hema">혈액 종양 클리닉</a>
+          <a class="hk_sm" href="sickzone.html#newborn">신생아 클리닉</a>
+          <a class="hk_sm" href="sickzone.html#heart">선천성 심장질환 클리닉</a>
+        </div>
+        <div class="hk_mcol" data-g="4">
+          <b><i></i>아동발달 클리닉</b>
+          <a href="development.html">언어심리 발달센터</a>
+          <a href="development.html#screen">언어발달 선별검사</a>
+        </div>
+        <div class="hk_mcol" data-g="5">
+          <b><i></i>병원소식</b>
+          <a href="notice.html">공지사항</a>
+          <a href="news.html">우리병원 소식</a>
+          <a href="https://blog.naver.com/jooya057" target="_blank" rel="noopener">공식 블로그</a>
+          <a href="https://eo-m.com/2022/HSP/HSP_Student.asp?hNo=21203369" target="_blank" rel="noopener">학생검진 문진표 작성</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hk_mm">
+    <div class="hk_mg">
+      <button class="hk_mh" type="button">병원소개<svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button>
+      <div class="hk_mc">
+        <a href="about.html">인사말 · 비전</a>
+        <a href="doctors.html">의료진 소개</a>
+        <a href="ci.html">CI 소개</a>
+        <a href="tour.html">둘러보기</a>
+        <a href="location.html">오시는 길 · 주차안내</a>
+      </div>
+    </div>
+    <div class="hk_mg">
+      <button class="hk_mh" type="button">진료안내<svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button>
+      <div class="hk_mc">
+        <a href="outpatient.html">외래진료 안내</a>
+        <a href="schedule.html">진료시간표</a>
+        <a href="reservation.html">진료예약 안내</a>
+        <a href="admission.html">입퇴원 안내</a>
+        <a href="certificate.html">증명서 발급 안내</a>
+        <a href="fees.html">비급여 진료비</a>
+      </div>
+    </div>
+    <div class="hk_mg">
+      <button class="hk_mh" type="button">Well Zone · 튼튼클리닉<svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button>
+      <div class="hk_mc">
+        <a href="wellzone.html">Well Zone 소개</a>
+        <a href="vaccination.html">예방접종</a>
+        <a href="infant-checkup.html">영유아 건강검진</a>
+        <a href="school-checkup.html">학교검진</a>
+        <a href="checkup.html">소아청소년 종합검진</a>
+        <a href="growth.html">성장(저신장)</a>
+        <a href="puberty.html">성조숙</a>
+        <a href="obesity.html">비만</a>
+      </div>
+    </div>
+    <div class="hk_mg">
+      <button class="hk_mh" type="button">Sick Zone · 호흡기/일반<svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button>
+      <div class="hk_mc">
+        <a href="sickzone.html">Sick Zone 소개</a>
+        <a href="iv-therapy.html">맞춤형 영양수액 클리닉</a>
+        <a href="allergy.html">알레르기 클리닉</a>
+        <a href="sickzone.html#resp">호흡기 클리닉</a>
+        <a href="sickzone.html#ent">소아 귀목코 클리닉</a>
+        <a href="sickzone.html#infect">소아 감염</a>
+        <a href="sickzone.html#gi">소화기 영양 클리닉</a>
+        <a href="sickzone.html#kidney">소아 신장 클리닉</a>
+        <a href="sickzone.html#hema">혈액 종양 클리닉</a>
+        <a href="sickzone.html#newborn">신생아 클리닉</a>
+        <a href="sickzone.html#heart">선천성 심장질환 클리닉</a>
+      </div>
+    </div>
+    <div class="hk_mg">
+      <button class="hk_mh" type="button">아동발달 클리닉<svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button>
+      <div class="hk_mc">
+        <a href="development.html">언어심리 발달센터</a>
+        <a href="development.html#screen">언어발달 선별검사</a>
+      </div>
+    </div>
+    <div class="hk_mg">
+      <button class="hk_mh" type="button">병원소식<svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button>
+      <div class="hk_mc">
+        <a href="notice.html">공지사항</a>
+        <a href="news.html">우리병원 소식</a>
+        <a href="https://eo-m.com/2022/HSP/HSP_Student.asp?hNo=21203369" target="_blank" rel="noopener">학생검진 문진표 작성</a>
+      </div>
+    </div>
+    <div class="hk_mtel">
+      <a class="hk_p" href="tel:051-264-9500"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.13.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.11L8.1 9.9a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.9z"/></svg>전화 051-264-9500</a>
+      <a class="hk_a" href="https://goodoc.onelink.me/7srm/u0yjku3b" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="3"/><path d="M11 18h2"/></svg>굿닥 앱 예약</a>
+      <a class="hk_t" href="schedule.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>진료시간표</a>
+      <a class="hk_g" href="https://blog.naver.com/jooya057" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.27 4.3v6.52L7.74 4.3H3v15.4h4.72v-6.52l8.53 6.52H21V4.3z"/></svg>블로그</a>
+      <a class="hk_s" href="https://eo-m.com/2022/HSP/HSP_Student.asp?hNo=21203369" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10l9-5 9 5-9 5z"/><path d="M7 12.2V17c0 1.2 2.2 2.5 5 2.5s5-1.3 5-2.5v-4.8"/></svg>학생검진 문진표</a>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  var root = document.getElementById('hkHd');
+  if (!root || root.dataset.hkReady) return;   /* 아임웹에서 두 번 실행되는 것 방지 */
+  root.dataset.hkReady = '1';
+
+  /* 스크롤하면 헤더를 조금 낮게 */
+  function onScroll() {
+    if (window.pageYOffset > 40) root.classList.add('hk_solid');
+    else root.classList.remove('hk_solid');
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  /* PC 전체메뉴 — 마우스를 올리면 세부 페이지가 펼쳐집니다 */
+  var gnbItems = root.querySelectorAll('.hk_gnb > li');
+  var cols = root.querySelectorAll('.hk_mcol');
+  var timer = null;
+
+  function hot(g) {
+    for (var i = 0; i < gnbItems.length; i++) gnbItems[i].classList[gnbItems[i].getAttribute('data-g') === g ? 'add' : 'remove']('hk_hot');
+    for (var j = 0; j < cols.length; j++) cols[j].classList[cols[j].getAttribute('data-g') === g ? 'add' : 'remove']('hk_hot');
+  }
+  function open(g) { if (window.innerWidth <= 1024) return; clearTimeout(timer); root.classList.add('hk_open'); hot(g); }
+  function close(delay) {
+    clearTimeout(timer);
+    timer = setTimeout(function () { root.classList.remove('hk_open'); hot(null); }, delay === undefined ? 140 : delay);
+  }
+  Array.prototype.forEach.call(gnbItems, function (li) {
+    var g = li.getAttribute('data-g');
+    li.addEventListener('mouseenter', function () { open(g); });
+    var a = li.querySelector('a');
+    if (a) a.addEventListener('focus', function () { open(g); });
+  });
+  Array.prototype.forEach.call(cols, function (c) { c.addEventListener('mouseenter', function () { open(c.getAttribute('data-g')); }); });
+  root.addEventListener('mouseenter', function () { clearTimeout(timer); });
+  root.addEventListener('mouseleave', function () { close(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(0); });
+
+  /* 모바일 메뉴 + 아코디언 */
+  var burger = root.querySelector('.hk_burger');
+  var groups = root.querySelectorAll('.hk_mg');
+  burger.addEventListener('click', function () {
+    var on = root.classList.toggle('hk_mo');
+    burger.setAttribute('aria-expanded', on ? 'true' : 'false');
+    burger.setAttribute('aria-label', on ? '메뉴 닫기' : '메뉴 열기');
+    document.documentElement.style.overflow = on ? 'hidden' : '';
+    if (on && groups.length && !root.querySelector('.hk_mg.hk_on')) groups[0].classList.add('hk_on');
+  });
+  Array.prototype.forEach.call(groups, function (g) {
+    g.querySelector('.hk_mh').addEventListener('click', function () {
+      var was = g.classList.contains('hk_on');
+      Array.prototype.forEach.call(groups, function (x) { x.classList.remove('hk_on'); });
+      if (!was) g.classList.add('hk_on');
+    });
+  });
+  Array.prototype.forEach.call(root.querySelectorAll('.hk_mm a'), function (a) {
+    a.addEventListener('click', function () {
+      root.classList.remove('hk_mo');
+      document.documentElement.style.overflow = '';
+      burger.setAttribute('aria-expanded', 'false');
+    });
+  });
+})();
+</script>
+
+
+<!-- ══════════════════════════════════════════════════════════════
+     [행복한어린이병원] 00. 빈 위젯  (아임웹 코드 위젯용)
+     ─────────────────────────────────────────────────────────────
+     ※ 이 위젯은 화면에 아무것도 그리지 않습니다.
+
+     [어디에 넣나요]
+        세부페이지에 원래 있던 '헤더' 코드 위젯 자리에 이 코드를 넣습니다.
+        (위젯을 통째로 지우면 아임웹에서 페이지 구조가 틀어질 수 있어,
+         지우는 대신 이 빈 코드로 덮어씁니다.)
+
+     [왜 비워 두나요]
+        새 디자인은 페이지마다 상단 히어로부터 하단 CTA까지
+        '본문 코드 위젯 하나'에 전부 들어 있습니다. (2_세부페이지 폴더)
+        그래서 헤더 자리 위젯은 비어 있어야 합니다.
+
+     ※ 고정 상단메뉴(#hkHd)는 1번 위젯이 따로 담당합니다.
+        이 빈 위젯과는 관계가 없으니 1번은 그대로 두세요.
+     ══════════════════════════════════════════════════════════════ -->
+<div id="hkBlank" aria-hidden="true" style="display:none !important;height:0 !important;margin:0 !important;padding:0 !important;"></div>
+
+
+<!-- ══════════════════════════════════════════════════════════════
+     [행복한어린이병원] 세부페이지 — 비급여 진료비  (주소 /fees)
+     ─────────────────────────────────────────────────────────────
+     아임웹 [비급여 진료비] 페이지의 본문 코드 위젯에 통째로 붙여넣으세요.
+     (상단 히어로부터 아래 CTA까지 이 파일 하나에 다 들어 있습니다)
+
+     ★ 금액이 바뀌면 — 맨 아래 <script> 맨 위의 HK_FEES 만 고치세요.
+        한 줄이 항목 하나입니다:  ['항목 이름', '단위', '금액']
+          · 금액은 '35,000' 처럼 숫자만 (원은 자동으로 붙습니다)
+          · 범위는 '60,000~150,000' 처럼 ~ 로 연결
+          · '무료' 라고 쓰면 무료 표시
+        표 위의 최종수정일(date)도 같이 바꿔 주세요.
+        개수·탭 숫자·검색은 자동으로 맞춰집니다.
+
+     ※ 금액·항목은 기존 사이트 '비급여항목 고지' 5개 탭을 2026-09-23에 그대로 옮겼습니다.
+        (행위료 54 / 치료재료대 48 / 약제비 71 / 제증명수수료 11 = 184개)
+        '선택진료료' 탭은 기존 사이트에도 '등록된 데이터가 없습니다'라서 탭은 빼고 안내 문구만 넣었습니다.
+     ※ 원본 표기 수정: '비만 종함검진 (소아 청소년 (만4세~18세)' → '비만 종합검진 (소아청소년, 만4세~18세)'
+                      '진료기록 사본 (6매부터 1매당)' 단위 '1통' → '1매'
+                      행위료의 갑상선·유방·딤플·고관절·남아/여아생식기 6개는 '초음파 검사' 한 묶음으로 표시
+                      예방접종 표의 구분 '일반' → '일반접종'
+     ※ 주소 뒤에 #cert 를 붙이면 제증명수수료 탭이 바로 열립니다. (/fees#cert — 증명서 발급안내에서 연결)
+        #act 행위료 / #mat 치료재료대 / #drug 약제비
+     ※ 페이지 맨 위 '헤더' 위젯 자리에는 1_메인페이지/0-빈 위젯 을 넣으세요.
+     ※ 상단메뉴(1번) · 진료시간·오시는길(8번) · 푸터(9번)는 공통 위젯을 씁니다.
+     ※ 모든 스타일은 #hkSub 안에서만 적용됩니다.
+     ══════════════════════════════════════════════════════════════ -->
+<style>
+@import url('https://cdn.jsdelivr.net/gh/sun-typeface/suit@2/fonts/variable/woff2/SUIT-Variable.css');
+
+/* ══════════════════════════════════════════════════════════════
+   세부페이지 공통 스타일  (23개 세부페이지가 모두 동일)
+   ══════════════════════════════════════════════════════════════ */
+#hkSub{
+  --hk-sky:#3FA7E6; --hk-sky-d:#1E7FC2; --hk-sky-l:#EAF6FD;
+  --hk-sun:#FFC93C; --hk-sun-l:#FFF6DE;
+  --hk-well:#2FBF9B; --hk-well-l:#E4F8F2;
+  --hk-sick:#FF7A6B; --hk-sick-l:#FFEDEA;
+  --hk-ink:#1F3A4D; --hk-body:#4A5E6B; --hk-gray:#8697A2;
+  --hk-line:#E6EDF1; --hk-paper2:#F5F9FB;
+  --hk-ease:cubic-bezier(.16,1,.3,1);
+  --hk-maxw:1400px; --hk-pad:32px; --hk-hd:88px;
+  line-height:1.8 !important;
+
+  display:block !important; position:relative !important;
+  float:none !important; clear:both !important;
+  width:100% !important; max-width:100% !important;
+  margin:0 !important; padding:0 !important;
+  background:#fff !important; overflow:visible !important;
+  box-sizing:border-box !important; z-index:auto !important;
+}
+#hkSub,#hkSub *,#hkSub *::before,#hkSub *::after{
+  box-sizing:border-box !important;
+  font-family:'SUIT Variable','SUIT',-apple-system,BlinkMacSystemFont,'Pretendard','Apple SD Gothic Neo',sans-serif !important;
+  word-break:keep-all !important;
+}
+#hkSub ul,#hkSub ol,#hkSub li{list-style:none !important;margin:0 !important;padding:0 !important;background-image:none !important;}
+#hkSub li::before,#hkSub li::after{display:none !important;content:none !important;}
+#hkSub p,#hkSub h1,#hkSub h2,#hkSub h3,#hkSub h4,#hkSub span,#hkSub div,#hkSub a,#hkSub em,#hkSub b,#hkSub strong,#hkSub small{margin:0 !important;padding:0 !important;}
+#hkSub a{text-decoration:none !important;color:inherit !important;}
+#hkSub img{max-width:100% !important;display:block !important;border:0 !important;}
+#hkSub svg{display:inline-block !important;}
+
+#hkSub .hk_wrap{max-width:var(--hk-maxw) !important;margin:0 auto !important;padding:0 var(--hk-pad) !important;width:100% !important;}
+#hkSub .hk_narrow{max-width:1040px !important;margin:0 auto !important;padding:0 var(--hk-pad) !important;width:100% !important;}
+
+#hkSub .hk_rv{opacity:0 !important;transform:translateY(26px) !important;transition:opacity .9s var(--hk-ease),transform .9s var(--hk-ease) !important;}
+#hkSub .hk_rv.hk_in{opacity:1 !important;transform:none !important;}
+#hkSub .hk_d1{transition-delay:.08s !important;}
+#hkSub .hk_d2{transition-delay:.16s !important;}
+#hkSub .hk_d3{transition-delay:.24s !important;}
+
+/* ── 서브 히어로 ── */
+#hkSub .hk_hero{
+  position:relative !important;overflow:hidden !important;
+  padding:calc(var(--hk-hd) + 76px) 0 84px !important;
+  background:linear-gradient(135deg,#EAF6FD 0%,#F7FCFF 55%,#FFFDF4 100%) !important;
+}
+#hkSub .hk_hero::before{
+  content:'' !important;position:absolute !important;right:-160px !important;top:-180px !important;
+  width:620px !important;height:620px !important;border-radius:50% !important;
+  background:radial-gradient(circle,rgba(63,167,230,.18),rgba(63,167,230,0) 68%) !important;pointer-events:none !important;
+}
+#hkSub .hk_hero::after{
+  content:'' !important;position:absolute !important;left:-120px !important;bottom:-220px !important;
+  width:480px !important;height:480px !important;border-radius:50% !important;
+  background:radial-gradient(circle,rgba(255,201,60,.22),rgba(255,201,60,0) 66%) !important;pointer-events:none !important;
+}
+#hkSub .hk_hero .hk_wrap{position:relative !important;z-index:2 !important;}
+#hkSub .hk_bc{display:flex !important;align-items:center !important;gap:8px !important;font-size:13px !important;color:var(--hk-gray) !important;font-weight:600 !important;}
+#hkSub .hk_bc i{display:block !important;width:4px !important;height:4px !important;border-radius:50% !important;background:var(--hk-line) !important;font-style:normal !important;}
+#hkSub .hk_bc b{color:var(--hk-sky-d) !important;font-weight:800 !important;}
+#hkSub .hk_eyebrow{
+  display:flex !important;align-items:center !important;gap:10px !important;margin-top:26px !important;
+  font-size:12px !important;font-weight:800 !important;letter-spacing:.16em !important;color:var(--hk-sky-d) !important;
+}
+#hkSub .hk_eyebrow::before{content:'' !important;display:block !important;width:22px !important;height:2px !important;border-radius:2px !important;background:var(--hk-sun) !important;}
+#hkSub .hk_h1{
+  display:block !important;margin-top:14px !important;
+  font-size:clamp(32px,4.6vw,54px) !important;font-weight:800 !important;
+  line-height:1.24 !important;letter-spacing:-.05em !important;color:var(--hk-ink) !important;
+}
+#hkSub .hk_hlead{display:block !important;margin-top:18px !important;max-width:720px !important;font-size:clamp(15px,1.7vw,17.5px) !important;color:var(--hk-body) !important;}
+
+/* ── 섹션 공통 ── */
+#hkSub .hk_sec{display:block !important;padding:104px 0 !important;background:#fff !important;}
+#hkSub .hk_sec.hk_tint{background:var(--hk-paper2) !important;}
+#hkSub .hk_eyebrow2{
+  display:flex !important;align-items:center !important;gap:10px !important;
+  font-size:12px !important;font-weight:800 !important;letter-spacing:.16em !important;color:var(--hk-sky-d) !important;
+}
+#hkSub .hk_eyebrow2::before{content:'' !important;display:block !important;width:22px !important;height:2px !important;border-radius:2px !important;background:var(--hk-sun) !important;}
+#hkSub .hk_h2{
+  display:block !important;margin-top:14px !important;
+  font-size:clamp(26px,3.4vw,40px) !important;font-weight:800 !important;
+  line-height:1.35 !important;letter-spacing:-.045em !important;color:var(--hk-ink) !important;
+}
+#hkSub .hk_lead{display:block !important;margin-top:12px !important;font-size:clamp(14.5px,1.6vw,16.5px) !important;color:var(--hk-body) !important;}
+
+/* ── 하단 CTA (세부페이지 공통) ── */
+#hkSub .hk_cta{
+  position:relative !important;overflow:hidden !important;padding:88px 0 !important;
+  background:linear-gradient(120deg,#1E7FC2 0%,#3FA7E6 60%,#5FC0F0 100%) !important;
+}
+#hkSub .hk_cta::before{
+  content:'' !important;position:absolute !important;right:-140px !important;bottom:-200px !important;
+  width:560px !important;height:560px !important;border-radius:50% !important;
+  background:radial-gradient(circle,rgba(255,201,60,.28),rgba(255,201,60,0) 66%) !important;pointer-events:none !important;
+}
+#hkSub .hk_cta .hk_wrap{position:relative !important;z-index:2 !important;text-align:center !important;}
+#hkSub .hk_cta b{display:block !important;font-size:clamp(24px,3.2vw,36px) !important;font-weight:800 !important;color:#fff !important;letter-spacing:-.045em !important;line-height:1.35 !important;}
+#hkSub .hk_cta p{display:block !important;margin-top:14px !important;font-size:clamp(14.5px,1.6vw,16.5px) !important;color:rgba(255,255,255,.88) !important;}
+#hkSub .hk_btns{display:flex !important;flex-wrap:wrap !important;justify-content:center !important;gap:12px !important;margin-top:32px !important;}
+#hkSub .hk_btn{
+  display:inline-flex !important;align-items:center !important;gap:8px !important;
+  height:56px !important;padding:0 28px !important;border-radius:999px !important;
+  font-size:15.5px !important;font-weight:800 !important;letter-spacing:-.03em !important;
+  transition:transform .25s var(--hk-ease),box-shadow .25s var(--hk-ease),background .25s var(--hk-ease) !important;
+}
+#hkSub .hk_btn svg{width:19px !important;height:19px !important;flex:none !important;}
+#hkSub .hk_b1{background:#fff !important;color:var(--hk-sky-d) !important;box-shadow:0 18px 30px -18px rgba(12,45,70,.5) !important;}
+#hkSub .hk_b1:hover{transform:translateY(-3px) !important;box-shadow:0 26px 40px -20px rgba(12,45,70,.6) !important;}
+#hkSub .hk_b2{background:var(--hk-sun) !important;color:#5A4200 !important;box-shadow:0 18px 30px -18px rgba(12,45,70,.5) !important;}
+#hkSub .hk_b2:hover{transform:translateY(-3px) !important;box-shadow:0 26px 40px -20px rgba(12,45,70,.6) !important;}
+#hkSub .hk_b3{background:rgba(255,255,255,.14) !important;color:#fff !important;border:1.5px solid rgba(255,255,255,.55) !important;}
+#hkSub .hk_b3:hover{background:rgba(255,255,255,.24) !important;transform:translateY(-3px) !important;}
+
+/* ══════════════════════════════════════════════════════════════
+   이 페이지 전용 (비급여 진료비)
+   ══════════════════════════════════════════════════════════════ */
+/* 고지 안내 박스 */
+#hkSub .hk_notice{
+  display:flex !important;align-items:flex-start !important;gap:16px !important;
+  padding:26px 28px !important;border-radius:22px !important;
+  background:var(--hk-paper2) !important;border:1px solid var(--hk-line) !important;
+}
+#hkSub .hk_notice .hk_ico{
+  display:inline-flex !important;align-items:center !important;justify-content:center !important;flex:none !important;
+  width:42px !important;height:42px !important;border-radius:14px !important;
+  background:#fff !important;color:var(--hk-sky-d) !important;border:1px solid var(--hk-line) !important;
+}
+#hkSub .hk_notice .hk_ico svg{width:21px !important;height:21px !important;}
+#hkSub .hk_notice p{display:block !important;font-size:15px !important;line-height:1.85 !important;color:var(--hk-body) !important;letter-spacing:-.02em !important;}
+#hkSub .hk_notice p + p{margin-top:4px !important;}
+#hkSub .hk_notice p em{font-style:normal !important;font-weight:800 !important;color:var(--hk-ink) !important;}
+
+/* 검색 */
+#hkSub .hk_fsearch{
+  position:relative !important;display:flex !important;align-items:center !important;margin-top:36px !important;
+  height:62px !important;border-radius:999px !important;background:#fff !important;
+  border:1.5px solid var(--hk-line) !important;
+  transition:border-color .3s var(--hk-ease),box-shadow .3s var(--hk-ease) !important;
+}
+#hkSub .hk_fsearch:focus-within{border-color:var(--hk-sky) !important;box-shadow:0 0 0 5px rgba(63,167,230,.14) !important;}
+#hkSub .hk_fsearch > svg{position:absolute !important;left:24px !important;width:21px !important;height:21px !important;color:var(--hk-gray) !important;pointer-events:none !important;}
+#hkSub .hk_fsearch input{
+  display:block !important;width:100% !important;height:100% !important;margin:0 !important;
+  padding:0 60px 0 58px !important;border:0 !important;outline:0 !important;background:transparent !important;box-shadow:none !important;
+  font-size:16px !important;font-weight:600 !important;color:var(--hk-ink) !important;letter-spacing:-.02em !important;
+  -webkit-appearance:none !important;appearance:none !important;
+}
+#hkSub .hk_fsearch input::placeholder{color:#A9B6BE !important;font-weight:500 !important;}
+#hkSub .hk_fsearch input::-webkit-search-cancel-button{display:none !important;}
+#hkSub .hk_fclr{
+  position:absolute !important;right:12px !important;display:none !important;align-items:center !important;justify-content:center !important;
+  width:38px !important;height:38px !important;border-radius:50% !important;border:0 !important;padding:0 !important;cursor:pointer !important;
+  background:var(--hk-paper2) !important;color:var(--hk-gray) !important;
+}
+#hkSub .hk_fclr.hk_on{display:inline-flex !important;}
+#hkSub .hk_fclr svg{width:16px !important;height:16px !important;}
+
+/* 탭 */
+#hkSub .hk_ftabs{
+  display:flex !important;gap:8px !important;margin-top:22px !important;
+  overflow-x:auto !important;-webkit-overflow-scrolling:touch !important;scrollbar-width:none !important;
+  padding:2px 2px 6px !important;
+}
+#hkSub .hk_ftabs::-webkit-scrollbar{display:none !important;}
+#hkSub .hk_ftab{
+  display:inline-flex !important;align-items:center !important;gap:8px !important;flex:none !important;
+  height:48px !important;padding:0 20px !important;border-radius:999px !important;cursor:pointer !important;
+  background:#fff !important;border:1px solid var(--hk-line) !important;margin:0 !important;
+  font-size:15px !important;font-weight:800 !important;letter-spacing:-.03em !important;color:var(--hk-body) !important;
+  transition:background .3s var(--hk-ease),color .3s var(--hk-ease),border-color .3s var(--hk-ease) !important;
+}
+#hkSub .hk_ftab i{
+  display:inline-flex !important;align-items:center !important;justify-content:center !important;
+  min-width:26px !important;height:22px !important;padding:0 7px !important;border-radius:999px !important;
+  background:var(--hk-paper2) !important;font-style:normal !important;
+  font-size:12px !important;font-weight:800 !important;color:var(--hk-gray) !important;
+}
+#hkSub .hk_ftab:hover{border-color:var(--hk-sky) !important;color:var(--hk-sky-d) !important;}
+#hkSub .hk_ftab.hk_on{background:var(--hk-ink) !important;border-color:var(--hk-ink) !important;color:#fff !important;}
+#hkSub .hk_ftab.hk_on i{background:rgba(255,255,255,.16) !important;color:#fff !important;}
+#hkSub .hk_ftabs.hk_dim .hk_ftab.hk_on{background:#fff !important;border-color:var(--hk-line) !important;color:var(--hk-body) !important;}
+#hkSub .hk_ftabs.hk_dim .hk_ftab.hk_on i{background:var(--hk-paper2) !important;color:var(--hk-gray) !important;}
+#hkSub .hk_fmeta{display:flex !important;flex-wrap:wrap !important;align-items:center !important;justify-content:space-between !important;gap:6px 16px !important;margin-top:14px !important;font-size:13.5px !important;color:var(--hk-gray) !important;}
+#hkSub .hk_fmeta b{font-weight:800 !important;color:var(--hk-sky-d) !important;}
+
+/* 표 (묶음 카드) */
+#hkSub .hk_flist{display:flex !important;flex-direction:column !important;gap:18px !important;margin-top:26px !important;}
+#hkSub .hk_fg{background:#fff !important;border:1px solid var(--hk-line) !important;border-radius:24px !important;overflow:hidden !important;}
+#hkSub .hk_fgh{
+  display:flex !important;flex-wrap:wrap !important;align-items:center !important;justify-content:space-between !important;gap:6px 14px !important;
+  padding:22px 28px !important;background:var(--hk-paper2) !important;border-bottom:1px solid var(--hk-line) !important;
+}
+#hkSub .hk_fgh b{display:flex !important;align-items:center !important;gap:10px !important;font-size:18px !important;font-weight:800 !important;letter-spacing:-.045em !important;color:var(--hk-ink) !important;}
+#hkSub .hk_fgh b::before{content:'' !important;display:block !important;width:8px !important;height:8px !important;border-radius:50% !important;background:var(--hk-sky) !important;}
+#hkSub .hk_fgh b i{font-style:normal !important;font-size:13px !important;font-weight:700 !important;color:var(--hk-gray) !important;letter-spacing:0 !important;}
+#hkSub .hk_fgh small{display:block !important;font-size:12.5px !important;font-weight:600 !important;color:var(--hk-gray) !important;}
+#hkSub .hk_fgh .hk_ftag{
+  display:inline-flex !important;align-items:center !important;height:24px !important;padding:0 10px !important;border-radius:999px !important;
+  background:var(--hk-sky-l) !important;color:var(--hk-sky-d) !important;font-size:12px !important;font-weight:800 !important;letter-spacing:-.02em !important;
+}
+#hkSub .hk_fr{
+  display:grid !important;grid-template-columns:minmax(0,1fr) 110px 170px !important;gap:16px !important;align-items:center !important;
+  padding:16px 28px !important;border-bottom:1px solid var(--hk-line) !important;
+  transition:background .2s !important;
+}
+#hkSub .hk_fr:last-child{border-bottom:0 !important;}
+#hkSub .hk_fr:hover{background:#FAFCFD !important;}
+#hkSub .hk_fr .hk_fn{display:block !important;font-size:15.5px !important;font-weight:600 !important;line-height:1.6 !important;color:var(--hk-ink) !important;letter-spacing:-.03em !important;}
+#hkSub .hk_fr .hk_fu{display:block !important;font-size:13.5px !important;font-weight:600 !important;color:var(--hk-gray) !important;text-align:center !important;}
+#hkSub .hk_fr .hk_fp{display:block !important;font-size:16.5px !important;font-weight:800 !important;color:var(--hk-ink) !important;text-align:right !important;letter-spacing:-.03em !important;white-space:nowrap !important;}
+#hkSub .hk_fr .hk_fp small{display:inline !important;margin-left:2px !important;font-size:13px !important;font-weight:700 !important;color:var(--hk-body) !important;}
+#hkSub .hk_fr .hk_fp.hk_free{color:#1E8E73 !important;}
+#hkSub .hk_fg.hk_hide,#hkSub .hk_fr.hk_hide,#hkSub .hk_fgh .hk_ftag.hk_hide{display:none !important;}
+#hkSub .hk_ftabs{scroll-margin-top:calc(var(--hk-hd) + 16px) !important;}
+#hkSub .hk_fr mark{background:var(--hk-sun-l) !important;color:inherit !important;border-radius:4px !important;padding:0 2px !important;box-shadow:inset 0 -2px 0 var(--hk-sun) !important;}
+#hkSub .hk_fnone{
+  display:none !important;padding:56px 20px !important;border-radius:24px !important;text-align:center !important;
+  background:var(--hk-paper2) !important;font-size:15.5px !important;font-weight:600 !important;color:var(--hk-gray) !important;
+}
+#hkSub .hk_fnone.hk_on{display:block !important;}
+#hkSub .hk_fnone b{display:block !important;margin-bottom:6px !important;font-size:18px !important;font-weight:800 !important;color:var(--hk-ink) !important;letter-spacing:-.04em !important;}
+#hkSub .hk_fnone a{display:inline-flex !important;margin-top:14px !important;font-weight:800 !important;color:var(--hk-sky-d) !important;}
+#hkSub .hk_fnote{display:block !important;margin-top:20px !important;font-size:13.5px !important;color:var(--hk-gray) !important;letter-spacing:-.02em !important;}
+
+/* ── 반응형 ── */
+@media (max-width:1180px){
+  #hkSub{--hk-pad:26px;}
+}
+@media (max-width:860px){
+  #hkSub{--hk-pad:20px;--hk-hd:66px;}
+  #hkSub .hk_hero{padding:calc(var(--hk-hd) + 42px) 0 54px !important;}
+  #hkSub .hk_eyebrow{margin-top:18px !important;}
+  #hkSub .hk_sec{padding:64px 0 !important;}
+  #hkSub .hk_notice{padding:20px 18px !important;gap:12px !important;border-radius:18px !important;}
+  #hkSub .hk_notice .hk_ico{width:36px !important;height:36px !important;border-radius:12px !important;}
+  #hkSub .hk_notice p{font-size:14px !important;}
+  #hkSub .hk_fsearch{height:54px !important;margin-top:26px !important;}
+  #hkSub .hk_fsearch > svg{left:19px !important;width:19px !important;height:19px !important;}
+  #hkSub .hk_fsearch input{padding:0 54px 0 48px !important;font-size:15px !important;}
+  #hkSub .hk_ftabs{margin:16px calc(var(--hk-pad) * -1) 0 !important;padding:2px var(--hk-pad) 6px !important;}
+  #hkSub .hk_ftab{height:42px !important;padding:0 15px !important;font-size:14px !important;}
+  #hkSub .hk_flist{gap:12px !important;margin-top:18px !important;}
+  #hkSub .hk_fg{border-radius:18px !important;}
+  #hkSub .hk_fgh{padding:16px 18px !important;}
+  #hkSub .hk_fgh b{font-size:16.5px !important;}
+  #hkSub .hk_fr{grid-template-columns:minmax(0,1fr) auto !important;gap:2px 12px !important;padding:14px 18px !important;}
+  #hkSub .hk_fr .hk_fn{grid-column:1 / -1 !important;font-size:14.5px !important;}
+  #hkSub .hk_fr .hk_fu{text-align:left !important;font-size:12.5px !important;}
+  #hkSub .hk_fr .hk_fp{font-size:15.5px !important;}
+  #hkSub .hk_cta{padding:62px 0 !important;}
+  #hkSub .hk_btns{margin-top:24px !important;gap:9px !important;}
+  #hkSub .hk_btn{height:50px !important;padding:0 20px !important;font-size:14.5px !important;}
+}
+</style>
+
+<div id="hkSub">
+
+  <!-- ── 서브 히어로 ── -->
+  <section class="hk_hero">
+    <div class="hk_wrap">
+      <nav class="hk_bc hk_rv"><a href="home.html">홈</a><i></i><span>진료안내</span><i></i><b>비급여 진료비</b></nav>
+      <span class="hk_eyebrow hk_rv hk_d1">NON-COVERED FEES</span>
+      <h1 class="hk_h1 hk_rv hk_d1">비급여 진료비 안내</h1>
+      <span class="hk_hlead hk_rv hk_d2">건강보험이 적용되지 않는 비급여 항목의 진료비용을 안내해 드립니다. 궁금한 항목은 검색창에서 이름으로 바로 찾아보실 수 있습니다.</span>
+    </div>
+  </section>
+
+  <!-- ── 비급여 진료비용 ── -->
+  <section class="hk_sec">
+    <div class="hk_narrow">
+
+      <div class="hk_notice hk_rv">
+        <span class="hk_ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg></span>
+        <div>
+          <p>본 페이지는 <em>의료법 제45조 및 같은 법 시행규칙 제42조의2</em>에 따라 비급여 진료비용을 고지하기 위한 화면입니다.</p>
+          <p>진료 내용과 처방량에 따라 실제 비용은 달라질 수 있으니, 자세한 사항은 병원으로 문의해 주세요.</p>
+        </div>
+      </div>
+
+      <div class="hk_fsearch hk_rv hk_d1">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+        <input type="search" placeholder="항목 이름 검색 (예: 독감, 진단서)" aria-label="비급여 항목 검색" autocomplete="off">
+        <button type="button" class="hk_fclr" aria-label="검색어 지우기"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+      </div>
+
+      <div class="hk_rv hk_d2">
+        <div class="hk_ftabs" role="tablist" aria-label="비급여 분류"></div>
+        <div class="hk_fmeta"><span class="hk_fcount"></span><span>단위 : 원</span></div>
+        <div class="hk_flist"></div>
+        <div class="hk_fnone"><b>찾으시는 항목이 없습니다</b>다른 이름으로 검색하시거나 병원으로 문의해 주세요.<br><a href="tel:051-264-9500">051-264-9500 전화하기</a></div>
+        <span class="hk_fnote">※ 선택진료료 : 해당 항목 없음</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── 하단 CTA ── -->
+  <section class="hk_cta">
+    <div class="hk_wrap hk_rv">
+      <b>비용이 궁금하시면<br>편하게 문의해 주세요</b>
+      <p>진료 내용과 처방량에 따라 실제 비용은 달라질 수 있습니다.</p>
+      <div class="hk_btns">
+        <a class="hk_btn hk_b1" href="tel:051-264-9500">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .3 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.4 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
+          051-264-9500
+        </a>
+        <a class="hk_btn hk_b2" href="certificate.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></svg>
+          증명서 발급안내
+        </a>
+        <a class="hk_btn hk_b3" href="admission.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 4v16M2 8h18a2 2 0 0 1 2 2v10M2 17h20"/><path d="M6 8v9"/></svg>
+          입퇴원 안내
+        </a>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<script>
+/* ══════════════════════════════════════════════════════════════
+   ★ 비급여 금액표 — 금액이 바뀌면 여기만 고치세요
+     ['항목 이름', '단위', '금액']   금액: '35,000' / '60,000~150,000' / '무료'
+   ══════════════════════════════════════════════════════════════ */
+var HK_FEES = [
+  { key:'act', name:'행위료', groups:[
+    { name:'병실료 · 식대', date:'2026-05-28', items:[
+      ['1인실 (VIP실)','1박','269,000'],
+      ['1인실 (준특실)','1박','249,000'],
+      ['1인실','1박','229,000'],
+      ['보호자 이불','1채','5,000'],
+      ['보호자 식사','1끼','7,000'],
+      ['공기밥','1개','1,500']
+    ]},
+    { name:'소아청소년 종합검진', date:'2026-05-28', items:[
+      ['행복한 아기 생애 첫 종합검진 (만9개월~24개월)','1회','100,000'],
+      ['행복한 유아기 종합검진 (만3세~7세)','1회','190,000'],
+      ['행복한 소아청소년기 종합검진 (만8세~18세)','1회','210,000'],
+      ['비만 종합검진 (성인)','1회','100,000'],
+      ['비만 종합검진 (소아청소년, 만4세~18세)','1회','105,000'],
+      ['미니 비만검진1 (만4세~18세)','1회','35,000'],
+      ['미니 비만검진2 (만4세~18세)','1회','90,000'],
+      ['성조숙 종합검진 (만6세~10세)','1회','250,000'],
+      ['저신장 종합검진 (만6세~12세)','1회','200,000'],
+      ['키 성장 검진','1회','50,000'],
+      ['유치원 제출용 건강검진','1회','10,000'],
+      ['인바디 체성분검사','1회','5,000']
+    ]},
+    { name:'발달 검사 · 치료', date:'2026-05-28', items:[
+      ['언어전반 진단검사','1회','60,000~150,000'],
+      ['감각통합 전반검사','1회','120,000~160,000'],
+      ['심리발달 전반검사 FULL','1회','150,000~380,000'],
+      ['심리발달 검사','1회','80,000~292,400'],
+      ['주의력검사','1회','100,000'],
+      ['주의력검사 CAT','1회','140,000'],
+      ['덴버발달 검사','1회','50,000'],
+      ['(검진) 웩슬러 지능검사','1회','180,000'],
+      ['학업성취 검사','1회','150,000~200,000'],
+      ['언어치료1 (40분)','1회','80,000'],
+      ['언어치료2 (60분)','1회','120,000'],
+      ['언어치료(그룹) (40분)','1회','80,000'],
+      ['감각통합 중재치료1 (40분)','1회','100,000'],
+      ['감각통합 중재치료2 (60분)','1회','150,000'],
+      ['신경발달 중재치료 (40분)','1회','60,000'],
+      ['신경발달 중재치료(그룹) (40분)','1회','60,000'],
+      ['전산화 인지 재활치료1 (40분)','1회','100,000'],
+      ['전산화 인지 재활치료2 (60분)','1회','150,000']
+    ]},
+    { name:'임상 검사', date:'2026-05-28', items:[
+      ['인플루엔자 간이 검사','1회','30,000'],
+      ['인플루엔자 PCR 검사','1회','100,000'],
+      ['SARS-CoV-2항원/인플루엔자 간이검사','1회','45,000'],
+      ['SARS-CoV-2항원 간이검사','1회','30,000'],
+      ['비타민 D 검사','1회','15,000'],
+      ['호흡기 바이러스 19종검사','1회','120,000'],
+      ['B형간염 항원항체검사','1회','30,000'],
+      ['혈액형 검사','1회','5,000'],
+      ['호기산화질소 검사','1회','60,000'],
+      ['FRAT 검사','1회','1,200,000'],
+      ['MTHFR 검사','1회','150,000'],
+      ['Food IgG 검사','1회','450,000']
+    ]},
+    { name:'초음파 검사', date:'2026-05-28', items:[
+      ['갑상선 / 부갑상선','1회','80,000'],
+      ['유방초음파','1회','50,000'],
+      ['딤플 초음파','1회','80,000'],
+      ['고관절(DDH) 초음파','1회','80,000'],
+      ['남아생식기 초음파','1회','50,000'],
+      ['여아생식기 초음파','1회','50,000']
+    ]}
+  ]},
+
+  { key:'mat', name:'치료재료대', groups:[
+    { name:'건강식품 · 화장품', date:'2025-10-23', items:[
+      ['닥터에디션 키즈 프로 (유산균) 12개월 이상~13세 미만','30포','35,000'],
+      ['닥터에디션 키즈 프로 (유산균) 12개월 이상~13세 미만','60포','65,000'],
+      ['닥터에디션 이지 프로 (유산균) 13세 이상 청소년, 성인, 임산부','30포','40,000'],
+      ['닥터에디션 이지 프로 (유산균) 13세 이상 청소년, 성인, 임산부','60포','77,000'],
+      ['닥터에디션 앤토 프로 (유산균) 4개월 이상 청소년, 성인, 임산부','30포','48,000'],
+      ['닥터에디션 앤토 프로 (유산균) 4개월 이상 청소년, 성인, 임산부','60포','92,000'],
+      ['닥터 바이오 드롭스 (유산균 액상형)','8ml','40,000'],
+      ['닥터 바이오D드롭스 (유산균+비타민D)','8ml','46,000'],
+      ['닥터에디션 아이비에스 (유산균)','30캡슐','50,000'],
+      ['닥터 키즈젤리비 (멀티비타민)','30포','35,000'],
+      ['아이로픽스 (철분제 시럽)','150ml','45,000'],
+      ['닥터에디션 키즈 젤리뮨 (아연+셀렌)','30포','35,000'],
+      ['닥터에디션 키즈 젤리쑥쑥 (칼슘+비타민D)','30포','35,000'],
+      ['닥터키즈 멀티비타 (종합영양제)','100정','30,000'],
+      ['닥터 키즈 멀티비타 리퀴드 키즈 (종합영양제)','150ml','35,000'],
+      ['닥터 키즈 징크시럽 (아연제 액상형)','120ml','38,000'],
+      ['닥터에디션 키즈 오메가 츄어블','90캡슐','45,000'],
+      ['닥터에디션 마그네슘 (마그네슘+비타민B6)','60정','32,000'],
+      ['닥터 써니D 드롭스 6개월분 (비타민D 액상형)','400 IU','40,000'],
+      ['닥터 써니D 드롭스 6개월분 (비타민D 액상형)','1000 IU','50,000'],
+      ['닥터 프로폴리스 스프레이 (구내염 개선제)','30ml','17,000'],
+      ['제로이드 인센티브 크림 MD','160ml','56,000'],
+      ['제로이드 인센티브 리치크림 MD','160ml','60,000'],
+      ['제로이드 인센티브 로션 MD','300ml','56,000'],
+      ['제로이드 루트힐 모이스처라이저 MD','100g','30,000'],
+      ['제로이드 더마 쉴드 크림 MD (썬크림)','50g','40,000'],
+      ['아토베리어 크림 MD','160g','55,000'],
+      ['아토베리어 로션 MD','300g','55,000'],
+      ['에스트라 크림 MD (고보습 크림)','160g','58,000'],
+      ['아토베리어 잇칭크림 MD (가려움 보호)','160g','62,000'],
+      ['아토베리어 AI 크림 MD (염증 보호)','160g','62,000'],
+      ['에스트라 더마 베이비프로 크림 MD (영유아)','300g','62,000'],
+      ['에스트라 더마 베이비프로 로션 MD (영유아)','160g','62,000'],
+      ['마데카 크림 MD','250g','62,000'],
+      ['마데카 로션 MD','500g','85,000'],
+      ['메티스텀 SOS 스칼프 솔루션','50g','49,500'],
+      ['D3베이스 오랄 드롭스 (10,000 IU/10ml)','1병','55,000'],
+      ['D3베이스 오랄 솔루션 (25,000 IU/2.5ml)','1병','25,000']
+    ]},
+    { name:'의료소모품', date:'2025-10-23', items:[
+      ['수저 set','1벌','4,000'],
+      ['팜컵 (소형)','1개','5,000'],
+      ['팜컵 (대형)','1개','6,000'],
+      ['나잘 스프레이통','1개','3,000'],
+      ['압박지혈밴드','1개','1,000'],
+      ['픽스롤','1회','1,000'],
+      ['고정붕대 4m+암보드','1개','12,000'],
+      ['듀오덤 엑스트라씬 (10cm x 10cm)','1개','5,000'],
+      ['이디스픽스 IV용','1개','5,000'],
+      ['필터주사기','1개','1,000']
+    ]}
+  ]},
+
+  { key:'drug', name:'약제비', groups:[
+    { name:'영양제 · 주사제 · 약품', date:'2026-05-28', items:[
+      ['복합 비타민 A 주사','1회','70,000'],
+      ['복합 비타민 B 주사','1회','60,000'],
+      ['복합비타민 D주사 (셀레늄/ Vit B6)','1회','60,000'],
+      ['비타민 B군 Basic Pack (Vit B1 /B6 / B12 3종)','1회','35,000'],
+      ['항산화 복합주사 (티옥트산+글루타치온)','1회','60,000'],
+      ['아미노산 영양 주사 100ml','1회','30,000'],
+      ['아미노산 영양 주사 250ml','1회','50,000'],
+      ['비타민 B12 주사','1회','10,000'],
+      ['비타민C 주사','1회','15,000'],
+      ['비타민D 주사','1회','30,000'],
+      ['비타민 B1 주사 (푸르셜티아민)','1회','30,000'],
+      ['지씨치옥트산 주사','1회','30,000'],
+      ['리포토신 주사','1회','30,000'],
+      ['글루타치온 주사','1회','30,000'],
+      ['멀티 미네랄 주사 (5종)','1회','30,000'],
+      ['히시파겐씨 주사','1회','30,000'],
+      ['셀레늄 주사','1회','15,000'],
+      ['디펩티벤 주사','1회','50,000'],
+      ['라이넥 주사','1회','30,000'],
+      ['아연주사 20ml','1회','30,000'],
+      ['아세틸 시스테인 3ml','1회','20,000'],
+      ['생리식염 수액 110ml','1회','5,000'],
+      ['생리식염 수액 250ml','1회','8,000'],
+      ['해열수액 (아세트 아미노펜) 100ml','1회','25,000'],
+      ['멸균 생리식염수 10ml','1회','1,000'],
+      ['대한 생리식염 주사액 (염화나트륨) 20ml','1회','600'],
+      ['해열주사 (이부프로펜) 4ml','1회','25,000'],
+      ['페라미 플루 15ml','1회','40,000'],
+      ['이스미젠 (설하면역 치료제)','1정','6,000'],
+      ['액트 에어 설하정 (알레르기 치료제)','30정','180,000'],
+      ['라이스정 (알레르기 치료제) - 초기','10정','160,000'],
+      ['라이스정 (알레르기 치료제) - 유지','10정','210,000'],
+      ['스타로랄 300 설하정 (알레르기 치료제)','1세트','400,000'],
+      ['헤만지올액','1개','290,000'],
+      ['EGF 새살연고 (10g)','1개','35,000'],
+      ['뮤라젠K','20ml','38,000'],
+      ['레스큐라이트 플러스액','1포','2,000'],
+      ['그로트로핀 주','1앰플','159,000'],
+      ['유트로핀 주','1앰플','58,000'],
+      ['위고비','1회','280,000'],
+      ['마운자로','1회','315,000'],
+      ['D3베이스 주 (300000 IU)','1앰플','50,000'],
+      ['노보헬리젠 주 초기','3앰플','600,000'],
+      ['노보헬리젠 주 유지','3앰플','650,000'],
+      ['비만/탈모/피임약 처방전','1회','10,000']
+    ]},
+    { name:'예방접종', date:'2025-10-24', items:[
+      ['결핵 (경피용 BCG)','일반접종','80,000'],
+      ['B형 간염','일반접종','25,000'],
+      ['DPT (일반 DPT)','일반접종','30,000'],
+      ['DPT+소아마비 (테트락심)','일반접종','60,000'],
+      ['DPT+소아마비+뇌수막염 (펜탁심)','일반접종','70,000'],
+      ['수막구균성 뇌수막염 (멘비오)','일반접종','130,000'],
+      ['수막구균성 뇌수막염 (벡세로)','일반접종','210,000'],
+      ['폐렴구균 (박스뉴반스 15가)','일반접종','150,000'],
+      ['폐렴구균 (프리베나 20가)','일반접종','160,000'],
+      ['MMR (홍역+볼거리+풍진)','일반접종','35,000'],
+      ['수두','일반접종','35,000'],
+      ['일본뇌염 (생백신) 씨디제박스','일반접종','40,000'],
+      ['일본뇌염 (생백신) 이모젭','일반접종','60,000'],
+      ['A형 간염 (소아)','일반접종','50,000'],
+      ['A형 간염 (성인)','일반접종','70,000'],
+      ['독감 (3가) 만6개월 이상~','일반접종','35,000'],
+      ['독감 (4가) 만6개월 이상~','일반접종','40,000'],
+      ['장티푸스 (지로티프)','일반접종','50,000'],
+      ['Td (파상풍+디프테리아)','일반접종','30,000'],
+      ['Tdap (Td+백일해)','일반접종','50,000'],
+      ['사람유두종 바이러스 (가다실4가)','일반접종','200,000'],
+      ['사람유두종 바이러스 (가다실9가)','일반접종','230,000'],
+      ['RSV 항체주사 (소아) 베이포투스','일반접종','600,000'],
+      ['RSV 항체주사 (성인) 아렉스비','일반접종','350,000'],
+      ['대상 포진 (싱그릭스)','일반접종','250,000'],
+      ['대상 포진 (스카이조스터)','일반접종','150,000']
+    ]}
+  ]},
+
+  { key:'cert', name:'제증명수수료', groups:[
+    { name:'제증명', date:'2026-05-28', items:[
+      ['일반진단서','1통','20,000'],
+      ['영문 일반진단서 (영문 예방접종 확인서)','1통','20,000'],
+      ['발달재활서비스의뢰서','1통','20,000'],
+      ['임상심리소견서','1통','20,000'],
+      ['입퇴원 확인서 (퇴원당일 1매)','1통','무료'],
+      ['입퇴원 확인서','1통','3,000'],
+      ['진료 / 통원 확인서','1통','3,000'],
+      ['진료기록 사본 (1~5매까지 1매당)','1매','1,000'],
+      ['진료기록 사본 (6매부터 1매당)','1매','100'],
+      ['진료기록 영상 (CD)','1통','10,000'],
+      ['제증명서 사본','1통','1,000']
+    ]}
+  ]}
+];
+
+(function () {
+  var root = document.getElementById('hkSub');
+  if (!root || root.dataset.hkReady) return;
+  root.dataset.hkReady = '1';
+
+  /* ── 스크롤 등장 ── */
+  var els = root.querySelectorAll('.hk_rv');
+  if (!('IntersectionObserver' in window)) { Array.prototype.forEach.call(els, function (e) { e.classList.add('hk_in'); }); }
+  else {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('hk_in'); io.unobserve(en.target); } });
+    }, { threshold: 0.12 });
+    Array.prototype.forEach.call(els, function (e) { io.observe(e); });
+  }
+
+  /* ── 비급여 표 그리기 ── */
+  var tabsEl = root.querySelector('.hk_ftabs');
+  var listEl = root.querySelector('.hk_flist');
+  var countEl = root.querySelector('.hk_fcount');
+  var noneEl = root.querySelector('.hk_fnone');
+  var input = root.querySelector('.hk_fsearch input');
+  var clr = root.querySelector('.hk_fclr');
+  if (!tabsEl || !listEl || !window.HK_FEES) return;
+
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;' }[c]; }); }
+  function price(p) {
+    p = String(p).trim();
+    if (p === '무료') return '<span class="hk_fp hk_free">무료</span>';
+    if (p.indexOf('~') > -1) return '<span class="hk_fp">' + esc(p.replace(/\s*~\s*/, ' ~ ')) + '<small>원</small></span>';
+    return '<span class="hk_fp">' + esc(p) + '<small>원</small></span>';
+  }
+
+  var tabHtml = '', listHtml = '', total = 0;
+  HK_FEES.forEach(function (t, ti) {
+    var n = 0;
+    t.groups.forEach(function (g) {
+      n += g.items.length;
+      listHtml += '<div class="hk_fg" data-tab="' + t.key + '">' +
+        '<div class="hk_fgh"><b>' + esc(g.name) + ' <i>' + g.items.length + '개</i></b>' +
+        '<span class="hk_ftag hk_hide">' + esc(t.name) + '</span>' +
+        (g.date ? '<small>최종수정일 ' + esc(g.date) + '</small>' : '') + '</div>';
+      g.items.forEach(function (it) {
+        listHtml += '<div class="hk_fr" data-q="' + esc((it[0] + ' ' + g.name + ' ' + t.name).toLowerCase().replace(/\s+/g, '')) + '">' +
+          '<span class="hk_fn">' + esc(it[0]) + '</span>' +
+          '<span class="hk_fu">' + esc(it[1] || '') + '</span>' + price(it[2]) + '</div>';
+      });
+      listHtml += '</div>';
+    });
+    total += n;
+    tabHtml += '<button type="button" class="hk_ftab" role="tab" data-tab="' + t.key + '">' + esc(t.name) + ' <i>' + n + '</i></button>';
+  });
+  tabsEl.innerHTML = tabHtml;
+  listEl.innerHTML = listHtml;
+
+  var tabs = tabsEl.querySelectorAll('.hk_ftab');
+  var groups = listEl.querySelectorAll('.hk_fg');
+  var names = listEl.querySelectorAll('.hk_fn');
+  names = Array.prototype.map.call(names, function (el) { return { el: el, txt: el.textContent }; });
+  var cur = HK_FEES[0].key;
+
+  function showTab(key) {
+    cur = key;
+    Array.prototype.forEach.call(tabs, function (b) {
+      var on = b.getAttribute('data-tab') === key;
+      b.classList[on ? 'add' : 'remove']('hk_on');
+      b.setAttribute('aria-selected', on ? 'true' : 'false');
+    });
+    render();
+  }
+
+  function render() {
+    var q = (input.value || '').toLowerCase().replace(/\s+/g, '');
+    var hit = 0;
+    tabsEl.classList[q ? 'add' : 'remove']('hk_dim');
+    clr.classList[input.value ? 'add' : 'remove']('hk_on');
+    Array.prototype.forEach.call(groups, function (g) {
+      var inTab = g.getAttribute('data-tab') === cur;
+      var tag = g.querySelector('.hk_ftag');
+      if (tag) tag.classList[q ? 'remove' : 'add']('hk_hide');
+      var any = 0;
+      Array.prototype.forEach.call(g.querySelectorAll('.hk_fr'), function (r) {
+        var show = q ? r.getAttribute('data-q').indexOf(q) > -1 : inTab;
+        r.classList[show ? 'remove' : 'add']('hk_hide');
+        if (show) any++;
+      });
+      g.classList[any ? 'remove' : 'add']('hk_hide');
+      hit += any;
+    });
+    /* 검색어 강조 */
+    var raw = (input.value || '').trim();
+    names.forEach(function (o) {
+      if (!raw) { o.el.textContent = o.txt; return; }
+      var i = o.txt.toLowerCase().indexOf(raw.toLowerCase());
+      o.el.innerHTML = i < 0 ? esc(o.txt) : esc(o.txt.slice(0, i)) + '<mark>' + esc(o.txt.slice(i, i + raw.length)) + '</mark>' + esc(o.txt.slice(i + raw.length));
+    });
+    countEl.innerHTML = q ? '검색 결과 <b>' + hit + '</b>건 (전체 ' + total + '개 항목 중)' : '<b>' + hit + '</b>개 항목';
+    noneEl.classList[hit === 0 ? 'add' : 'remove']('hk_on');
+  }
+
+  Array.prototype.forEach.call(tabs, function (b) {
+    b.addEventListener('click', function () {
+      if (input.value) input.value = '';
+      showTab(b.getAttribute('data-tab'));
+    });
+  });
+  input.addEventListener('input', render);
+  clr.addEventListener('click', function () { input.value = ''; render(); input.focus(); });
+
+  /* 주소 뒤 #cert 등으로 탭 바로 열기 */
+  function fromHash() {
+    var h = (location.hash || '').replace('#', '');
+    for (var i = 0; i < HK_FEES.length; i++) if (HK_FEES[i].key === h) {
+      showTab(h);
+      setTimeout(function () { tabsEl.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 300);
+      return true;
+    }
+    return false;
+  }
+  if (!fromHash()) showTab(cur);
+  window.addEventListener('hashchange', fromHash);
+})();
+</script>
+
+
+<!-- ══════════════════════════════════════════════════════════════
+     [행복한어린이병원] 08. 진료시간 · 오시는 길 · 주차안내  (아임웹 코드 위젯용)
+     ─────────────────────────────────────────────────────────────
+     ※ 사이트 공통 영역(모든 페이지 하단)에 한 번만 넣습니다.
+     ※ 지도는 기존 사이트(happykiz.kr)가 쓰던 카카오맵(다음 약도) 그대로입니다.
+        (key 23gkj) — 위치를 바꾸려면 map.kakao.com 약도 만들기에서 새로 받아
+        아래 'timestamp' 와 'key' 두 값만 바꾸면 됩니다.
+     ※ 진료시간·주차요금 등 글 내용은 기존 사이트 '오시는길/주차안내' 페이지 그대로입니다.
+     ══════════════════════════════════════════════════════════════ -->
+<style>
+@import url('https://cdn.jsdelivr.net/gh/sun-typeface/suit@2/fonts/variable/woff2/SUIT-Variable.css');
+
+#hkLoc{
+  --hk-sky:#3FA7E6; --hk-sky-d:#1E7FC2; --hk-sky-l:#EAF6FD;
+  --hk-sun:#FFC93C; --hk-well:#2FBF9B; --hk-well-d:#1C8F72; --hk-well-l:#E4F8F2; --hk-sick:#FF7A6B;
+  --hk-ink:#1F3A4D; --hk-body:#4A5E6B; --hk-gray:#8697A2; --hk-line:#E6EDF1; --hk-line2:#F0F4F6; --hk-paper2:#F5F9FB;
+  --hk-ease:cubic-bezier(.16,1,.3,1);
+  --hk-maxw:1400px; --hk-pad:32px; --hk-r:22px; --hk-r2:16px;
+  line-height:1.75 !important;
+
+  display:block !important;position:relative !important;float:none !important;clear:both !important;
+  width:100% !important;max-width:100% !important;margin:0 !important;padding:110px 0 120px !important;
+  background:var(--hk-paper2) !important;box-sizing:border-box !important;overflow:hidden !important;
+}
+#hkLoc,#hkLoc *,#hkLoc *::before,#hkLoc *::after{
+  box-sizing:border-box !important;
+  font-family:'SUIT Variable','SUIT',-apple-system,BlinkMacSystemFont,'Pretendard','Apple SD Gothic Neo',sans-serif !important;
+  word-break:keep-all !important;
+}
+#hkLoc ul,#hkLoc li{list-style:none !important;margin:0 !important;padding:0 !important;background-image:none !important;}
+#hkLoc li::before,#hkLoc li::after{display:none !important;content:none !important;}
+#hkLoc p,#hkLoc h2,#hkLoc h3,#hkLoc span,#hkLoc div,#hkLoc a,#hkLoc em,#hkLoc b,#hkLoc small,#hkLoc table,#hkLoc th,#hkLoc td{margin:0 !important;padding:0 !important;}
+#hkLoc a{text-decoration:none !important;color:inherit !important;}
+#hkLoc svg{display:inline-block !important;flex:none !important;}
+#hkLoc iframe{display:block !important;border:0 !important;margin:0 !important;padding:0 !important;}
+#hkLoc .hk_wrap{max-width:var(--hk-maxw) !important;margin:0 auto !important;padding:0 var(--hk-pad) !important;width:100% !important;}
+#hkLoc .hk_rv{opacity:0 !important;transform:translateY(26px) !important;transition:opacity .9s var(--hk-ease),transform .9s var(--hk-ease) !important;}
+#hkLoc .hk_rv.hk_in{opacity:1 !important;transform:none !important;}
+#hkLoc .hk_d1{transition-delay:.08s !important;}
+#hkLoc .hk_d2{transition-delay:.16s !important;}
+#hkLoc .hk_d3{transition-delay:.24s !important;}
+
+/* 배경 장식 */
+#hkLoc .hk_blob{position:absolute !important;border-radius:50% !important;pointer-events:none !important;z-index:0 !important;}
+#hkLoc .hk_blob.hk_b1{width:520px !important;height:520px !important;right:-160px !important;top:-180px !important;background:radial-gradient(circle,rgba(63,167,230,.14),rgba(63,167,230,0) 68%) !important;}
+#hkLoc .hk_blob.hk_b2{width:420px !important;height:420px !important;left:-140px !important;bottom:-120px !important;background:radial-gradient(circle,rgba(255,201,60,.18),rgba(255,201,60,0) 68%) !important;}
+#hkLoc .hk_wrap{position:relative !important;z-index:1 !important;}
+
+/* 머리 */
+#hkLoc .hk_head{display:flex !important;align-items:flex-end !important;justify-content:space-between !important;gap:40px !important;margin-bottom:40px !important;flex-wrap:wrap !important;}
+#hkLoc .hk_eyebrow{display:flex !important;align-items:center !important;gap:10px !important;font-size:12px !important;font-weight:800 !important;letter-spacing:.16em !important;color:var(--hk-sky-d) !important;}
+#hkLoc .hk_eyebrow::before{content:'' !important;display:block !important;width:22px !important;height:2px !important;border-radius:2px !important;background:var(--hk-sun) !important;}
+#hkLoc .hk_h2{display:block !important;margin-top:12px !important;font-size:clamp(26px,3.4vw,38px) !important;font-weight:800 !important;line-height:1.35 !important;letter-spacing:-.045em !important;color:var(--hk-ink) !important;}
+#hkLoc .hk_lead{display:block !important;margin-top:12px !important;font-size:clamp(14.5px,1.5vw,16.5px) !important;line-height:1.85 !important;color:var(--hk-body) !important;}
+#hkLoc .hk_badges{display:flex !important;flex-wrap:wrap !important;gap:8px !important;max-width:560px !important;justify-content:flex-end !important;}
+#hkLoc .hk_badge{
+  display:inline-flex !important;align-items:center !important;gap:7px !important;
+  height:36px !important;padding:0 15px !important;border-radius:999px !important;
+  background:#fff !important;border:1px solid var(--hk-line) !important;
+  font-size:12.5px !important;font-weight:800 !important;color:var(--hk-ink) !important;letter-spacing:-.03em !important;
+}
+#hkLoc .hk_badge svg{width:14px !important;height:14px !important;color:var(--hk-well) !important;}
+#hkLoc .hk_badge.hk_moon{background:var(--hk-ink) !important;border-color:var(--hk-ink) !important;color:#fff !important;}
+#hkLoc .hk_badge.hk_moon svg{color:var(--hk-sun) !important;}
+
+/* 지도 + 주소 */
+#hkLoc .hk_main{display:grid !important;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr) !important;gap:20px !important;}
+#hkLoc .hk_map{border-radius:var(--hk-r) !important;overflow:hidden !important;border:1px solid var(--hk-line) !important;min-height:400px !important;background:#fff !important;position:relative !important;}
+#hkLoc .hk_map iframe{width:100% !important;height:100% !important;min-height:400px !important;}
+#hkLoc .root_daum_roughmap{width:100% !important;height:100% !important;min-height:400px !important;margin:0 !important;padding:0 !important;float:none !important;}
+#hkLoc .root_daum_roughmap .wrap_map{height:400px !important;width:100% !important;}
+#hkLoc .root_daum_roughmap .wrap_map iframe{min-height:0 !important;height:400px !important;}
+#hkLoc .root_daum_roughmap .map_border{display:none !important;}
+#hkLoc .root_daum_roughmap .wrap_controllers{border:0 !important;border-top:1px solid var(--hk-line) !important;background:#fff !important;font-family:inherit !important;}
+#hkLoc .hk_side{display:flex !important;flex-direction:column !important;gap:12px !important;}
+#hkLoc .hk_card{
+  position:relative !important;overflow:hidden !important;
+  background:var(--hk-ink) !important;color:#fff !important;border-radius:var(--hk-r) !important;padding:30px 28px 28px !important;
+  flex:1 1 auto !important;display:flex !important;flex-direction:column !important;justify-content:space-between !important;
+}
+#hkLoc .hk_card::after{content:'' !important;position:absolute !important;right:-70px !important;top:-70px !important;width:220px !important;height:220px !important;border-radius:50% !important;background:radial-gradient(circle,rgba(63,167,230,.45),rgba(63,167,230,0) 70%) !important;pointer-events:none !important;}
+#hkLoc .hk_card > *{position:relative !important;z-index:1 !important;}
+#hkLoc .hk_k{display:block !important;font-size:11px !important;font-weight:800 !important;letter-spacing:.16em !important;color:var(--hk-sun) !important;margin-bottom:12px !important;}
+#hkLoc .hk_addr{display:block !important;font-size:20px !important;font-weight:800 !important;letter-spacing:-.045em !important;line-height:1.6 !important;}
+#hkLoc .hk_addr em{font-style:normal !important;color:var(--hk-sky) !important;}
+#hkLoc .hk_sub{display:block !important;margin-top:8px !important;font-size:13.5px !important;color:rgba(255,255,255,.66) !important;letter-spacing:-.03em !important;line-height:1.7 !important;}
+#hkLoc .hk_apps{display:grid !important;grid-template-columns:repeat(3,1fr) !important;gap:8px !important;margin-top:24px !important;}
+#hkLoc .hk_app{
+  display:flex !important;align-items:center !important;justify-content:center !important;gap:7px !important;
+  height:46px !important;border-radius:12px !important;
+  background:rgba(255,255,255,.09) !important;border:1px solid rgba(255,255,255,.18) !important;
+  font-size:13px !important;font-weight:800 !important;color:#fff !important;letter-spacing:-.03em !important;
+  transition:background .3s var(--hk-ease) !important;
+}
+#hkLoc .hk_app:hover{background:rgba(255,255,255,.2) !important;}
+#hkLoc .hk_ic{display:flex !important;width:20px !important;height:20px !important;border-radius:6px !important;align-items:center !important;justify-content:center !important;font-size:10.5px !important;font-weight:800 !important;flex:none !important;}
+#hkLoc .hk_icN{background:#03C75A !important;color:#fff !important;}
+#hkLoc .hk_icK{background:#FEE500 !important;color:#3C1E1E !important;}
+#hkLoc .hk_icG{background:#fff !important;color:#4285F4 !important;}
+#hkLoc .hk_tels{display:grid !important;grid-template-columns:1fr 1fr !important;gap:12px !important;flex:0 0 auto !important;}
+#hkLoc .hk_tel{
+  background:#fff !important;border:1px solid var(--hk-line) !important;border-radius:var(--hk-r2) !important;padding:16px 20px !important;
+  display:flex !important;flex-direction:column !important;justify-content:center !important;gap:3px !important;line-height:1.35 !important;
+  transition:border-color .3s var(--hk-ease),background .3s var(--hk-ease),transform .3s var(--hk-ease) !important;
+}
+#hkLoc .hk_tel:hover{border-color:var(--hk-sky) !important;background:var(--hk-sky-l) !important;transform:translateY(-2px) !important;}
+#hkLoc .hk_tel .hk_tk{font-size:10.5px !important;font-weight:800 !important;letter-spacing:.14em !important;color:var(--hk-sky-d) !important;line-height:1.4 !important;}
+#hkLoc .hk_tel .hk_tv{font-size:19px !important;font-weight:800 !important;letter-spacing:-.04em !important;color:var(--hk-ink) !important;line-height:1.3 !important;}
+#hkLoc .hk_tel .hk_ts{font-size:12px !important;color:var(--hk-gray) !important;letter-spacing:-.02em !important;}
+#hkLoc .hk_tel.hk_ddoc .hk_tk{color:var(--hk-well-d) !important;}
+#hkLoc .hk_tel.hk_ddoc:hover{border-color:var(--hk-well) !important;background:var(--hk-well-l) !important;}
+
+/* 진료시간 · 접수안내 */
+#hkLoc .hk_hours{display:grid !important;grid-template-columns:3fr 2fr !important;gap:20px !important;margin-top:20px !important;}
+#hkLoc .hk_hg{background:#fff !important;border:1px solid var(--hk-line) !important;border-radius:var(--hk-r) !important;padding:28px 26px 26px !important;display:flex !important;flex-direction:column !important;}
+#hkLoc .hk_hcards{flex:1 1 auto !important;align-items:stretch !important;}
+#hkLoc .hk_sched{
+  display:flex !important;align-items:center !important;justify-content:space-between !important;gap:12px !important;
+  margin-top:16px !important;padding:14px 18px !important;border-radius:var(--hk-r2) !important;
+  background:var(--hk-sun) !important;color:var(--hk-ink) !important;
+  font-size:14px !important;font-weight:800 !important;letter-spacing:-.03em !important;
+  transition:transform .3s var(--hk-ease),box-shadow .3s var(--hk-ease) !important;
+}
+#hkLoc .hk_sched:hover{transform:translateY(-2px) !important;box-shadow:0 14px 26px -18px rgba(255,201,60,.9) !important;}
+#hkLoc .hk_sched small{display:block !important;font-size:12px !important;font-weight:600 !important;color:rgba(31,58,77,.7) !important;margin-top:2px !important;}
+#hkLoc .hk_sched svg{width:18px !important;height:18px !important;transition:transform .3s var(--hk-ease) !important;}
+#hkLoc .hk_sched:hover svg{transform:translateX(4px) !important;}
+#hkLoc .hk_hg.hk_b{background:var(--hk-sky-l) !important;border-color:rgba(63,167,230,.28) !important;}
+#hkLoc .hk_hh{display:flex !important;align-items:center !important;gap:10px !important;font-size:15px !important;font-weight:800 !important;color:var(--hk-ink) !important;letter-spacing:-.035em !important;margin-bottom:18px !important;}
+#hkLoc .hk_hh svg{width:18px !important;height:18px !important;color:var(--hk-sky-d) !important;}
+#hkLoc .hk_hcards{display:grid !important;gap:10px !important;grid-template-columns:repeat(3,1fr) !important;}
+#hkLoc .hk_hc{background:var(--hk-paper2) !important;border:1px solid var(--hk-line2) !important;border-radius:var(--hk-r2) !important;padding:18px 18px 20px !important;}
+#hkLoc .hk_hc .hk_d{display:block !important;font-size:12.5px !important;font-weight:800 !important;color:var(--hk-sky-d) !important;letter-spacing:-.02em !important;}
+#hkLoc .hk_hc .hk_t{display:block !important;margin-top:6px !important;font-size:18px !important;font-weight:800 !important;color:var(--hk-ink) !important;letter-spacing:-.045em !important;white-space:nowrap !important;}
+#hkLoc .hk_hc.hk_night{background:var(--hk-ink) !important;border-color:var(--hk-ink) !important;}
+#hkLoc .hk_hc.hk_night .hk_d{color:var(--hk-sun) !important;}
+#hkLoc .hk_hc.hk_night .hk_t{color:#fff !important;}
+#hkLoc .hk_bd{display:inline-flex !important;align-items:center !important;gap:5px !important;height:22px !important;margin-top:9px !important;padding:0 9px !important;border-radius:999px !important;background:var(--hk-sun) !important;color:var(--hk-ink) !important;font-size:10.5px !important;font-weight:800 !important;letter-spacing:-.02em !important;}
+#hkLoc .hk_bd svg{width:11px !important;height:11px !important;}
+#hkLoc .hk_steps{display:flex !important;flex-direction:column !important;gap:10px !important;}
+#hkLoc .hk_step{display:flex !important;gap:12px !important;align-items:flex-start !important;background:#fff !important;border-radius:var(--hk-r2) !important;padding:14px 16px !important;}
+#hkLoc .hk_step i{display:flex !important;align-items:center !important;justify-content:center !important;flex:none !important;width:28px !important;height:28px !important;border-radius:9px !important;background:var(--hk-sky) !important;color:#fff !important;font-style:normal !important;font-size:12px !important;font-weight:800 !important;margin-top:1px !important;}
+#hkLoc .hk_step b{display:block !important;font-size:14px !important;font-weight:800 !important;color:var(--hk-ink) !important;letter-spacing:-.03em !important;line-height:1.5 !important;}
+#hkLoc .hk_step span{display:block !important;margin-top:2px !important;font-size:13px !important;color:var(--hk-body) !important;letter-spacing:-.02em !important;line-height:1.65 !important;}
+#hkLoc .hk_step span em{font-style:normal !important;font-weight:800 !important;color:var(--hk-sky-d) !important;}
+
+/* 교통 · 주차 */
+#hkLoc .hk_way{display:grid !important;grid-template-columns:minmax(0,1fr) minmax(0,1.45fr) !important;gap:20px !important;margin-top:20px !important;align-items:stretch !important;}
+#hkLoc .hk_wl{display:flex !important;flex-direction:column !important;gap:20px !important;}
+#hkLoc .hk_wl .hk_wc{flex:1 1 auto !important;}
+#hkLoc .hk_wc{background:#fff !important;border:1px solid var(--hk-line) !important;border-radius:var(--hk-r) !important;padding:26px 26px 24px !important;}
+#hkLoc .hk_wh{display:flex !important;align-items:center !important;gap:10px !important;font-size:15px !important;font-weight:800 !important;color:var(--hk-ink) !important;letter-spacing:-.035em !important;margin-bottom:14px !important;}
+#hkLoc .hk_wh .hk_wi{display:flex !important;align-items:center !important;justify-content:center !important;width:36px !important;height:36px !important;border-radius:11px !important;background:var(--hk-sky-l) !important;color:var(--hk-sky-d) !important;flex:none !important;}
+#hkLoc .hk_wh .hk_wi svg{width:18px !important;height:18px !important;}
+#hkLoc .hk_wc.hk_park .hk_wh .hk_wi{background:var(--hk-well-l) !important;color:var(--hk-well-d) !important;}
+#hkLoc .hk_wc.hk_car .hk_wh .hk_wi{background:#FFF6DA !important;color:#B88600 !important;}
+#hkLoc .hk_chips{display:flex !important;flex-wrap:wrap !important;gap:6px !important;}
+#hkLoc .hk_chip{display:inline-flex !important;align-items:center !important;height:32px !important;padding:0 13px !important;border-radius:999px !important;background:var(--hk-paper2) !important;font-size:13.5px !important;font-weight:800 !important;color:var(--hk-ink) !important;letter-spacing:-.02em !important;}
+#hkLoc .hk_chip.hk_red{background:#FDECEA !important;color:#C8372A !important;}
+#hkLoc .hk_wp{display:block !important;font-size:13.5px !important;color:var(--hk-body) !important;line-height:1.75 !important;letter-spacing:-.02em !important;}
+#hkLoc .hk_wp + .hk_wp{margin-top:4px !important;}
+#hkLoc .hk_wp em{font-style:normal !important;font-weight:800 !important;color:var(--hk-ink) !important;}
+#hkLoc .hk_wp code{font-family:inherit !important;background:var(--hk-paper2) !important;border-radius:6px !important;padding:1px 7px !important;font-weight:800 !important;color:var(--hk-ink) !important;font-size:13px !important;}
+#hkLoc .hk_lots{display:grid !important;grid-template-columns:1fr 1fr !important;gap:8px !important;margin-bottom:14px !important;}
+#hkLoc .hk_lot{background:var(--hk-paper2) !important;border-radius:var(--hk-r2) !important;padding:12px 14px !important;display:flex !important;align-items:center !important;justify-content:space-between !important;gap:8px !important;}
+#hkLoc .hk_lot span{font-size:13px !important;font-weight:700 !important;color:var(--hk-body) !important;letter-spacing:-.02em !important;}
+#hkLoc .hk_lot b{font-size:17px !important;font-weight:800 !important;color:var(--hk-well-d) !important;letter-spacing:-.03em !important;white-space:nowrap !important;}
+#hkLoc .hk_lot b small{font-size:12px !important;font-weight:700 !important;margin-left:2px !important;}
+#hkLoc table.hk_fee{width:100% !important;border-collapse:collapse !important;border-spacing:0 !important;font-size:13.5px !important;line-height:1.5 !important;table-layout:fixed !important;border:0 !important;background:none !important;}
+#hkLoc table.hk_fee th,#hkLoc table.hk_fee td{border:0 !important;border-top:1px solid var(--hk-line2) !important;padding:10px 6px !important;text-align:left !important;vertical-align:middle !important;background:none !important;letter-spacing:-.02em !important;}
+#hkLoc table.hk_fee th{font-weight:700 !important;color:var(--hk-body) !important;width:52% !important;}
+#hkLoc table.hk_fee td{font-weight:800 !important;color:var(--hk-ink) !important;}
+#hkLoc table.hk_fee td .hk_free{display:inline-flex !important;align-items:center !important;height:24px !important;padding:0 9px !important;border-radius:999px !important;background:var(--hk-well-l) !important;color:var(--hk-well-d) !important;font-size:12.5px !important;font-weight:800 !important;}
+#hkLoc table.hk_fee td .hk_paid{display:inline-flex !important;align-items:center !important;height:24px !important;padding:0 9px !important;border-radius:999px !important;background:#FDECEA !important;color:#C8372A !important;font-size:12.5px !important;font-weight:800 !important;}
+#hkLoc table.hk_fee tr:first-child th,#hkLoc table.hk_fee tr:first-child td{border-top:0 !important;}
+#hkLoc table.hk_fee th br{display:block !important;}
+
+#hkLoc .hk_notes{margin-top:20px !important;display:flex !important;flex-wrap:wrap !important;gap:6px 24px !important;}
+#hkLoc .hk_notes li{font-size:13px !important;color:var(--hk-gray) !important;letter-spacing:-.02em !important;}
+#hkLoc .hk_notes li a{color:var(--hk-sky-d) !important;font-weight:800 !important;border-bottom:1px solid currentColor !important;}
+
+@media (max-width:1180px){#hkLoc{--hk-pad:26px;}}
+@media (max-width:1024px){
+  #hkLoc .hk_main{grid-template-columns:1fr !important;}
+  #hkLoc .hk_map,#hkLoc .hk_map iframe{min-height:320px !important;}
+  #hkLoc .root_daum_roughmap{min-height:320px !important;}
+  #hkLoc .root_daum_roughmap .wrap_map,#hkLoc .root_daum_roughmap .wrap_map iframe{height:320px !important;}
+  #hkLoc .hk_hours{grid-template-columns:1fr !important;}
+  #hkLoc .hk_head{flex-direction:column !important;align-items:flex-start !important;gap:20px !important;}
+  #hkLoc .hk_badges{justify-content:flex-start !important;max-width:none !important;}
+}
+@media (max-width:860px){
+  #hkLoc{--hk-pad:20px;--hk-r:18px;padding:70px 0 80px !important;}
+  #hkLoc .hk_card{padding:24px 22px !important;}
+  #hkLoc .hk_addr{font-size:18px !important;}
+  #hkLoc .hk_tels{gap:10px !important;}
+  #hkLoc .hk_tel{padding:14px 14px !important;}
+  #hkLoc .hk_tel .hk_tv{font-size:16.5px !important;}
+  #hkLoc .hk_hg,#hkLoc .hk_wc{padding:22px 20px !important;}
+  #hkLoc .hk_hcards{grid-template-columns:1fr !important;}
+  #hkLoc .hk_way{grid-template-columns:1fr !important;}
+  #hkLoc .hk_wl{gap:14px !important;}
+  #hkLoc .hk_way{gap:14px !important;}
+  #hkLoc .hk_sched{font-size:13.5px !important;padding:12px 14px !important;}
+  #hkLoc .hk_lots{grid-template-columns:1fr !important;}
+  #hkLoc .hk_notes{flex-direction:column !important;gap:6px !important;}
+}
+@media (max-width:420px){
+  #hkLoc .hk_apps{grid-template-columns:1fr !important;}
+  #hkLoc .hk_tels{grid-template-columns:1fr !important;}
+  #hkLoc table.hk_fee th{width:48% !important;}
+}
+</style>
+
+<section id="hkLoc">
+  <span class="hk_blob hk_b1"></span>
+  <span class="hk_blob hk_b2"></span>
+  <div class="hk_wrap">
+
+    <div class="hk_head">
+      <div>
+        <span class="hk_eyebrow hk_rv">VISIT US</span>
+        <h2 class="hk_h2 hk_rv hk_d1">진료시간 · 오시는 길</h2>
+        <p class="hk_lead hk_rv hk_d2">부산 강서구 명지 우진메디컬프라자 8~9층. 밤 11시까지, 주말과 공휴일에도 아이들을 기다립니다.</p>
+      </div>
+      <div class="hk_badges hk_rv hk_d2">
+        <span class="hk_badge hk_moon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>달빛어린이병원 · 야간진료</span>
+        <span class="hk_badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>호흡기전담클리닉</span>
+        <span class="hk_badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>국민안심병원</span>
+        <span class="hk_badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>토 · 일 · 공휴일 진료</span>
+      </div>
+    </div>
+
+    <!-- 지도 + 주소 -->
+    <div class="hk_main hk_rv hk_d1">
+      <div class="hk_map">
+        <div id="daumRoughmapContainer1607930741646" class="root_daum_roughmap root_daum_roughmap_landing"></div>
+      </div>
+
+      <div class="hk_side">
+        <div class="hk_card">
+          <div>
+            <span class="hk_k">ADDRESS</span>
+            <span class="hk_addr">부산 강서구 명지국제1로 25<br><em>우진메디컬프라자 8~9층</em></span>
+            <span class="hk_sub">지번 : 부산 강서구 명지동 3593-1 · 네비게이션에 '명지동 3593-1' 또는 '우진메디컬프라자' 검색</span>
+          </div>
+          <div class="hk_apps">
+            <a class="hk_app" href="https://map.naver.com/v5/search/%ED%96%89%EB%B3%B5%ED%95%9C%EC%96%B4%EB%A6%B0%EC%9D%B4%EB%B3%91%EC%9B%90%20%EB%AA%85%EC%A7%80" target="_blank" rel="noopener"><span class="hk_ic hk_icN">N</span>네이버 지도</a>
+            <a class="hk_app" href="https://map.kakao.com/?q=%ED%96%89%EB%B3%B5%ED%95%9C%EC%96%B4%EB%A6%B0%EC%9D%B4%EB%B3%91%EC%9B%90%20%EB%AA%85%EC%A7%80" target="_blank" rel="noopener"><span class="hk_ic hk_icK">K</span>카카오맵</a>
+            <a class="hk_app" href="https://www.google.com/maps/search/?api=1&query=%EB%B6%80%EC%82%B0%20%EA%B0%95%EC%84%9C%EA%B5%AC%20%EB%AA%85%EC%A7%80%EA%B5%AD%EC%A0%9C1%EB%A1%9C%2025" target="_blank" rel="noopener"><span class="hk_ic hk_icG">G</span>구글 지도</a>
+          </div>
+        </div>
+
+        <div class="hk_tels">
+          <a class="hk_tel" href="tel:051-264-9500"><span class="hk_tk">대표전화</span><span class="hk_tv">051-264-9500</span><span class="hk_ts">FAX 051-264-9100</span></a>
+          <a class="hk_tel hk_ddoc" href="https://goodoc.onelink.me/7srm/u0yjku3b" target="_blank" rel="noopener"><span class="hk_tk">진료예약</span><span class="hk_tv">굿닥 앱 예약</span><span class="hk_ts">스마트폰 [굿닥] 앱에서 가능</span></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 진료시간 · 접수 안내 -->
+    <div class="hk_hours hk_rv hk_d2">
+      <div class="hk_hg">
+        <div class="hk_hh"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>진료시간</div>
+        <div class="hk_hcards">
+          <div class="hk_hc hk_night">
+            <span class="hk_d">월 ~ 금요일</span>
+            <span class="hk_t">09:00 – 23:00</span>
+            <span class="hk_bd"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>달빛어린이병원 야간진료</span>
+          </div>
+          <div class="hk_hc"><span class="hk_d">토 · 일 · 공휴일</span><span class="hk_t">09:00 – 18:00</span></div>
+          <div class="hk_hc"><span class="hk_d">점심시간</span><span class="hk_t">13:00 – 14:00</span></div>
+        </div>
+        <a class="hk_sched" href="schedule.html">
+          <span>이달의 원장님별 진료시간표 보기<small>Well Zone · Sick Zone 원장님 진료시간은 매월 달라집니다</small></span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+      <div class="hk_hg hk_b">
+        <div class="hk_hh"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>접수 · 예약 안내</div>
+        <div class="hk_steps">
+          <div class="hk_step"><i>1</i><div><b>진료예약</b><span>스마트폰 <em>[굿닥] 앱</em>에서 예약하실 수 있습니다.</span></div></div>
+          <div class="hk_step"><i>2</i><div><b>당일접수</b><span><em>오전 5시부터</em> 원무과에 비치된 태블릿에서 직접 접수 가능합니다.</span></div></div>
+          <div class="hk_step"><i>3</i><div><b>예방접종 · 영유아검진 · 종합검진</b><span>모두 <em>예약 없이 당일 접수</em> 가능합니다.</span></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 교통 · 주차 -->
+    <div class="hk_way hk_rv hk_d3">
+      <div class="hk_wl">
+      <div class="hk_wc hk_bus">
+        <div class="hk_wh"><span class="hk_wi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="15" rx="3"/><path d="M4 10h16M8 18v2M16 18v2M8 14h.01M16 14h.01"/></svg></span>버스</div>
+        <div class="hk_chips">
+          <span class="hk_chip hk_red">급행 1011</span>
+          <span class="hk_chip hk_red">급행 2000</span>
+          <span class="hk_chip hk_red">급행 2000 (연산-하단)</span>
+        </div>
+        <p class="hk_wp" style="margin-top:12px !important;">급행버스 이용 시 <em>명지 우진메디컬프라자</em> 인근 정류장에서 내리시면 됩니다.</p>
+      </div>
+
+      <div class="hk_wc hk_car">
+        <div class="hk_wh"><span class="hk_wi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l1.5-5A2 2 0 0 1 8.4 6.5h7.2a2 2 0 0 1 1.9 1.5L19 13"/><rect x="3" y="13" width="18" height="6" rx="2"/><path d="M6 19v2M18 19v2M7 16h.01M17 16h.01"/></svg></span>자가용</div>
+        <p class="hk_wp">네비게이션에 <code>명지동 3593-1</code> 을 검색하세요.</p>
+        <p class="hk_wp">우진메디컬프라자 <em>지하 1층 · 2층</em> 전용주차장을 이용하시면 됩니다.</p>
+      </div>
+      </div>
+
+      <div class="hk_wc hk_park">
+        <div class="hk_wh"><span class="hk_wi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M9 17V7h4.5a3 3 0 0 1 0 6H9"/></svg></span>전용주차장 · 주차요금</div>
+        <div class="hk_lots">
+          <div class="hk_lot"><span>지하 1층 노면식 주차장</span><b>72<small>대</small></b></div>
+          <div class="hk_lot"><span>지하 2층 노면식 주차장</span><b>72<small>대</small></b></div>
+        </div>
+        <table class="hk_fee">
+          <tr><th>외래환자</th><td><span class="hk_free">1시간 무료</span></td></tr>
+          <tr><th>외래환자 · 수액치료</th><td><span class="hk_free">2시간 무료</span></td></tr>
+          <tr><th>입 · 퇴원 수속 당일</th><td><span class="hk_free">3시간 무료</span></td></tr>
+          <tr><th>상기 시간 초과분<br>면회객 및 방문자<br>입원환자 야간주차</th><td><span class="hk_paid">유료 · 1시간당 1,000원</span></td></tr>
+        </table>
+      </div>
+    </div>
+
+    <ul class="hk_notes hk_rv hk_d3">
+      <li>ㆍ진료 시간은 병원 사정에 따라 변경될 수 있습니다.</li>
+      <li>ㆍ진료예약은 <a href="https://goodoc.onelink.me/7srm/u0yjku3b" target="_blank" rel="noopener">[굿닥] 앱</a>에서, 당일접수는 원무과 태블릿에서 가능합니다.</li>
+      <li>ㆍ주차요금은 주차장 정산 기준에 따르며, 무료 시간 초과분은 유료입니다.</li>
+    </ul>
+
+  </div>
+</section>
+
+<script>
+(function () {
+  var root = document.getElementById('hkLoc');
+  if (!root || root.dataset.hkReady) return;
+  root.dataset.hkReady = '1';
+
+  /* ── 카카오맵(다음 약도) ──
+     roughmapLoader.js 는 document.write 로 Lander 를 불러오는데,
+     아임웹 코드 위젯은 페이지 로드 후 삽입되어 document.write 가 무시됩니다.
+     그래서 로더가 넣어 준 설정값(cdn/phase)으로 Lander 를 직접 붙입니다. */
+  (function () {
+    var box = root.querySelector('#daumRoughmapContainer1607930741646');
+    if (!box) return;
+
+    function add(src, cls) {
+      if (document.querySelector('script[data-hk-km="' + cls + '"]')) return;
+      var s = document.createElement('script');
+      s.charset = 'UTF-8';
+      s.src = src;
+      s.setAttribute('data-hk-km', cls);
+      if (cls === 'loader') s.className = 'daum_roughmap_loader_script';
+      document.head.appendChild(s);
+    }
+
+    function render() {
+      if (box.children.length) return;
+      try {
+        new daum.roughmap.Lander({
+          'timestamp': '1607930741646',
+          'key': '23gkj',
+          'mapWidth': '100%',
+          'mapHeight': '400'
+        }).render();
+      } catch (e) {}
+    }
+
+    var n = 0;
+    function tick() {
+      var rm = window.daum && window.daum.roughmap;
+      if (rm && rm.Lander) { render(); return; }
+      if (rm && rm.cdn && rm.phase) {
+        add((rm.url_protocal || 'https:') + '//t1.kakaocdn.net/kakaomapweb/roughmap/place/'
+            + rm.phase + '/' + rm.cdn + '/roughmapLander.js', 'lander');
+      }
+      if (++n > 120) return;
+      setTimeout(tick, 150);
+    }
+
+    add('https://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js', 'loader');
+    tick();
+  })();
+
+  var els = root.querySelectorAll('.hk_rv');
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !window.IntersectionObserver) {
+    Array.prototype.forEach.call(els, function (el) { el.classList.add('hk_in'); }); return;
+  }
+  var obs = new IntersectionObserver(function (es) {
+    es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('hk_in'); obs.unobserve(e.target); } });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  Array.prototype.forEach.call(els, function (el) { obs.observe(el); });
+})();
+</script>
+
+
+<!-- ══════════════════════════════════════════════════════════════
+     [행복한어린이병원] 09. 푸터 + 모바일 하단 고정 버튼 + 플로팅 퀵메뉴  (아임웹 코드 위젯용)
+     ─────────────────────────────────────────────────────────────
+     ※ 사이트 공통 영역(모든 페이지 맨 아래)에 한 번만 넣습니다.
+        아임웹 [디자인 > 푸터] 는 '사용 안 함' 으로 두세요.
+        (아임웹이 자동으로 붙여 주는 사업자 정보 줄은 그대로 두셔도 됩니다)
+     ※ 개인정보취급방침 · 이용약관 링크(/privacy, /terms)는
+        아임웹 관리자 > 설정 > 약관 에서 만든 페이지 주소로 바꿔 주세요.
+     ※ 로고 이미지는 기존 사이트(happykiz.kr) 주소입니다.
+        아임웹에 올린 뒤 주소만 바꿔 쓰세요.
+     ══════════════════════════════════════════════════════════════ -->
+<style>
+@import url('https://cdn.jsdelivr.net/gh/sun-typeface/suit@2/fonts/variable/woff2/SUIT-Variable.css');
+
+#hkFt{
+  --hk-sky:#3FA7E6; --hk-sky-d:#1E7FC2; --hk-sun:#FFC93C; --hk-well:#2FBF9B; --hk-sick:#FF7A6B;
+  --hk-ink:#1F3A4D; --hk-ink2:#173042; --hk-line:rgba(255,255,255,.12);
+  --hk-ease:cubic-bezier(.16,1,.3,1);
+  --hk-maxw:1400px; --hk-pad:32px;
+  line-height:1.8 !important;
+
+  display:block !important;position:relative !important;float:none !important;clear:both !important;
+  width:100% !important;max-width:100% !important;margin:0 !important;padding:0 0 46px !important;
+  background:var(--hk-ink) !important;color:#fff !important;
+  overflow:hidden !important;box-sizing:border-box !important;z-index:auto !important;
+}
+#hkFt,#hkFt *,#hkFt *::before,#hkFt *::after,
+#hkCta,#hkCta *{
+  box-sizing:border-box !important;
+  font-family:'SUIT Variable','SUIT',-apple-system,BlinkMacSystemFont,'Pretendard','Apple SD Gothic Neo',sans-serif !important;
+  word-break:keep-all !important;
+}
+#hkFt p,#hkFt span,#hkFt a,#hkFt div,#hkFt b,#hkFt small,#hkFt nav,#hkFt ul,#hkFt li{margin:0 !important;padding:0 !important;}
+#hkFt ul,#hkFt li{list-style:none !important;background-image:none !important;}
+#hkFt li::before,#hkFt li::after{display:none !important;content:none !important;}
+#hkFt a,#hkCta a{text-decoration:none !important;color:inherit !important;}
+#hkFt img{max-width:none !important;display:block !important;border:0 !important;}
+#hkFt svg{display:inline-block !important;flex:none !important;}
+
+/* 맨 위 무지개 줄 (상단메뉴와 같은 색) */
+#hkFt .hk_rainbow{height:4px !important;background:linear-gradient(90deg,#FF7A6B 0%,#FFC93C 30%,#2FBF9B 62%,#3FA7E6 100%) !important;}
+#hkFt .hk_wrap{max-width:var(--hk-maxw) !important;margin:0 auto !important;padding:0 var(--hk-pad) !important;width:100% !important;position:relative !important;}
+#hkFt .hk_glow{position:absolute !important;right:-120px !important;top:-140px !important;width:460px !important;height:460px !important;border-radius:50% !important;background:radial-gradient(circle,rgba(63,167,230,.22),rgba(63,167,230,0) 68%) !important;pointer-events:none !important;}
+
+/* 위 : 로고 + 메뉴 */
+#hkFt .hk_top{display:flex !important;justify-content:space-between !important;gap:48px !important;flex-wrap:wrap !important;padding:64px 0 40px !important;border-bottom:1px solid var(--hk-line) !important;position:relative !important;}
+#hkFt .hk_brand{flex:0 0 auto !important;max-width:360px !important;}
+#hkFt .hk_logo{display:inline-flex !important;align-items:center !important;background:#fff !important;border-radius:16px !important;padding:12px 18px !important;margin-bottom:18px !important;}
+#hkFt .hk_logo img{height:56px !important;width:auto !important;}
+#hkFt .hk_brand b{display:block !important;font-size:21px !important;font-weight:800 !important;letter-spacing:-.045em !important;}
+#hkFt .hk_brand small{display:block !important;font-size:10px !important;font-weight:800 !important;letter-spacing:.22em !important;color:var(--hk-sun) !important;margin-top:6px !important;}
+#hkFt .hk_brand p{display:block !important;margin-top:16px !important;font-size:13.5px !important;color:rgba(255,255,255,.66) !important;letter-spacing:-.02em !important;line-height:1.8 !important;}
+#hkFt .hk_certs{display:flex !important;flex-wrap:wrap !important;gap:6px !important;margin-top:18px !important;}
+#hkFt .hk_cert{display:inline-flex !important;align-items:center !important;gap:6px !important;height:30px !important;padding:0 12px !important;border-radius:999px !important;background:rgba(255,255,255,.08) !important;border:1px solid var(--hk-line) !important;font-size:12px !important;font-weight:700 !important;color:rgba(255,255,255,.85) !important;letter-spacing:-.02em !important;}
+#hkFt .hk_cert svg{width:12px !important;height:12px !important;color:var(--hk-sun) !important;}
+
+#hkFt .hk_cols{display:grid !important;grid-template-columns:repeat(4,auto) !important;gap:24px 56px !important;flex:0 1 auto !important;}
+#hkFt .hk_col b{display:block !important;font-size:13px !important;font-weight:800 !important;letter-spacing:-.02em !important;color:#fff !important;margin-bottom:14px !important;}
+#hkFt .hk_col b i{display:inline-block !important;width:8px !important;height:8px !important;border-radius:50% !important;margin-right:8px !important;vertical-align:1px !important;}
+#hkFt .hk_col a{display:block !important;font-size:13.5px !important;font-weight:500 !important;color:rgba(255,255,255,.66) !important;letter-spacing:-.02em !important;line-height:2 !important;transition:color .25s var(--hk-ease),transform .25s var(--hk-ease) !important;}
+#hkFt .hk_col a:hover{color:#fff !important;transform:translateX(3px) !important;}
+
+/* 아래 : 정보 + 카피 */
+#hkFt .hk_bottom{padding-top:28px !important;display:flex !important;justify-content:space-between !important;gap:24px 40px !important;flex-wrap:wrap !important;align-items:flex-start !important;}
+#hkFt .hk_info{display:flex !important;flex-wrap:wrap !important;gap:6px 22px !important;font-size:13px !important;color:rgba(255,255,255,.62) !important;letter-spacing:-.02em !important;line-height:1.9 !important;}
+#hkFt .hk_info b{font-weight:800 !important;color:rgba(255,255,255,.9) !important;margin-right:6px !important;}
+#hkFt .hk_info a:hover{color:#fff !important;}
+#hkFt .hk_terms{display:flex !important;gap:18px !important;flex:none !important;}
+#hkFt .hk_terms a{font-size:13px !important;font-weight:700 !important;color:rgba(255,255,255,.8) !important;letter-spacing:-.02em !important;transition:color .25s var(--hk-ease) !important;}
+#hkFt .hk_terms a:hover{color:var(--hk-sun) !important;}
+#hkFt .hk_terms a.hk_pv{color:#fff !important;}
+#hkFt .hk_copy{display:block !important;margin-top:22px !important;font-size:12px !important;color:rgba(255,255,255,.45) !important;letter-spacing:.01em !important;line-height:1.9 !important;}
+#hkFt .hk_disc{display:block !important;margin-top:10px !important;font-size:11.5px !important;color:rgba(255,255,255,.38) !important;line-height:1.9 !important;letter-spacing:-.02em !important;max-width:820px !important;}
+
+/* 모바일 하단 고정 버튼 */
+#hkCta{
+  display:none !important;
+  position:fixed !important;left:0 !important;right:0 !important;bottom:0 !important;
+  z-index:8000 !important;background:#fff !important;border-top:1px solid #E6EDF1 !important;
+  padding:8px 10px calc(8px + env(safe-area-inset-bottom)) !important;
+  gap:8px !important;box-shadow:0 -10px 28px -18px rgba(31,58,77,.5) !important;
+}
+#hkCta a{
+  flex:1 !important;display:flex !important;flex-direction:column !important;
+  align-items:center !important;justify-content:center !important;gap:3px !important;
+  height:56px !important;border-radius:14px !important;
+  font-size:13px !important;font-weight:800 !important;letter-spacing:-.035em !important;
+}
+#hkCta a em{font-style:normal !important;font-size:10px !important;font-weight:700 !important;letter-spacing:.02em !important;opacity:.62 !important;}
+#hkCta a.hk_p{background:#3FA7E6 !important;color:#fff !important;}
+#hkCta a.hk_p em{opacity:.85 !important;}
+#hkCta a.hk_s{background:#F5F9FB !important;color:#1F3A4D !important;}
+#hkCta a.hk_y{background:#FFC93C !important;color:#1F3A4D !important;}
+
+@media (max-width:1180px){#hkFt{--hk-pad:26px;}#hkFt .hk_cols{gap:24px 36px !important;}}
+@media (max-width:1024px){
+  #hkFt .hk_top{flex-direction:column !important;gap:36px !important;}
+  #hkFt .hk_cols{grid-template-columns:repeat(2,1fr) !important;gap:26px 24px !important;}
+}
+@media (max-width:860px){
+  #hkFt{--hk-pad:20px;padding:0 0 108px !important;}
+  #hkFt .hk_top{padding:48px 0 32px !important;}
+  #hkFt .hk_logo img{height:46px !important;}
+  #hkFt .hk_bottom{flex-direction:column !important;gap:18px !important;}
+  #hkFt .hk_info{flex-direction:column !important;gap:4px !important;}
+  #hkCta{display:flex !important;}
+}
+@media (max-width:420px){#hkFt .hk_cols{grid-template-columns:1fr 1fr !important;}}
+</style>
+
+<footer id="hkFt">
+  <div class="hk_rainbow"></div>
+  <div class="hk_wrap">
+    <span class="hk_glow"></span>
+
+    <div class="hk_top">
+      <div class="hk_brand">
+        <a class="hk_logo" href="home.html"><img src="https://www.happykiz.kr/Resources/images/logo_m.png" alt="행복한어린이병원"></a>
+        <b>행복한어린이병원</b>
+        <small>HAPPY CHILD HOSPITAL</small>
+        <p>튼튼한 아이는 Well Zone에서, 아픈 아이는 Sick Zone에서.<br>부산 강서구 명지에서 밤 11시까지, 주말과 공휴일에도 아이들 곁에 있습니다.</p>
+        <div class="hk_certs">
+          <span class="hk_cert"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>달빛어린이병원</span>
+          <span class="hk_cert"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>호흡기전담클리닉</span>
+          <span class="hk_cert"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>국민안심병원</span>
+        </div>
+      </div>
+
+      <nav class="hk_cols" aria-label="푸터 메뉴">
+        <div class="hk_col">
+          <b><i style="background:#3FA7E6 !important;"></i>병원소개</b>
+          <a href="about.html">인사말 · 비전</a>
+          <a href="doctors.html">의료진 소개</a>
+          <a href="tour.html">둘러보기</a>
+          <a href="location.html">오시는 길 · 주차안내</a>
+        </div>
+        <div class="hk_col">
+          <b><i style="background:#FFC93C !important;"></i>진료안내</b>
+          <a href="schedule.html">진료시간표</a>
+          <a href="reservation.html">진료예약 안내</a>
+          <a href="admission.html">입퇴원 안내</a>
+          <a href="certificate.html">증명서 발급 안내</a>
+          <a href="fees.html">비급여 진료비</a>
+        </div>
+        <div class="hk_col">
+          <b><i style="background:#2FBF9B !important;"></i>Well Zone</b>
+          <a href="vaccination.html">예방접종</a>
+          <a href="infant-checkup.html">영유아 건강검진</a>
+          <a href="checkup.html">소아청소년 종합검진</a>
+          <a href="growth.html">성장 · 성조숙 · 비만</a>
+        </div>
+        <div class="hk_col">
+          <b><i style="background:#FF7A6B !important;"></i>Sick Zone · 발달</b>
+          <a href="sickzone.html">Sick Zone 클리닉</a>
+          <a href="iv-therapy.html">맞춤형 영양수액</a>
+          <a href="allergy.html">알레르기 클리닉</a>
+          <a href="development.html">아동발달 클리닉</a>
+        </div>
+      </nav>
+    </div>
+
+    <div class="hk_bottom">
+      <div class="hk_info">
+        <span><b>주소</b>부산 강서구 명지국제1로 25 우진메디컬프라자 8~9층</span>
+        <span><b>TEL</b><a href="tel:051-264-9500">051-264-9500</a></span>
+        <span><b>FAX</b>051-264-9100</span>
+        <span><b>블로그</b><a href="https://blog.naver.com/jooya057" target="_blank" rel="noopener">blog.naver.com/jooya057</a></span>
+      </div>
+      <div class="hk_terms">
+        <a class="hk_pv" href="privacy.html">개인정보취급방침</a>
+        <a href="terms.html">이용약관</a>
+        <a href="notice.html">공지사항</a>
+      </div>
+    </div>
+
+    <span class="hk_copy">Copyright © 행복한어린이병원. All Rights Reserved.</span>
+    <span class="hk_disc">본 홈페이지의 의학 정보는 일반적인 이해를 돕기 위한 것으로, 아이의 상태에 따라 진단과 치료 방법은 달라질 수 있습니다. 정확한 진단과 치료는 반드시 의료진과 상담하시기 바랍니다.</span>
+  </div>
+</footer>
+
+<nav id="hkCta" aria-label="빠른 연결">
+  <a class="hk_s" href="tel:051-264-9500"><em>대표전화</em>051-264-9500</a>
+  <a class="hk_y" href="schedule.html"><em>이달의</em>진료시간표</a>
+  <a class="hk_p" href="https://goodoc.onelink.me/7srm/u0yjku3b" target="_blank" rel="noopener"><em>[굿닥] 앱</em>진료예약</a>
+</nav>
+
+<!-- ══════════════════════════════════════════════════════════════
+     [행복한어린이병원] 10. 플로팅 퀵메뉴 (우측 하단 고정)
+     ─────────────────────────────────────────────────────────────
+     ※ 페이지 어디에 넣어도 화면 우측 하단에 고정됩니다.
+        모바일에서는 하단 고정 버튼(09번 블록)과 겹치므로 자동으로 숨겨집니다.
+     ══════════════════════════════════════════════════════════════ -->
+<style>
+#hkQm{
+  --hk-sky:#3FA7E6; --hk-sky-d:#1E7FC2; --hk-sky-l:#EAF6FD; --hk-sun:#FFC93C;
+  --hk-ink:#1F3A4D; --hk-gray:#8697A2; --hk-line:#E6EDF1; --hk-paper2:#F5F9FB;
+  --hk-ease:cubic-bezier(.16,1,.3,1);
+
+  position:fixed !important;
+  right:26px !important;bottom:28px !important;
+  z-index:8500 !important;
+  display:flex !important;flex-direction:column !important;align-items:flex-end !important;
+  gap:10px !important;margin:0 !important;padding:0 !important;
+  width:auto !important;max-width:none !important;
+  box-sizing:border-box !important;line-height:1.6 !important;
+}
+#hkQm,#hkQm *{
+  box-sizing:border-box !important;margin:0 !important;padding:0 !important;
+  font-family:'SUIT Variable','SUIT',-apple-system,BlinkMacSystemFont,'Pretendard','Apple SD Gothic Neo',sans-serif !important;
+  word-break:keep-all !important;
+}
+#hkQm a{text-decoration:none !important;color:inherit !important;}
+#hkQm button{font:inherit !important;color:inherit !important;background:none !important;border:0 !important;cursor:pointer !important;}
+#hkQm svg{display:block !important;}
+
+/* ── 패널 ── */
+#hkQm .hk_panel{
+  width:164px !important;
+  background:rgba(255,255,255,.94) !important;
+  -webkit-backdrop-filter:blur(16px) saturate(180%);backdrop-filter:blur(16px) saturate(180%);
+  border:1px solid var(--hk-line) !important;
+  border-radius:18px !important;
+  padding:8px !important;
+  display:flex !important;flex-direction:column !important;gap:6px !important;
+  box-shadow:0 18px 40px -12px rgba(31,58,77,.25) !important;
+}
+#hkQm .hk_items{
+  display:flex !important;flex-direction:column !important;gap:5px !important;
+  max-height:0 !important;opacity:0 !important;overflow:hidden !important;
+  transition:max-height .38s var(--hk-ease),opacity .3s var(--hk-ease),margin .38s var(--hk-ease) !important;
+}
+#hkQm .hk_panel.hk_on .hk_items{max-height:380px !important;opacity:1 !important;margin-bottom:3px !important;}
+
+/* ── 항목 ── */
+#hkQm .hk_it{
+  display:flex !important;align-items:center !important;gap:10px !important;
+  padding:9px 10px !important;border-radius:12px !important;
+  background:var(--hk-paper2) !important;border:1px solid transparent !important;
+  color:var(--hk-ink) !important;
+  transition:background .22s var(--hk-ease),border-color .22s var(--hk-ease),transform .22s var(--hk-ease) !important;
+}
+#hkQm .hk_it span{font-size:13px !important;font-weight:800 !important;letter-spacing:-.035em !important;line-height:1 !important;}
+#hkQm .hk_ico{
+  display:flex !important;width:30px !important;height:30px !important;flex:none !important;
+  border-radius:9px !important;background:#fff !important;border:1px solid var(--hk-line) !important;
+  align-items:center !important;justify-content:center !important;color:var(--hk-ink) !important;
+  transition:background .22s var(--hk-ease),border-color .22s var(--hk-ease),color .22s var(--hk-ease) !important;
+}
+#hkQm .hk_ico svg{width:15px !important;height:15px !important;stroke:currentColor !important;fill:none !important;stroke-width:2 !important;stroke-linecap:round !important;stroke-linejoin:round !important;}
+#hkQm .hk_ico.hk_fill svg{stroke:none !important;fill:currentColor !important;}
+#hkQm .hk_it:hover{background:var(--hk-sky-l) !important;border-color:rgba(63,167,230,.4) !important;transform:translateX(-2px) !important;}
+#hkQm .hk_it:hover .hk_ico{background:var(--hk-sky) !important;border-color:var(--hk-sky) !important;color:#fff !important;}
+
+/* 굿닥 예약 : 항상 강조 */
+#hkQm .hk_it.hk_dd{background:var(--hk-sun) !important;}
+#hkQm .hk_it.hk_dd .hk_ico{background:#fff !important;border-color:#fff !important;color:var(--hk-ink) !important;}
+#hkQm .hk_it.hk_dd:hover{background:#FFD65E !important;border-color:#FFD65E !important;}
+#hkQm .hk_it.hk_dd:hover .hk_ico{background:var(--hk-ink) !important;border-color:var(--hk-ink) !important;color:#fff !important;}
+
+/* 학교검진 : Well Zone 초록 */
+#hkQm .hk_it.hk_sc:hover{background:#E4F8F2 !important;border-color:rgba(47,191,155,.45) !important;}
+#hkQm .hk_it.hk_sc:hover .hk_ico{background:#2FBF9B !important;border-color:#2FBF9B !important;color:#fff !important;}
+
+/* 네이버 블로그 */
+#hkQm .hk_it.hk_nv:hover{background:#F0FDF4 !important;border-color:#BBF7D0 !important;}
+#hkQm .hk_it.hk_nv:hover .hk_ico{background:#03C75A !important;border-color:#03C75A !important;color:#fff !important;}
+#hkQm .hk_it.hk_nv:hover span{color:#02843C !important;}
+
+/* ── 토글 ── */
+#hkQm .hk_toggle{
+  display:flex !important;width:100% !important;height:42px !important;border-radius:12px !important;
+  background:var(--hk-ink) !important;color:#fff !important;
+  align-items:center !important;justify-content:center !important;gap:7px !important;
+  transition:background .22s var(--hk-ease) !important;
+}
+#hkQm .hk_toggle:hover{background:var(--hk-sky-d) !important;}
+#hkQm .hk_toggle b{font-size:12.5px !important;font-weight:800 !important;letter-spacing:-.02em !important;}
+#hkQm .hk_toggle svg{width:14px !important;height:14px !important;stroke:currentColor !important;fill:none !important;stroke-width:2.4 !important;transition:transform .3s var(--hk-ease) !important;}
+#hkQm .hk_panel.hk_on .hk_toggle svg{transform:rotate(180deg) !important;}
+
+/* ── TOP 버튼 ── */
+#hkQm .hk_top{
+  display:flex !important;width:42px !important;height:42px !important;border-radius:14px !important;
+  background:rgba(255,255,255,.94) !important;
+  -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);
+  border:1px solid var(--hk-line) !important;color:var(--hk-gray) !important;
+  align-items:center !important;justify-content:center !important;
+  box-shadow:0 10px 22px -10px rgba(31,58,77,.3) !important;
+  opacity:0 !important;visibility:hidden !important;transform:translateY(8px) !important;
+  transition:opacity .25s var(--hk-ease),visibility .25s,transform .25s var(--hk-ease),color .25s var(--hk-ease),border-color .25s var(--hk-ease) !important;
+}
+#hkQm .hk_top.hk_show{opacity:1 !important;visibility:visible !important;transform:none !important;}
+#hkQm .hk_top:hover{color:var(--hk-sky-d) !important;border-color:var(--hk-sky) !important;background:#fff !important;}
+#hkQm .hk_top svg{width:19px !important;height:19px !important;stroke:currentColor !important;fill:none !important;stroke-width:2.2 !important;stroke-linecap:round !important;stroke-linejoin:round !important;}
+
+/* 푸터가 화면에 들어오면 살짝 감춰 푸터 메뉴를 가리지 않게 합니다 */
+#hkQm.hk_away{opacity:0 !important;visibility:hidden !important;pointer-events:none !important;transform:translateX(12px) !important;}
+#hkQm{transition:opacity .3s var(--hk-ease),visibility .3s,transform .3s var(--hk-ease) !important;}
+
+/* 모바일 : 하단 고정 버튼과 겹치므로 숨김 */
+@media (max-width:860px){
+  #hkQm{display:none !important;}
+}
+</style>
+
+<div id="hkQm">
+  <div class="hk_panel hk_on">
+    <div class="hk_items">
+
+      <a class="hk_it hk_dd" href="https://goodoc.onelink.me/7srm/u0yjku3b" target="_blank" rel="noopener">
+        <span class="hk_ico"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="17" rx="3"/><path d="M8 2v4M16 2v4M3 10h18M9 15l2 2 4-4"/></svg></span>
+        <span>굿닥 진료예약</span>
+      </a>
+
+      <a class="hk_it" href="schedule.html">
+        <span class="hk_ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+        <span>진료시간표</span>
+      </a>
+
+      <a class="hk_it hk_sc" href="https://eo-m.com/2022/HSP/HSP_Student.asp?hNo=21203369" target="_blank" rel="noopener">
+        <span class="hk_ico"><svg viewBox="0 0 24 24"><path d="M3 10l9-5 9 5-9 5z"/><path d="M7 12.2V17c0 1.2 2.2 2.5 5 2.5s5-1.3 5-2.5v-4.8"/></svg></span>
+        <span>학생검진 문진표</span>
+      </a>
+
+      <a class="hk_it" href="tel:051-264-9500">
+        <span class="hk_ico"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.13.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.11L8.1 9.9a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.9z"/></svg></span>
+        <span>전화 문의</span>
+      </a>
+
+      <a class="hk_it" href="location.html">
+        <span class="hk_ico"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+        <span>오시는 길</span>
+      </a>
+
+      <a class="hk_it hk_nv" href="https://blog.naver.com/jooya057" target="_blank" rel="noopener">
+        <span class="hk_ico hk_fill"><svg viewBox="0 0 24 24"><path d="M16.27 4.3v6.52L7.74 4.3H3v15.4h4.72v-6.52l8.53 6.52H21V4.3z"/></svg></span>
+        <span>공식 블로그</span>
+      </a>
+
+    </div>
+
+    <button class="hk_toggle" type="button" aria-label="빠른 메뉴 접기/펼치기" aria-expanded="true">
+      <b>빠른 메뉴</b>
+      <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+  </div>
+
+  <button class="hk_top" type="button" aria-label="페이지 맨 위로 이동">
+    <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+</div>
+
+<script>
+(function () {
+  var root = document.getElementById('hkQm');
+  if (!root || root.dataset.hkReady) return;
+  root.dataset.hkReady = '1';
+
+  var panel  = root.querySelector('.hk_panel');
+  var toggle = root.querySelector('.hk_toggle');
+  var top    = root.querySelector('.hk_top');
+
+  toggle.addEventListener('click', function () {
+    var on = panel.classList.toggle('hk_on');
+    toggle.setAttribute('aria-expanded', on ? 'true' : 'false');
+  });
+
+  top.addEventListener('click', function () {
+    try { window.scrollTo({ top: 0, behavior: 'smooth' }); }
+    catch (e) { window.scrollTo(0, 0); }
+  });
+
+  function onScroll() {
+    if (window.pageYOffset > 250) top.classList.add('hk_show');
+    else top.classList.remove('hk_show');
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  /* 푸터가 보이면 퀵메뉴를 감춰 푸터 메뉴를 가리지 않게 합니다 */
+  var ft = document.getElementById('hkFt');
+  if (ft && window.IntersectionObserver) {
+    new IntersectionObserver(function (es) {
+      es.forEach(function (e) { root.classList[e.isIntersecting ? 'add' : 'remove']('hk_away'); });
+    }, { threshold: 0 }).observe(ft);
+  }
+})();
+</script>
+
+</body>
+</html>

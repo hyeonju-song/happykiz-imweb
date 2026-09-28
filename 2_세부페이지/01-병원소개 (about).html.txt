@@ -1,0 +1,357 @@
+<!-- ══════════════════════════════════════════════════════════════
+     [행복한어린이병원] 세부페이지 — 병원소개  (주소 /about)
+     ─────────────────────────────────────────────────────────────
+     아임웹 [병원소개] 페이지의 본문 코드 위젯에 통째로 붙여넣으세요.
+     (상단 히어로부터 아래 CTA까지 이 파일 하나에 다 들어 있습니다)
+
+     ※ 글(내용)은 기존 사이트 그대로입니다. 디자인만 새로 만들었습니다.
+     ※ 페이지 맨 위 '헤더' 위젯 자리에는 1_메인페이지/0-빈 위젯 을 넣으세요.
+     ※ 상단메뉴(1번) · 진료시간·오시는길(8번) · 푸터(9번)는 공통 위젯을 씁니다.
+     ※ 모든 스타일은 #hkSub 안에서만 적용됩니다.
+     ※ 이미지 주소는 기존 사이트(www.happykiz.kr)를 가리킵니다.
+        아임웹에 이미지를 올린 뒤 주소만 바꿔 쓰세요.
+     ══════════════════════════════════════════════════════════════ -->
+<style>
+@import url('https://cdn.jsdelivr.net/gh/sun-typeface/suit@2/fonts/variable/woff2/SUIT-Variable.css');
+
+/* ══════════════════════════════════════════════════════════════
+   세부페이지 공통 스타일  (23개 세부페이지가 모두 동일)
+   ══════════════════════════════════════════════════════════════ */
+#hkSub{
+  --hk-sky:#3FA7E6; --hk-sky-d:#1E7FC2; --hk-sky-l:#EAF6FD;
+  --hk-sun:#FFC93C; --hk-sun-l:#FFF6DE;
+  --hk-well:#2FBF9B; --hk-well-l:#E4F8F2;
+  --hk-sick:#FF7A6B; --hk-sick-l:#FFEDEA;
+  --hk-ink:#1F3A4D; --hk-body:#4A5E6B; --hk-gray:#8697A2;
+  --hk-line:#E6EDF1; --hk-paper2:#F5F9FB;
+  --hk-ease:cubic-bezier(.16,1,.3,1);
+  --hk-maxw:1400px; --hk-pad:32px; --hk-hd:88px;
+  line-height:1.8 !important;
+
+  display:block !important; position:relative !important;
+  float:none !important; clear:both !important;
+  width:100% !important; max-width:100% !important;
+  margin:0 !important; padding:0 !important;
+  background:#fff !important; overflow:visible !important;
+  box-sizing:border-box !important; z-index:auto !important;
+}
+#hkSub,#hkSub *,#hkSub *::before,#hkSub *::after{
+  box-sizing:border-box !important;
+  font-family:'SUIT Variable','SUIT',-apple-system,BlinkMacSystemFont,'Pretendard','Apple SD Gothic Neo',sans-serif !important;
+  word-break:keep-all !important;
+}
+#hkSub ul,#hkSub ol,#hkSub li{list-style:none !important;margin:0 !important;padding:0 !important;background-image:none !important;}
+#hkSub li::before,#hkSub li::after{display:none !important;content:none !important;}
+#hkSub p,#hkSub h1,#hkSub h2,#hkSub h3,#hkSub h4,#hkSub span,#hkSub div,#hkSub a,#hkSub em,#hkSub b,#hkSub strong,#hkSub small{margin:0 !important;padding:0 !important;}
+#hkSub a{text-decoration:none !important;color:inherit !important;}
+#hkSub img{max-width:100% !important;display:block !important;border:0 !important;}
+#hkSub svg{display:inline-block !important;}
+
+#hkSub .hk_wrap{max-width:var(--hk-maxw) !important;margin:0 auto !important;padding:0 var(--hk-pad) !important;width:100% !important;}
+#hkSub .hk_narrow{max-width:1040px !important;margin:0 auto !important;padding:0 var(--hk-pad) !important;width:100% !important;}
+
+#hkSub .hk_rv{opacity:0 !important;transform:translateY(26px) !important;transition:opacity .9s var(--hk-ease),transform .9s var(--hk-ease) !important;}
+#hkSub .hk_rv.hk_in{opacity:1 !important;transform:none !important;}
+#hkSub .hk_d1{transition-delay:.08s !important;}
+#hkSub .hk_d2{transition-delay:.16s !important;}
+#hkSub .hk_d3{transition-delay:.24s !important;}
+
+/* ── 서브 히어로 ── */
+#hkSub .hk_hero{
+  position:relative !important;overflow:hidden !important;
+  padding:calc(var(--hk-hd) + 76px) 0 84px !important;
+  background:linear-gradient(135deg,#EAF6FD 0%,#F7FCFF 55%,#FFFDF4 100%) !important;
+}
+#hkSub .hk_hero::before{
+  content:'' !important;position:absolute !important;right:-160px !important;top:-180px !important;
+  width:620px !important;height:620px !important;border-radius:50% !important;
+  background:radial-gradient(circle,rgba(63,167,230,.18),rgba(63,167,230,0) 68%) !important;pointer-events:none !important;
+}
+#hkSub .hk_hero::after{
+  content:'' !important;position:absolute !important;left:-120px !important;bottom:-220px !important;
+  width:480px !important;height:480px !important;border-radius:50% !important;
+  background:radial-gradient(circle,rgba(255,201,60,.22),rgba(255,201,60,0) 66%) !important;pointer-events:none !important;
+}
+#hkSub .hk_hero .hk_wrap{position:relative !important;z-index:2 !important;}
+#hkSub .hk_bc{display:flex !important;align-items:center !important;gap:8px !important;font-size:13px !important;color:var(--hk-gray) !important;font-weight:600 !important;}
+#hkSub .hk_bc i{display:block !important;width:4px !important;height:4px !important;border-radius:50% !important;background:var(--hk-line) !important;font-style:normal !important;}
+#hkSub .hk_bc b{color:var(--hk-sky-d) !important;font-weight:800 !important;}
+#hkSub .hk_eyebrow{
+  display:flex !important;align-items:center !important;gap:10px !important;margin-top:26px !important;
+  font-size:12px !important;font-weight:800 !important;letter-spacing:.16em !important;color:var(--hk-sky-d) !important;
+}
+#hkSub .hk_eyebrow::before{content:'' !important;display:block !important;width:22px !important;height:2px !important;border-radius:2px !important;background:var(--hk-sun) !important;}
+#hkSub .hk_h1{
+  display:block !important;margin-top:14px !important;
+  font-size:clamp(32px,4.6vw,54px) !important;font-weight:800 !important;
+  line-height:1.24 !important;letter-spacing:-.05em !important;color:var(--hk-ink) !important;
+}
+#hkSub .hk_hlead{display:block !important;margin-top:18px !important;max-width:720px !important;font-size:clamp(15px,1.7vw,17.5px) !important;color:var(--hk-body) !important;}
+
+/* ── 섹션 공통 ── */
+#hkSub .hk_sec{display:block !important;padding:104px 0 !important;background:#fff !important;}
+#hkSub .hk_sec.hk_tint{background:var(--hk-paper2) !important;}
+#hkSub .hk_eyebrow2{
+  display:flex !important;align-items:center !important;gap:10px !important;
+  font-size:12px !important;font-weight:800 !important;letter-spacing:.16em !important;color:var(--hk-sky-d) !important;
+}
+#hkSub .hk_eyebrow2::before{content:'' !important;display:block !important;width:22px !important;height:2px !important;border-radius:2px !important;background:var(--hk-sun) !important;}
+#hkSub .hk_h2{
+  display:block !important;margin-top:14px !important;
+  font-size:clamp(26px,3.4vw,40px) !important;font-weight:800 !important;
+  line-height:1.35 !important;letter-spacing:-.045em !important;color:var(--hk-ink) !important;
+}
+#hkSub .hk_lead{display:block !important;margin-top:12px !important;font-size:clamp(14.5px,1.6vw,16.5px) !important;color:var(--hk-body) !important;}
+
+/* ── 하단 CTA (세부페이지 공통) ── */
+#hkSub .hk_cta{
+  position:relative !important;overflow:hidden !important;padding:88px 0 !important;
+  background:linear-gradient(120deg,#1E7FC2 0%,#3FA7E6 60%,#5FC0F0 100%) !important;
+}
+#hkSub .hk_cta::before{
+  content:'' !important;position:absolute !important;right:-140px !important;bottom:-200px !important;
+  width:560px !important;height:560px !important;border-radius:50% !important;
+  background:radial-gradient(circle,rgba(255,201,60,.28),rgba(255,201,60,0) 66%) !important;pointer-events:none !important;
+}
+#hkSub .hk_cta .hk_wrap{position:relative !important;z-index:2 !important;text-align:center !important;}
+#hkSub .hk_cta b{display:block !important;font-size:clamp(24px,3.2vw,36px) !important;font-weight:800 !important;color:#fff !important;letter-spacing:-.045em !important;line-height:1.35 !important;}
+#hkSub .hk_cta p{display:block !important;margin-top:14px !important;font-size:clamp(14.5px,1.6vw,16.5px) !important;color:rgba(255,255,255,.88) !important;}
+#hkSub .hk_btns{display:flex !important;flex-wrap:wrap !important;justify-content:center !important;gap:12px !important;margin-top:32px !important;}
+#hkSub .hk_btn{
+  display:inline-flex !important;align-items:center !important;gap:8px !important;
+  height:56px !important;padding:0 28px !important;border-radius:999px !important;
+  font-size:15.5px !important;font-weight:800 !important;letter-spacing:-.03em !important;
+  transition:transform .25s var(--hk-ease),box-shadow .25s var(--hk-ease),background .25s var(--hk-ease) !important;
+}
+#hkSub .hk_btn svg{width:19px !important;height:19px !important;flex:none !important;}
+#hkSub .hk_b1{background:#fff !important;color:var(--hk-sky-d) !important;box-shadow:0 18px 30px -18px rgba(12,45,70,.5) !important;}
+#hkSub .hk_b1:hover{transform:translateY(-3px) !important;box-shadow:0 26px 40px -20px rgba(12,45,70,.6) !important;}
+#hkSub .hk_b2{background:var(--hk-sun) !important;color:#5A4200 !important;box-shadow:0 18px 30px -18px rgba(12,45,70,.5) !important;}
+#hkSub .hk_b2:hover{transform:translateY(-3px) !important;box-shadow:0 26px 40px -20px rgba(12,45,70,.6) !important;}
+#hkSub .hk_b3{background:rgba(255,255,255,.14) !important;color:#fff !important;border:1.5px solid rgba(255,255,255,.55) !important;}
+#hkSub .hk_b3:hover{background:rgba(255,255,255,.24) !important;transform:translateY(-3px) !important;}
+
+/* ══════════════════════════════════════════════════════════════
+   이 페이지 전용 (병원소개)
+   ══════════════════════════════════════════════════════════════ */
+/* 인사말 */
+#hkSub .hk_greet{display:grid !important;grid-template-columns:minmax(0,440px) minmax(0,1fr) !important;gap:64px !important;align-items:start !important;}
+#hkSub .hk_gimg{position:relative !important;border-radius:28px !important;overflow:hidden !important;box-shadow:0 40px 60px -40px rgba(31,58,77,.45) !important;}
+#hkSub .hk_gimg img{width:100% !important;height:100% !important;object-fit:cover !important;aspect-ratio:4/5 !important;}
+#hkSub .hk_gimg .hk_badge{
+  position:absolute !important;left:20px !important;bottom:20px !important;
+  display:inline-flex !important;align-items:center !important;gap:8px !important;
+  height:40px !important;padding:0 18px !important;border-radius:999px !important;
+  background:rgba(255,255,255,.94) !important;backdrop-filter:blur(6px) !important;
+  font-size:13px !important;font-weight:800 !important;color:var(--hk-sky-d) !important;letter-spacing:-.03em !important;
+}
+#hkSub .hk_gtxt .hk_quote{
+  display:block !important;margin-top:24px !important;
+  font-size:clamp(24px,3.1vw,36px) !important;font-weight:800 !important;
+  line-height:1.4 !important;letter-spacing:-.05em !important;color:var(--hk-ink) !important;
+}
+#hkSub .hk_gtxt .hk_quote em{font-style:normal !important;color:var(--hk-sky) !important;}
+#hkSub .hk_gtxt p{display:block !important;margin-top:20px !important;font-size:16px !important;line-height:1.95 !important;color:var(--hk-body) !important;}
+#hkSub .hk_gtxt p.hk_first{margin-top:34px !important;}
+#hkSub .hk_sign{
+  display:flex !important;align-items:center !important;gap:14px !important;margin-top:40px !important;
+  padding-top:28px !important;border-top:1px solid var(--hk-line) !important;
+}
+#hkSub .hk_sign span{font-size:14px !important;font-weight:700 !important;color:var(--hk-gray) !important;letter-spacing:-.02em !important;}
+#hkSub .hk_sign b{font-size:19px !important;font-weight:800 !important;color:var(--hk-ink) !important;letter-spacing:-.04em !important;}
+
+/* 슬로건 띠 */
+#hkSub .hk_slogan{
+  position:relative !important;overflow:hidden !important;padding:110px 0 !important;
+  background:var(--hk-ink) !important;text-align:center !important;
+}
+#hkSub .hk_slogan .hk_bg{
+  position:absolute !important;inset:0 !important;width:100% !important;height:100% !important;
+  object-fit:cover !important;opacity:.28 !important;
+}
+#hkSub .hk_slogan .hk_wrap{position:relative !important;z-index:2 !important;}
+#hkSub .hk_slogan small{display:block !important;font-size:12px !important;font-weight:800 !important;letter-spacing:.2em !important;color:var(--hk-sun) !important;}
+#hkSub .hk_slogan b{
+  display:block !important;margin-top:18px !important;
+  font-size:clamp(24px,3.6vw,42px) !important;font-weight:800 !important;
+  line-height:1.4 !important;letter-spacing:-.05em !important;color:#fff !important;
+}
+#hkSub .hk_slogan p{display:block !important;margin-top:18px !important;font-size:clamp(14.5px,1.6vw,16.5px) !important;color:rgba(255,255,255,.8) !important;}
+
+/* 비전 3 */
+#hkSub .hk_vis{display:grid !important;grid-template-columns:repeat(3,1fr) !important;gap:24px !important;margin-top:48px !important;}
+#hkSub .hk_v{
+  border-radius:26px !important;overflow:hidden !important;background:#fff !important;border:1px solid var(--hk-line) !important;
+  transition:transform .4s var(--hk-ease),box-shadow .4s var(--hk-ease) !important;
+}
+#hkSub .hk_v:hover{transform:translateY(-6px) !important;box-shadow:0 34px 54px -34px rgba(31,58,77,.4) !important;}
+#hkSub .hk_v .hk_img{position:relative !important;aspect-ratio:3/2 !important;overflow:hidden !important;}
+#hkSub .hk_v .hk_img img{width:100% !important;height:100% !important;object-fit:cover !important;transition:transform .8s var(--hk-ease) !important;}
+#hkSub .hk_v:hover .hk_img img{transform:scale(1.06) !important;}
+#hkSub .hk_v .hk_no{
+  position:absolute !important;left:18px !important;top:18px !important;
+  width:38px !important;height:38px !important;border-radius:50% !important;
+  display:inline-flex !important;align-items:center !important;justify-content:center !important;
+  background:rgba(255,255,255,.94) !important;color:var(--hk-sky-d) !important;
+  font-size:13px !important;font-weight:800 !important;
+}
+#hkSub .hk_v .hk_txt{padding:26px 26px 30px !important;}
+#hkSub .hk_v b{display:block !important;font-size:21px !important;font-weight:800 !important;color:var(--hk-ink) !important;letter-spacing:-.045em !important;}
+#hkSub .hk_v i{display:block !important;width:28px !important;height:3px !important;border-radius:3px !important;margin-top:14px !important;background:var(--hk-sun) !important;font-style:normal !important;}
+#hkSub .hk_v p{display:block !important;margin-top:14px !important;font-size:14.5px !important;line-height:1.85 !important;color:var(--hk-body) !important;}
+
+/* ── 반응형 ── */
+@media (max-width:1180px){
+  #hkSub{--hk-pad:26px;}
+  #hkSub .hk_greet{grid-template-columns:minmax(0,360px) minmax(0,1fr) !important;gap:44px !important;}
+  #hkSub .hk_vis{gap:18px !important;}
+}
+@media (max-width:860px){
+  #hkSub{--hk-pad:20px;--hk-hd:66px;}
+  #hkSub .hk_hero{padding:calc(var(--hk-hd) + 42px) 0 54px !important;}
+  #hkSub .hk_eyebrow{margin-top:18px !important;}
+  #hkSub .hk_sec{padding:64px 0 !important;}
+  #hkSub .hk_greet{grid-template-columns:1fr !important;gap:32px !important;}
+  #hkSub .hk_gimg{border-radius:20px !important;}
+  #hkSub .hk_gimg img{aspect-ratio:4/3 !important;}
+  #hkSub .hk_gtxt p{font-size:15px !important;}
+  #hkSub .hk_gtxt p.hk_first{margin-top:24px !important;}
+  #hkSub .hk_sign{margin-top:28px !important;padding-top:20px !important;flex-wrap:wrap !important;gap:8px !important;}
+  #hkSub .hk_sign b{font-size:17px !important;}
+  #hkSub .hk_slogan{padding:72px 0 !important;}
+  #hkSub .hk_vis{grid-template-columns:1fr !important;margin-top:30px !important;gap:14px !important;}
+  #hkSub .hk_v{border-radius:18px !important;}
+  #hkSub .hk_v .hk_txt{padding:20px 20px 24px !important;}
+  #hkSub .hk_v b{font-size:19px !important;}
+  #hkSub .hk_cta{padding:62px 0 !important;}
+  #hkSub .hk_btns{margin-top:24px !important;gap:9px !important;}
+  #hkSub .hk_btn{height:50px !important;padding:0 20px !important;font-size:14.5px !important;}
+}
+</style>
+
+<div id="hkSub">
+
+  <!-- ── 서브 히어로 ── -->
+  <section class="hk_hero">
+    <div class="hk_wrap">
+      <nav class="hk_bc hk_rv"><a href="/">홈</a><i></i><span>병원소개</span><i></i><b>인사말 · 비전</b></nav>
+      <span class="hk_eyebrow hk_rv hk_d1">ABOUT HAPPY CHILD HOSPITAL</span>
+      <h1 class="hk_h1 hk_rv hk_d1">병원소개</h1>
+      <span class="hk_hlead hk_rv hk_d2">이 세상에서 가장 소중한 우리 소아청소년들은 건강하고 밝고 행복하게 성장해야 합니다. 행복한어린이병원은 엄마, 아빠의 마음으로 아이들의 몸과 마음을 함께 돌봅니다.</span>
+    </div>
+  </section>
+
+  <!-- ── 인사말 ── -->
+  <section class="hk_sec">
+    <div class="hk_wrap">
+      <div class="hk_greet">
+
+        <div class="hk_gimg hk_rv">
+          <img src="https://www.happykiz.kr/Resources/images/sub/img_greeting.jpg" alt="행복한어린이병원 의료진">
+          <span class="hk_badge">GREETING</span>
+        </div>
+
+        <div class="hk_gtxt hk_rv hk_d1">
+          <span class="hk_eyebrow2">인사말</span>
+          <strong class="hk_quote">어린이들이 행복하고<br><em>엄마들이 행복한 병원,</em></strong>
+
+          <p class="hk_first">이 세상에서 가장 소중한 우리 소아청소년들은 건강하고 밝고 행복하게 성장해야 합니다. 우리 아이들이 아플 때 빨리 나을 수 있도록 돌보는 것은 어른들이 해야 할 당연한 역할입니다.</p>
+          <p>하지만, ‘아픈 아이를 고쳐주는 것’ 이상으로 ‘아이가 더욱 더 건강하게 성장할 수 있도록 돕는 것’ 또한 중요한 일입니다.</p>
+          <p>행복한 어린이병원은 엄마, 아빠의 마음으로 어린이들의 몸과 마음이 올곧게 성장할 수 있도록 ‘어린이 건강지킴이’로서의 역할에 최선을 다하겠습니다.</p>
+          <p>혹여 병원에서 생기는 불편한 사항이나 부족한 점이 있으시면 바로 알려주시기 바랍니다. 함께 개선해 나가며 지역사회의 자랑이 되는 병원이 되고자 합니다.</p>
+          <p>어린이들이 행복하고 엄마 아빠들도 행복한 병원을 만들기 위해 초심을 잃지 않는 진료를 하겠습니다.</p>
+
+          <div class="hk_sign">
+            <span>원장</span>
+            <b>강지연 · 정선희 · 김명욱 · 이상훈</b>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 슬로건 띠 ── -->
+  <section class="hk_slogan">
+    <img class="hk_bg" src="https://www.happykiz.kr/Resources/images/sub/bg_feature_slogan.jpg" alt="" aria-hidden="true">
+    <div class="hk_wrap hk_rv">
+      <small>OUR VISION</small>
+      <b>이 세상에서 가장 소중한 생명인<br>우리 어린이들이 건강하고 밝고 행복하게</b>
+      <p>우리 어린이들을 포함한 소아청소년들은 건강하고 밝고 행복하게 성장해야 합니다.</p>
+    </div>
+  </section>
+
+  <!-- ── 비전 3 ── -->
+  <section class="hk_sec hk_tint">
+    <div class="hk_wrap">
+      <div class="hk_rv">
+        <span class="hk_eyebrow2">VISION</span>
+        <h2 class="hk_h2">행복한어린이병원이 약속드리는 세 가지</h2>
+        <span class="hk_lead">평생 주치의 · 친절 · 건강증진, 세 가지 약속으로 우리 아이의 내일을 함께 지킵니다.</span>
+      </div>
+
+      <div class="hk_vis">
+        <article class="hk_v hk_rv">
+          <div class="hk_img"><img src="https://www.happykiz.kr/Resources/images/sub/img_feature_1.jpg" alt="평생 주치의"><span class="hk_no">01</span></div>
+          <div class="hk_txt">
+            <b>평생 주치의</b><i></i>
+            <p>우리아이에게 내일을 약속하는 엄마, 아빠의 마음으로 진료하겠습니다.</p>
+          </div>
+        </article>
+
+        <article class="hk_v hk_rv hk_d1">
+          <div class="hk_img"><img src="https://www.happykiz.kr/Resources/images/sub/img_feature_2.jpg" alt="친절"><span class="hk_no">02</span></div>
+          <div class="hk_txt">
+            <b>친절</b><i></i>
+            <p>누구보다 밝고 건강하게 자라나 마음껏 꿈꾸며 많은 이들과 함께 사랑하며 살아갈 수 있도록 우리아이에게 내일을 약속하는 엄마, 아빠의 마음으로 진료하겠습니다.</p>
+          </div>
+        </article>
+
+        <article class="hk_v hk_rv hk_d2">
+          <div class="hk_img"><img src="https://www.happykiz.kr/Resources/images/sub/img_feature_3.jpg" alt="건강증진"><span class="hk_no">03</span></div>
+          <div class="hk_txt">
+            <b>건강증진</b><i></i>
+            <p>아이들이 성장하면서 마주하게 될 많은 꿈과 소중한 경험들에 든든한 밑받침이 될 수 있도록 건강한 내일을 약속하는 ‘우리아이 주치의’ 행복한 어린이병원이 되겠습니다.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 하단 CTA ── -->
+  <section class="hk_cta">
+    <div class="hk_wrap hk_rv">
+      <b>우리 아이 주치의가 필요하신가요?</b>
+      <p>평일 밤 11시까지, 주말·공휴일에도 진료합니다. 궁금한 점은 언제든 편하게 문의해 주세요.</p>
+      <div class="hk_btns">
+        <a class="hk_btn hk_b1" href="/doctors">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          의료진 소개
+        </a>
+        <a class="hk_btn hk_b2" href="/reservation">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 11h18"/></svg>
+          진료예약 안내
+        </a>
+        <a class="hk_btn hk_b3" href="tel:051-264-9500">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .3 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.4 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
+          051-264-9500
+        </a>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<script>
+(function () {
+  var root = document.getElementById('hkSub');
+  if (!root || root.dataset.hkReady) return;
+  root.dataset.hkReady = '1';
+  var els = root.querySelectorAll('.hk_rv');
+  if (!('IntersectionObserver' in window)) { Array.prototype.forEach.call(els, function (e) { e.classList.add('hk_in'); }); return; }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('hk_in'); io.unobserve(en.target); } });
+  }, { threshold: 0.12 });
+  Array.prototype.forEach.call(els, function (e) { io.observe(e); });
+})();
+</script>

@@ -1,0 +1,622 @@
+<!-- ══════════════════════════════════════════════════════════════
+     [행복한어린이병원] 세부페이지 — 알레르기 클리닉  (주소 /allergy)
+     ─────────────────────────────────────────────────────────────
+     아임웹 [알레르기 클리닉] 페이지의 본문 코드 위젯에 통째로 붙여넣으세요.
+     (상단 히어로부터 아래 CTA까지 이 파일 하나에 다 들어 있습니다)
+
+     ※ 글(내용)은 기존 사이트 '알레르기 클리닉' 페이지 그대로입니다.
+        디자인만 새로 만들었습니다.
+        · 기존 이미지(7장)는 옛 업체 서버(fxfile.drline.net)라 쓰지 않았습니다.
+        · 기존 페이지에는 없던 '예약 및 상담문의'(Sick Zone 20번과 같음)와
+          '알레르기 치료제 비용 → 비급여 진료비 약제비 탭(/fees#drug)' 연결을 넣었습니다.
+     ※ 원본 표기 수정: '초등학교 입한'→'초등학교 입학', '오물렛'→'오믈렛', '알러지'→'알레르기',
+                      '몸 속'→'몸속', '찾아 내어'→'찾아내어', '~ 입니다'→'~입니다' 띄어쓰기
+     ※ 페이지 맨 위 '헤더' 위젯 자리에는 1_메인페이지/0-빈 위젯 을 넣으세요.
+     ※ 상단메뉴(1번) · 진료시간·오시는길(8번) · 푸터(9번)는 공통 위젯을 씁니다.
+     ※ 모든 스타일은 #hkSub 안에서만 적용됩니다.
+     ══════════════════════════════════════════════════════════════ -->
+<style>
+@import url('https://cdn.jsdelivr.net/gh/sun-typeface/suit@2/fonts/variable/woff2/SUIT-Variable.css');
+
+/* ══════════════════════════════════════════════════════════════
+   세부페이지 공통 스타일  (23개 세부페이지가 모두 동일)
+   ══════════════════════════════════════════════════════════════ */
+#hkSub{
+  --hk-sky:#3FA7E6; --hk-sky-d:#1E7FC2; --hk-sky-l:#EAF6FD;
+  --hk-sun:#FFC93C; --hk-sun-l:#FFF6DE;
+  --hk-well:#2FBF9B; --hk-well-l:#E4F8F2;
+  --hk-sick:#FF7A6B; --hk-sick-l:#FFEDEA;
+  --hk-ink:#1F3A4D; --hk-body:#4A5E6B; --hk-gray:#8697A2;
+  --hk-line:#E6EDF1; --hk-paper2:#F5F9FB;
+  --hk-ease:cubic-bezier(.16,1,.3,1);
+  --hk-maxw:1400px; --hk-pad:32px; --hk-hd:88px;
+  line-height:1.8 !important;
+
+  display:block !important; position:relative !important;
+  float:none !important; clear:both !important;
+  width:100% !important; max-width:100% !important;
+  margin:0 !important; padding:0 !important;
+  background:#fff !important; overflow:visible !important;
+  box-sizing:border-box !important; z-index:auto !important;
+}
+#hkSub,#hkSub *,#hkSub *::before,#hkSub *::after{
+  box-sizing:border-box !important;
+  font-family:'SUIT Variable','SUIT',-apple-system,BlinkMacSystemFont,'Pretendard','Apple SD Gothic Neo',sans-serif !important;
+  word-break:keep-all !important;
+}
+#hkSub ul,#hkSub ol,#hkSub li{list-style:none !important;margin:0 !important;padding:0 !important;background-image:none !important;}
+#hkSub li::before,#hkSub li::after{display:none !important;content:none !important;}
+#hkSub p,#hkSub h1,#hkSub h2,#hkSub h3,#hkSub h4,#hkSub span,#hkSub div,#hkSub a,#hkSub em,#hkSub b,#hkSub strong,#hkSub small{margin:0 !important;padding:0 !important;}
+#hkSub a{text-decoration:none !important;color:inherit !important;}
+#hkSub img{max-width:100% !important;display:block !important;border:0 !important;}
+#hkSub svg{display:inline-block !important;}
+
+#hkSub .hk_wrap{max-width:var(--hk-maxw) !important;margin:0 auto !important;padding:0 var(--hk-pad) !important;width:100% !important;}
+#hkSub .hk_narrow{max-width:1040px !important;margin:0 auto !important;padding:0 var(--hk-pad) !important;width:100% !important;}
+
+#hkSub .hk_rv{opacity:0 !important;transform:translateY(26px) !important;transition:opacity .9s var(--hk-ease),transform .9s var(--hk-ease) !important;}
+#hkSub .hk_rv.hk_in{opacity:1 !important;transform:none !important;}
+#hkSub .hk_d1{transition-delay:.08s !important;}
+#hkSub .hk_d2{transition-delay:.16s !important;}
+#hkSub .hk_d3{transition-delay:.24s !important;}
+
+/* ── 서브 히어로 ── */
+#hkSub .hk_hero{
+  position:relative !important;overflow:hidden !important;
+  padding:calc(var(--hk-hd) + 76px) 0 84px !important;
+  background:linear-gradient(135deg,#EAF6FD 0%,#F7FCFF 55%,#FFFDF4 100%) !important;
+}
+#hkSub .hk_hero::before{
+  content:'' !important;position:absolute !important;right:-160px !important;top:-180px !important;
+  width:620px !important;height:620px !important;border-radius:50% !important;
+  background:radial-gradient(circle,rgba(63,167,230,.18),rgba(63,167,230,0) 68%) !important;pointer-events:none !important;
+}
+#hkSub .hk_hero::after{
+  content:'' !important;position:absolute !important;left:-120px !important;bottom:-220px !important;
+  width:480px !important;height:480px !important;border-radius:50% !important;
+  background:radial-gradient(circle,rgba(255,201,60,.22),rgba(255,201,60,0) 66%) !important;pointer-events:none !important;
+}
+#hkSub .hk_hero .hk_wrap{position:relative !important;z-index:2 !important;}
+#hkSub .hk_bc{display:flex !important;align-items:center !important;gap:8px !important;font-size:13px !important;color:var(--hk-gray) !important;font-weight:600 !important;}
+#hkSub .hk_bc i{display:block !important;width:4px !important;height:4px !important;border-radius:50% !important;background:var(--hk-line) !important;font-style:normal !important;}
+#hkSub .hk_bc b{color:var(--hk-sky-d) !important;font-weight:800 !important;}
+#hkSub .hk_eyebrow{
+  display:flex !important;align-items:center !important;gap:10px !important;margin-top:26px !important;
+  font-size:12px !important;font-weight:800 !important;letter-spacing:.16em !important;color:var(--hk-sky-d) !important;
+}
+#hkSub .hk_eyebrow::before{content:'' !important;display:block !important;width:22px !important;height:2px !important;border-radius:2px !important;background:var(--hk-sun) !important;}
+#hkSub .hk_h1{
+  display:block !important;margin-top:14px !important;
+  font-size:clamp(32px,4.6vw,54px) !important;font-weight:800 !important;
+  line-height:1.24 !important;letter-spacing:-.05em !important;color:var(--hk-ink) !important;
+}
+#hkSub .hk_hlead{display:block !important;margin-top:18px !important;max-width:720px !important;font-size:clamp(15px,1.7vw,17.5px) !important;color:var(--hk-body) !important;}
+
+/* ── 섹션 공통 ── */
+#hkSub .hk_sec{display:block !important;padding:104px 0 !important;background:#fff !important;}
+#hkSub .hk_sec.hk_tint{background:var(--hk-paper2) !important;}
+#hkSub .hk_eyebrow2{
+  display:flex !important;align-items:center !important;gap:10px !important;
+  font-size:12px !important;font-weight:800 !important;letter-spacing:.16em !important;color:var(--hk-sky-d) !important;
+}
+#hkSub .hk_eyebrow2::before{content:'' !important;display:block !important;width:22px !important;height:2px !important;border-radius:2px !important;background:var(--hk-sun) !important;}
+#hkSub .hk_h2{
+  display:block !important;margin-top:14px !important;
+  font-size:clamp(26px,3.4vw,40px) !important;font-weight:800 !important;
+  line-height:1.35 !important;letter-spacing:-.045em !important;color:var(--hk-ink) !important;
+}
+#hkSub .hk_lead{display:block !important;margin-top:12px !important;font-size:clamp(14.5px,1.6vw,16.5px) !important;color:var(--hk-body) !important;}
+
+/* ── 하단 CTA (세부페이지 공통) ── */
+#hkSub .hk_cta{
+  position:relative !important;overflow:hidden !important;padding:88px 0 !important;
+  background:linear-gradient(120deg,#1E7FC2 0%,#3FA7E6 60%,#5FC0F0 100%) !important;
+}
+#hkSub .hk_cta::before{
+  content:'' !important;position:absolute !important;right:-140px !important;bottom:-200px !important;
+  width:560px !important;height:560px !important;border-radius:50% !important;
+  background:radial-gradient(circle,rgba(255,201,60,.28),rgba(255,201,60,0) 66%) !important;pointer-events:none !important;
+}
+#hkSub .hk_cta .hk_wrap{position:relative !important;z-index:2 !important;text-align:center !important;}
+#hkSub .hk_cta b{display:block !important;font-size:clamp(24px,3.2vw,36px) !important;font-weight:800 !important;color:#fff !important;letter-spacing:-.045em !important;line-height:1.35 !important;}
+#hkSub .hk_cta p{display:block !important;margin-top:14px !important;font-size:clamp(14.5px,1.6vw,16.5px) !important;color:rgba(255,255,255,.88) !important;}
+#hkSub .hk_btns{display:flex !important;flex-wrap:wrap !important;justify-content:center !important;gap:12px !important;margin-top:32px !important;}
+#hkSub .hk_btn{
+  display:inline-flex !important;align-items:center !important;gap:8px !important;
+  height:56px !important;padding:0 28px !important;border-radius:999px !important;
+  font-size:15.5px !important;font-weight:800 !important;letter-spacing:-.03em !important;
+  transition:transform .25s var(--hk-ease),box-shadow .25s var(--hk-ease),background .25s var(--hk-ease) !important;
+}
+#hkSub .hk_btn svg{width:19px !important;height:19px !important;flex:none !important;}
+#hkSub .hk_b1{background:#fff !important;color:var(--hk-sky-d) !important;box-shadow:0 18px 30px -18px rgba(12,45,70,.5) !important;}
+#hkSub .hk_b1:hover{transform:translateY(-3px) !important;box-shadow:0 26px 40px -20px rgba(12,45,70,.6) !important;}
+#hkSub .hk_b2{background:var(--hk-sun) !important;color:#5A4200 !important;box-shadow:0 18px 30px -18px rgba(12,45,70,.5) !important;}
+#hkSub .hk_b2:hover{transform:translateY(-3px) !important;box-shadow:0 26px 40px -20px rgba(12,45,70,.6) !important;}
+#hkSub .hk_b3{background:rgba(255,255,255,.14) !important;color:#fff !important;border:1.5px solid rgba(255,255,255,.55) !important;}
+#hkSub .hk_b3:hover{background:rgba(255,255,255,.24) !important;transform:translateY(-3px) !important;}
+
+/* ══════════════════════════════════════════════════════════════
+   이 페이지 전용 (알레르기 클리닉)
+   ══════════════════════════════════════════════════════════════ */
+/* 히어로 2단 — 검사 방법 카드 */
+#hkSub .hk_hgrid{display:grid !important;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr) !important;gap:56px !important;align-items:center !important;}
+#hkSub .hk_how{
+  padding:30px 30px 26px !important;border-radius:28px !important;background:#fff !important;border:1px solid var(--hk-line) !important;
+  box-shadow:0 36px 60px -44px rgba(31,58,77,.55) !important;
+}
+#hkSub .hk_how > span{display:block !important;font-size:13px !important;font-weight:800 !important;letter-spacing:.08em !important;color:var(--hk-gray) !important;}
+#hkSub .hk_how .hk_three{display:grid !important;grid-template-columns:repeat(3,minmax(0,1fr)) !important;gap:10px !important;margin-top:14px !important;}
+#hkSub .hk_how .hk_three div{
+  display:flex !important;flex-direction:column !important;align-items:center !important;gap:10px !important;
+  padding:18px 8px 16px !important;border-radius:18px !important;background:var(--hk-sun-l) !important;text-align:center !important;
+}
+#hkSub .hk_how .hk_three div:nth-child(2){background:var(--hk-sky-l) !important;}
+#hkSub .hk_how .hk_three div:nth-child(3){background:var(--hk-well-l) !important;}
+#hkSub .hk_how .hk_three svg{width:28px !important;height:28px !important;color:#A87400 !important;}
+#hkSub .hk_how .hk_three div:nth-child(2) svg{color:var(--hk-sky-d) !important;}
+#hkSub .hk_how .hk_three div:nth-child(3) svg{color:#1E8E73 !important;}
+#hkSub .hk_how .hk_three b{display:block !important;font-size:15px !important;font-weight:800 !important;letter-spacing:-.04em !important;color:var(--hk-ink) !important;}
+#hkSub .hk_how .hk_goal{display:flex !important;align-items:center !important;gap:10px !important;margin-top:14px !important;padding:14px 16px !important;border-radius:16px !important;background:var(--hk-ink) !important;}
+#hkSub .hk_how .hk_goal svg{width:20px !important;height:20px !important;flex:none !important;color:var(--hk-sun) !important;}
+#hkSub .hk_how .hk_goal p{display:block !important;font-size:14.5px !important;font-weight:700 !important;line-height:1.55 !important;color:#fff !important;letter-spacing:-.03em !important;}
+
+/* 소개 */
+#hkSub .hk_intro{display:grid !important;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr) !important;gap:64px !important;align-items:start !important;}
+#hkSub .hk_def{padding:26px 28px !important;border-radius:22px !important;background:var(--hk-sun-l) !important;margin-top:26px !important;}
+#hkSub .hk_def span{display:block !important;font-size:12.5px !important;font-weight:800 !important;letter-spacing:.1em !important;color:#A87400 !important;}
+#hkSub .hk_def p{display:block !important;margin-top:6px !important;font-size:16px !important;line-height:1.85 !important;font-weight:600 !important;color:var(--hk-ink) !important;letter-spacing:-.03em !important;}
+#hkSub .hk_why{display:flex !important;flex-direction:column !important;gap:12px !important;}
+#hkSub .hk_wy{
+  display:flex !important;align-items:flex-start !important;gap:16px !important;
+  padding:22px 24px !important;border-radius:20px !important;background:#fff !important;border:1px solid var(--hk-line) !important;
+}
+#hkSub .hk_wy .hk_ico{
+  display:inline-flex !important;align-items:center !important;justify-content:center !important;flex:none !important;
+  width:46px !important;height:46px !important;border-radius:15px !important;background:var(--hk-sick-l) !important;color:#C2473A !important;
+}
+#hkSub .hk_wy:nth-child(2) .hk_ico{background:var(--hk-sky-l) !important;color:var(--hk-sky-d) !important;}
+#hkSub .hk_wy:nth-child(3) .hk_ico{background:var(--hk-well-l) !important;color:#1E8E73 !important;}
+#hkSub .hk_wy .hk_ico svg{width:23px !important;height:23px !important;}
+#hkSub .hk_wy p{display:block !important;font-size:15.5px !important;line-height:1.85 !important;color:var(--hk-body) !important;letter-spacing:-.025em !important;}
+#hkSub .hk_wy p em{font-style:normal !important;font-weight:800 !important;color:var(--hk-ink) !important;}
+
+/* 시기별 알레르기 */
+#hkSub .hk_ages{position:relative !important;display:grid !important;grid-template-columns:repeat(3,minmax(0,1fr)) !important;gap:20px !important;margin-top:52px !important;}
+#hkSub .hk_ages::before{
+  content:'' !important;position:absolute !important;left:8% !important;right:8% !important;top:44px !important;height:3px !important;border-radius:3px !important;
+  background:linear-gradient(90deg,var(--hk-sun) 0%,var(--hk-sky) 50%,var(--hk-well) 100%) !important;opacity:.5 !important;
+}
+#hkSub .hk_ag{position:relative !important;display:flex !important;flex-direction:column !important;align-items:center !important;text-align:center !important;}
+#hkSub .hk_ag .hk_dot{
+  position:relative !important;z-index:2 !important;display:inline-flex !important;align-items:center !important;justify-content:center !important;
+  width:88px !important;height:88px !important;border-radius:50% !important;background:#fff !important;border:3px solid var(--c) !important;color:var(--c) !important;
+  box-shadow:0 0 0 8px var(--hk-paper2) !important;
+}
+#hkSub .hk_ag .hk_dot svg{width:38px !important;height:38px !important;}
+#hkSub .hk_ag .hk_box{
+  width:100% !important;margin-top:20px !important;padding:24px 22px !important;border-radius:22px !important;background:#fff !important;border:1px solid var(--hk-line) !important;flex:1 !important;
+}
+#hkSub .hk_ag .hk_box span{display:block !important;font-size:13px !important;font-weight:800 !important;color:var(--c) !important;letter-spacing:.02em !important;}
+#hkSub .hk_ag .hk_box b{display:block !important;margin-top:4px !important;font-size:20px !important;font-weight:800 !important;letter-spacing:-.045em !important;color:var(--hk-ink) !important;}
+#hkSub .hk_ag .hk_tags{display:flex !important;flex-wrap:wrap !important;justify-content:center !important;gap:6px !important;margin-top:14px !important;}
+#hkSub .hk_ag .hk_tags i{
+  display:inline-flex !important;align-items:center !important;height:32px !important;padding:0 13px !important;border-radius:999px !important;
+  background:var(--hk-paper2) !important;font-style:normal !important;font-size:14px !important;font-weight:700 !important;color:var(--hk-ink) !important;letter-spacing:-.03em !important;
+}
+#hkSub .hk_a1{--c:#E0A800;}
+#hkSub .hk_a2{--c:#3FA7E6;}
+#hkSub .hk_a3{--c:#2FBF9B;}
+
+/* 유발 음식물 */
+#hkSub .hk_foods{display:grid !important;grid-template-columns:repeat(4,minmax(0,1fr)) !important;gap:14px !important;margin-top:48px !important;}
+#hkSub .hk_fd{padding:26px 22px 22px !important;border-radius:24px !important;background:#fff !important;border:1px solid var(--hk-line) !important;}
+#hkSub .hk_fd .hk_fh{display:flex !important;align-items:center !important;gap:12px !important;}
+#hkSub .hk_fd .hk_ico{
+  display:inline-flex !important;align-items:center !important;justify-content:center !important;flex:none !important;
+  width:50px !important;height:50px !important;border-radius:16px !important;background:var(--cl) !important;color:var(--cd) !important;
+}
+#hkSub .hk_fd .hk_ico svg{width:26px !important;height:26px !important;}
+#hkSub .hk_fd b{display:block !important;font-size:19px !important;font-weight:800 !important;letter-spacing:-.045em !important;color:var(--hk-ink) !important;}
+#hkSub .hk_fd .hk_tags{display:flex !important;flex-wrap:wrap !important;gap:6px !important;margin-top:16px !important;}
+#hkSub .hk_fd .hk_tags i{
+  display:inline-flex !important;align-items:center !important;height:30px !important;padding:0 11px !important;border-radius:999px !important;
+  background:var(--cl) !important;font-style:normal !important;font-size:13.5px !important;font-weight:700 !important;color:var(--cd) !important;letter-spacing:-.03em !important;
+}
+#hkSub .hk_f1{--cl:#EAF6FD;--cd:#1E7FC2;}
+#hkSub .hk_f2{--cl:#FFF6DE;--cd:#8A5F00;}
+#hkSub .hk_f3{--cl:#F6EDE4;--cd:#8A5A2B;}
+#hkSub .hk_f4{--cl:#FFEDEA;--cd:#C2473A;}
+
+/* 혈액 검사 */
+#hkSub .hk_blood{display:grid !important;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr) !important;gap:24px !important;margin-top:48px !important;align-items:stretch !important;}
+#hkSub .hk_bstat{display:flex !important;flex-direction:column !important;gap:12px !important;}
+#hkSub .hk_bs{
+  flex:1 !important;display:flex !important;flex-direction:column !important;justify-content:center !important;
+  padding:28px 30px !important;border-radius:24px !important;background:var(--hk-ink) !important;
+}
+#hkSub .hk_bs span{display:block !important;font-size:13px !important;font-weight:800 !important;letter-spacing:.1em !important;color:rgba(255,255,255,.6) !important;}
+#hkSub .hk_bs .hk_row{display:flex !important;flex-wrap:wrap !important;gap:18px 26px !important;margin-top:12px !important;}
+#hkSub .hk_bs .hk_row div b{display:block !important;font-size:clamp(34px,3.6vw,44px) !important;font-weight:800 !important;line-height:1.1 !important;letter-spacing:-.04em !important;color:var(--hk-sun) !important;}
+#hkSub .hk_bs .hk_row div b small{font-size:.45em !important;margin-left:2px !important;}
+#hkSub .hk_bs .hk_row div em{display:block !important;margin-top:4px !important;font-style:normal !important;font-size:14px !important;font-weight:700 !important;color:rgba(255,255,255,.8) !important;}
+#hkSub .hk_bs p{display:block !important;margin-top:12px !important;font-size:14px !important;line-height:1.7 !important;color:rgba(255,255,255,.72) !important;}
+#hkSub .hk_bs.hk_uni{background:var(--hk-sky) !important;}
+#hkSub .hk_bs.hk_uni span{color:rgba(255,255,255,.75) !important;}
+#hkSub .hk_bs.hk_uni .hk_row div b{color:#fff !important;}
+#hkSub .hk_bs.hk_uni p{color:rgba(255,255,255,.88) !important;}
+#hkSub .hk_blist{display:grid !important;grid-template-columns:1fr 1fr !important;gap:12px !important;}
+#hkSub .hk_bl{
+  display:flex !important;flex-direction:column !important;
+  padding:22px 22px 20px !important;border-radius:20px !important;background:#fff !important;border:1px solid var(--hk-line) !important;
+}
+#hkSub .hk_bl .hk_n{
+  display:inline-flex !important;align-items:center !important;justify-content:center !important;
+  width:34px !important;height:34px !important;border-radius:11px !important;background:var(--hk-sky-l) !important;
+  font-size:14px !important;font-weight:800 !important;color:var(--hk-sky-d) !important;
+}
+#hkSub .hk_bl p{display:block !important;margin-top:12px !important;font-size:15px !important;font-weight:600 !important;line-height:1.7 !important;color:var(--hk-ink) !important;letter-spacing:-.035em !important;}
+
+/* 비용 연결 */
+#hkSub .hk_fee{
+  display:flex !important;align-items:center !important;gap:20px !important;margin-top:24px !important;
+  padding:24px 28px !important;border-radius:24px !important;background:#fff !important;border:1px solid var(--hk-line) !important;
+  transition:transform .4s var(--hk-ease),border-color .4s var(--hk-ease) !important;
+}
+#hkSub .hk_fee:hover{transform:translateY(-3px) !important;border-color:var(--hk-sky) !important;}
+#hkSub .hk_fee .hk_ico{
+  display:inline-flex !important;align-items:center !important;justify-content:center !important;flex:none !important;
+  width:50px !important;height:50px !important;border-radius:16px !important;background:var(--hk-sun-l) !important;color:#A87400 !important;
+}
+#hkSub .hk_fee .hk_ico svg{width:25px !important;height:25px !important;}
+#hkSub .hk_fee b{display:block !important;font-size:17.5px !important;font-weight:800 !important;color:var(--hk-ink) !important;letter-spacing:-.04em !important;}
+#hkSub .hk_fee span{display:block !important;margin-top:2px !important;font-size:14px !important;color:var(--hk-body) !important;}
+#hkSub .hk_fee .hk_go{
+  margin-left:auto !important;display:inline-flex !important;align-items:center !important;justify-content:center !important;flex:none !important;
+  width:42px !important;height:42px !important;border-radius:50% !important;background:var(--hk-ink) !important;color:#fff !important;
+}
+#hkSub .hk_fee .hk_go svg{width:17px !important;height:17px !important;}
+
+/* 예약 및 상담문의 (Sick Zone — 코랄 톤) */
+#hkSub .hk_ask{
+  display:grid !important;grid-template-columns:minmax(0,1fr) minmax(0,1fr) !important;gap:0 !important;margin-top:44px !important;
+  border-radius:28px !important;overflow:hidden !important;background:#fff !important;border:1px solid var(--hk-line) !important;
+}
+#hkSub .hk_ak1{padding:40px 40px 38px !important;background:linear-gradient(140deg,#FFEDEA 0%,#FFF7F5 100%) !important;}
+#hkSub .hk_ak1 span{display:block !important;font-size:12px !important;font-weight:800 !important;letter-spacing:.14em !important;color:#C2473A !important;}
+#hkSub .hk_ak1 a.hk_tel{
+  display:inline-flex !important;align-items:center !important;gap:12px !important;margin-top:12px !important;
+  font-size:clamp(28px,3.2vw,38px) !important;font-weight:800 !important;letter-spacing:-.04em !important;color:var(--hk-ink) !important;
+}
+#hkSub .hk_ak1 a.hk_tel svg{width:30px !important;height:30px !important;color:var(--hk-sick) !important;}
+#hkSub .hk_ak1 .hk_ext{display:flex !important;flex-wrap:wrap !important;gap:8px !important;margin-top:14px !important;}
+#hkSub .hk_ak1 .hk_ext em{
+  display:inline-flex !important;align-items:center !important;height:32px !important;padding:0 14px !important;border-radius:999px !important;
+  background:#fff !important;font-style:normal !important;font-size:14px !important;font-weight:800 !important;color:#C2473A !important;
+}
+#hkSub .hk_ak2{padding:30px 40px !important;}
+#hkSub .hk_ak2 table{width:100% !important;border-collapse:separate !important;border-spacing:0 !important;}
+#hkSub .hk_ak2 th,#hkSub .hk_ak2 td{
+  padding:14px 4px !important;border:0 !important;border-bottom:1px solid var(--hk-line) !important;background:transparent !important;
+  font-size:16px !important;text-align:left !important;vertical-align:middle !important;
+}
+#hkSub .hk_ak2 tr:last-child th,#hkSub .hk_ak2 tr:last-child td{border-bottom:0 !important;}
+#hkSub .hk_ak2 th{font-weight:700 !important;color:var(--hk-body) !important;letter-spacing:-.03em !important;}
+#hkSub .hk_ak2 td{text-align:right !important;font-weight:800 !important;color:var(--hk-ink) !important;letter-spacing:-.03em !important;}
+#hkSub .hk_ak2 td.hk_late{color:#C2473A !important;}
+#hkSub .hk_ak2 tr.hk_lunch th,#hkSub .hk_ak2 tr.hk_lunch td{color:var(--hk-gray) !important;font-size:14.5px !important;}
+#hkSub .hk_ak2 .hk_akh{display:flex !important;align-items:center !important;gap:10px !important;margin-bottom:4px !important;font-size:17px !important;font-weight:800 !important;color:var(--hk-ink) !important;letter-spacing:-.04em !important;}
+#hkSub .hk_ak2 .hk_akh svg{width:20px !important;height:20px !important;color:var(--hk-sick) !important;}
+
+/* ── 반응형 ── */
+@media (max-width:1180px){
+  #hkSub{--hk-pad:26px;}
+  #hkSub .hk_intro{gap:40px !important;}
+  #hkSub .hk_foods{grid-template-columns:repeat(2,minmax(0,1fr)) !important;}
+  #hkSub .hk_blood{grid-template-columns:1fr !important;}
+  #hkSub .hk_bstat{flex-direction:row !important;}
+}
+@media (max-width:860px){
+  #hkSub{--hk-pad:20px;--hk-hd:66px;}
+  #hkSub .hk_hero{padding:calc(var(--hk-hd) + 42px) 0 54px !important;}
+  #hkSub .hk_eyebrow{margin-top:18px !important;}
+  #hkSub .hk_hgrid{grid-template-columns:1fr !important;gap:28px !important;}
+  #hkSub .hk_how{padding:20px 16px 16px !important;border-radius:20px !important;}
+  #hkSub .hk_how .hk_three{gap:6px !important;}
+  #hkSub .hk_how .hk_three div{padding:14px 4px !important;border-radius:14px !important;}
+  #hkSub .hk_how .hk_three svg{width:24px !important;height:24px !important;}
+  #hkSub .hk_how .hk_three b{font-size:13.5px !important;}
+  #hkSub .hk_how .hk_goal p{font-size:13.5px !important;}
+  #hkSub .hk_sec{padding:64px 0 !important;}
+  #hkSub .hk_intro{grid-template-columns:1fr !important;gap:22px !important;}
+  #hkSub .hk_def{padding:20px !important;border-radius:18px !important;margin-top:18px !important;}
+  #hkSub .hk_def p{font-size:14.5px !important;}
+  #hkSub .hk_wy{padding:16px !important;gap:12px !important;border-radius:16px !important;}
+  #hkSub .hk_wy .hk_ico{width:40px !important;height:40px !important;border-radius:13px !important;}
+  #hkSub .hk_wy p{font-size:14.5px !important;}
+  #hkSub .hk_ages{grid-template-columns:1fr !important;gap:14px !important;margin-top:30px !important;}
+  #hkSub .hk_ages::before{display:none !important;}
+  #hkSub .hk_ag{flex-direction:row !important;align-items:stretch !important;gap:14px !important;text-align:left !important;}
+  #hkSub .hk_ag .hk_dot{width:56px !important;height:56px !important;flex:none !important;box-shadow:none !important;}
+  #hkSub .hk_ag .hk_dot svg{width:26px !important;height:26px !important;}
+  #hkSub .hk_ag .hk_box{margin-top:0 !important;padding:16px 18px !important;border-radius:18px !important;}
+  #hkSub .hk_ag .hk_box b{font-size:17px !important;}
+  #hkSub .hk_ag .hk_tags{justify-content:flex-start !important;margin-top:10px !important;}
+  #hkSub .hk_ag .hk_tags i{height:28px !important;font-size:13px !important;}
+  #hkSub .hk_foods{grid-template-columns:1fr !important;margin-top:28px !important;gap:10px !important;}
+  #hkSub .hk_fd{padding:18px !important;border-radius:18px !important;}
+  #hkSub .hk_fd .hk_ico{width:42px !important;height:42px !important;border-radius:13px !important;}
+  #hkSub .hk_fd b{font-size:17px !important;}
+  #hkSub .hk_fd .hk_tags i{height:28px !important;font-size:12.5px !important;}
+  #hkSub .hk_blood{margin-top:28px !important;gap:10px !important;}
+  #hkSub .hk_bstat{flex-direction:column !important;gap:10px !important;}
+  #hkSub .hk_bs{padding:20px !important;border-radius:18px !important;}
+  #hkSub .hk_blist{grid-template-columns:1fr !important;gap:8px !important;}
+  #hkSub .hk_bl{flex-direction:row !important;align-items:flex-start !important;gap:12px !important;padding:14px 16px !important;border-radius:16px !important;}
+  #hkSub .hk_bl .hk_n{flex:none !important;width:30px !important;height:30px !important;border-radius:10px !important;font-size:13px !important;}
+  #hkSub .hk_bl p{margin-top:3px !important;font-size:14px !important;}
+  #hkSub .hk_fee{padding:18px !important;gap:14px !important;border-radius:18px !important;}
+  #hkSub .hk_fee .hk_ico{width:42px !important;height:42px !important;border-radius:13px !important;}
+  #hkSub .hk_fee b{font-size:16px !important;}
+  #hkSub .hk_fee span{font-size:13px !important;}
+  #hkSub .hk_ask{grid-template-columns:1fr !important;margin-top:28px !important;border-radius:20px !important;}
+  #hkSub .hk_ak1{padding:28px 22px 26px !important;}
+  #hkSub .hk_ak1 a.hk_tel svg{width:24px !important;height:24px !important;}
+  #hkSub .hk_ak2{padding:22px 22px 12px !important;}
+  #hkSub .hk_ak2 th,#hkSub .hk_ak2 td{padding:13px 2px !important;font-size:15px !important;}
+  #hkSub .hk_cta{padding:62px 0 !important;}
+  #hkSub .hk_btns{margin-top:24px !important;gap:9px !important;}
+  #hkSub .hk_btn{height:50px !important;padding:0 20px !important;font-size:14.5px !important;}
+}
+</style>
+
+<div id="hkSub">
+
+  <!-- ── 서브 히어로 ── -->
+  <section class="hk_hero">
+    <div class="hk_wrap hk_hgrid">
+      <div>
+        <nav class="hk_bc hk_rv"><a href="/">홈</a><i></i><a href="/sickzone">Sick Zone</a><i></i><b>알레르기 클리닉</b></nav>
+        <span class="hk_eyebrow hk_rv hk_d1">ALLERGY CLINIC</span>
+        <h1 class="hk_h1 hk_rv hk_d1">알레르기 클리닉</h1>
+        <span class="hk_hlead hk_rv hk_d2">알레르기는 어떤 아이에게나 나타날 수 있습니다.</span>
+      </div>
+      <div class="hk_how hk_rv hk_d2">
+        <span>과학적이고 체계적인 알레르기 검사</span>
+        <div class="hk_three">
+          <div>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.7l5.7 5.7a8 8 0 1 1-11.3 0z"/></svg>
+            <b>혈청검사</b>
+          </div>
+          <div>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <b>면역검사</b>
+          </div>
+          <div>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 11V6a2 2 0 0 0-4 0v5M14 10V4a2 2 0 0 0-4 0v6M10 10.5V6a2 2 0 0 0-4 0v8"/><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.9-6-2.4l-3.6-3.6a2 2 0 0 1 2.8-2.8L7 15"/></svg>
+            <b>피부반응검사</b>
+          </div>
+        </div>
+        <div class="hk_goal">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg>
+          <p>원인을 찾아내어 증상 호전 치료는 물론, 근본적인 원인을 회피 · 제거합니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 알레르기란 ── -->
+  <section class="hk_sec">
+    <div class="hk_wrap hk_intro">
+      <div class="hk_rv">
+        <span class="hk_eyebrow2">ABOUT ALLERGY</span>
+        <h2 class="hk_h2">알레르기 검사,<br>조기에 필요합니다</h2>
+        <div class="hk_def">
+          <span>알레르기란?</span>
+          <p>우리 몸속에서 일어나는 면역반응의 한 종류로서, 보통 사람에게서는 문제가 되지 않는 어떤 이물질에 대하여 특이하게 발생하는 이상과민 면역반응입니다.</p>
+        </div>
+      </div>
+      <div class="hk_why">
+        <div class="hk_wy hk_rv hk_d1">
+          <span class="hk_ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M16 16s-1.5-2-4-2-4 2-4 2M9 9h.01M15 9h.01"/></svg></span>
+          <p>여러 가지 알 수 없는 원인 물질로 인해 고통받게 되는 <em>아토피, 알레르기 피부 질환</em>은 아이들이 생활하는데 큰 불편함을 주게 됩니다.</p>
+        </div>
+        <div class="hk_wy hk_rv hk_d2">
+          <span class="hk_ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M9 20v-5h6v5"/></svg></span>
+          <p>우리 아이들은 제각기 다른 환경과 서로 다른 음식문화를 접하고 있기 때문에 <em>조기에 검사가 필요합니다.</em></p>
+        </div>
+        <div class="hk_wy hk_rv hk_d3">
+          <span class="hk_ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg></span>
+          <p>행복한어린이병원에서는 과학적이고 체계적인 <em>혈청검사, 면역검사, 피부반응검사</em> 등을 통해 원인을 찾아내어 증상의 호전에 대한 치료는 물론, 근본적인 원인을 회피하거나 제거하기 위해 알레르기 검사를 진행합니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 시기별 발생 알레르기 종류 ── -->
+  <section class="hk_sec hk_tint">
+    <div class="hk_wrap">
+      <div class="hk_rv">
+        <span class="hk_eyebrow2">BY AGE</span>
+        <h2 class="hk_h2">시기별 발생 알레르기 종류</h2>
+      </div>
+      <div class="hk_ages">
+        <div class="hk_ag hk_a1 hk_rv">
+          <span class="hk_dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="13" r="8"/><path d="M9 12h.01M15 12h.01M9.5 16c1.4 1.2 3.6 1.2 5 0"/><path d="M12 5c0-1.5 1-2.5 2.5-2.5"/></svg></span>
+          <div class="hk_box">
+            <span>STAGE 1</span>
+            <b>영유아기</b>
+            <div class="hk_tags"><i>태열</i><i>아토피성 피부염</i><i>우유, 계란 등에 의한 위장관 알레르기</i></div>
+          </div>
+        </div>
+        <div class="hk_ag hk_a2 hk_rv hk_d1">
+          <span class="hk_dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v8M12 11c-1.5 1-3 1-4 3s-1 6-3 6-3-2-3-5 1-8 4-9 4 0 6 5zM12 11c1.5 1 3 1 4 3s1 6 3 6 3-2 3-5-1-8-4-9-4 0-6 5z"/></svg></span>
+          <div class="hk_box">
+            <span>STAGE 2</span>
+            <b>초등학교 입학 전 · 후</b>
+            <div class="hk_tags"><i>천식</i></div>
+          </div>
+        </div>
+        <div class="hk_ag hk_a3 hk_rv hk_d2">
+          <span class="hk_dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4c-1 4-4 6-4 10a4 4 0 0 0 8 0c0-4-3-6-4-10z"/><path d="M10 17c.5.8 1.2 1 2 1"/></svg></span>
+          <div class="hk_box">
+            <span>STAGE 3</span>
+            <b>초등학교 후반</b>
+            <div class="hk_tags"><i>코 알레르기</i></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 알레르기 유발 음식물 ── -->
+  <section class="hk_sec">
+    <div class="hk_wrap">
+      <div class="hk_rv">
+        <span class="hk_eyebrow2">FOOD ALLERGENS</span>
+        <h2 class="hk_h2">일반적인 알레르기 유발 음식물</h2>
+      </div>
+      <div class="hk_foods">
+        <div class="hk_fd hk_f1 hk_rv">
+          <div class="hk_fh">
+            <span class="hk_ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2h8M9 2v3L6 9v11a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V9l-3-4V2"/><path d="M6 13h12"/></svg></span>
+            <b>우유 류</b>
+          </div>
+          <div class="hk_tags"><i>우유</i><i>치즈</i><i>요구르트</i><i>생크림</i><i>버터</i><i>분유</i><i>연유</i><i>캐러멜</i><i>과자</i><i>빵</i></div>
+        </div>
+        <div class="hk_fd hk_f2 hk_rv hk_d1">
+          <div class="hk_fh">
+            <span class="hk_ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22V10"/><path d="M12 10c-3 0-4-2-4-4 2 0 4 1 4 4zM12 10c3 0 4-2 4-4-2 0-4 1-4 4zM12 15c-3 0-4-2-4-4 2 0 4 1 4 4zM12 15c3 0 4-2 4-4-2 0-4 1-4 4zM12 6c-1-1-1-3 0-4 1 1 1 3 0 4z"/></svg></span>
+            <b>밀가루 류</b>
+          </div>
+          <div class="hk_tags"><i>빵</i><i>라면</i><i>국수</i><i>튀김</i><i>떡볶이</i><i>햄버거</i><i>피자</i><i>스파게티</i><i>마카로니</i><i>수프</i><i>시리얼</i><i>과자</i></div>
+        </div>
+        <div class="hk_fd hk_f3 hk_rv hk_d2">
+          <div class="hk_fh">
+            <span class="hk_ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3c-3 0-5 2.5-5 5 0 2 1 3 1 4s-1 2-1 4c0 2.5 2 5 5 5s4-2 5-3 2-1 3-1c2.5 0 4-2 4-5s-2-4-3-4-2-1-2-2c0-2-2-3-4-3-1 0-2 0-3 0z"/><path d="M9 9h.01M8 14h.01M15 12h.01"/></svg></span>
+            <b>땅콩 류</b>
+          </div>
+          <div class="hk_tags"><i>땅콩</i><i>마가린</i><i>샐러드 드레싱</i></div>
+        </div>
+        <div class="hk_fd hk_f4 hk_rv hk_d3">
+          <div class="hk_fh">
+            <span class="hk_ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22c4 0 7-3 7-7.5S16 3 12 3 5 10 5 14.5 8 22 12 22z"/></svg></span>
+            <b>계란 류</b>
+          </div>
+          <div class="hk_tags"><i>어묵</i><i>아이스크림</i><i>마요네즈</i><i>빵</i><i>과자</i><i>튀김</i><i>오믈렛</i><i>푸딩</i><i>슈크림</i><i>분유</i></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 혈액 검사 (MAST / UNICAP) ── -->
+  <section class="hk_sec hk_tint">
+    <div class="hk_wrap">
+      <div class="hk_rv">
+        <span class="hk_eyebrow2">BLOOD TEST</span>
+        <h2 class="hk_h2">혈액 검사<br>(MAST 또는 UNICAP 검사)</h2>
+      </div>
+      <div class="hk_blood">
+        <div class="hk_bstat">
+          <div class="hk_bs hk_rv">
+            <span>MAST 검사 · 동시 검사</span>
+            <div class="hk_row">
+              <div><b>42<small>종</small></b><em>음식물 알레르기</em></div>
+              <div><b>42<small>종</small></b><em>흡입성 알레르기</em></div>
+            </div>
+          </div>
+          <div class="hk_bs hk_uni hk_rv hk_d1">
+            <span>UNICAP 검사</span>
+            <div class="hk_row"><div><b>6<small>종</small></b><em>항원 검사</em></div></div>
+            <p>MAST 검사에 대해 민감도가 높은 검사입니다.</p>
+          </div>
+        </div>
+        <div class="hk_blist">
+          <div class="hk_bl hk_rv"><span class="hk_n">1</span><p>소량의 혈액으로 검사가 가능합니다.</p></div>
+          <div class="hk_bl hk_rv hk_d1"><span class="hk_n">2</span><p>위험이 없는 안전한 검사입니다.</p></div>
+          <div class="hk_bl hk_rv"><span class="hk_n">3</span><p>피부검사가 힘든 소아에게 효과적입니다.</p></div>
+          <div class="hk_bl hk_rv hk_d1"><span class="hk_n">4</span><p>객관적인 결과를 얻을 수 있기 때문에 검사 후 보다 체계적인 건강상태 체크 및 설계가 가능합니다.</p></div>
+          <div class="hk_bl hk_rv"><span class="hk_n">5</span><p>MAST 검사의 경우 음식물 알레르기 42종, 흡입성 알레르기 42종을 동시 검사할 수 있습니다. UNICAP 검사는 MAST 검사에 대해 민감도가 높은 검사로 6종 항원에 대한 검사를 진행합니다.</p></div>
+          <div class="hk_bl hk_rv hk_d1"><span class="hk_n">6</span><p>다른 약물을 복용하는 중에도 검사가 가능합니다.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 예약 및 상담문의 ── -->
+  <section class="hk_sec">
+    <div class="hk_narrow">
+      <div class="hk_rv">
+        <span class="hk_eyebrow2">CONTACT</span>
+        <h2 class="hk_h2">예약 및 상담문의</h2>
+      </div>
+
+      <div class="hk_ask hk_rv hk_d1">
+        <div class="hk_ak1">
+          <span>Sick Zone 외래 간호팀</span>
+          <a class="hk_tel" href="tel:051-264-9500">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .3 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.4 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
+            051-264-9500
+          </a>
+          <div class="hk_ext"><em>내선 820번</em><em>내선 823번</em></div>
+        </div>
+        <div class="hk_ak2">
+          <div class="hk_akh">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+            진료 · 상담 시간
+          </div>
+          <table>
+            <tbody>
+              <tr><th>월 ~ 금</th><td class="hk_late">9시 ~ 23시</td></tr>
+              <tr><th>토요일</th><td>9시 ~ 18시</td></tr>
+              <tr><th>일 / 공휴일</th><td>9시 ~ 18시</td></tr>
+              <tr class="hk_lunch"><th>점심시간</th><td>13시 ~ 14시</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <a class="hk_fee hk_rv" href="/fees#drug">
+        <span class="hk_ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="3"/><path d="M2 10h20M6 15h4"/></svg></span>
+        <div><b>알레르기 치료제 비용 안내</b><span>설하면역 치료제 등 비용은 비급여 진료비 › 약제비에서 확인하세요.</span></div>
+        <span class="hk_go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ── 하단 CTA ── -->
+  <section class="hk_cta">
+    <div class="hk_wrap hk_rv">
+      <b>우리 아이 알레르기,<br>원인부터 정확히 찾아드립니다</b>
+      <p>소량의 혈액으로, 약을 복용 중에도 검사할 수 있습니다.</p>
+      <div class="hk_btns">
+        <a class="hk_btn hk_b1" href="tel:051-264-9500">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .3 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.4 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
+          051-264-9500
+        </a>
+        <a class="hk_btn hk_b2" href="https://goodoc.onelink.me/7srm/u0yjku3b" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="3"/><path d="M11 18h2"/></svg>
+          굿닥 앱으로 예약
+        </a>
+        <a class="hk_btn hk_b3" href="/sickzone#resp">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v8M12 11c-1.5 1-3 1-4 3s-1 6-3 6-3-2-3-5 1-8 4-9 4 0 6 5zM12 11c1.5 1 3 1 4 3s1 6 3 6 3-2 3-5-1-8-4-9-4 0-6 5z"/></svg>
+          호흡기 클리닉 보기
+        </a>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<script>
+(function () {
+  var root = document.getElementById('hkSub');
+  if (!root || root.dataset.hkReady) return;
+  root.dataset.hkReady = '1';
+  var els = root.querySelectorAll('.hk_rv');
+  if (!('IntersectionObserver' in window)) { Array.prototype.forEach.call(els, function (e) { e.classList.add('hk_in'); }); return; }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('hk_in'); io.unobserve(en.target); } });
+  }, { threshold: 0.08 });
+  Array.prototype.forEach.call(els, function (e) { io.observe(e); });
+})();
+</script>

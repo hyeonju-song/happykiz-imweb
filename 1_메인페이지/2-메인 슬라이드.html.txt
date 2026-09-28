@@ -1,0 +1,304 @@
+<!-- ══════════════════════════════════════════════════════════════
+     [행복한어린이병원] 02. 메인 슬라이드 + 빠른 안내 바  (아임웹 코드 위젯용)
+     ─────────────────────────────────────────────────────────────
+     ※ 아임웹에서 이 위젯이 들어가는 섹션을
+        '전체 너비 / 좌우 여백 0 / 상하 여백 0' 으로 두세요.
+     ※ 상단메뉴(고정)가 화면을 92px 가리므로 그만큼 위 여백을 넣었습니다.
+     ══════════════════════════════════════════════════════════════ -->
+<style>
+@import url('https://cdn.jsdelivr.net/gh/sun-typeface/suit@2/fonts/variable/woff2/SUIT-Variable.css');
+
+#hkHero{
+  --hk-sky:#3FA7E6; --hk-sky-d:#1E7FC2; --hk-sky-l:#EAF6FD;
+  --hk-sun:#FFC93C; --hk-well:#2FBF9B; --hk-sick:#FF7A6B;
+  --hk-ink:#1F3A4D; --hk-body:#4A5E6B; --hk-gray:#8697A2; --hk-line:#E6EDF1;
+  --hk-ease:cubic-bezier(.16,1,.3,1);
+  --hk-maxw:1400px; --hk-pad:32px;
+  line-height:1.7 !important;
+
+  display:block !important;position:relative !important;float:none !important;clear:both !important;
+  width:100% !important;max-width:100% !important;
+  margin:0 !important;padding:92px 0 0 !important;
+  background:#fff !important;box-sizing:border-box !important;z-index:1 !important;
+}
+#hkHero,#hkHero *,#hkHero *::before,#hkHero *::after{
+  box-sizing:border-box !important;
+  font-family:'SUIT Variable','SUIT',-apple-system,BlinkMacSystemFont,'Pretendard','Apple SD Gothic Neo',sans-serif !important;
+  word-break:keep-all !important;
+}
+#hkHero p,#hkHero h1,#hkHero h2,#hkHero span,#hkHero div,#hkHero a,#hkHero article,#hkHero em,#hkHero b{margin:0 !important;padding:0 !important;}
+#hkHero a{text-decoration:none !important;color:inherit !important;}
+#hkHero button{font:inherit !important;color:inherit !important;background:none !important;border:0 !important;margin:0 !important;padding:0 !important;cursor:pointer !important;}
+#hkHero svg{display:inline-block !important;}
+#hkHero .hk_wrap{max-width:var(--hk-maxw) !important;margin:0 auto !important;padding:0 var(--hk-pad) !important;width:100% !important;}
+
+/* ── 슬라이드 무대 ── */
+#hkHero .hk_stage{position:relative !important;height:clamp(520px,62vh,720px) !important;overflow:hidden !important;background:var(--hk-ink) !important;}
+#hkHero .hk_slide{position:absolute !important;inset:0 !important;opacity:0 !important;visibility:hidden !important;transition:opacity .9s var(--hk-ease),visibility .9s !important;}
+#hkHero .hk_slide.hk_on{opacity:1 !important;visibility:visible !important;}
+#hkHero .hk_bg{
+  position:absolute !important;inset:0 !important;
+  background-size:cover !important;background-position:center !important;background-repeat:no-repeat !important;
+  transform:scale(1.08) !important;transition:transform 6s var(--hk-ease) !important;
+}
+#hkHero .hk_slide.hk_on .hk_bg{transform:scale(1) !important;}
+#hkHero .hk_scrim{
+  position:absolute !important;inset:0 !important;
+  background:linear-gradient(100deg,rgba(18,52,78,.86) 0%,rgba(18,52,78,.62) 38%,rgba(18,52,78,.16) 70%,rgba(18,52,78,.05) 100%),
+             linear-gradient(to top,rgba(18,52,78,.55) 0%,rgba(18,52,78,0) 40%) !important;
+}
+#hkHero .hk_body{position:absolute !important;inset:0 !important;display:flex !important;align-items:center !important;padding-bottom:70px !important;}
+#hkHero .hk_copy{max-width:720px !important;}
+#hkHero .hk_badge{
+  display:inline-flex !important;align-items:center !important;gap:9px !important;
+  height:34px !important;padding:0 16px 0 13px !important;border-radius:999px !important;
+  background:rgba(255,255,255,.12) !important;border:1px solid rgba(255,255,255,.26) !important;
+  -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+  font-size:11.5px !important;font-weight:800 !important;letter-spacing:.14em !important;color:#fff !important;
+  opacity:0 !important;transform:translateY(18px) !important;
+  transition:opacity .8s var(--hk-ease) .15s,transform .8s var(--hk-ease) .15s !important;
+}
+#hkHero .hk_badge .hk_dot{width:7px !important;height:7px !important;border-radius:50% !important;background:var(--hk-sun) !important;box-shadow:0 0 10px var(--hk-sun) !important;flex:none !important;}
+#hkHero .hk_h1{
+  display:block !important;margin:24px 0 18px !important;
+  font-size:clamp(30px,4.6vw,58px) !important;font-weight:800 !important;line-height:1.38 !important;
+  letter-spacing:-.045em !important;color:#fff !important;text-shadow:0 6px 30px rgba(0,0,0,.28) !important;
+  opacity:0 !important;transform:translateY(24px) !important;
+  transition:opacity .85s var(--hk-ease) .25s,transform .85s var(--hk-ease) .25s !important;
+}
+#hkHero .hk_h1 em{font-style:normal !important;color:var(--hk-sun) !important;}
+#hkHero .hk_h1 em.hk_w{color:#7FE3C6 !important;}
+#hkHero .hk_h1 em.hk_s{color:#FFA898 !important;}
+#hkHero .hk_sub{
+  display:block !important;font-size:clamp(14.5px,1.7vw,18.5px) !important;line-height:1.8 !important;font-weight:500 !important;
+  color:rgba(255,255,255,.88) !important;letter-spacing:-.02em !important;
+  opacity:0 !important;transform:translateY(20px) !important;
+  transition:opacity .85s var(--hk-ease) .35s,transform .85s var(--hk-ease) .35s !important;
+}
+#hkHero .hk_ctaBox{margin-top:30px !important;display:flex !important;gap:10px !important;flex-wrap:wrap !important;opacity:0 !important;transform:translateY(18px) !important;transition:opacity .85s var(--hk-ease) .45s,transform .85s var(--hk-ease) .45s !important;}
+#hkHero .hk_cta{
+  display:inline-flex !important;align-items:center !important;gap:10px !important;
+  height:52px !important;padding:0 26px !important;border-radius:999px !important;
+  background:var(--hk-sun) !important;color:#5A3E00 !important;
+  font-size:14.5px !important;font-weight:800 !important;
+  box-shadow:0 10px 26px -10px rgba(255,201,60,.8) !important;
+  transition:background .3s var(--hk-ease),transform .3s var(--hk-ease) !important;
+}
+#hkHero .hk_cta:hover{background:#FFB700 !important;transform:translateY(-2px) !important;}
+#hkHero .hk_cta.hk_ghost{background:rgba(255,255,255,.14) !important;color:#fff !important;border:1px solid rgba(255,255,255,.4) !important;box-shadow:none !important;}
+#hkHero .hk_cta.hk_ghost:hover{background:rgba(255,255,255,.24) !important;}
+#hkHero .hk_cta svg{flex:none !important;transition:transform .3s var(--hk-ease) !important;}
+#hkHero .hk_cta:hover svg{transform:translateX(4px) !important;}
+#hkHero .hk_slide.hk_on .hk_badge,#hkHero .hk_slide.hk_on .hk_h1,#hkHero .hk_slide.hk_on .hk_sub,#hkHero .hk_slide.hk_on .hk_ctaBox{opacity:1 !important;transform:none !important;}
+
+/* 슬라이드 탭 */
+#hkHero .hk_tabs{position:absolute !important;left:0 !important;right:0 !important;bottom:0 !important;z-index:5 !important;}
+#hkHero .hk_tabs .hk_wrap{display:grid !important;grid-template-columns:repeat(3,1fr) !important;border-top:1px solid rgba(255,255,255,.18) !important;}
+#hkHero .hk_tab{
+  position:relative !important;text-align:left !important;padding:18px 20px 22px 0 !important;
+  display:flex !important;align-items:flex-start !important;gap:12px !important;
+  color:rgba(255,255,255,.55) !important;transition:color .35s var(--hk-ease) !important;
+}
+#hkHero .hk_tab:hover{color:rgba(255,255,255,.9) !important;}
+#hkHero .hk_tab.hk_on{color:#fff !important;}
+#hkHero .hk_tab i{font-style:normal !important;font-size:11px !important;font-weight:800 !important;letter-spacing:.08em !important;padding-top:4px !important;opacity:.85 !important;}
+#hkHero .hk_tab b{font-size:14.5px !important;font-weight:700 !important;letter-spacing:-.03em !important;line-height:1.5 !important;}
+#hkHero .hk_tab .hk_sm{display:none !important;}
+#hkHero .hk_tab::before{content:'' !important;position:absolute !important;left:0 !important;top:-1px !important;height:2px !important;width:0 !important;background:var(--hk-sun) !important;}
+#hkHero .hk_tab.hk_on::before{width:100% !important;transition:width 5s linear !important;}
+
+/* ── 빠른 안내 바 (슬라이드 아래에 살짝 겹침) ── */
+#hkHero .hk_quick{position:relative !important;z-index:6 !important;margin-top:-34px !important;padding-bottom:10px !important;}
+#hkHero .hk_qgrid{
+  display:grid !important;grid-template-columns:1.4fr 1fr 1fr 1fr !important;gap:0 !important;
+  background:#fff !important;border-radius:22px !important;overflow:hidden !important;
+  box-shadow:0 24px 50px -24px rgba(31,58,77,.35),0 0 0 1px var(--hk-line) !important;
+}
+#hkHero .hk_q{
+  display:flex !important;align-items:center !important;gap:14px !important;
+  padding:22px 26px !important;border-right:1px solid var(--hk-line) !important;
+  transition:background .25s var(--hk-ease) !important;
+}
+#hkHero .hk_q:last-child{border-right:0 !important;}
+#hkHero a.hk_q:hover{background:var(--hk-sky-l) !important;}
+#hkHero .hk_qi{
+  display:flex !important;width:46px !important;height:46px !important;border-radius:14px !important;flex:none !important;
+  align-items:center !important;justify-content:center !important;
+}
+#hkHero .hk_qi svg{width:22px !important;height:22px !important;stroke:currentColor !important;fill:none !important;stroke-width:2.2 !important;stroke-linecap:round !important;stroke-linejoin:round !important;}
+#hkHero .hk_qi.hk_c1{background:var(--hk-sky-l) !important;color:var(--hk-sky-d) !important;}
+#hkHero .hk_qi.hk_c2{background:#FFF6D6 !important;color:#B07A00 !important;}
+#hkHero .hk_qi.hk_c3{background:#E4F8F2 !important;color:#1C8F72 !important;}
+#hkHero .hk_qi.hk_c4{background:#FFEDEA !important;color:#D9503F !important;}
+#hkHero .hk_q small{display:block !important;font-size:11.5px !important;font-weight:700 !important;letter-spacing:.02em !important;color:var(--hk-gray) !important;margin-bottom:2px !important;}
+#hkHero .hk_q b{display:block !important;font-size:16px !important;font-weight:800 !important;color:var(--hk-ink) !important;letter-spacing:-.03em !important;line-height:1.3 !important;}
+#hkHero .hk_q .hk_time{display:grid !important;grid-template-columns:auto auto !important;gap:2px 14px !important;font-size:12.5px !important;color:var(--hk-body) !important;font-weight:600 !important;line-height:1.5 !important;}
+#hkHero .hk_q .hk_time em{font-style:normal !important;color:var(--hk-gray) !important;font-weight:600 !important;}
+#hkHero .hk_q .hk_time strong{color:var(--hk-sky-d) !important;font-weight:800 !important;}
+
+@media (max-width:1180px){#hkHero{--hk-pad:26px;}}
+@media (max-width:1024px){
+  #hkHero .hk_qgrid{grid-template-columns:1fr 1fr !important;}
+  #hkHero .hk_q{border-bottom:1px solid var(--hk-line) !important;}
+  #hkHero .hk_q:nth-child(2n){border-right:0 !important;}
+  #hkHero .hk_q:nth-child(n+3){border-bottom:0 !important;}
+}
+@media (max-width:860px){
+  #hkHero{--hk-pad:20px;padding-top:70px !important;}
+  #hkHero .hk_stage{height:78vh !important;height:78svh !important;min-height:520px !important;max-height:680px !important;}
+  #hkHero .hk_body{padding-bottom:70px !important;align-items:flex-end !important;}
+  #hkHero .hk_body .hk_wrap{padding-bottom:24px !important;}
+  #hkHero .hk_h1{margin:16px 0 12px !important;}
+  #hkHero .hk_ctaBox{margin-top:24px !important;}
+  #hkHero .hk_cta{height:48px !important;padding:0 20px !important;font-size:13.5px !important;}
+  #hkHero .hk_tabs .hk_wrap{display:flex !important;padding:0 !important;}
+  #hkHero .hk_tab{padding:0 !important;flex:1 !important;justify-content:center !important;align-items:center !important;height:52px !important;gap:7px !important;}
+  #hkHero .hk_tab b{display:none !important;}
+  #hkHero .hk_tab .hk_sm{display:inline !important;font-size:12.5px !important;font-weight:700 !important;letter-spacing:-.03em !important;}
+  #hkHero .hk_tab i{padding:0 !important;font-size:11px !important;}
+  #hkHero .hk_tab::before{display:none !important;}
+  #hkHero .hk_tab.hk_on{background:rgba(255,201,60,.25) !important;}
+  #hkHero .hk_quick{margin-top:-18px !important;}
+  #hkHero .hk_qgrid{grid-template-columns:1fr !important;border-radius:18px !important;}
+  #hkHero .hk_q{border-right:0 !important;border-bottom:1px solid var(--hk-line) !important;padding:16px 18px !important;}
+  #hkHero .hk_q:last-child{border-bottom:0 !important;}
+  #hkHero .hk_q:nth-child(n+3){border-bottom:1px solid var(--hk-line) !important;}
+  #hkHero .hk_q:last-child{border-bottom:0 !important;}
+  #hkHero .hk_qi{width:40px !important;height:40px !important;border-radius:12px !important;}
+  #hkHero .hk_q b{font-size:15px !important;}
+}
+@media (max-width:420px){
+  #hkHero .hk_h1{font-size:27px !important;}
+  #hkHero .hk_sub{font-size:14px !important;}
+}
+</style>
+
+<div id="hkHero">
+  <div class="hk_stage">
+
+    <article class="hk_slide hk_on">
+      <div class="hk_bg" style="background-image:url('https://www.happykiz.kr/Resources/images/main/img_kv_1_bg.jpg')" role="img" aria-label="행복한어린이병원 Well Zone과 Sick Zone 동선 분리"></div>
+      <div class="hk_scrim"></div>
+      <div class="hk_body"><div class="hk_wrap"><div class="hk_copy">
+        <span class="hk_badge"><span class="hk_dot"></span>A HAPPY CHILD MAKES A HAPPY WORLD</span>
+        <h2 class="hk_h1">환자 감염 최소화를 위해<br><em class="hk_w">Well Zone</em>과 <em class="hk_s">Sick Zone</em>으로<br>동선을 분리하였습니다</h2>
+        <span class="hk_sub">예방접종·건강검진 어린이는 튼튼클리닉(Well Zone)에서,<br>아픈 어린이는 호흡기·일반클리닉(Sick Zone)에서 안심하고 진료받으세요.</span>
+        <div class="hk_ctaBox">
+          <a class="hk_cta" href="/wellzone">Well Zone 알아보기
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a class="hk_cta hk_ghost" href="/sickzone">Sick Zone 알아보기
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div></div></div>
+    </article>
+
+    <article class="hk_slide">
+      <div class="hk_bg" style="background-image:url('https://www.happykiz.kr/Resources/images/main/img_kv_2_bg.jpg')" role="img" aria-label="행복한어린이병원 진료센터 확장"></div>
+      <div class="hk_scrim"></div>
+      <div class="hk_body"><div class="hk_wrap"><div class="hk_copy">
+        <span class="hk_badge"><span class="hk_dot"></span>FULL CARE FOR YOUR CHILD</span>
+        <h2 class="hk_h1">진료센터 확장으로<br>우리아이 <em>건강 풀케어</em>를<br>시작합니다</h2>
+        <span class="hk_sub">소아청소년 종합검진센터 · 성장/성조숙/비만 검진센터 · 언어심리 발달센터 —<br>정상적인 성장과 발달을 최적화하여 건강한 성인으로 자라도록 돕습니다.</span>
+        <div class="hk_ctaBox">
+          <a class="hk_cta" href="/checkup">소아청소년 종합검진
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a class="hk_cta hk_ghost" href="/development">아동발달 클리닉
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div></div></div>
+    </article>
+
+    <article class="hk_slide">
+      <div class="hk_bg" style="background-image:url('https://www.happykiz.kr/Resources/images/sub/est01.jpg')" role="img" aria-label="행복한어린이병원 전경"></div>
+      <div class="hk_scrim"></div>
+      <div class="hk_body"><div class="hk_wrap"><div class="hk_copy">
+        <span class="hk_badge"><span class="hk_dot"></span>달빛어린이병원 지정 · 2026. 1. 1</span>
+        <h2 class="hk_h1">평일 <em>밤 11시</em>까지,<br>토·일·공휴일도 진료합니다</h2>
+        <span class="hk_sub">보건복지부 지정 달빛어린이병원 · 호흡기전담클리닉 · 국민안심병원<br>월~금 09:00-23:00 / 토·일·공휴일 09:00-18:00 (점심 13:00-14:00)</span>
+        <div class="hk_ctaBox">
+          <a class="hk_cta" href="/schedule">이달의 진료시간표
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a class="hk_cta hk_ghost" href="https://goodoc.onelink.me/7srm/u0yjku3b" target="_blank" rel="noopener">굿닥 앱으로 예약
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div></div></div>
+    </article>
+
+    <div class="hk_tabs"><div class="hk_wrap">
+      <button class="hk_tab hk_on" type="button" data-go="0"><i>01</i><b>Well Zone · Sick Zone 동선 분리</b><span class="hk_sm">동선 분리</span></button>
+      <button class="hk_tab" type="button" data-go="1"><i>02</i><b>우리아이 건강 풀케어</b><span class="hk_sm">건강 풀케어</span></button>
+      <button class="hk_tab" type="button" data-go="2"><i>03</i><b>달빛어린이병원 · 야간진료</b><span class="hk_sm">야간진료</span></button>
+    </div></div>
+  </div>
+
+  <div class="hk_quick"><div class="hk_wrap">
+    <div class="hk_qgrid">
+      <div class="hk_q">
+        <span class="hk_qi hk_c1"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+        <div>
+          <small>진료시간</small>
+          <div class="hk_time">
+            <span><em>월~금</em> <strong>09:00 - 23:00</strong></span>
+            <span><em>토·일·공휴일</em> 09:00 - 18:00</span>
+            <span><em>점심</em> 13:00 - 14:00</span>
+            <span><em>달빛어린이병원</em> 야간진료</span>
+          </div>
+        </div>
+      </div>
+      <a class="hk_q" href="https://goodoc.onelink.me/7srm/u0yjku3b" target="_blank" rel="noopener">
+        <span class="hk_qi hk_c2"><svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="3"/><path d="M11 18h2"/></svg></span>
+        <div><small>진료예약</small><b>굿닥 앱 예약</b></div>
+      </a>
+      <a class="hk_q" href="/schedule">
+        <span class="hk_qi hk_c3"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="17" rx="3"/><path d="M8 2v4M16 2v4M3 10h18"/></svg></span>
+        <div><small>원장님별 진료</small><b>이달의 진료시간표</b></div>
+      </a>
+      <a class="hk_q" href="/location">
+        <span class="hk_qi hk_c4"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+        <div><small>부산 강서구 명지</small><b>오시는 길 · 주차안내</b></div>
+      </a>
+    </div>
+  </div></div>
+</div>
+
+<script>
+(function () {
+  var root = document.getElementById('hkHero');
+  if (!root || root.dataset.hkReady) return;
+  root.dataset.hkReady = '1';
+
+  var MS = 5000;
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var slides = root.querySelectorAll('.hk_slide');
+  var tabs = root.querySelectorAll('.hk_tab');
+  var idx = 0, timer = null;
+
+  function go(i) {
+    idx = (i + slides.length) % slides.length;
+    for (var n = 0; n < slides.length; n++) slides[n].classList[n === idx ? 'add' : 'remove']('hk_on');
+    for (var m = 0; m < tabs.length; m++) {
+      tabs[m].classList.remove('hk_on');
+      if (m === idx) { void tabs[m].offsetWidth; tabs[m].classList.add('hk_on'); }
+    }
+    if (timer) clearTimeout(timer);
+    if (!reduce) timer = setTimeout(function () { go(idx + 1); }, MS);
+  }
+  Array.prototype.forEach.call(tabs, function (t) {
+    t.addEventListener('click', function () { go(parseInt(t.getAttribute('data-go'), 10)); });
+  });
+  var stage = root.querySelector('.hk_stage');
+  var tx = 0;
+  stage.addEventListener('touchstart', function (e) { tx = e.changedTouches[0].screenX; }, { passive: true });
+  stage.addEventListener('touchend', function (e) {
+    var d = tx - e.changedTouches[0].screenX;
+    if (Math.abs(d) > 50) go(idx + (d > 0 ? 1 : -1));
+  }, { passive: true });
+  go(0);
+})();
+</script>

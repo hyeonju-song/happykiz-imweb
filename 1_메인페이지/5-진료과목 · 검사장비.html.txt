@@ -1,0 +1,131 @@
+<!-- ══════════════════════════════════════════════════════════════
+     [행복한어린이병원] 05. 진료과목 · 검사장비  (아임웹 코드 위젯용)
+     ─────────────────────────────────────────────────────────────
+     기존 '외래진료 안내'의 진료과목 8개 + 홈 화면의 검사장비 3개
+     ══════════════════════════════════════════════════════════════ -->
+<style>
+@import url('https://cdn.jsdelivr.net/gh/sun-typeface/suit@2/fonts/variable/woff2/SUIT-Variable.css');
+
+#hkSubj{
+  --hk-sky:#3FA7E6; --hk-sky-d:#1E7FC2; --hk-sky-l:#EAF6FD;
+  --hk-sun:#FFC93C; --hk-well:#2FBF9B; --hk-sick:#FF7A6B;
+  --hk-ink:#1F3A4D; --hk-body:#4A5E6B; --hk-gray:#8697A2; --hk-line:#E6EDF1; --hk-paper2:#F5F9FB;
+  --hk-ease:cubic-bezier(.16,1,.3,1);
+  --hk-maxw:1400px; --hk-pad:32px;
+  line-height:1.75 !important;
+
+  display:block !important;position:relative !important;float:none !important;clear:both !important;
+  width:100% !important;max-width:100% !important;margin:0 !important;padding:96px 0 !important;
+  background:#fff !important;box-sizing:border-box !important;overflow:hidden !important;
+}
+#hkSubj,#hkSubj *,#hkSubj *::before,#hkSubj *::after{
+  box-sizing:border-box !important;
+  font-family:'SUIT Variable','SUIT',-apple-system,BlinkMacSystemFont,'Pretendard','Apple SD Gothic Neo',sans-serif !important;
+  word-break:keep-all !important;
+}
+#hkSubj ul,#hkSubj li{list-style:none !important;margin:0 !important;padding:0 !important;background-image:none !important;}
+#hkSubj li::before,#hkSubj li::after{display:none !important;content:none !important;}
+#hkSubj p,#hkSubj h2,#hkSubj h3,#hkSubj span,#hkSubj div,#hkSubj a,#hkSubj em,#hkSubj b,#hkSubj small{margin:0 !important;padding:0 !important;}
+#hkSubj a{text-decoration:none !important;color:inherit !important;}
+#hkSubj img{max-width:100% !important;display:block !important;border:0 !important;}
+#hkSubj .hk_wrap{max-width:var(--hk-maxw) !important;margin:0 auto !important;padding:0 var(--hk-pad) !important;width:100% !important;}
+#hkSubj .hk_rv{opacity:0 !important;transform:translateY(26px) !important;transition:opacity .9s var(--hk-ease),transform .9s var(--hk-ease) !important;}
+#hkSubj .hk_rv.hk_in{opacity:1 !important;transform:none !important;}
+
+#hkSubj .hk_eyebrow{display:flex !important;align-items:center !important;gap:10px !important;font-size:12px !important;font-weight:800 !important;letter-spacing:.16em !important;color:var(--hk-sky-d) !important;}
+#hkSubj .hk_eyebrow::before{content:'' !important;display:block !important;width:22px !important;height:2px !important;border-radius:2px !important;background:var(--hk-sun) !important;}
+#hkSubj .hk_h2{display:block !important;margin-top:14px !important;font-size:clamp(26px,3.4vw,40px) !important;font-weight:800 !important;line-height:1.35 !important;letter-spacing:-.045em !important;color:var(--hk-ink) !important;}
+#hkSubj .hk_lead{display:block !important;margin-top:12px !important;font-size:clamp(14.5px,1.6vw,16.5px) !important;color:var(--hk-body) !important;}
+
+/* 진료과목 8 */
+#hkSubj .hk_subj{display:grid !important;grid-template-columns:repeat(8,1fr) !important;gap:12px !important;margin-top:40px !important;}
+#hkSubj .hk_s{
+  display:flex !important;flex-direction:column !important;align-items:center !important;gap:12px !important;
+  padding:22px 10px 20px !important;border-radius:20px !important;background:var(--hk-paper2) !important;border:1px solid transparent !important;
+  text-align:center !important;transition:background .25s var(--hk-ease),border-color .25s var(--hk-ease),transform .25s var(--hk-ease) !important;
+}
+#hkSubj .hk_s:hover{background:#fff !important;border-color:var(--hk-line) !important;transform:translateY(-4px) !important;}
+#hkSubj .hk_s img{width:64px !important;height:64px !important;border-radius:50% !important;object-fit:cover !important;}
+#hkSubj .hk_s b{font-size:13.5px !important;font-weight:800 !important;color:var(--hk-ink) !important;letter-spacing:-.03em !important;line-height:1.4 !important;}
+
+/* 검사장비 */
+#hkSubj .hk_eq{margin-top:80px !important;display:grid !important;grid-template-columns:repeat(3,1fr) !important;gap:20px !important;}
+#hkSubj .hk_e{
+  border-radius:24px !important;overflow:hidden !important;background:#fff !important;border:1px solid var(--hk-line) !important;
+  transition:transform .4s var(--hk-ease),box-shadow .4s var(--hk-ease) !important;
+}
+#hkSubj .hk_e:hover{transform:translateY(-6px) !important;box-shadow:0 30px 50px -30px rgba(31,58,77,.35) !important;}
+#hkSubj .hk_e .hk_img{position:relative !important;aspect-ratio:25/16 !important;overflow:hidden !important;}
+#hkSubj .hk_e .hk_img img{width:100% !important;height:100% !important;object-fit:cover !important;transition:transform .8s var(--hk-ease) !important;}
+#hkSubj .hk_e:hover .hk_img img{transform:scale(1.05) !important;}
+#hkSubj .hk_e .hk_tag{
+  position:absolute !important;left:16px !important;top:16px !important;height:30px !important;padding:0 12px !important;border-radius:999px !important;
+  display:inline-flex !important;align-items:center !important;background:var(--hk-sky) !important;color:#fff !important;font-size:12px !important;font-weight:800 !important;
+}
+#hkSubj .hk_e .hk_txt{padding:22px 24px 26px !important;}
+#hkSubj .hk_e b{display:block !important;font-size:20px !important;font-weight:800 !important;color:var(--hk-ink) !important;letter-spacing:-.04em !important;}
+#hkSubj .hk_e p{display:block !important;margin-top:8px !important;font-size:14px !important;line-height:1.8 !important;color:var(--hk-body) !important;}
+
+@media (max-width:1180px){#hkSubj{--hk-pad:26px;}#hkSubj .hk_subj{grid-template-columns:repeat(4,1fr) !important;}}
+@media (max-width:860px){
+  #hkSubj{--hk-pad:20px;padding:70px 0 !important;}
+  #hkSubj .hk_subj{grid-template-columns:repeat(4,1fr) !important;gap:8px !important;margin-top:28px !important;}
+  #hkSubj .hk_s{padding:16px 6px 14px !important;border-radius:14px !important;gap:8px !important;}
+  #hkSubj .hk_s img{width:48px !important;height:48px !important;}
+  #hkSubj .hk_s b{font-size:12px !important;}
+  #hkSubj .hk_eq{grid-template-columns:1fr !important;margin-top:50px !important;gap:14px !important;}
+  #hkSubj .hk_e{border-radius:18px !important;}
+  #hkSubj .hk_e .hk_txt{padding:18px 20px 20px !important;}
+  #hkSubj .hk_e b{font-size:18px !important;}
+}
+</style>
+
+<section id="hkSubj">
+  <div class="hk_wrap">
+    <div class="hk_rv">
+      <span class="hk_eyebrow">MEDICAL SUBJECTS</span>
+      <h2 class="hk_h2">진료과목</h2>
+      <span class="hk_lead">소아청소년과를 중심으로 내과 · 이비인후과 · 피부과와 4개 전문 센터를 운영합니다.</span>
+    </div>
+
+    <ul class="hk_subj hk_rv">
+      <li><a class="hk_s" href="/sickzone"><img src="https://www.happykiz.kr/Resources/images/sub/img_subject_1.jpg" alt=""><b>소아청소년과</b></a></li>
+      <li><a class="hk_s" href="/sickzone"><img src="https://www.happykiz.kr/Resources/images/sub/img_subject_2.jpg" alt=""><b>내과</b></a></li>
+      <li><a class="hk_s" href="/sickzone#ent"><img src="https://www.happykiz.kr/Resources/images/sub/img_subject_3.jpg" alt=""><b>이비인후과</b></a></li>
+      <li><a class="hk_s" href="/allergy"><img src="https://www.happykiz.kr/Resources/images/sub/img_subject_4.jpg" alt=""><b>피부과</b></a></li>
+      <li><a class="hk_s" href="/checkup"><img src="https://www.happykiz.kr/Resources/images/sub/img_subject_5.jpg" alt=""><b>소아청소년<br>종합검진센터</b></a></li>
+      <li><a class="hk_s" href="/growth"><img src="https://www.happykiz.kr/Resources/images/sub/img_subject_6.jpg" alt=""><b>성장/성조숙<br>비만 검진센터</b></a></li>
+      <li><a class="hk_s" href="/development"><img src="https://www.happykiz.kr/Resources/images/sub/img_subject_7.jpg" alt=""><b>언어심리<br>발달센터</b></a></li>
+      <li><a class="hk_s" href="/allergy"><img src="https://www.happykiz.kr/Resources/images/sub/img_subject_8.jpg" alt=""><b>알레르기/호흡기<br>클리닉</b></a></li>
+    </ul>
+
+    <div class="hk_eq">
+      <article class="hk_e hk_rv">
+        <div class="hk_img"><img src="https://www.happykiz.kr/Resources/images/main/img_equipment_1.jpg" alt="인바디 측정기"><span class="hk_tag">측정기</span></div>
+        <div class="hk_txt"><b>인바디 측정기</b><p>몸의 4대 구성 성분인 수분, 지방, 단백질, 무기질을 분석하고 이를 통해 비만인지, 영양상태가 좋은지, 몸이 부어 있는지, 뼈가 튼튼한지 등을 확인합니다.</p></div>
+      </article>
+      <article class="hk_e hk_rv">
+        <div class="hk_img"><img src="https://www.happykiz.kr/Resources/images/main/img_equipment_2.jpg" alt="X-Ray"><span class="hk_tag">촬영기</span></div>
+        <div class="hk_txt"><b>X-Ray</b><p>X선 촬영을 통해 척추 뼈 모양 또는 배열이 이상한지, 관절염이 있는지, 뼈나 관절에 망가진 부분이 있는지, 척추 주위 연부조직에 이상소견이 있는지 등을 관찰합니다.</p></div>
+      </article>
+      <article class="hk_e hk_rv">
+        <div class="hk_img"><img src="https://www.happykiz.kr/Resources/images/main/img_equipment_3.jpg" alt="시력/청력 검사기"><span class="hk_tag">검사기</span></div>
+        <div class="hk_txt"><b>시력 / 청력 검사기</b><p>청력손실의 유무, 청력 소실의 정도를 검사하며 근시, 원시, 난시 등의 시력 검사를 통해 적절한 치료 및 보정의 방향성을 설정할 수 있습니다.</p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<script>
+(function () {
+  var root = document.getElementById('hkSubj');
+  if (!root || root.dataset.hkReady) return;
+  root.dataset.hkReady = '1';
+  var els = root.querySelectorAll('.hk_rv');
+  if (!('IntersectionObserver' in window)) { Array.prototype.forEach.call(els, function (e) { e.classList.add('hk_in'); }); return; }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('hk_in'); io.unobserve(en.target); } });
+  }, { threshold: 0.12 });
+  Array.prototype.forEach.call(els, function (e) { io.observe(e); });
+})();
+</script>

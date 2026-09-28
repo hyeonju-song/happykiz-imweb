@@ -1,0 +1,446 @@
+<!-- ══════════════════════════════════════════════════════════════
+     [행복한어린이병원] 세부페이지 — 증명서 발급안내  (주소 /certificate)
+     ─────────────────────────────────────────────────────────────
+     아임웹 [증명서 발급안내] 페이지의 본문 코드 위젯에 통째로 붙여넣으세요.
+     (상단 히어로부터 아래 CTA까지 이 파일 하나에 다 들어 있습니다)
+
+     ※ 글(내용)은 기존 사이트 '증명서 발급안내' 페이지 그대로입니다.
+        디자인만 새로 만들었습니다.
+        (기존 페이지의 육각형 도형 모티프를 그대로 살렸습니다 — 09-입퇴원 안내와 동일)
+     ※ 원본 표기 수정 1건: 외래 01단계 '접수에 신청' → '접수처에 신청'
+     ※ 수수료 금액은 기존 사이트에 글로 나와 있지 않아 넣지 않았습니다.
+        (비급여 진료비 페이지 /fees 로 연결)
+     ※ 페이지 맨 위 '헤더' 위젯 자리에는 1_메인페이지/0-빈 위젯 을 넣으세요.
+     ※ 상단메뉴(1번) · 진료시간·오시는길(8번) · 푸터(9번)는 공통 위젯을 씁니다.
+     ※ 모든 스타일은 #hkSub 안에서만 적용됩니다.
+     ══════════════════════════════════════════════════════════════ -->
+<style>
+@import url('https://cdn.jsdelivr.net/gh/sun-typeface/suit@2/fonts/variable/woff2/SUIT-Variable.css');
+
+/* ══════════════════════════════════════════════════════════════
+   세부페이지 공통 스타일  (23개 세부페이지가 모두 동일)
+   ══════════════════════════════════════════════════════════════ */
+#hkSub{
+  --hk-sky:#3FA7E6; --hk-sky-d:#1E7FC2; --hk-sky-l:#EAF6FD;
+  --hk-sun:#FFC93C; --hk-sun-l:#FFF6DE;
+  --hk-well:#2FBF9B; --hk-well-l:#E4F8F2;
+  --hk-sick:#FF7A6B; --hk-sick-l:#FFEDEA;
+  --hk-ink:#1F3A4D; --hk-body:#4A5E6B; --hk-gray:#8697A2;
+  --hk-line:#E6EDF1; --hk-paper2:#F5F9FB;
+  --hk-ease:cubic-bezier(.16,1,.3,1);
+  --hk-maxw:1400px; --hk-pad:32px; --hk-hd:88px;
+  line-height:1.8 !important;
+
+  display:block !important; position:relative !important;
+  float:none !important; clear:both !important;
+  width:100% !important; max-width:100% !important;
+  margin:0 !important; padding:0 !important;
+  background:#fff !important; overflow:visible !important;
+  box-sizing:border-box !important; z-index:auto !important;
+}
+#hkSub,#hkSub *,#hkSub *::before,#hkSub *::after{
+  box-sizing:border-box !important;
+  font-family:'SUIT Variable','SUIT',-apple-system,BlinkMacSystemFont,'Pretendard','Apple SD Gothic Neo',sans-serif !important;
+  word-break:keep-all !important;
+}
+#hkSub ul,#hkSub ol,#hkSub li{list-style:none !important;margin:0 !important;padding:0 !important;background-image:none !important;}
+#hkSub li::before,#hkSub li::after{display:none !important;content:none !important;}
+#hkSub p,#hkSub h1,#hkSub h2,#hkSub h3,#hkSub h4,#hkSub span,#hkSub div,#hkSub a,#hkSub em,#hkSub b,#hkSub strong,#hkSub small{margin:0 !important;padding:0 !important;}
+#hkSub a{text-decoration:none !important;color:inherit !important;}
+#hkSub img{max-width:100% !important;display:block !important;border:0 !important;}
+#hkSub svg{display:inline-block !important;}
+
+#hkSub .hk_wrap{max-width:var(--hk-maxw) !important;margin:0 auto !important;padding:0 var(--hk-pad) !important;width:100% !important;}
+#hkSub .hk_narrow{max-width:1040px !important;margin:0 auto !important;padding:0 var(--hk-pad) !important;width:100% !important;}
+
+#hkSub .hk_rv{opacity:0 !important;transform:translateY(26px) !important;transition:opacity .9s var(--hk-ease),transform .9s var(--hk-ease) !important;}
+#hkSub .hk_rv.hk_in{opacity:1 !important;transform:none !important;}
+#hkSub .hk_d1{transition-delay:.08s !important;}
+#hkSub .hk_d2{transition-delay:.16s !important;}
+#hkSub .hk_d3{transition-delay:.24s !important;}
+
+/* ── 서브 히어로 ── */
+#hkSub .hk_hero{
+  position:relative !important;overflow:hidden !important;
+  padding:calc(var(--hk-hd) + 76px) 0 84px !important;
+  background:linear-gradient(135deg,#EAF6FD 0%,#F7FCFF 55%,#FFFDF4 100%) !important;
+}
+#hkSub .hk_hero::before{
+  content:'' !important;position:absolute !important;right:-160px !important;top:-180px !important;
+  width:620px !important;height:620px !important;border-radius:50% !important;
+  background:radial-gradient(circle,rgba(63,167,230,.18),rgba(63,167,230,0) 68%) !important;pointer-events:none !important;
+}
+#hkSub .hk_hero::after{
+  content:'' !important;position:absolute !important;left:-120px !important;bottom:-220px !important;
+  width:480px !important;height:480px !important;border-radius:50% !important;
+  background:radial-gradient(circle,rgba(255,201,60,.22),rgba(255,201,60,0) 66%) !important;pointer-events:none !important;
+}
+#hkSub .hk_hero .hk_wrap{position:relative !important;z-index:2 !important;}
+#hkSub .hk_bc{display:flex !important;align-items:center !important;gap:8px !important;font-size:13px !important;color:var(--hk-gray) !important;font-weight:600 !important;}
+#hkSub .hk_bc i{display:block !important;width:4px !important;height:4px !important;border-radius:50% !important;background:var(--hk-line) !important;font-style:normal !important;}
+#hkSub .hk_bc b{color:var(--hk-sky-d) !important;font-weight:800 !important;}
+#hkSub .hk_eyebrow{
+  display:flex !important;align-items:center !important;gap:10px !important;margin-top:26px !important;
+  font-size:12px !important;font-weight:800 !important;letter-spacing:.16em !important;color:var(--hk-sky-d) !important;
+}
+#hkSub .hk_eyebrow::before{content:'' !important;display:block !important;width:22px !important;height:2px !important;border-radius:2px !important;background:var(--hk-sun) !important;}
+#hkSub .hk_h1{
+  display:block !important;margin-top:14px !important;
+  font-size:clamp(32px,4.6vw,54px) !important;font-weight:800 !important;
+  line-height:1.24 !important;letter-spacing:-.05em !important;color:var(--hk-ink) !important;
+}
+#hkSub .hk_hlead{display:block !important;margin-top:18px !important;max-width:720px !important;font-size:clamp(15px,1.7vw,17.5px) !important;color:var(--hk-body) !important;}
+
+/* ── 섹션 공통 ── */
+#hkSub .hk_sec{display:block !important;padding:104px 0 !important;background:#fff !important;}
+#hkSub .hk_sec.hk_tint{background:var(--hk-paper2) !important;}
+#hkSub .hk_eyebrow2{
+  display:flex !important;align-items:center !important;gap:10px !important;
+  font-size:12px !important;font-weight:800 !important;letter-spacing:.16em !important;color:var(--hk-sky-d) !important;
+}
+#hkSub .hk_eyebrow2::before{content:'' !important;display:block !important;width:22px !important;height:2px !important;border-radius:2px !important;background:var(--hk-sun) !important;}
+#hkSub .hk_h2{
+  display:block !important;margin-top:14px !important;
+  font-size:clamp(26px,3.4vw,40px) !important;font-weight:800 !important;
+  line-height:1.35 !important;letter-spacing:-.045em !important;color:var(--hk-ink) !important;
+}
+#hkSub .hk_lead{display:block !important;margin-top:12px !important;font-size:clamp(14.5px,1.6vw,16.5px) !important;color:var(--hk-body) !important;}
+
+/* ── 하단 CTA (세부페이지 공통) ── */
+#hkSub .hk_cta{
+  position:relative !important;overflow:hidden !important;padding:88px 0 !important;
+  background:linear-gradient(120deg,#1E7FC2 0%,#3FA7E6 60%,#5FC0F0 100%) !important;
+}
+#hkSub .hk_cta::before{
+  content:'' !important;position:absolute !important;right:-140px !important;bottom:-200px !important;
+  width:560px !important;height:560px !important;border-radius:50% !important;
+  background:radial-gradient(circle,rgba(255,201,60,.28),rgba(255,201,60,0) 66%) !important;pointer-events:none !important;
+}
+#hkSub .hk_cta .hk_wrap{position:relative !important;z-index:2 !important;text-align:center !important;}
+#hkSub .hk_cta b{display:block !important;font-size:clamp(24px,3.2vw,36px) !important;font-weight:800 !important;color:#fff !important;letter-spacing:-.045em !important;line-height:1.35 !important;}
+#hkSub .hk_cta p{display:block !important;margin-top:14px !important;font-size:clamp(14.5px,1.6vw,16.5px) !important;color:rgba(255,255,255,.88) !important;}
+#hkSub .hk_btns{display:flex !important;flex-wrap:wrap !important;justify-content:center !important;gap:12px !important;margin-top:32px !important;}
+#hkSub .hk_btn{
+  display:inline-flex !important;align-items:center !important;gap:8px !important;
+  height:56px !important;padding:0 28px !important;border-radius:999px !important;
+  font-size:15.5px !important;font-weight:800 !important;letter-spacing:-.03em !important;
+  transition:transform .25s var(--hk-ease),box-shadow .25s var(--hk-ease),background .25s var(--hk-ease) !important;
+}
+#hkSub .hk_btn svg{width:19px !important;height:19px !important;flex:none !important;}
+#hkSub .hk_b1{background:#fff !important;color:var(--hk-sky-d) !important;box-shadow:0 18px 30px -18px rgba(12,45,70,.5) !important;}
+#hkSub .hk_b1:hover{transform:translateY(-3px) !important;box-shadow:0 26px 40px -20px rgba(12,45,70,.6) !important;}
+#hkSub .hk_b2{background:var(--hk-sun) !important;color:#5A4200 !important;box-shadow:0 18px 30px -18px rgba(12,45,70,.5) !important;}
+#hkSub .hk_b2:hover{transform:translateY(-3px) !important;box-shadow:0 26px 40px -20px rgba(12,45,70,.6) !important;}
+#hkSub .hk_b3{background:rgba(255,255,255,.14) !important;color:#fff !important;border:1.5px solid rgba(255,255,255,.55) !important;}
+#hkSub .hk_b3:hover{background:rgba(255,255,255,.24) !important;transform:translateY(-3px) !important;}
+
+/* ══════════════════════════════════════════════════════════════
+   이 페이지 전용 (증명서 발급안내)
+   ══════════════════════════════════════════════════════════════ */
+/* 히어로 — 외래/입원 바로가기 */
+#hkSub .hk_jump{display:flex !important;flex-wrap:wrap !important;gap:10px !important;margin-top:30px !important;}
+#hkSub .hk_jump a{
+  display:inline-flex !important;align-items:center !important;gap:10px !important;
+  height:52px !important;padding:0 22px 0 16px !important;border-radius:999px !important;
+  background:#fff !important;border:1px solid var(--hk-line) !important;
+  font-size:15px !important;font-weight:800 !important;letter-spacing:-.03em !important;color:var(--hk-ink) !important;
+  box-shadow:0 14px 26px -22px rgba(31,58,77,.45) !important;
+  transition:transform .3s var(--hk-ease),border-color .3s var(--hk-ease),box-shadow .3s var(--hk-ease) !important;
+}
+#hkSub .hk_jump a:hover{transform:translateY(-3px) !important;border-color:var(--hk-sky) !important;box-shadow:0 22px 34px -24px rgba(31,58,77,.5) !important;}
+#hkSub .hk_jump a.hk_jw:hover{border-color:var(--hk-well) !important;}
+#hkSub .hk_jump .hk_jd{
+  display:inline-flex !important;align-items:center !important;justify-content:center !important;flex:none !important;
+  width:30px !important;height:30px !important;border-radius:10px !important;
+  background:var(--hk-sky-l) !important;color:var(--hk-sky-d) !important;
+}
+#hkSub .hk_jump a.hk_jw .hk_jd{background:var(--hk-well-l) !important;color:#1E8E73 !important;}
+#hkSub .hk_jump .hk_jd svg{width:16px !important;height:16px !important;}
+#hkSub .hk_jump .hk_ja{width:15px !important;height:15px !important;color:var(--hk-gray) !important;}
+
+/* 섹션 머리 + 수수료 알림 */
+#hkSub .hk_shead{display:flex !important;flex-wrap:wrap !important;align-items:flex-end !important;justify-content:space-between !important;gap:18px 32px !important;}
+#hkSub .hk_fee{
+  display:inline-flex !important;align-items:center !important;gap:9px !important;flex:none !important;
+  height:42px !important;padding:0 18px !important;border-radius:999px !important;
+  background:var(--hk-sun-l) !important;color:#8A5F00 !important;
+  font-size:14px !important;font-weight:800 !important;letter-spacing:-.03em !important;
+}
+#hkSub .hk_fee svg{width:17px !important;height:17px !important;flex:none !important;}
+#hkSub [id^="hkCert"]{scroll-margin-top:calc(var(--hk-hd) + 12px) !important;}
+
+/* 육각형 흐름도 (기존 사이트 모티프 · 09-입퇴원 안내와 동일) */
+#hkSub .hk_flow{display:flex !important;flex-wrap:wrap !important;align-items:flex-start !important;justify-content:center !important;gap:0 !important;margin-top:52px !important;}
+#hkSub .hk_fi{display:flex !important;align-items:center !important;gap:0 !important;}
+#hkSub .hk_hex{
+  position:relative !important;width:158px !important;height:140px !important;flex:none !important;
+  display:flex !important;flex-direction:column !important;align-items:center !important;justify-content:center !important;
+  padding:0 16px !important;text-align:center !important;
+  background:var(--hk-sky-l) !important;
+  -webkit-clip-path:polygon(25% 3%,75% 3%,100% 50%,75% 97%,25% 97%,0 50%) !important;
+  clip-path:polygon(25% 3%,75% 3%,100% 50%,75% 97%,25% 97%,0 50%) !important;
+  transition:background .4s var(--hk-ease),transform .4s var(--hk-ease) !important;
+}
+#hkSub .hk_fi:hover .hk_hex{background:var(--hk-sky) !important;transform:translateY(-5px) !important;}
+#hkSub .hk_fi:hover .hk_hex .hk_n,#hkSub .hk_fi:hover .hk_hex b,#hkSub .hk_fi:hover .hk_hex small{color:#fff !important;}
+#hkSub .hk_hex .hk_n{
+  display:block !important;font-size:12px !important;font-weight:800 !important;
+  letter-spacing:.14em !important;color:var(--hk-sky-d) !important;transition:color .4s var(--hk-ease) !important;
+}
+#hkSub .hk_hex b{
+  display:block !important;margin-top:7px !important;
+  font-size:15px !important;font-weight:800 !important;line-height:1.45 !important;
+  letter-spacing:-.045em !important;color:var(--hk-ink) !important;transition:color .4s var(--hk-ease) !important;
+}
+#hkSub .hk_hex small{
+  display:block !important;margin-top:2px !important;
+  font-size:12.5px !important;font-weight:700 !important;color:var(--hk-gray) !important;transition:color .4s var(--hk-ease) !important;
+}
+#hkSub .hk_ar{
+  display:flex !important;align-items:center !important;justify-content:center !important;flex:none !important;
+  width:34px !important;height:140px !important;color:var(--hk-line) !important;
+}
+#hkSub .hk_ar svg{width:20px !important;height:20px !important;}
+/* Well 톤(입원 흐름) */
+#hkSub .hk_flow.hk_fw .hk_hex{background:var(--hk-well-l) !important;}
+#hkSub .hk_flow.hk_fw .hk_hex .hk_n{color:#1E8E73 !important;}
+#hkSub .hk_flow.hk_fw .hk_fi:hover .hk_hex{background:var(--hk-well) !important;}
+#hkSub .hk_sec.hk_tint .hk_flow.hk_fw .hk_hex{background:#D5F2E9 !important;}
+#hkSub .hk_sec.hk_tint .hk_flow.hk_fw .hk_fi:hover .hk_hex{background:var(--hk-well) !important;}
+
+/* 알아두세요 */
+#hkSub .hk_notes{display:grid !important;grid-template-columns:repeat(3,minmax(0,1fr)) !important;gap:18px !important;margin-top:48px !important;}
+#hkSub .hk_nt{
+  display:flex !important;flex-direction:column !important;
+  background:#fff !important;border:1px solid var(--hk-line) !important;border-radius:24px !important;
+  padding:32px 30px 30px !important;
+  transition:transform .4s var(--hk-ease),box-shadow .4s var(--hk-ease) !important;
+}
+#hkSub .hk_nt:hover{transform:translateY(-4px) !important;box-shadow:0 30px 50px -34px rgba(31,58,77,.38) !important;}
+#hkSub .hk_nt .hk_ico{
+  display:inline-flex !important;align-items:center !important;justify-content:center !important;flex:none !important;
+  width:46px !important;height:46px !important;border-radius:15px !important;
+  background:var(--hk-sun-l) !important;color:#A87400 !important;
+}
+#hkSub .hk_nt.hk_n2 .hk_ico{background:var(--hk-sky-l) !important;color:var(--hk-sky-d) !important;}
+#hkSub .hk_nt.hk_n3 .hk_ico{background:var(--hk-well-l) !important;color:#1E8E73 !important;}
+#hkSub .hk_nt .hk_ico svg{width:23px !important;height:23px !important;}
+#hkSub .hk_nt b{display:block !important;margin-top:20px !important;font-size:18.5px !important;font-weight:800 !important;line-height:1.45 !important;letter-spacing:-.045em !important;color:var(--hk-ink) !important;}
+#hkSub .hk_nt p{display:block !important;margin-top:10px !important;font-size:15.5px !important;line-height:1.88 !important;color:var(--hk-body) !important;letter-spacing:-.02em !important;}
+#hkSub .hk_nt p em{font-style:normal !important;font-weight:800 !important;color:var(--hk-ink) !important;}
+#hkSub .hk_nt .hk_more{
+  display:inline-flex !important;align-items:center !important;gap:6px !important;margin-top:auto !important;padding-top:18px !important;
+  font-size:14.5px !important;font-weight:800 !important;letter-spacing:-.03em !important;color:var(--hk-sky-d) !important;
+}
+#hkSub .hk_nt .hk_more svg{width:15px !important;height:15px !important;transition:transform .3s var(--hk-ease) !important;}
+#hkSub .hk_nt .hk_more:hover svg{transform:translateX(4px) !important;}
+
+/* ── 반응형 ── */
+@media (max-width:1180px){
+  #hkSub{--hk-pad:26px;}
+  #hkSub .hk_hex{width:138px !important;height:124px !important;padding:0 12px !important;}
+  #hkSub .hk_hex b{font-size:14px !important;}
+  #hkSub .hk_ar{width:26px !important;height:124px !important;}
+  #hkSub .hk_notes{grid-template-columns:1fr !important;gap:12px !important;}
+}
+@media (max-width:860px){
+  #hkSub{--hk-pad:20px;--hk-hd:66px;}
+  #hkSub .hk_hero{padding:calc(var(--hk-hd) + 42px) 0 54px !important;}
+  #hkSub .hk_eyebrow{margin-top:18px !important;}
+  #hkSub .hk_jump{margin-top:22px !important;gap:8px !important;}
+  #hkSub .hk_jump a{height:48px !important;padding:0 18px 0 12px !important;font-size:14.5px !important;}
+  #hkSub .hk_sec{padding:64px 0 !important;}
+  #hkSub .hk_fee{height:38px !important;padding:0 15px !important;font-size:13.5px !important;}
+  #hkSub .hk_flow{margin-top:28px !important;gap:6px !important;}
+  #hkSub .hk_fi{flex:0 0 calc(50% - 3px) !important;justify-content:center !important;}
+  #hkSub .hk_hex{width:100% !important;max-width:none !important;height:112px !important;padding:0 10px !important;}
+  #hkSub .hk_hex .hk_n{font-size:11px !important;}
+  #hkSub .hk_hex b{font-size:13.5px !important;margin-top:5px !important;}
+  #hkSub .hk_hex small{font-size:12px !important;}
+  #hkSub .hk_ar{display:none !important;}
+  #hkSub .hk_notes{margin-top:28px !important;gap:10px !important;}
+  #hkSub .hk_nt{border-radius:18px !important;padding:22px 20px 22px !important;}
+  #hkSub .hk_nt .hk_ico{width:40px !important;height:40px !important;border-radius:13px !important;}
+  #hkSub .hk_nt b{margin-top:14px !important;font-size:17px !important;}
+  #hkSub .hk_nt p{font-size:14.5px !important;}
+  #hkSub .hk_cta{padding:62px 0 !important;}
+  #hkSub .hk_btns{margin-top:24px !important;gap:9px !important;}
+  #hkSub .hk_btn{height:50px !important;padding:0 20px !important;font-size:14.5px !important;}
+}
+</style>
+
+<div id="hkSub">
+
+  <!-- ── 서브 히어로 ── -->
+  <section class="hk_hero">
+    <div class="hk_wrap">
+      <nav class="hk_bc hk_rv"><a href="/">홈</a><i></i><span>진료안내</span><i></i><b>증명서 발급안내</b></nav>
+      <span class="hk_eyebrow hk_rv hk_d1">CERTIFICATES</span>
+      <h1 class="hk_h1 hk_rv hk_d1">증명서 발급안내</h1>
+      <span class="hk_hlead hk_rv hk_d2">외래 진료와 입원 진료에 따라 증명서 신청 장소와 절차가 다릅니다. 아래에서 해당하는 절차를 확인해 주세요.</span>
+      <div class="hk_jump hk_rv hk_d3">
+        <a href="#hkCertOpd">
+          <span class="hk_jd"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span>
+          외래 진료 환자
+          <svg class="hk_ja" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+        </a>
+        <a class="hk_jw" href="#hkCertIpd">
+          <span class="hk_jd"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 4v16M2 8h18a2 2 0 0 1 2 2v10M2 17h20"/><path d="M6 8v9"/></svg></span>
+          입원 환자
+          <svg class="hk_ja" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 증명서 발급절차 - 외래 ── -->
+  <section class="hk_sec" id="hkCertOpd">
+    <div class="hk_wrap">
+      <div class="hk_shead hk_rv">
+        <div>
+          <span class="hk_eyebrow2">OUTPATIENT</span>
+          <h2 class="hk_h2">증명서 발급절차 · 외래</h2>
+          <span class="hk_lead">외래 진료를 받으신 경우, 접수처에서 신청해 주세요.</span>
+        </div>
+        <span class="hk_fee">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg>
+          증명서 발급 시 소정의 수수료가 발생합니다
+        </span>
+      </div>
+
+      <div class="hk_flow hk_rv hk_d1">
+        <div class="hk_fi">
+          <div class="hk_hex"><span class="hk_n">01</span><b>접수처에 신청</b></div>
+          <span class="hk_ar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        </div>
+        <div class="hk_fi">
+          <div class="hk_hex"><span class="hk_n">02</span><b>주치의상담</b><small>(필요시)</small></div>
+          <span class="hk_ar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        </div>
+        <div class="hk_fi">
+          <div class="hk_hex"><span class="hk_n">03</span><b>주치의 확인 후<br>날인</b></div>
+          <span class="hk_ar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        </div>
+        <div class="hk_fi">
+          <div class="hk_hex"><span class="hk_n">04</span><b>수납</b></div>
+          <span class="hk_ar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        </div>
+        <div class="hk_fi">
+          <div class="hk_hex"><span class="hk_n">05</span><b>발급</b></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 증명서 발급절차 - 입원시 ── -->
+  <section class="hk_sec hk_tint" id="hkCertIpd">
+    <div class="hk_wrap">
+      <div class="hk_shead hk_rv">
+        <div>
+          <span class="hk_eyebrow2">INPATIENT</span>
+          <h2 class="hk_h2">증명서 발급절차 · 입원시</h2>
+          <span class="hk_lead">입원 중이신 경우, 해당 병동 간호실에서 신청해 주세요.</span>
+        </div>
+        <span class="hk_fee">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg>
+          증명서 발급 시 소정의 수수료가 발생합니다
+        </span>
+      </div>
+
+      <div class="hk_flow hk_fw hk_rv hk_d1">
+        <div class="hk_fi">
+          <div class="hk_hex"><span class="hk_n">01</span><b>해당병동<br>간호실에 신청</b></div>
+          <span class="hk_ar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        </div>
+        <div class="hk_fi">
+          <div class="hk_hex"><span class="hk_n">02</span><b>주치의상담</b><small>(필요시)</small></div>
+          <span class="hk_ar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        </div>
+        <div class="hk_fi">
+          <div class="hk_hex"><span class="hk_n">03</span><b>의무기록 확인</b></div>
+          <span class="hk_ar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        </div>
+        <div class="hk_fi">
+          <div class="hk_hex"><span class="hk_n">04</span><b>주치의 확인 후<br>날인</b></div>
+          <span class="hk_ar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        </div>
+        <div class="hk_fi">
+          <div class="hk_hex"><span class="hk_n">05</span><b>수납 후 발급</b></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 알아두세요 ── -->
+  <section class="hk_sec">
+    <div class="hk_wrap">
+      <div class="hk_rv">
+        <span class="hk_eyebrow2">PLEASE NOTE</span>
+        <h2 class="hk_h2">발급 전 알아두세요</h2>
+      </div>
+
+      <div class="hk_notes">
+        <article class="hk_nt hk_rv">
+          <span class="hk_ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="3"/><path d="M2 10h20M6 15h4"/></svg></span>
+          <b>발급 수수료</b>
+          <p>증명서 발급 시 <em>소정의 수수료</em>가 발생합니다. 증명서 종류별 금액은 비급여 진료비 안내의 제증명수수료 항목에서 확인하실 수 있습니다.</p>
+          <a class="hk_more" href="/fees#cert">제증명수수료 보기
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </article>
+
+        <article class="hk_nt hk_n2 hk_rv hk_d1">
+          <span class="hk_ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 15l2 2 4-4"/></svg></span>
+          <b>주치의 확인 · 날인</b>
+          <p>모든 증명서는 <em>주치의 확인 후 날인</em>하여 발급됩니다. 필요한 경우 주치의 상담이 함께 진행됩니다.</p>
+        </article>
+
+        <article class="hk_nt hk_n3 hk_rv hk_d2">
+          <span class="hk_ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 4v16M2 8h18a2 2 0 0 1 2 2v10M2 17h20"/><path d="M6 8v9"/></svg></span>
+          <b>입원 중이신가요?</b>
+          <p>필요하신 증명서류가 있으시면 <em>퇴원 전 주치의 면담 때 미리</em> 말씀해 주세요.</p>
+          <a class="hk_more" href="/admission">입퇴원 안내 보기
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 하단 CTA ── -->
+  <section class="hk_cta">
+    <div class="hk_wrap hk_rv">
+      <b>증명서 발급에 대해<br>궁금한 점이 있으신가요?</b>
+      <p>필요한 서류 종류와 발급 절차는 대표전화로 문의해 주세요.</p>
+      <div class="hk_btns">
+        <a class="hk_btn hk_b1" href="tel:051-264-9500">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .3 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.4 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
+          051-264-9500
+        </a>
+        <a class="hk_btn hk_b2" href="/fees#cert">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="3"/><path d="M2 10h20M6 15h4"/></svg>
+          비급여 진료비
+        </a>
+        <a class="hk_btn hk_b3" href="/outpatient">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></svg>
+          외래진료 안내
+        </a>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<script>
+(function () {
+  var root = document.getElementById('hkSub');
+  if (!root || root.dataset.hkReady) return;
+  root.dataset.hkReady = '1';
+  var els = root.querySelectorAll('.hk_rv');
+  if (!('IntersectionObserver' in window)) { Array.prototype.forEach.call(els, function (e) { e.classList.add('hk_in'); }); return; }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('hk_in'); io.unobserve(en.target); } });
+  }, { threshold: 0.12 });
+  Array.prototype.forEach.call(els, function (e) { io.observe(e); });
+})();
+</script>

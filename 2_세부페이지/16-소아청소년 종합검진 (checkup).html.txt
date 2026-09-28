@@ -1,0 +1,567 @@
+<!-- ══════════════════════════════════════════════════════════════
+     [행복한어린이병원] 세부페이지 — 소아청소년 종합검진  (주소 /checkup)
+     ─────────────────────────────────────────────────────────────
+     아임웹 [소아청소년 종합검진] 페이지의 본문 코드 위젯에 통째로 붙여넣으세요.
+     (상단 히어로부터 아래 CTA까지 이 파일 하나에 다 들어 있습니다)
+
+     ※ 기존 사이트의 3개 페이지를 한 페이지로 합쳤습니다. 글(내용)은 각 페이지 그대로입니다.
+          생애 첫 종합검진   → #first      (만 9개월 ~ 만 24개월)
+          학령전기 종합검진  → #preschool  (만 3세 ~ 만 7세)
+          청소년기 종합검진  → #teen       (만 8세 ~ 만 18세)
+        ★ 이 id 3개는 Well Zone 소개(12번) 카드에서 연결하고 있으니 지우거나 바꾸지 마세요.
+     ※ '한눈에 비교' 표는 각 페이지 설명에 적힌 검사 항목을 그대로 모은 것입니다.
+     ※ 검진 비용은 비급여 진료비(11번) 페이지의 금액과 같습니다. (2026-05-28 기준)
+          생애 첫 100,000원 = '행복한 아기 생애 첫 종합검진 (만9개월~24개월)'
+          학령전기 190,000원 = '행복한 유아기 종합검진 (만3세~7세)'
+          청소년기 210,000원 = '행복한 소아청소년기 종합검진 (만8세~18세)'
+        금액이 바뀌면 이 파일의 6군데(비교표 맨 아래 줄 3칸 + 각 프로그램 hk_price 3칸)와 11번 HK_FEES 를 함께 바꾸세요.
+     ※ 기존 대표 이미지(가족 사진 3장)는 옛 업체 서버(fxfile.drline.net)의 스톡 사진이라 쓰지 않았습니다.
+     ※ 페이지 맨 위 '헤더' 위젯 자리에는 1_메인페이지/0-빈 위젯 을 넣으세요.
+     ※ 상단메뉴(1번) · 진료시간·오시는길(8번) · 푸터(9번)는 공통 위젯을 씁니다.
+     ※ 모든 스타일은 #hkSub 안에서만 적용됩니다.
+     ══════════════════════════════════════════════════════════════ -->
+<style>
+@import url('https://cdn.jsdelivr.net/gh/sun-typeface/suit@2/fonts/variable/woff2/SUIT-Variable.css');
+
+/* ══════════════════════════════════════════════════════════════
+   세부페이지 공통 스타일  (23개 세부페이지가 모두 동일)
+   ══════════════════════════════════════════════════════════════ */
+#hkSub{
+  --hk-sky:#3FA7E6; --hk-sky-d:#1E7FC2; --hk-sky-l:#EAF6FD;
+  --hk-sun:#FFC93C; --hk-sun-l:#FFF6DE;
+  --hk-well:#2FBF9B; --hk-well-l:#E4F8F2;
+  --hk-sick:#FF7A6B; --hk-sick-l:#FFEDEA;
+  --hk-ink:#1F3A4D; --hk-body:#4A5E6B; --hk-gray:#8697A2;
+  --hk-line:#E6EDF1; --hk-paper2:#F5F9FB;
+  --hk-ease:cubic-bezier(.16,1,.3,1);
+  --hk-maxw:1400px; --hk-pad:32px; --hk-hd:88px;
+  line-height:1.8 !important;
+
+  display:block !important; position:relative !important;
+  float:none !important; clear:both !important;
+  width:100% !important; max-width:100% !important;
+  margin:0 !important; padding:0 !important;
+  background:#fff !important; overflow:visible !important;
+  box-sizing:border-box !important; z-index:auto !important;
+}
+#hkSub,#hkSub *,#hkSub *::before,#hkSub *::after{
+  box-sizing:border-box !important;
+  font-family:'SUIT Variable','SUIT',-apple-system,BlinkMacSystemFont,'Pretendard','Apple SD Gothic Neo',sans-serif !important;
+  word-break:keep-all !important;
+}
+#hkSub ul,#hkSub ol,#hkSub li{list-style:none !important;margin:0 !important;padding:0 !important;background-image:none !important;}
+#hkSub li::before,#hkSub li::after{display:none !important;content:none !important;}
+#hkSub p,#hkSub h1,#hkSub h2,#hkSub h3,#hkSub h4,#hkSub span,#hkSub div,#hkSub a,#hkSub em,#hkSub b,#hkSub strong,#hkSub small{margin:0 !important;padding:0 !important;}
+#hkSub a{text-decoration:none !important;color:inherit !important;}
+#hkSub img{max-width:100% !important;display:block !important;border:0 !important;}
+#hkSub svg{display:inline-block !important;}
+
+#hkSub .hk_wrap{max-width:var(--hk-maxw) !important;margin:0 auto !important;padding:0 var(--hk-pad) !important;width:100% !important;}
+#hkSub .hk_narrow{max-width:1040px !important;margin:0 auto !important;padding:0 var(--hk-pad) !important;width:100% !important;}
+
+#hkSub .hk_rv{opacity:0 !important;transform:translateY(26px) !important;transition:opacity .9s var(--hk-ease),transform .9s var(--hk-ease) !important;}
+#hkSub .hk_rv.hk_in{opacity:1 !important;transform:none !important;}
+#hkSub .hk_d1{transition-delay:.08s !important;}
+#hkSub .hk_d2{transition-delay:.16s !important;}
+#hkSub .hk_d3{transition-delay:.24s !important;}
+
+/* ── 서브 히어로 ── */
+#hkSub .hk_hero{
+  position:relative !important;overflow:hidden !important;
+  padding:calc(var(--hk-hd) + 76px) 0 84px !important;
+  background:linear-gradient(135deg,#EAF6FD 0%,#F7FCFF 55%,#FFFDF4 100%) !important;
+}
+#hkSub .hk_hero::before{
+  content:'' !important;position:absolute !important;right:-160px !important;top:-180px !important;
+  width:620px !important;height:620px !important;border-radius:50% !important;
+  background:radial-gradient(circle,rgba(63,167,230,.18),rgba(63,167,230,0) 68%) !important;pointer-events:none !important;
+}
+#hkSub .hk_hero::after{
+  content:'' !important;position:absolute !important;left:-120px !important;bottom:-220px !important;
+  width:480px !important;height:480px !important;border-radius:50% !important;
+  background:radial-gradient(circle,rgba(255,201,60,.22),rgba(255,201,60,0) 66%) !important;pointer-events:none !important;
+}
+#hkSub .hk_hero .hk_wrap{position:relative !important;z-index:2 !important;}
+#hkSub .hk_bc{display:flex !important;align-items:center !important;gap:8px !important;font-size:13px !important;color:var(--hk-gray) !important;font-weight:600 !important;}
+#hkSub .hk_bc i{display:block !important;width:4px !important;height:4px !important;border-radius:50% !important;background:var(--hk-line) !important;font-style:normal !important;}
+#hkSub .hk_bc b{color:var(--hk-sky-d) !important;font-weight:800 !important;}
+#hkSub .hk_eyebrow{
+  display:flex !important;align-items:center !important;gap:10px !important;margin-top:26px !important;
+  font-size:12px !important;font-weight:800 !important;letter-spacing:.16em !important;color:var(--hk-sky-d) !important;
+}
+#hkSub .hk_eyebrow::before{content:'' !important;display:block !important;width:22px !important;height:2px !important;border-radius:2px !important;background:var(--hk-sun) !important;}
+#hkSub .hk_h1{
+  display:block !important;margin-top:14px !important;
+  font-size:clamp(32px,4.6vw,54px) !important;font-weight:800 !important;
+  line-height:1.24 !important;letter-spacing:-.05em !important;color:var(--hk-ink) !important;
+}
+#hkSub .hk_hlead{display:block !important;margin-top:18px !important;max-width:720px !important;font-size:clamp(15px,1.7vw,17.5px) !important;color:var(--hk-body) !important;}
+
+/* ── 섹션 공통 ── */
+#hkSub .hk_sec{display:block !important;padding:104px 0 !important;background:#fff !important;}
+#hkSub .hk_sec.hk_tint{background:var(--hk-paper2) !important;}
+#hkSub .hk_eyebrow2{
+  display:flex !important;align-items:center !important;gap:10px !important;
+  font-size:12px !important;font-weight:800 !important;letter-spacing:.16em !important;color:var(--hk-sky-d) !important;
+}
+#hkSub .hk_eyebrow2::before{content:'' !important;display:block !important;width:22px !important;height:2px !important;border-radius:2px !important;background:var(--hk-sun) !important;}
+#hkSub .hk_h2{
+  display:block !important;margin-top:14px !important;
+  font-size:clamp(26px,3.4vw,40px) !important;font-weight:800 !important;
+  line-height:1.35 !important;letter-spacing:-.045em !important;color:var(--hk-ink) !important;
+}
+#hkSub .hk_lead{display:block !important;margin-top:12px !important;font-size:clamp(14.5px,1.6vw,16.5px) !important;color:var(--hk-body) !important;}
+
+/* ── 하단 CTA (세부페이지 공통) ── */
+#hkSub .hk_cta{
+  position:relative !important;overflow:hidden !important;padding:88px 0 !important;
+  background:linear-gradient(120deg,#1E7FC2 0%,#3FA7E6 60%,#5FC0F0 100%) !important;
+}
+#hkSub .hk_cta::before{
+  content:'' !important;position:absolute !important;right:-140px !important;bottom:-200px !important;
+  width:560px !important;height:560px !important;border-radius:50% !important;
+  background:radial-gradient(circle,rgba(255,201,60,.28),rgba(255,201,60,0) 66%) !important;pointer-events:none !important;
+}
+#hkSub .hk_cta .hk_wrap{position:relative !important;z-index:2 !important;text-align:center !important;}
+#hkSub .hk_cta b{display:block !important;font-size:clamp(24px,3.2vw,36px) !important;font-weight:800 !important;color:#fff !important;letter-spacing:-.045em !important;line-height:1.35 !important;}
+#hkSub .hk_cta p{display:block !important;margin-top:14px !important;font-size:clamp(14.5px,1.6vw,16.5px) !important;color:rgba(255,255,255,.88) !important;}
+#hkSub .hk_btns{display:flex !important;flex-wrap:wrap !important;justify-content:center !important;gap:12px !important;margin-top:32px !important;}
+#hkSub .hk_btn{
+  display:inline-flex !important;align-items:center !important;gap:8px !important;
+  height:56px !important;padding:0 28px !important;border-radius:999px !important;
+  font-size:15.5px !important;font-weight:800 !important;letter-spacing:-.03em !important;
+  transition:transform .25s var(--hk-ease),box-shadow .25s var(--hk-ease),background .25s var(--hk-ease) !important;
+}
+#hkSub .hk_btn svg{width:19px !important;height:19px !important;flex:none !important;}
+#hkSub .hk_b1{background:#fff !important;color:var(--hk-sky-d) !important;box-shadow:0 18px 30px -18px rgba(12,45,70,.5) !important;}
+#hkSub .hk_b1:hover{transform:translateY(-3px) !important;box-shadow:0 26px 40px -20px rgba(12,45,70,.6) !important;}
+#hkSub .hk_b2{background:var(--hk-sun) !important;color:#5A4200 !important;box-shadow:0 18px 30px -18px rgba(12,45,70,.5) !important;}
+#hkSub .hk_b2:hover{transform:translateY(-3px) !important;box-shadow:0 26px 40px -20px rgba(12,45,70,.6) !important;}
+#hkSub .hk_b3{background:rgba(255,255,255,.14) !important;color:#fff !important;border:1.5px solid rgba(255,255,255,.55) !important;}
+#hkSub .hk_b3:hover{background:rgba(255,255,255,.24) !important;transform:translateY(-3px) !important;}
+
+/* ══════════════════════════════════════════════════════════════
+   이 페이지 전용 (소아청소년 종합검진)
+   ══════════════════════════════════════════════════════════════ */
+/* 테마색 (프로그램별) */
+#hkSub .hk_t1{--c:#FFC93C;--cl:#FFF6DE;--cd:#8A5F00;}
+#hkSub .hk_t2{--c:#2FBF9B;--cl:#E4F8F2;--cd:#16715C;}
+#hkSub .hk_t3{--c:#3FA7E6;--cl:#EAF6FD;--cd:#1E7FC2;}
+
+/* 히어로 — 3개 프로그램 바로가기 */
+#hkSub .hk_hgrid{display:grid !important;grid-template-columns:minmax(0,1fr) minmax(0,1fr) !important;gap:56px !important;align-items:center !important;}
+#hkSub .hk_jumps{display:flex !important;flex-direction:column !important;gap:12px !important;}
+#hkSub .hk_jp{
+  display:grid !important;grid-template-columns:auto minmax(0,1fr) auto !important;gap:18px !important;align-items:center !important;
+  padding:20px 22px !important;border-radius:22px !important;background:#fff !important;border:1px solid var(--hk-line) !important;
+  box-shadow:0 22px 40px -34px rgba(31,58,77,.5) !important;
+  transition:transform .4s var(--hk-ease),border-color .4s var(--hk-ease) !important;
+}
+#hkSub .hk_jp:hover{transform:translateX(6px) !important;border-color:var(--c) !important;}
+#hkSub .hk_jp .hk_age{
+  display:flex !important;flex-direction:column !important;align-items:center !important;justify-content:center !important;
+  width:84px !important;height:64px !important;border-radius:16px !important;background:var(--cl) !important;
+  font-size:11.5px !important;font-weight:800 !important;color:var(--cd) !important;line-height:1.3 !important;text-align:center !important;
+}
+#hkSub .hk_jp .hk_age b{display:block !important;font-size:16px !important;font-weight:800 !important;letter-spacing:-.04em !important;color:var(--cd) !important;}
+#hkSub .hk_jp > div b{display:block !important;font-size:18px !important;font-weight:800 !important;letter-spacing:-.045em !important;color:var(--hk-ink) !important;line-height:1.4 !important;}
+#hkSub .hk_jp > div span{display:block !important;margin-top:2px !important;font-size:13.5px !important;font-weight:600 !important;color:var(--hk-gray) !important;}
+#hkSub .hk_jp .hk_go{
+  display:inline-flex !important;align-items:center !important;justify-content:center !important;
+  width:38px !important;height:38px !important;border-radius:50% !important;background:var(--hk-paper2) !important;color:var(--hk-gray) !important;
+  transition:background .3s var(--hk-ease),color .3s var(--hk-ease) !important;
+}
+#hkSub .hk_jp:hover .hk_go{background:var(--c) !important;color:#fff !important;}
+#hkSub .hk_jp .hk_go svg{width:16px !important;height:16px !important;}
+
+/* 한눈에 비교 */
+#hkSub .hk_cmp{margin-top:44px !important;border-radius:26px !important;border:1px solid var(--hk-line) !important;background:#fff !important;overflow:hidden !important;}
+#hkSub .hk_cmp table{width:100% !important;border-collapse:separate !important;border-spacing:0 !important;table-layout:fixed !important;}
+#hkSub .hk_cmp th,#hkSub .hk_cmp td{
+  padding:16px 14px !important;border:0 !important;border-bottom:1px solid var(--hk-line) !important;background:transparent !important;
+  text-align:center !important;vertical-align:middle !important;font-size:15px !important;
+}
+#hkSub .hk_cmp tr:last-child th,#hkSub .hk_cmp tr:last-child td{border-bottom:0 !important;}
+#hkSub .hk_cmp thead th{padding:22px 14px 18px !important;background:var(--hk-paper2) !important;}
+#hkSub .hk_cmp thead th:first-child{text-align:left !important;padding-left:28px !important;font-size:13px !important;font-weight:800 !important;color:var(--hk-gray) !important;letter-spacing:.06em !important;}
+#hkSub .hk_cmp thead th span{display:inline-flex !important;align-items:center !important;height:26px !important;padding:0 11px !important;border-radius:999px !important;background:var(--cl) !important;font-size:12px !important;font-weight:800 !important;color:var(--cd) !important;}
+#hkSub .hk_cmp thead th b{display:block !important;margin-top:8px !important;font-size:16.5px !important;font-weight:800 !important;letter-spacing:-.045em !important;color:var(--hk-ink) !important;}
+#hkSub .hk_cmp tbody th{text-align:left !important;padding-left:28px !important;font-weight:700 !important;color:var(--hk-ink) !important;letter-spacing:-.035em !important;}
+#hkSub .hk_cmp .hk_y{
+  display:inline-flex !important;align-items:center !important;justify-content:center !important;
+  width:30px !important;height:30px !important;border-radius:50% !important;background:var(--c) !important;color:#fff !important;
+}
+#hkSub .hk_cmp .hk_y svg{width:16px !important;height:16px !important;}
+#hkSub .hk_cmp .hk_n{display:inline-block !important;width:14px !important;height:2px !important;border-radius:2px !important;background:var(--hk-line) !important;vertical-align:middle !important;}
+#hkSub .hk_cmp .hk_tx{display:inline-block !important;font-size:13.5px !important;font-weight:800 !important;color:var(--cd) !important;letter-spacing:-.03em !important;line-height:1.4 !important;}
+#hkSub .hk_cmp tfoot td{background:var(--hk-paper2) !important;padding:18px 14px !important;}
+#hkSub .hk_cmp tfoot th{background:var(--hk-paper2) !important;text-align:left !important;padding-left:28px !important;font-size:14px !important;font-weight:800 !important;color:var(--hk-ink) !important;}
+#hkSub .hk_cmp tfoot td b{display:block !important;font-size:20px !important;font-weight:800 !important;letter-spacing:-.04em !important;color:var(--hk-ink) !important;}
+#hkSub .hk_cmp tfoot td b small{font-size:13px !important;font-weight:700 !important;color:var(--hk-body) !important;margin-left:2px !important;}
+#hkSub .hk_cmpnote{display:block !important;margin-top:14px !important;font-size:13.5px !important;color:var(--hk-gray) !important;}
+#hkSub .hk_cmpnote a{font-weight:800 !important;color:var(--hk-sky-d) !important;}
+
+/* 프로그램 상세 */
+#hkSub .hk_prog{scroll-margin-top:calc(var(--hk-hd) + 12px) !important;}
+#hkSub .hk_pg{display:grid !important;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr) !important;gap:56px !important;align-items:start !important;}
+#hkSub .hk_pbadge{
+  display:inline-flex !important;align-items:center !important;gap:8px !important;height:36px !important;padding:0 16px !important;border-radius:999px !important;
+  background:var(--cl) !important;font-size:14px !important;font-weight:800 !important;color:var(--cd) !important;letter-spacing:-.02em !important;
+}
+#hkSub .hk_pbadge i{display:block !important;width:8px !important;height:8px !important;border-radius:50% !important;background:var(--c) !important;}
+#hkSub .hk_pname{display:block !important;margin-top:14px !important;font-size:15px !important;font-weight:700 !important;color:var(--hk-gray) !important;letter-spacing:-.03em !important;}
+#hkSub .hk_prog .hk_h2{margin-top:6px !important;}
+#hkSub .hk_price{
+  display:flex !important;align-items:baseline !important;justify-content:space-between !important;gap:12px !important;margin-top:28px !important;
+  padding:22px 24px !important;border-radius:20px !important;background:var(--cl) !important;
+}
+#hkSub .hk_price span{display:block !important;font-size:14px !important;font-weight:800 !important;color:var(--cd) !important;}
+#hkSub .hk_price b{display:block !important;font-size:clamp(24px,2.6vw,30px) !important;font-weight:800 !important;letter-spacing:-.04em !important;color:var(--hk-ink) !important;}
+#hkSub .hk_price b small{font-size:15px !important;font-weight:700 !important;color:var(--hk-body) !important;margin-left:2px !important;}
+#hkSub .hk_pdesc{display:block !important;font-size:17px !important;line-height:1.95 !important;color:var(--hk-body) !important;letter-spacing:-.025em !important;}
+#hkSub .hk_pdesc em{font-style:normal !important;font-weight:800 !important;color:var(--hk-ink) !important;}
+#hkSub .hk_tests{display:flex !important;flex-wrap:wrap !important;gap:8px !important;margin-top:24px !important;}
+#hkSub .hk_tests span{
+  display:inline-flex !important;align-items:center !important;gap:7px !important;height:40px !important;padding:0 16px 0 12px !important;border-radius:999px !important;
+  background:#fff !important;border:1.5px solid var(--hk-line) !important;font-size:14.5px !important;font-weight:800 !important;color:var(--hk-ink) !important;letter-spacing:-.03em !important;
+}
+#hkSub .hk_tests span svg{width:16px !important;height:16px !important;color:var(--c) !important;}
+#hkSub .hk_sec.hk_tint .hk_tests span{background:#fff !important;}
+#hkSub .hk_extra{
+  display:flex !important;align-items:flex-start !important;gap:14px !important;margin-top:16px !important;
+  padding:18px 20px !important;border-radius:18px !important;background:var(--hk-ink) !important;
+}
+#hkSub .hk_extra svg{width:22px !important;height:22px !important;flex:none !important;color:var(--hk-sun) !important;margin-top:2px !important;}
+#hkSub .hk_extra b{display:block !important;font-size:15.5px !important;font-weight:800 !important;color:#fff !important;letter-spacing:-.035em !important;}
+#hkSub .hk_extra span{display:block !important;margin-top:2px !important;font-size:14px !important;color:rgba(255,255,255,.75) !important;letter-spacing:-.02em !important;}
+#hkSub .hk_vs{
+  display:inline-flex !important;align-items:center !important;gap:6px !important;margin-top:22px !important;
+  font-size:14.5px !important;font-weight:800 !important;color:var(--hk-sky-d) !important;letter-spacing:-.03em !important;
+}
+#hkSub .hk_vs svg{width:15px !important;height:15px !important;transition:transform .3s var(--hk-ease) !important;}
+#hkSub .hk_vs:hover svg{transform:translateX(4px) !important;}
+
+/* 예약 및 상담문의 (Well Zone 공통) */
+#hkSub .hk_ask{
+  display:grid !important;grid-template-columns:minmax(0,1fr) minmax(0,1fr) !important;gap:0 !important;margin-top:44px !important;
+  border-radius:28px !important;overflow:hidden !important;background:#fff !important;border:1px solid var(--hk-line) !important;
+}
+#hkSub .hk_ak1{padding:40px 40px 38px !important;background:linear-gradient(140deg,#E4F8F2 0%,#F3FCF9 100%) !important;}
+#hkSub .hk_ak1 span{display:block !important;font-size:12px !important;font-weight:800 !important;letter-spacing:.14em !important;color:#1E8E73 !important;}
+#hkSub .hk_ak1 a.hk_tel{
+  display:inline-flex !important;align-items:center !important;gap:12px !important;margin-top:12px !important;
+  font-size:clamp(28px,3.2vw,38px) !important;font-weight:800 !important;letter-spacing:-.04em !important;color:var(--hk-ink) !important;
+}
+#hkSub .hk_ak1 a.hk_tel svg{width:30px !important;height:30px !important;color:var(--hk-well) !important;}
+#hkSub .hk_ak1 .hk_ext{display:flex !important;flex-wrap:wrap !important;gap:8px !important;margin-top:14px !important;}
+#hkSub .hk_ak1 .hk_ext em{
+  display:inline-flex !important;align-items:center !important;height:32px !important;padding:0 14px !important;border-radius:999px !important;
+  background:#fff !important;font-style:normal !important;font-size:14px !important;font-weight:800 !important;color:#1E8E73 !important;
+}
+#hkSub .hk_ak2{padding:36px 40px !important;}
+#hkSub .hk_ak2 table{width:100% !important;border-collapse:separate !important;border-spacing:0 !important;}
+#hkSub .hk_ak2 th,#hkSub .hk_ak2 td{
+  padding:17px 4px !important;border:0 !important;border-bottom:1px solid var(--hk-line) !important;background:transparent !important;
+  font-size:16px !important;text-align:left !important;vertical-align:middle !important;
+}
+#hkSub .hk_ak2 tr:last-child th,#hkSub .hk_ak2 tr:last-child td{border-bottom:0 !important;}
+#hkSub .hk_ak2 th{font-weight:700 !important;color:var(--hk-body) !important;letter-spacing:-.03em !important;}
+#hkSub .hk_ak2 td{text-align:right !important;font-weight:800 !important;color:var(--hk-ink) !important;letter-spacing:-.03em !important;}
+#hkSub .hk_ak2 td.hk_off{color:var(--hk-sick) !important;}
+#hkSub .hk_ak2 .hk_akh{display:flex !important;align-items:center !important;gap:10px !important;margin-bottom:6px !important;font-size:17px !important;font-weight:800 !important;color:var(--hk-ink) !important;letter-spacing:-.04em !important;}
+#hkSub .hk_ak2 .hk_akh svg{width:20px !important;height:20px !important;color:var(--hk-well) !important;}
+
+/* ── 반응형 ── */
+@media (max-width:1180px){
+  #hkSub{--hk-pad:26px;}
+  #hkSub .hk_pg{gap:36px !important;}
+}
+@media (max-width:860px){
+  #hkSub{--hk-pad:20px;--hk-hd:66px;}
+  #hkSub .hk_hero{padding:calc(var(--hk-hd) + 42px) 0 54px !important;}
+  #hkSub .hk_eyebrow{margin-top:18px !important;}
+  #hkSub .hk_hgrid{grid-template-columns:1fr !important;gap:28px !important;}
+  #hkSub .hk_jp{padding:14px 16px !important;gap:14px !important;border-radius:18px !important;}
+  #hkSub .hk_jp .hk_age{width:70px !important;height:54px !important;border-radius:13px !important;}
+  #hkSub .hk_jp .hk_age b{font-size:14px !important;}
+  #hkSub .hk_jp > div b{font-size:16px !important;}
+  #hkSub .hk_jp > div span{font-size:12.5px !important;}
+  #hkSub .hk_jp .hk_go{width:32px !important;height:32px !important;}
+  #hkSub .hk_sec{padding:64px 0 !important;}
+  /* 비교표 — 한 화면에 맞춤 */
+  #hkSub .hk_cmp{margin-top:26px !important;border-radius:18px !important;}
+  #hkSub .hk_cmp col:first-child{width:31% !important;}
+  #hkSub .hk_cmp th,#hkSub .hk_cmp td{padding:12px 3px !important;font-size:13px !important;}
+  #hkSub .hk_cmp thead th{padding:14px 3px 12px !important;}
+  #hkSub .hk_cmp thead th:first-child,#hkSub .hk_cmp tbody th,#hkSub .hk_cmp tfoot th{padding-left:12px !important;font-size:12.5px !important;letter-spacing:-.05em !important;}
+  #hkSub .hk_cmp thead th span{height:auto !important;padding:2px 6px !important;font-size:10.5px !important;line-height:1.3 !important;letter-spacing:-.04em !important;}
+  #hkSub .hk_cmp thead th b{margin-top:5px !important;font-size:13.5px !important;}
+  #hkSub .hk_cmp .hk_y{width:24px !important;height:24px !important;}
+  #hkSub .hk_cmp .hk_y svg{width:13px !important;height:13px !important;}
+  #hkSub .hk_cmp .hk_tx{font-size:11.5px !important;letter-spacing:-.05em !important;}
+  #hkSub .hk_cmp tfoot td{padding:14px 2px !important;}
+  #hkSub .hk_cmp tfoot td b{font-size:14px !important;letter-spacing:-.05em !important;}
+  #hkSub .hk_cmp tfoot td b small{font-size:11px !important;}
+  #hkSub .hk_pg{grid-template-columns:1fr !important;gap:22px !important;}
+  #hkSub .hk_price{margin-top:20px !important;padding:16px 18px !important;border-radius:16px !important;}
+  #hkSub .hk_pdesc{font-size:15px !important;}
+  #hkSub .hk_tests{margin-top:18px !important;gap:6px !important;}
+  #hkSub .hk_tests span{height:36px !important;padding:0 13px 0 10px !important;font-size:13.5px !important;}
+  #hkSub .hk_extra{padding:16px !important;border-radius:16px !important;}
+  #hkSub .hk_ask{grid-template-columns:1fr !important;margin-top:28px !important;border-radius:20px !important;}
+  #hkSub .hk_ak1{padding:28px 22px 26px !important;}
+  #hkSub .hk_ak1 a.hk_tel svg{width:24px !important;height:24px !important;}
+  #hkSub .hk_ak2{padding:22px 22px 12px !important;}
+  #hkSub .hk_ak2 th,#hkSub .hk_ak2 td{padding:14px 2px !important;font-size:15px !important;}
+  #hkSub .hk_cta{padding:62px 0 !important;}
+  #hkSub .hk_btns{margin-top:24px !important;gap:9px !important;}
+  #hkSub .hk_btn{height:50px !important;padding:0 20px !important;font-size:14.5px !important;}
+}
+</style>
+
+<div id="hkSub">
+
+  <!-- ── 서브 히어로 ── -->
+  <section class="hk_hero">
+    <div class="hk_wrap hk_hgrid">
+      <div>
+        <nav class="hk_bc hk_rv"><a href="/">홈</a><i></i><a href="/wellzone">Well Zone</a><i></i><b>소아청소년 종합검진</b></nav>
+        <span class="hk_eyebrow hk_rv hk_d1">COMPREHENSIVE CHECKUP</span>
+        <h1 class="hk_h1 hk_rv hk_d1">소아청소년<br>종합검진</h1>
+        <span class="hk_hlead hk_rv hk_d2">영유아 검진과 학교 검진에서 다 하지 못하는 종합검진으로, 우리 아이의 신체적 · 심리적 발달을 종합 점검합니다.</span>
+      </div>
+
+      <div class="hk_jumps">
+        <a class="hk_jp hk_t1 hk_rv hk_d1" href="#first">
+          <span class="hk_age">만<b>9~24개월</b></span>
+          <div><b>생애 첫 종합검진</b><span>행복한 아기 생애 첫 종합검진</span></div>
+          <span class="hk_go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg></span>
+        </a>
+        <a class="hk_jp hk_t2 hk_rv hk_d2" href="#preschool">
+          <span class="hk_age">만<b>3~7세</b></span>
+          <div><b>학령전기 종합검진</b><span>행복한 학령전기(유치원기) 종합검진</span></div>
+          <span class="hk_go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg></span>
+        </a>
+        <a class="hk_jp hk_t3 hk_rv hk_d3" href="#teen">
+          <span class="hk_age">만<b>8~18세</b></span>
+          <div><b>청소년기 종합검진</b><span>행복한 청소년기 종합검진</span></div>
+          <span class="hk_go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 한눈에 비교 ── -->
+  <section class="hk_sec">
+    <div class="hk_wrap">
+      <div class="hk_rv">
+        <span class="hk_eyebrow2">COMPARE</span>
+        <h2 class="hk_h2">연령별 종합검진 한눈에 보기</h2>
+        <span class="hk_lead">연령에 맞춰 필요한 검사를 구성했습니다.</span>
+      </div>
+
+      <div class="hk_cmp hk_rv hk_d1">
+        <table>
+          <colgroup><col style="width:28%"><col><col><col></colgroup>
+          <thead>
+            <tr>
+              <th>검사 항목</th>
+              <th class="hk_t1"><span>만 9~24개월</span><b>생애 첫</b></th>
+              <th class="hk_t2"><span>만 3~7세</span><b>학령전기</b></th>
+              <th class="hk_t3"><span>만 8~18세</span><b>청소년기</b></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th>혈액 검사</th>
+              <td class="hk_t1"><span class="hk_y"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span></td>
+              <td class="hk_t2"><span class="hk_y"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span></td>
+              <td class="hk_t3"><span class="hk_y"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span></td></tr>
+            <tr><th>소변 검사</th>
+              <td class="hk_t1"><span class="hk_y"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span></td>
+              <td class="hk_t2"><span class="hk_y"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span></td>
+              <td class="hk_t3"><span class="hk_y"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span></td></tr>
+            <tr><th>시력 검사</th>
+              <td class="hk_t1"><span class="hk_y"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span></td>
+              <td class="hk_t2"><span class="hk_y"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span></td>
+              <td class="hk_t3"><span class="hk_y"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span></td></tr>
+            <tr><th>청력 검사</th>
+              <td class="hk_t1"><span class="hk_n" aria-label="해당 없음"></span></td>
+              <td class="hk_t2"><span class="hk_y"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span></td>
+              <td class="hk_t3"><span class="hk_y"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span></td></tr>
+            <tr><th>성장판 검사</th>
+              <td class="hk_t1"><span class="hk_n" aria-label="해당 없음"></span></td>
+              <td class="hk_t2"><span class="hk_y"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span></td>
+              <td class="hk_t3"><span class="hk_y"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span></td></tr>
+            <tr><th>심리발달 검사</th>
+              <td class="hk_t1"><span class="hk_y"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span></td>
+              <td class="hk_t2"><span class="hk_y"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span></td>
+              <td class="hk_t3"><span class="hk_y"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span></td></tr>
+            <tr><th>부모 심리검사 · 상담</th>
+              <td class="hk_t1"><span class="hk_n" aria-label="해당 없음"></span></td>
+              <td class="hk_t2"><span class="hk_tx">맞춤형<br>양육 상담</span></td>
+              <td class="hk_t3"><span class="hk_tx">양육 및<br>학습지도 상담</span></td></tr>
+          </tbody>
+          <tfoot>
+            <tr><th>검진 비용</th>
+              <td><b>100,000<small>원</small></b></td>
+              <td><b>190,000<small>원</small></b></td>
+              <td><b>210,000<small>원</small></b></td></tr>
+          </tfoot>
+        </table>
+      </div>
+      <span class="hk_cmpnote hk_rv">※ 검진 비용은 비급여 진료비 고지 기준(2026-05-28)입니다. <a href="/fees#act">비급여 진료비 전체 보기 →</a></span>
+    </div>
+  </section>
+
+  <!-- ── 생애 첫 종합검진 ── -->
+  <section class="hk_sec hk_tint hk_prog hk_t1" id="first">
+    <div class="hk_wrap hk_pg">
+      <div class="hk_rv">
+        <span class="hk_pbadge"><i></i>생후 만 9개월 ~ 만 24개월 아기 대상</span>
+        <span class="hk_pname">행복한 아기</span>
+        <h2 class="hk_h2">생애 첫 종합검진</h2>
+        <div class="hk_price"><span>검진 비용</span><b>100,000<small>원</small></b></div>
+      </div>
+      <div class="hk_rv hk_d1">
+        <p class="hk_pdesc"><em>영유아 검진에서 다 하지 못하는 종합검진</em>(혈액, 소변, 시력, 심리발달 검사)을 실시하여 질병 예방과 급속 성장기인 영유아기의 신체적, 심리적 발달을 종합 점검함으로써 건강한 어린이로 성장하도록 도움을 드리고자 합니다.</p>
+        <div class="hk_tests">
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>혈액 검사</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>소변 검사</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>시력 검사</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>심리발달 검사</span>
+        </div>
+        <a class="hk_vs" href="/infant-checkup">무료 영유아 건강검진 안내 보기
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 학령전기 종합검진 ── -->
+  <section class="hk_sec hk_prog hk_t2" id="preschool">
+    <div class="hk_wrap hk_pg">
+      <div class="hk_rv">
+        <span class="hk_pbadge"><i></i>만 3세 ~ 만 7세 소아 대상</span>
+        <span class="hk_pname">행복한 학령전기(유치원기)</span>
+        <h2 class="hk_h2">학령전기 종합검진</h2>
+        <div class="hk_price"><span>검진 비용</span><b>190,000<small>원</small></b></div>
+      </div>
+      <div class="hk_rv hk_d1">
+        <p class="hk_pdesc"><em>영유아 검진에서 다 하지 못하는 종합검진</em>(혈액, 소변, 시력, 청력, 성장판, 심리발달 검사)을 실시하여 질병예방과 언어, 인지, 사회성의 급속 성장기인 학령전기의 신체적, 심리적 발달을 종합 점검함으로써 건강한 어린이로 성장하도록 도움을 드리고자 합니다.</p>
+        <div class="hk_tests">
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>혈액 검사</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>소변 검사</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>시력 검사</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>청력 검사</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>성장판 검사</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>심리발달 검사</span>
+        </div>
+        <div class="hk_extra">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/></svg>
+          <div><b>부모님을 위한 심리 검사 · 맞춤형 양육 상담</b><span>육아에 어려움을 겪는 부모님들을 위한 심리 검사를 실시하여 맞춤형 양육 상담을 해 드립니다.</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 청소년기 종합검진 ── -->
+  <section class="hk_sec hk_tint hk_prog hk_t3" id="teen">
+    <div class="hk_wrap hk_pg">
+      <div class="hk_rv">
+        <span class="hk_pbadge"><i></i>만 8세 ~ 만 18세 소아청소년 대상</span>
+        <span class="hk_pname">행복한 청소년기</span>
+        <h2 class="hk_h2">청소년기 종합검진</h2>
+        <div class="hk_price"><span>검진 비용</span><b>210,000<small>원</small></b></div>
+      </div>
+      <div class="hk_rv hk_d1">
+        <p class="hk_pdesc"><em>학교 검진에서 다 하지 못하는 종합 검진</em>(혈액, 소변, 시력, 청력, 성장판, 심리발달 검사)을 실시하여 질병예방과 키의 급속 성장기이면서 사춘기에 접어드는 학령기의 신체적, 심리적 발달을 종합 점검함으로써 건강하고 독립적인 성인으로 성장하도록 도움을 드리고자 합니다.</p>
+        <div class="hk_tests">
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>혈액 검사</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>소변 검사</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>시력 검사</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>청력 검사</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>성장판 검사</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>심리발달 검사</span>
+        </div>
+        <div class="hk_extra">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          <div><b>부모님을 위한 심리 검사 · 양육 및 학습지도 상담</b><span>학습 지도에 어려움을 겪는 부모님들을 위한 심리 검사를 실시하여 맞춤형 양육 및 학습지도 상담을 해 드립니다.</span></div>
+        </div>
+        <a class="hk_vs" href="/school-checkup">학교검진 안내 보기
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 예약 및 상담문의 ── -->
+  <section class="hk_sec">
+    <div class="hk_narrow">
+      <div class="hk_rv">
+        <span class="hk_eyebrow2">CONTACT</span>
+        <h2 class="hk_h2">소아청소년 종합검진센터<br>예약 및 상담문의</h2>
+      </div>
+
+      <div class="hk_ask hk_rv hk_d1">
+        <div class="hk_ak1">
+          <span>튼튼 클리닉 외래 간호팀</span>
+          <a class="hk_tel" href="tel:051-264-9500">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .3 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.4 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
+            051-264-9500
+          </a>
+          <div class="hk_ext"><em>내선 840번</em><em>내선 841번</em></div>
+        </div>
+        <div class="hk_ak2">
+          <div class="hk_akh">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+            상담 가능 시간
+          </div>
+          <table>
+            <tbody>
+              <tr><th>평일</th><td>9시 ~ 18시</td></tr>
+              <tr><th>토요일</th><td>9시 ~ 13시</td></tr>
+              <tr><th>일 / 공휴일</th><td class="hk_off">검진 없음</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 하단 CTA ── -->
+  <section class="hk_cta">
+    <div class="hk_wrap hk_rv">
+      <b>우리 아이 연령에 맞는<br>종합검진을 상담해 드립니다</b>
+      <p>검진 예약과 상담은 튼튼 클리닉 외래 간호팀으로 문의해 주세요.</p>
+      <div class="hk_btns">
+        <a class="hk_btn hk_b1" href="tel:051-264-9500">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .3 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.4 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
+          051-264-9500
+        </a>
+        <a class="hk_btn hk_b2" href="/reservation">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="3"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+          진료예약 안내
+        </a>
+        <a class="hk_btn hk_b3" href="/wellzone">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          Well Zone 전체 보기
+        </a>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<script>
+(function () {
+  var root = document.getElementById('hkSub');
+  if (!root || root.dataset.hkReady) return;
+  root.dataset.hkReady = '1';
+  var els = root.querySelectorAll('.hk_rv');
+  if (!('IntersectionObserver' in window)) { Array.prototype.forEach.call(els, function (e) { e.classList.add('hk_in'); }); return; }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('hk_in'); io.unobserve(en.target); } });
+  }, { threshold: 0.08 });
+  Array.prototype.forEach.call(els, function (e) { io.observe(e); });
+})();
+</script>

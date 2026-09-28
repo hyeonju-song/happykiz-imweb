@@ -1,0 +1,508 @@
+<!-- ══════════════════════════════════════════════════════════════
+     [행복한어린이병원] 세부페이지 — 영유아 건강검진  (주소 /infant-checkup)
+     ─────────────────────────────────────────────────────────────
+     아임웹 [영유아 건강검진] 페이지의 본문 코드 위젯에 통째로 붙여넣으세요.
+     (상단 히어로부터 아래 CTA까지 이 파일 하나에 다 들어 있습니다)
+
+     ※ 글(내용)은 기존 사이트 '영유아 건강검진' 페이지 그대로입니다.
+        디자인만 새로 만들었습니다.
+        · '검사 대상자' 표(1차~8차)는 시기별 타임라인으로 바꿨습니다. (구강검진이 있는 4·6·7차는 노란 표시)
+        · '상세 항목 내용' 표는 일반검진 / 구강검진 두 카드로 나눴습니다.
+        · 기존 대표 이미지는 옛 업체 서버(fxfile.drline.net)라 쓰지 않았습니다.
+     ※ '온라인 예약 가능' 문구에 맞춰 CTA에 굿닥 앱 예약 버튼을 넣었습니다. (굿닥 링크는 전체 통일한 것과 동일)
+     ※ 원본 표기 정리: '문진및 진찰' → '문진 및 진찰', '키,몸무게' → '키, 몸무게' 등 띄어쓰기만 정리
+     ※ 페이지 맨 위 '헤더' 위젯 자리에는 1_메인페이지/0-빈 위젯 을 넣으세요.
+     ※ 상단메뉴(1번) · 진료시간·오시는길(8번) · 푸터(9번)는 공통 위젯을 씁니다.
+     ※ 모든 스타일은 #hkSub 안에서만 적용됩니다.
+     ══════════════════════════════════════════════════════════════ -->
+<style>
+@import url('https://cdn.jsdelivr.net/gh/sun-typeface/suit@2/fonts/variable/woff2/SUIT-Variable.css');
+
+/* ══════════════════════════════════════════════════════════════
+   세부페이지 공통 스타일  (23개 세부페이지가 모두 동일)
+   ══════════════════════════════════════════════════════════════ */
+#hkSub{
+  --hk-sky:#3FA7E6; --hk-sky-d:#1E7FC2; --hk-sky-l:#EAF6FD;
+  --hk-sun:#FFC93C; --hk-sun-l:#FFF6DE;
+  --hk-well:#2FBF9B; --hk-well-l:#E4F8F2;
+  --hk-sick:#FF7A6B; --hk-sick-l:#FFEDEA;
+  --hk-ink:#1F3A4D; --hk-body:#4A5E6B; --hk-gray:#8697A2;
+  --hk-line:#E6EDF1; --hk-paper2:#F5F9FB;
+  --hk-ease:cubic-bezier(.16,1,.3,1);
+  --hk-maxw:1400px; --hk-pad:32px; --hk-hd:88px;
+  line-height:1.8 !important;
+
+  display:block !important; position:relative !important;
+  float:none !important; clear:both !important;
+  width:100% !important; max-width:100% !important;
+  margin:0 !important; padding:0 !important;
+  background:#fff !important; overflow:visible !important;
+  box-sizing:border-box !important; z-index:auto !important;
+}
+#hkSub,#hkSub *,#hkSub *::before,#hkSub *::after{
+  box-sizing:border-box !important;
+  font-family:'SUIT Variable','SUIT',-apple-system,BlinkMacSystemFont,'Pretendard','Apple SD Gothic Neo',sans-serif !important;
+  word-break:keep-all !important;
+}
+#hkSub ul,#hkSub ol,#hkSub li{list-style:none !important;margin:0 !important;padding:0 !important;background-image:none !important;}
+#hkSub li::before,#hkSub li::after{display:none !important;content:none !important;}
+#hkSub p,#hkSub h1,#hkSub h2,#hkSub h3,#hkSub h4,#hkSub span,#hkSub div,#hkSub a,#hkSub em,#hkSub b,#hkSub strong,#hkSub small{margin:0 !important;padding:0 !important;}
+#hkSub a{text-decoration:none !important;color:inherit !important;}
+#hkSub img{max-width:100% !important;display:block !important;border:0 !important;}
+#hkSub svg{display:inline-block !important;}
+
+#hkSub .hk_wrap{max-width:var(--hk-maxw) !important;margin:0 auto !important;padding:0 var(--hk-pad) !important;width:100% !important;}
+#hkSub .hk_narrow{max-width:1040px !important;margin:0 auto !important;padding:0 var(--hk-pad) !important;width:100% !important;}
+
+#hkSub .hk_rv{opacity:0 !important;transform:translateY(26px) !important;transition:opacity .9s var(--hk-ease),transform .9s var(--hk-ease) !important;}
+#hkSub .hk_rv.hk_in{opacity:1 !important;transform:none !important;}
+#hkSub .hk_d1{transition-delay:.08s !important;}
+#hkSub .hk_d2{transition-delay:.16s !important;}
+#hkSub .hk_d3{transition-delay:.24s !important;}
+
+/* ── 서브 히어로 ── */
+#hkSub .hk_hero{
+  position:relative !important;overflow:hidden !important;
+  padding:calc(var(--hk-hd) + 76px) 0 84px !important;
+  background:linear-gradient(135deg,#EAF6FD 0%,#F7FCFF 55%,#FFFDF4 100%) !important;
+}
+#hkSub .hk_hero::before{
+  content:'' !important;position:absolute !important;right:-160px !important;top:-180px !important;
+  width:620px !important;height:620px !important;border-radius:50% !important;
+  background:radial-gradient(circle,rgba(63,167,230,.18),rgba(63,167,230,0) 68%) !important;pointer-events:none !important;
+}
+#hkSub .hk_hero::after{
+  content:'' !important;position:absolute !important;left:-120px !important;bottom:-220px !important;
+  width:480px !important;height:480px !important;border-radius:50% !important;
+  background:radial-gradient(circle,rgba(255,201,60,.22),rgba(255,201,60,0) 66%) !important;pointer-events:none !important;
+}
+#hkSub .hk_hero .hk_wrap{position:relative !important;z-index:2 !important;}
+#hkSub .hk_bc{display:flex !important;align-items:center !important;gap:8px !important;font-size:13px !important;color:var(--hk-gray) !important;font-weight:600 !important;}
+#hkSub .hk_bc i{display:block !important;width:4px !important;height:4px !important;border-radius:50% !important;background:var(--hk-line) !important;font-style:normal !important;}
+#hkSub .hk_bc b{color:var(--hk-sky-d) !important;font-weight:800 !important;}
+#hkSub .hk_eyebrow{
+  display:flex !important;align-items:center !important;gap:10px !important;margin-top:26px !important;
+  font-size:12px !important;font-weight:800 !important;letter-spacing:.16em !important;color:var(--hk-sky-d) !important;
+}
+#hkSub .hk_eyebrow::before{content:'' !important;display:block !important;width:22px !important;height:2px !important;border-radius:2px !important;background:var(--hk-sun) !important;}
+#hkSub .hk_h1{
+  display:block !important;margin-top:14px !important;
+  font-size:clamp(32px,4.6vw,54px) !important;font-weight:800 !important;
+  line-height:1.24 !important;letter-spacing:-.05em !important;color:var(--hk-ink) !important;
+}
+#hkSub .hk_hlead{display:block !important;margin-top:18px !important;max-width:720px !important;font-size:clamp(15px,1.7vw,17.5px) !important;color:var(--hk-body) !important;}
+
+/* ── 섹션 공통 ── */
+#hkSub .hk_sec{display:block !important;padding:104px 0 !important;background:#fff !important;}
+#hkSub .hk_sec.hk_tint{background:var(--hk-paper2) !important;}
+#hkSub .hk_eyebrow2{
+  display:flex !important;align-items:center !important;gap:10px !important;
+  font-size:12px !important;font-weight:800 !important;letter-spacing:.16em !important;color:var(--hk-sky-d) !important;
+}
+#hkSub .hk_eyebrow2::before{content:'' !important;display:block !important;width:22px !important;height:2px !important;border-radius:2px !important;background:var(--hk-sun) !important;}
+#hkSub .hk_h2{
+  display:block !important;margin-top:14px !important;
+  font-size:clamp(26px,3.4vw,40px) !important;font-weight:800 !important;
+  line-height:1.35 !important;letter-spacing:-.045em !important;color:var(--hk-ink) !important;
+}
+#hkSub .hk_lead{display:block !important;margin-top:12px !important;font-size:clamp(14.5px,1.6vw,16.5px) !important;color:var(--hk-body) !important;}
+
+/* ── 하단 CTA (세부페이지 공통) ── */
+#hkSub .hk_cta{
+  position:relative !important;overflow:hidden !important;padding:88px 0 !important;
+  background:linear-gradient(120deg,#1E7FC2 0%,#3FA7E6 60%,#5FC0F0 100%) !important;
+}
+#hkSub .hk_cta::before{
+  content:'' !important;position:absolute !important;right:-140px !important;bottom:-200px !important;
+  width:560px !important;height:560px !important;border-radius:50% !important;
+  background:radial-gradient(circle,rgba(255,201,60,.28),rgba(255,201,60,0) 66%) !important;pointer-events:none !important;
+}
+#hkSub .hk_cta .hk_wrap{position:relative !important;z-index:2 !important;text-align:center !important;}
+#hkSub .hk_cta b{display:block !important;font-size:clamp(24px,3.2vw,36px) !important;font-weight:800 !important;color:#fff !important;letter-spacing:-.045em !important;line-height:1.35 !important;}
+#hkSub .hk_cta p{display:block !important;margin-top:14px !important;font-size:clamp(14.5px,1.6vw,16.5px) !important;color:rgba(255,255,255,.88) !important;}
+#hkSub .hk_btns{display:flex !important;flex-wrap:wrap !important;justify-content:center !important;gap:12px !important;margin-top:32px !important;}
+#hkSub .hk_btn{
+  display:inline-flex !important;align-items:center !important;gap:8px !important;
+  height:56px !important;padding:0 28px !important;border-radius:999px !important;
+  font-size:15.5px !important;font-weight:800 !important;letter-spacing:-.03em !important;
+  transition:transform .25s var(--hk-ease),box-shadow .25s var(--hk-ease),background .25s var(--hk-ease) !important;
+}
+#hkSub .hk_btn svg{width:19px !important;height:19px !important;flex:none !important;}
+#hkSub .hk_b1{background:#fff !important;color:var(--hk-sky-d) !important;box-shadow:0 18px 30px -18px rgba(12,45,70,.5) !important;}
+#hkSub .hk_b1:hover{transform:translateY(-3px) !important;box-shadow:0 26px 40px -20px rgba(12,45,70,.6) !important;}
+#hkSub .hk_b2{background:var(--hk-sun) !important;color:#5A4200 !important;box-shadow:0 18px 30px -18px rgba(12,45,70,.5) !important;}
+#hkSub .hk_b2:hover{transform:translateY(-3px) !important;box-shadow:0 26px 40px -20px rgba(12,45,70,.6) !important;}
+#hkSub .hk_b3{background:rgba(255,255,255,.14) !important;color:#fff !important;border:1.5px solid rgba(255,255,255,.55) !important;}
+#hkSub .hk_b3:hover{background:rgba(255,255,255,.24) !important;transform:translateY(-3px) !important;}
+
+/* ══════════════════════════════════════════════════════════════
+   이 페이지 전용 (영유아 건강검진)
+   ══════════════════════════════════════════════════════════════ */
+/* 히어로 2단 + 요약 수치 */
+#hkSub .hk_hgrid{display:grid !important;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr) !important;gap:56px !important;align-items:center !important;}
+#hkSub .hk_stats{display:grid !important;grid-template-columns:repeat(2,minmax(0,1fr)) !important;gap:14px !important;}
+#hkSub .hk_stat{
+  display:flex !important;flex-direction:column !important;justify-content:space-between !important;
+  min-height:150px !important;padding:24px 24px 22px !important;border-radius:24px !important;
+  background:#fff !important;border:1px solid var(--hk-line) !important;box-shadow:0 26px 44px -36px rgba(31,58,77,.5) !important;
+}
+#hkSub .hk_stat span{display:block !important;font-size:13px !important;font-weight:800 !important;color:var(--hk-gray) !important;letter-spacing:-.02em !important;}
+#hkSub .hk_stat b{display:block !important;margin-top:10px !important;font-size:clamp(26px,2.8vw,34px) !important;font-weight:800 !important;line-height:1.2 !important;letter-spacing:-.05em !important;color:var(--hk-ink) !important;}
+#hkSub .hk_stat b small{display:inline !important;margin-left:3px !important;font-size:16px !important;font-weight:800 !important;color:var(--hk-body) !important;}
+#hkSub .hk_stat.hk_s1{grid-column:1 / 3 !important;min-height:0 !important;background:var(--hk-sky) !important;border-color:transparent !important;}
+#hkSub .hk_stat.hk_s1 span{color:rgba(255,255,255,.8) !important;}
+#hkSub .hk_stat.hk_s1 b,#hkSub .hk_stat.hk_s1 b small{color:#fff !important;}
+#hkSub .hk_stat.hk_s3{background:var(--hk-sun-l) !important;border-color:transparent !important;}
+#hkSub .hk_stat.hk_s3 b{color:#8A5F00 !important;}
+
+/* 소개 + 특징 3개 */
+#hkSub .hk_intro{display:grid !important;grid-template-columns:minmax(0,1fr) minmax(0,1fr) !important;gap:64px !important;align-items:start !important;}
+#hkSub .hk_intro p{display:block !important;margin-top:20px !important;font-size:16.5px !important;line-height:1.95 !important;color:var(--hk-body) !important;letter-spacing:-.02em !important;}
+#hkSub .hk_intro p em{font-style:normal !important;font-weight:800 !important;color:var(--hk-ink) !important;}
+#hkSub .hk_feats{display:flex !important;flex-direction:column !important;gap:12px !important;}
+#hkSub .hk_ft{
+  display:flex !important;align-items:center !important;gap:18px !important;
+  padding:22px 24px !important;border-radius:22px !important;border:1px solid var(--hk-line) !important;background:#fff !important;
+  transition:transform .4s var(--hk-ease),box-shadow .4s var(--hk-ease) !important;
+}
+#hkSub .hk_ft:hover{transform:translateX(4px) !important;box-shadow:0 26px 44px -34px rgba(31,58,77,.4) !important;}
+#hkSub .hk_ft .hk_ico{
+  display:inline-flex !important;align-items:center !important;justify-content:center !important;flex:none !important;
+  width:52px !important;height:52px !important;border-radius:17px !important;background:var(--hk-sky-l) !important;color:var(--hk-sky-d) !important;
+}
+#hkSub .hk_ft.hk_f2 .hk_ico{background:var(--hk-sun-l) !important;color:#A87400 !important;}
+#hkSub .hk_ft.hk_f3 .hk_ico{background:var(--hk-well-l) !important;color:#1E8E73 !important;}
+#hkSub .hk_ft .hk_ico svg{width:25px !important;height:25px !important;}
+#hkSub .hk_ft b{display:block !important;font-size:18px !important;font-weight:800 !important;letter-spacing:-.045em !important;color:var(--hk-ink) !important;line-height:1.4 !important;}
+#hkSub .hk_ft p{display:block !important;margin-top:3px !important;font-size:14.5px !important;line-height:1.7 !important;color:var(--hk-body) !important;letter-spacing:-.02em !important;}
+
+/* 검진 시기 타임라인 */
+#hkSub .hk_tl{position:relative !important;display:grid !important;grid-template-columns:repeat(8,minmax(0,1fr)) !important;gap:12px !important;margin-top:56px !important;}
+#hkSub .hk_tl::before{
+  content:'' !important;position:absolute !important;left:6% !important;right:6% !important;top:25px !important;height:3px !important;border-radius:3px !important;
+  background:linear-gradient(90deg,var(--hk-sky) 0%,var(--hk-well) 100%) !important;opacity:.35 !important;
+}
+#hkSub .hk_st{position:relative !important;display:flex !important;flex-direction:column !important;align-items:center !important;}
+#hkSub .hk_st .hk_no{
+  position:relative !important;z-index:2 !important;display:inline-flex !important;align-items:center !important;justify-content:center !important;
+  width:52px !important;height:52px !important;border-radius:50% !important;background:#fff !important;border:3px solid var(--hk-sky) !important;
+  font-size:16px !important;font-weight:800 !important;color:var(--hk-sky-d) !important;letter-spacing:-.03em !important;
+  transition:background .4s var(--hk-ease),color .4s var(--hk-ease),transform .4s var(--hk-ease) !important;
+}
+#hkSub .hk_st:hover .hk_no{background:var(--hk-sky) !important;color:#fff !important;transform:scale(1.08) !important;}
+#hkSub .hk_st .hk_box{
+  display:flex !important;flex-direction:column !important;width:100% !important;flex:1 !important;margin-top:16px !important;
+  padding:18px 14px 16px !important;border-radius:20px !important;background:#fff !important;border:1px solid var(--hk-line) !important;text-align:center !important;
+  transition:border-color .4s var(--hk-ease),box-shadow .4s var(--hk-ease) !important;
+}
+#hkSub .hk_st:hover .hk_box{border-color:var(--hk-sky) !important;box-shadow:0 24px 40px -30px rgba(31,58,77,.45) !important;}
+#hkSub .hk_st .hk_when{display:block !important;font-size:12px !important;font-weight:700 !important;color:var(--hk-gray) !important;}
+#hkSub .hk_st .hk_age{display:block !important;margin-top:2px !important;font-size:16px !important;font-weight:800 !important;line-height:1.35 !important;letter-spacing:-.045em !important;color:var(--hk-ink) !important;}
+#hkSub .hk_st ul{display:flex !important;flex-direction:column !important;gap:5px !important;margin-top:12px !important;padding-top:12px !important;border-top:1px dashed var(--hk-line) !important;}
+#hkSub .hk_st li{display:block !important;font-size:12.5px !important;font-weight:700 !important;line-height:1.45 !important;color:var(--hk-body) !important;letter-spacing:-.04em !important;}
+#hkSub .hk_st li.hk_dev{color:#1E8E73 !important;}
+#hkSub .hk_st .hk_oral{
+  display:inline-flex !important;align-items:center !important;justify-content:center !important;gap:5px !important;align-self:center !important;
+  margin-top:12px !important;height:26px !important;padding:0 10px !important;border-radius:999px !important;
+  background:var(--hk-sun) !important;font-size:11.5px !important;font-weight:800 !important;color:#5A4200 !important;
+}
+#hkSub .hk_st .hk_oral svg{width:13px !important;height:13px !important;}
+#hkSub .hk_tlkey{display:flex !important;flex-wrap:wrap !important;gap:8px 18px !important;margin-top:22px !important;font-size:13.5px !important;font-weight:700 !important;color:var(--hk-body) !important;}
+#hkSub .hk_tlkey span{display:inline-flex !important;align-items:center !important;gap:7px !important;}
+#hkSub .hk_tlkey i{display:block !important;width:10px !important;height:10px !important;border-radius:50% !important;background:var(--hk-well) !important;}
+#hkSub .hk_tlkey i.hk_ko{background:var(--hk-sun) !important;}
+
+/* 상세 항목 */
+#hkSub .hk_det{display:grid !important;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr) !important;gap:20px !important;margin-top:48px !important;align-items:start !important;}
+#hkSub .hk_dc{background:#fff !important;border:1px solid var(--hk-line) !important;border-radius:26px !important;overflow:hidden !important;}
+#hkSub .hk_dch{display:flex !important;align-items:center !important;gap:13px !important;padding:22px 28px !important;background:var(--hk-sky-l) !important;}
+#hkSub .hk_dc.hk_or .hk_dch{background:var(--hk-sun-l) !important;}
+#hkSub .hk_dch .hk_ico{
+  display:inline-flex !important;align-items:center !important;justify-content:center !important;flex:none !important;
+  width:42px !important;height:42px !important;border-radius:14px !important;background:#fff !important;color:var(--hk-sky-d) !important;
+}
+#hkSub .hk_dc.hk_or .hk_dch .hk_ico{color:#A87400 !important;}
+#hkSub .hk_dch .hk_ico svg{width:21px !important;height:21px !important;}
+#hkSub .hk_dch b{display:block !important;font-size:19px !important;font-weight:800 !important;letter-spacing:-.045em !important;color:var(--hk-ink) !important;}
+#hkSub .hk_dr{display:grid !important;grid-template-columns:140px minmax(0,1fr) !important;gap:16px !important;padding:18px 28px !important;border-bottom:1px solid var(--hk-line) !important;align-items:baseline !important;}
+#hkSub .hk_dr:last-child{border-bottom:0 !important;}
+#hkSub .hk_dr b{display:block !important;font-size:15.5px !important;font-weight:800 !important;color:var(--hk-ink) !important;letter-spacing:-.04em !important;}
+#hkSub .hk_dr span{display:block !important;font-size:15px !important;line-height:1.7 !important;color:var(--hk-body) !important;letter-spacing:-.025em !important;}
+#hkSub .hk_result{
+  display:flex !important;align-items:center !important;gap:14px !important;margin-top:20px !important;
+  padding:20px 24px !important;border-radius:20px !important;background:var(--hk-well-l) !important;
+  font-size:15.5px !important;font-weight:700 !important;color:#16715C !important;letter-spacing:-.03em !important;line-height:1.6 !important;
+}
+#hkSub .hk_result svg{width:22px !important;height:22px !important;flex:none !important;}
+
+/* 예약 및 상담문의 (Well Zone 공통) */
+#hkSub .hk_ask{
+  display:grid !important;grid-template-columns:minmax(0,1fr) minmax(0,1fr) !important;gap:0 !important;margin-top:44px !important;
+  border-radius:28px !important;overflow:hidden !important;background:#fff !important;border:1px solid var(--hk-line) !important;
+}
+#hkSub .hk_ak1{padding:40px 40px 38px !important;background:linear-gradient(140deg,#E4F8F2 0%,#F3FCF9 100%) !important;}
+#hkSub .hk_ak1 span{display:block !important;font-size:12px !important;font-weight:800 !important;letter-spacing:.14em !important;color:#1E8E73 !important;}
+#hkSub .hk_ak1 a.hk_tel{
+  display:inline-flex !important;align-items:center !important;gap:12px !important;margin-top:12px !important;
+  font-size:clamp(28px,3.2vw,38px) !important;font-weight:800 !important;letter-spacing:-.04em !important;color:var(--hk-ink) !important;
+}
+#hkSub .hk_ak1 a.hk_tel svg{width:30px !important;height:30px !important;color:var(--hk-well) !important;}
+#hkSub .hk_ak1 .hk_ext{display:flex !important;flex-wrap:wrap !important;gap:8px !important;margin-top:14px !important;}
+#hkSub .hk_ak1 .hk_ext em{
+  display:inline-flex !important;align-items:center !important;height:32px !important;padding:0 14px !important;border-radius:999px !important;
+  background:#fff !important;font-style:normal !important;font-size:14px !important;font-weight:800 !important;color:#1E8E73 !important;
+}
+#hkSub .hk_ak2{padding:36px 40px !important;}
+#hkSub .hk_ak2 table{width:100% !important;border-collapse:separate !important;border-spacing:0 !important;}
+#hkSub .hk_ak2 th,#hkSub .hk_ak2 td{
+  padding:17px 4px !important;border:0 !important;border-bottom:1px solid var(--hk-line) !important;background:transparent !important;
+  font-size:16px !important;text-align:left !important;vertical-align:middle !important;
+}
+#hkSub .hk_ak2 tr:last-child th,#hkSub .hk_ak2 tr:last-child td{border-bottom:0 !important;}
+#hkSub .hk_ak2 th{font-weight:700 !important;color:var(--hk-body) !important;letter-spacing:-.03em !important;}
+#hkSub .hk_ak2 td{text-align:right !important;font-weight:800 !important;color:var(--hk-ink) !important;letter-spacing:-.03em !important;}
+#hkSub .hk_ak2 td.hk_off{color:var(--hk-sick) !important;}
+#hkSub .hk_ak2 .hk_akh{display:flex !important;align-items:center !important;gap:10px !important;margin-bottom:6px !important;font-size:17px !important;font-weight:800 !important;color:var(--hk-ink) !important;letter-spacing:-.04em !important;}
+#hkSub .hk_ak2 .hk_akh svg{width:20px !important;height:20px !important;color:var(--hk-well) !important;}
+
+/* ── 반응형 ── */
+@media (max-width:1180px){
+  #hkSub{--hk-pad:26px;}
+  #hkSub .hk_tl{grid-template-columns:repeat(4,minmax(0,1fr)) !important;row-gap:28px !important;}
+  #hkSub .hk_tl::before{display:none !important;}
+  #hkSub .hk_det{grid-template-columns:1fr !important;}
+}
+@media (max-width:860px){
+  #hkSub{--hk-pad:20px;--hk-hd:66px;}
+  #hkSub .hk_hero{padding:calc(var(--hk-hd) + 42px) 0 54px !important;}
+  #hkSub .hk_eyebrow{margin-top:18px !important;}
+  #hkSub .hk_hgrid{grid-template-columns:1fr !important;gap:30px !important;}
+  #hkSub .hk_stats{gap:10px !important;}
+  #hkSub .hk_stat{min-height:112px !important;padding:18px !important;border-radius:18px !important;}
+  #hkSub .hk_sec{padding:64px 0 !important;}
+  #hkSub .hk_intro{grid-template-columns:1fr !important;gap:28px !important;}
+  #hkSub .hk_intro p{font-size:15px !important;margin-top:14px !important;}
+  #hkSub .hk_ft{padding:16px 18px !important;gap:14px !important;border-radius:18px !important;}
+  #hkSub .hk_ft .hk_ico{width:44px !important;height:44px !important;border-radius:14px !important;}
+  #hkSub .hk_ft b{font-size:16.5px !important;}
+  #hkSub .hk_ft p{font-size:13.5px !important;}
+  /* 타임라인 → 세로 */
+  #hkSub .hk_tl{grid-template-columns:1fr !important;gap:0 !important;margin-top:30px !important;}
+  #hkSub .hk_tl::before{display:block !important;left:25px !important;right:auto !important;top:10px !important;bottom:10px !important;width:3px !important;height:auto !important;
+    background:linear-gradient(180deg,var(--hk-sky) 0%,var(--hk-well) 100%) !important;}
+  #hkSub .hk_st{flex-direction:row !important;align-items:flex-start !important;gap:14px !important;padding-bottom:12px !important;}
+  #hkSub .hk_st .hk_box{margin-top:0 !important;text-align:left !important;padding:14px 16px !important;border-radius:16px !important;}
+  #hkSub .hk_st .hk_no{flex:none !important;}
+  #hkSub .hk_st .hk_head{display:flex !important;align-items:baseline !important;gap:8px !important;}
+  #hkSub .hk_st ul{flex-direction:row !important;flex-wrap:wrap !important;gap:4px 6px !important;margin-top:10px !important;padding-top:10px !important;}
+  #hkSub .hk_st li{padding:2px 9px !important;border-radius:999px !important;background:var(--hk-paper2) !important;font-size:12px !important;}
+  #hkSub .hk_st .hk_oral{align-self:flex-start !important;margin-top:10px !important;}
+  #hkSub .hk_det{margin-top:28px !important;gap:12px !important;}
+  #hkSub .hk_dc{border-radius:18px !important;}
+  #hkSub .hk_dch{padding:16px 18px !important;}
+  #hkSub .hk_dch b{font-size:17px !important;}
+  #hkSub .hk_dr{grid-template-columns:1fr !important;gap:2px !important;padding:14px 18px !important;}
+  #hkSub .hk_dr span{font-size:14px !important;}
+  #hkSub .hk_result{padding:16px 18px !important;font-size:14.5px !important;border-radius:16px !important;}
+  #hkSub .hk_ask{grid-template-columns:1fr !important;margin-top:28px !important;border-radius:20px !important;}
+  #hkSub .hk_ak1{padding:28px 22px 26px !important;}
+  #hkSub .hk_ak1 a.hk_tel svg{width:24px !important;height:24px !important;}
+  #hkSub .hk_ak2{padding:22px 22px 12px !important;}
+  #hkSub .hk_ak2 th,#hkSub .hk_ak2 td{padding:14px 2px !important;font-size:15px !important;}
+  #hkSub .hk_cta{padding:62px 0 !important;}
+  #hkSub .hk_btns{margin-top:24px !important;gap:9px !important;}
+  #hkSub .hk_btn{height:50px !important;padding:0 20px !important;font-size:14.5px !important;}
+}
+</style>
+
+<div id="hkSub">
+
+  <!-- ── 서브 히어로 ── -->
+  <section class="hk_hero">
+    <div class="hk_wrap hk_hgrid">
+      <div>
+        <nav class="hk_bc hk_rv"><a href="/">홈</a><i></i><a href="/wellzone">Well Zone</a><i></i><b>영유아 건강검진</b></nav>
+        <span class="hk_eyebrow hk_rv hk_d1">INFANT HEALTH CHECKUP</span>
+        <h1 class="hk_h1 hk_rv hk_d1">영유아 건강검진</h1>
+        <span class="hk_hlead hk_rv hk_d2">건강한 우리아기, 행복한어린이병원이 지켜드립니다.</span>
+      </div>
+      <div class="hk_stats hk_rv hk_d2">
+        <div class="hk_stat hk_s1"><span>검진 대상</span><b>생후 14일 ~ 71개월</b></div>
+        <div class="hk_stat"><span>검진 횟수</span><b>총 8<small>회</small></b></div>
+        <div class="hk_stat hk_s3"><span>국민건강보험공단</span><b>무료</b></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 소개 ── -->
+  <section class="hk_sec">
+    <div class="hk_wrap hk_intro">
+      <div class="hk_rv">
+        <span class="hk_eyebrow2">ABOUT</span>
+        <h2 class="hk_h2">우리 아이의 건강한<br>성장과 발달을 위해</h2>
+        <p>영유아 건강검진은 우리 아이의 건강한 성장과 발달을 위해 연령별로 <em>생후 14일부터 71개월까지 총 8회</em>, 국민건강보험공단에서 무료로 제공됩니다.</p>
+        <p>대상자는 국민건강보험공단에서 선정합니다.</p>
+      </div>
+      <div class="hk_feats">
+        <a class="hk_ft hk_rv hk_d1" href="/reservation">
+          <span class="hk_ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="3"/><path d="M11 18h2"/><path d="M9 9l2 2 4-4"/></svg></span>
+          <div><b>온라인 예약 가능</b><p>영유아 검진도 온라인으로 예약하실 수 있습니다.</p></div>
+        </a>
+        <div class="hk_ft hk_f2 hk_rv hk_d2">
+          <span class="hk_ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+          <div><b>당일검진 가능</b><p>예약하지 않으셨더라도 당일 검진이 가능합니다.</p></div>
+        </div>
+        <div class="hk_ft hk_f3 hk_rv hk_d3">
+          <span class="hk_ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M8 15l2.5 2.5L16 12"/></svg></span>
+          <div><b>K-DST 작성 도움</b><p>검진센터에서 영유아 발달 선별검사(K-DST) 작성을 도와드립니다.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 검진 시기 (검사 대상자) ── -->
+  <section class="hk_sec hk_tint">
+    <div class="hk_wrap">
+      <div class="hk_rv">
+        <span class="hk_eyebrow2">SCHEDULE</span>
+        <h2 class="hk_h2">시기별 검진 항목</h2>
+        <span class="hk_lead">14일부터 71개월까지의 영유아 대상 · 대상자 선정(국민건강보험공단) 및 검사항목</span>
+      </div>
+
+      <div class="hk_tl hk_rv hk_d1">
+        <div class="hk_st"><span class="hk_no">1차</span><div class="hk_box"><div class="hk_head"><span class="hk_when">생후</span><b class="hk_age">14~35일</b></div>
+          <ul><li>문진 및 진찰</li><li>신체계측</li><li>건강교육</li></ul></div></div>
+        <div class="hk_st"><span class="hk_no">2차</span><div class="hk_box"><div class="hk_head"><span class="hk_when">생후</span><b class="hk_age">4~6개월</b></div>
+          <ul><li>문진 및 진찰</li><li>신체계측</li><li>건강교육</li></ul></div></div>
+        <div class="hk_st"><span class="hk_no">3차</span><div class="hk_box"><div class="hk_head"><span class="hk_when">생후</span><b class="hk_age">9~12개월</b></div>
+          <ul><li>문진 및 진찰</li><li>신체계측</li><li class="hk_dev">발달선별검사 및 상담</li><li>건강교육</li></ul></div></div>
+        <div class="hk_st"><span class="hk_no">4차</span><div class="hk_box"><div class="hk_head"><span class="hk_when">생후</span><b class="hk_age">18~24개월</b></div>
+          <ul><li>문진 및 진찰</li><li>신체계측</li><li class="hk_dev">발달선별검사 및 상담</li><li>건강교육</li></ul>
+          <span class="hk_oral"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5.5C10 3.5 5 3 5 8c0 4 1 13 3.5 13 1.5 0 1.5-5 3.5-5s2 5 3.5 5C18 21 19 12 19 8c0-5-5-4.5-7-2.5z"/></svg>구강검진</span></div></div>
+        <div class="hk_st"><span class="hk_no">5차</span><div class="hk_box"><div class="hk_head"><span class="hk_when">생후</span><b class="hk_age">30~36개월</b></div>
+          <ul><li>문진 및 진찰</li><li>신체계측</li><li class="hk_dev">발달선별검사 및 상담</li><li>건강교육</li></ul></div></div>
+        <div class="hk_st"><span class="hk_no">6차</span><div class="hk_box"><div class="hk_head"><span class="hk_when">생후</span><b class="hk_age">42~48개월</b></div>
+          <ul><li>문진 및 진찰</li><li>신체계측</li><li class="hk_dev">발달선별검사 및 상담</li><li>건강교육</li></ul>
+          <span class="hk_oral"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5.5C10 3.5 5 3 5 8c0 4 1 13 3.5 13 1.5 0 1.5-5 3.5-5s2 5 3.5 5C18 21 19 12 19 8c0-5-5-4.5-7-2.5z"/></svg>구강검진</span></div></div>
+        <div class="hk_st"><span class="hk_no">7차</span><div class="hk_box"><div class="hk_head"><span class="hk_when">생후</span><b class="hk_age">54~60개월</b></div>
+          <ul><li>문진 및 진찰</li><li>신체계측</li><li class="hk_dev">발달선별검사 및 상담</li><li>건강교육</li></ul>
+          <span class="hk_oral"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5.5C10 3.5 5 3 5 8c0 4 1 13 3.5 13 1.5 0 1.5-5 3.5-5s2 5 3.5 5C18 21 19 12 19 8c0-5-5-4.5-7-2.5z"/></svg>구강검진</span></div></div>
+        <div class="hk_st"><span class="hk_no">8차</span><div class="hk_box"><div class="hk_head"><span class="hk_when">생후</span><b class="hk_age">66~71개월</b></div>
+          <ul><li>문진 및 진찰</li><li>신체계측</li><li class="hk_dev">발달선별검사 및 상담</li><li>건강교육</li></ul></div></div>
+      </div>
+
+      <div class="hk_tlkey hk_rv">
+        <span><i></i>발달선별검사 및 상담 (3차부터)</span>
+        <span><i class="hk_ko"></i>구강검진 함께 진행 (4 · 6 · 7차)</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 상세 항목 내용 ── -->
+  <section class="hk_sec">
+    <div class="hk_wrap">
+      <div class="hk_rv">
+        <span class="hk_eyebrow2">DETAILS</span>
+        <h2 class="hk_h2">상세 항목 내용</h2>
+      </div>
+
+      <div class="hk_det">
+        <div class="hk_dc hk_rv">
+          <div class="hk_dch">
+            <span class="hk_ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2.5"/><path d="M9 3v2h6V3"/><path d="M8 13h2l1.2-2.5 1.8 5 1.2-2.5H16"/></svg></span>
+            <b>일반검진</b>
+          </div>
+          <div class="hk_dr"><b>문진 및 진찰</b><span>문진표, 진찰표, 청각문진, 시각, 시력검사</span></div>
+          <div class="hk_dr"><b>신체계측</b><span>키, 몸무게(체질량지수), 머리둘레</span></div>
+          <div class="hk_dr"><b>건강교육</b><span>영양, 수면, 안전, 구강, 취학준비</span></div>
+          <div class="hk_dr"><b>발달평가</b><span>K-DST, DENVER-II 등에 의한 검사</span></div>
+        </div>
+
+        <div class="hk_dc hk_or hk_rv hk_d1">
+          <div class="hk_dch">
+            <span class="hk_ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5.5C10 3.5 5 3 5 8c0 4 1 13 3.5 13 1.5 0 1.5-5 3.5-5s2 5 3.5 5C18 21 19 12 19 8c0-5-5-4.5-7-2.5z"/></svg></span>
+            <b>구강검진</b>
+          </div>
+          <div class="hk_dr"><b>구강문진 및 진찰</b><span>문진표, 진찰표 (치아검사, 치주조직검사)</span></div>
+          <div class="hk_dr"><b>구강보건교육</b><span>매뉴얼을 이용한 보호자 및 유아 교육</span></div>
+        </div>
+      </div>
+
+      <div class="hk_result hk_rv">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1.1-4.6A8 8 0 1 1 21 12z"/><path d="M8.5 12h.01M12 12h.01M15.5 12h.01"/></svg>
+        영유아 건강검진 결과는 검진 완료 후 수검자의 보호자에게 직접 설명해 드립니다.
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 예약 및 상담문의 ── -->
+  <section class="hk_sec hk_tint">
+    <div class="hk_narrow">
+      <div class="hk_rv">
+        <span class="hk_eyebrow2">CONTACT</span>
+        <h2 class="hk_h2">소아청소년 종합검진센터<br>예약 및 상담문의</h2>
+      </div>
+
+      <div class="hk_ask hk_rv hk_d1">
+        <div class="hk_ak1">
+          <span>튼튼 클리닉 외래 간호팀</span>
+          <a class="hk_tel" href="tel:051-264-9500">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .3 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.4 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
+            051-264-9500
+          </a>
+          <div class="hk_ext"><em>내선 840번</em><em>내선 841번</em></div>
+        </div>
+        <div class="hk_ak2">
+          <div class="hk_akh">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+            상담 가능 시간
+          </div>
+          <table>
+            <tbody>
+              <tr><th>평일</th><td>9시 ~ 18시</td></tr>
+              <tr><th>토요일</th><td>9시 ~ 13시</td></tr>
+              <tr><th>일 / 공휴일</th><td class="hk_off">검진 없음</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 하단 CTA ── -->
+  <section class="hk_cta">
+    <div class="hk_wrap hk_rv">
+      <b>영유아 검진,<br>온라인으로 편하게 예약하세요</b>
+      <p>굿닥 앱으로 예약하시거나, 당일 방문하셔도 검진받으실 수 있습니다.</p>
+      <div class="hk_btns">
+        <a class="hk_btn hk_b1" href="tel:051-264-9500">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .3 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.4 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
+          051-264-9500
+        </a>
+        <a class="hk_btn hk_b2" href="https://goodoc.onelink.me/7srm/u0yjku3b" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="3"/><path d="M11 18h2"/></svg>
+          굿닥 앱으로 예약
+        </a>
+        <a class="hk_btn hk_b3" href="/reservation">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="3"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+          진료예약 안내
+        </a>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<script>
+(function () {
+  var root = document.getElementById('hkSub');
+  if (!root || root.dataset.hkReady) return;
+  root.dataset.hkReady = '1';
+  var els = root.querySelectorAll('.hk_rv');
+  if (!('IntersectionObserver' in window)) { Array.prototype.forEach.call(els, function (e) { e.classList.add('hk_in'); }); return; }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('hk_in'); io.unobserve(en.target); } });
+  }, { threshold: 0.08 });
+  Array.prototype.forEach.call(els, function (e) { io.observe(e); });
+})();
+</script>
