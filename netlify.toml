@@ -1,5 +1,22 @@
-# Netlify 배포 설정 : 빌드 없이 이 폴더를 그대로 올립니다.
+# Netlify 배포 설정 : 빌드 없이 site 폴더(운영 사이트)를 그대로 올립니다.
+# site 폴더는 node 운영사이트/build-site.js 로 만듭니다.
 # GitHub main 브랜치에 올리면 https://happykiz-imweb.netlify.app 에 자동 반영됩니다.
 [build]
-  publish = "."
+  publish = "site"
   command = ""
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+[[headers]]
+  for = "/board-files/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"

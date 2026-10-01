@@ -1,0 +1,1965 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>아동발달 클리닉 | 행복한어린이병원</title>
+<meta name="description" content="어린이 한 명 한 명의 정상적인 성장과 발달을 최적화하여, 건강한 사회 구성원이 되도록 돕는 언어심리 발달센터입니다.">
+<link rel="canonical" href="https://happykiz-imweb.netlify.app/development/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="행복한어린이병원">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="아동발달 클리닉 | 행복한어린이병원">
+<meta property="og:description" content="어린이 한 명 한 명의 정상적인 성장과 발달을 최적화하여, 건강한 사회 구성원이 되도록 돕는 언어심리 발달센터입니다.">
+<meta property="og:url" content="https://happykiz-imweb.netlify.app/development/">
+<meta property="og:image" content="https://happykiz-imweb.netlify.app/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#3FA7E6">
+<meta name="format-detection" content="telephone=no">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
+<link rel="apple-touch-icon" href="/icon-192.png">
+<link rel="manifest" href="/site.webmanifest">
+<style>html,body{margin:0;padding:0;background:#fff;}</style>
+</head>
+<body>
+
+<style>
+@import url('https://cdn.jsdelivr.net/gh/sun-typeface/suit@2/fonts/variable/woff2/SUIT-Variable.css');
+
+#hkHd{
+  --hk-sky:#3FA7E6; --hk-sky-d:#1E7FC2; --hk-sky-l:#EAF6FD;
+  --hk-sun:#FFC93C; --hk-well:#2FBF9B; --hk-well-l:#E4F8F2; --hk-sick:#FF7A6B; --hk-sick-l:#FFEDEA;
+  --hk-ink:#1F3A4D; --hk-body:#4A5E6B; --hk-gray:#8697A2; --hk-line:#E6EDF1; --hk-paper2:#F5F9FB;
+  --hk-ease:cubic-bezier(.16,1,.3,1);
+  --hk-maxw:1400px; --hk-pad:32px; --hk-h:88px;
+  line-height:1.7 !important;
+
+  position:fixed !important; top:0 !important; left:0 !important; right:0 !important;
+  display:block !important; float:none !important; clear:both !important;
+  width:100% !important; max-width:100% !important;
+  margin:0 !important; padding:0 !important;
+  z-index:9000 !important; overflow:visible !important; box-sizing:border-box !important;
+}
+#hkHd,#hkHd *,#hkHd *::before,#hkHd *::after{
+  box-sizing:border-box !important;
+  font-family:'SUIT Variable','SUIT',-apple-system,BlinkMacSystemFont,'Pretendard','Apple SD Gothic Neo',sans-serif !important;
+  word-break:keep-all !important;
+}
+#hkHd ul,#hkHd ol,#hkHd li{list-style:none !important;margin:0 !important;padding:0 !important;background-image:none !important;}
+#hkHd li::before,#hkHd li::after{display:none !important;content:none !important;}
+#hkHd p,#hkHd b,#hkHd small,#hkHd span,#hkHd a,#hkHd nav,#hkHd div,#hkHd em{margin:0 !important;padding:0 !important;}
+#hkHd a{text-decoration:none !important;color:inherit !important;}
+#hkHd button{font:inherit !important;color:inherit !important;background:none !important;border:0 !important;margin:0 !important;padding:0 !important;cursor:pointer !important;}
+#hkHd svg{display:block !important;}
+#hkHd img{max-width:none !important;display:block !important;border:0 !important;}
+
+#hkHd .hk_wrap{max-width:var(--hk-maxw) !important;margin:0 auto !important;padding:0 var(--hk-pad) !important;width:100% !important;}
+
+/* 맨 위 무지개 줄 (병원 로고 색) */
+#hkHd .hk_rainbow{height:4px !important;background:linear-gradient(90deg,#FF7A6B 0%,#FFC93C 30%,#2FBF9B 62%,#3FA7E6 100%) !important;}
+
+/* ── 헤더 바 ── */
+#hkHd .hk_bar{
+  position:relative !important;height:var(--hk-h) !important;background:#fff !important;
+  display:flex !important;align-items:center !important;
+  box-shadow:0 1px 0 var(--hk-line) !important;
+  transition:height .3s var(--hk-ease),box-shadow .3s var(--hk-ease) !important;
+}
+#hkHd.hk_solid .hk_bar{height:72px !important;box-shadow:0 10px 30px -22px rgba(31,58,77,.35),0 1px 0 var(--hk-line) !important;}
+#hkHd .hk_bar .hk_wrap{display:flex !important;align-items:center !important;gap:26px !important;height:100% !important;}
+
+/* 로고 : 원본 로고 이미지 그대로 */
+#hkHd .hk_logo{display:flex !important;align-items:center !important;flex:none !important;height:100% !important;}
+#hkHd .hk_logo img{height:50px !important;width:auto !important;transition:height .3s var(--hk-ease) !important;}
+#hkHd.hk_solid .hk_logo img{height:42px !important;}
+
+/* 메뉴 */
+#hkHd .hk_gnb{display:flex !important;gap:2px !important;margin-left:auto !important;}
+#hkHd .hk_gnb > li > a{
+  display:block !important;padding:10px 15px !important;border-radius:999px !important;
+  font-size:15.5px !important;font-weight:700 !important;color:var(--hk-ink) !important;letter-spacing:-.03em !important;
+  transition:background .25s var(--hk-ease),color .25s var(--hk-ease) !important;
+}
+#hkHd .hk_gnb > li > a:hover,#hkHd .hk_gnb > li.hk_hot > a{background:var(--hk-sky-l) !important;color:var(--hk-sky-d) !important;}
+#hkHd .hk_gnb > li[data-g="2"] > a:hover,#hkHd .hk_gnb > li[data-g="2"].hk_hot > a{background:var(--hk-well-l) !important;color:#1C8F72 !important;}
+#hkHd .hk_gnb > li[data-g="3"] > a:hover,#hkHd .hk_gnb > li[data-g="3"].hk_hot > a{background:var(--hk-sick-l) !important;color:#D9503F !important;}
+
+/* 우측 버튼 */
+#hkHd .hk_act{display:flex !important;align-items:center !important;gap:7px !important;flex:none !important;}
+#hkHd .hk_btn{
+  display:inline-flex !important;align-items:center !important;justify-content:center !important;gap:6px !important;
+  height:42px !important;padding:0 15px !important;border-radius:999px !important;
+  font-size:13px !important;font-weight:800 !important;letter-spacing:-.03em !important;white-space:nowrap !important;
+  transition:background .25s var(--hk-ease),border-color .25s var(--hk-ease),color .25s var(--hk-ease),transform .25s var(--hk-ease),box-shadow .25s var(--hk-ease) !important;
+}
+#hkHd .hk_btn svg{width:14px !important;height:14px !important;flex:none !important;}
+#hkHd .hk_btn:hover{transform:translateY(-2px) !important;}
+#hkHd .hk_bBlog{border:1px solid var(--hk-line) !important;color:var(--hk-body) !important;background:#fff !important;}
+#hkHd .hk_bBlog:hover{background:#03C75A !important;border-color:#03C75A !important;color:#fff !important;}
+#hkHd .hk_bSchool{background:var(--hk-well-l) !important;color:#1C8F72 !important;}
+#hkHd .hk_bSchool:hover{background:var(--hk-well) !important;color:#fff !important;}
+#hkHd .hk_bTime{background:var(--hk-sky-l) !important;color:var(--hk-sky-d) !important;}
+#hkHd .hk_bTime:hover{background:var(--hk-sky) !important;color:#fff !important;}
+#hkHd .hk_bApp{background:var(--hk-sun) !important;color:#5A3E00 !important;}
+#hkHd .hk_bApp:hover{background:#FFB700 !important;box-shadow:0 8px 18px -8px rgba(255,201,60,.9) !important;}
+#hkHd .hk_bTel{background:var(--hk-ink) !important;color:#fff !important;padding:0 17px !important;font-size:13.5px !important;}
+#hkHd .hk_bTel:hover{background:var(--hk-sky-d) !important;box-shadow:0 8px 18px -8px rgba(30,127,194,.8) !important;}
+
+/* ── PC 전체메뉴 패널 ── */
+#hkHd .hk_mega{
+  background:#fff !important;border-top:1px solid var(--hk-line) !important;
+  max-height:0 !important;overflow:hidden !important;opacity:0 !important;
+  box-shadow:0 30px 44px -34px rgba(31,58,77,.45) !important;
+  transition:max-height .42s var(--hk-ease),opacity .3s var(--hk-ease) !important;
+}
+#hkHd.hk_open .hk_mega{max-height:520px !important;opacity:1 !important;}
+#hkHd .hk_mcols{display:grid !important;grid-template-columns:repeat(6,minmax(0,1fr)) !important;gap:8px 20px !important;padding:30px 0 38px !important;}
+#hkHd .hk_mcol > b{
+  display:flex !important;align-items:center !important;gap:8px !important;
+  font-size:14.5px !important;font-weight:800 !important;color:var(--hk-ink) !important;letter-spacing:-.03em !important;
+  padding-bottom:12px !important;margin-bottom:8px !important;border-bottom:1px solid var(--hk-line) !important;
+  transition:color .25s var(--hk-ease),border-color .25s var(--hk-ease) !important;
+}
+#hkHd .hk_mcol > b i{display:block !important;width:8px !important;height:8px !important;border-radius:50% !important;background:var(--hk-sky) !important;flex:none !important;}
+#hkHd .hk_mcol[data-g="2"] > b i{background:var(--hk-well) !important;}
+#hkHd .hk_mcol[data-g="3"] > b i{background:var(--hk-sick) !important;}
+#hkHd .hk_mcol[data-g="4"] > b i{background:var(--hk-sun) !important;}
+#hkHd .hk_mcol.hk_hot > b{color:var(--hk-sky-d) !important;border-color:var(--hk-sky) !important;}
+#hkHd .hk_mcol[data-g="2"].hk_hot > b{color:#1C8F72 !important;border-color:var(--hk-well) !important;}
+#hkHd .hk_mcol[data-g="3"].hk_hot > b{color:#D9503F !important;border-color:var(--hk-sick) !important;}
+#hkHd .hk_mcol a{
+  display:block !important;padding:6px 0 !important;font-size:13.5px !important;font-weight:500 !important;
+  color:var(--hk-body) !important;letter-spacing:-.03em !important;line-height:1.6 !important;
+  transition:color .2s var(--hk-ease),padding-left .2s var(--hk-ease) !important;
+}
+#hkHd .hk_mcol a:hover{color:var(--hk-sky-d) !important;padding-left:4px !important;}
+#hkHd .hk_mcol a.hk_sm{font-size:12.5px !important;color:var(--hk-gray) !important;}
+
+/* ── 햄버거 ── */
+#hkHd .hk_burger{display:none !important;width:44px !important;height:44px !important;margin-left:auto !important;position:relative !important;flex:none !important;}
+#hkHd .hk_burger i{position:absolute !important;left:11px !important;width:22px !important;height:2px !important;background:var(--hk-ink) !important;border-radius:2px !important;transition:all .3s var(--hk-ease) !important;}
+#hkHd .hk_burger i:nth-child(1){top:15px !important;}
+#hkHd .hk_burger i:nth-child(2){top:21px !important;}
+#hkHd .hk_burger i:nth-child(3){top:27px !important;}
+#hkHd.hk_mo .hk_burger i:nth-child(1){top:21px !important;transform:rotate(45deg) !important;}
+#hkHd.hk_mo .hk_burger i:nth-child(2){opacity:0 !important;}
+#hkHd.hk_mo .hk_burger i:nth-child(3){top:21px !important;transform:rotate(-45deg) !important;}
+
+/* ── 모바일 전체메뉴 ── */
+#hkHd .hk_mm{
+  position:fixed !important;top:0 !important;left:0 !important;right:0 !important;bottom:0 !important;
+  z-index:-2 !important;background:#fff !important;
+  padding:calc(var(--hk-h) + 12px) 20px 48px !important;overflow-y:auto !important;-webkit-overflow-scrolling:touch !important;
+  opacity:0 !important;visibility:hidden !important;transform:translateY(-10px) !important;
+  transition:opacity .35s var(--hk-ease),visibility .35s,transform .35s var(--hk-ease) !important;
+}
+#hkHd.hk_mo .hk_mm{opacity:1 !important;visibility:visible !important;transform:none !important;}
+#hkHd .hk_mg{border-bottom:1px solid var(--hk-line) !important;}
+#hkHd .hk_mh{
+  display:flex !important;width:100% !important;align-items:center !important;justify-content:space-between !important;
+  padding:17px 4px !important;font-size:18px !important;font-weight:800 !important;color:var(--hk-ink) !important;letter-spacing:-.035em !important;text-align:left !important;
+}
+#hkHd .hk_mh svg{width:18px !important;height:18px !important;stroke:var(--hk-sky) !important;stroke-width:2.4 !important;fill:none !important;flex:none !important;transition:transform .3s var(--hk-ease) !important;}
+#hkHd .hk_mg.hk_on .hk_mh svg{transform:rotate(180deg) !important;}
+#hkHd .hk_mc{max-height:0 !important;overflow:hidden !important;transition:max-height .4s var(--hk-ease) !important;}
+#hkHd .hk_mg.hk_on .hk_mc{max-height:620px !important;}
+#hkHd .hk_mc a{
+  display:block !important;margin-left:3px !important;padding:10px 4px 10px 15px !important;
+  border-left:2px solid var(--hk-line) !important;
+  font-size:15px !important;font-weight:500 !important;color:var(--hk-body) !important;letter-spacing:-.03em !important;
+}
+#hkHd .hk_mc a:last-child{padding-bottom:18px !important;}
+#hkHd .hk_mg.hk_single .hk_mh{color:var(--hk-ink) !important;}
+#hkHd .hk_mtel{margin-top:30px !important;display:grid !important;grid-template-columns:1fr 1fr !important;gap:9px !important;}
+#hkHd .hk_mtel a{
+  display:inline-flex !important;align-items:center !important;justify-content:center !important;gap:7px !important;
+  height:52px !important;border-radius:14px !important;
+  font-size:14px !important;font-weight:800 !important;letter-spacing:-.03em !important;
+}
+#hkHd .hk_mtel a svg{width:14px !important;height:14px !important;flex:none !important;}
+#hkHd .hk_mtel .hk_p{background:var(--hk-ink) !important;color:#fff !important;}
+#hkHd .hk_mtel .hk_a{background:var(--hk-sun) !important;color:#5A3E00 !important;}
+#hkHd .hk_mtel .hk_t{background:var(--hk-sky-l) !important;color:var(--hk-sky-d) !important;}
+#hkHd .hk_mtel .hk_g{border:1px solid var(--hk-line) !important;color:var(--hk-body) !important;}
+#hkHd .hk_mtel .hk_s{grid-column:1 / -1 !important;background:var(--hk-well-l) !important;color:#1C8F72 !important;}
+
+/* ── 반응형 ── */
+/* 화면이 좁아지면 블로그 → 학교검진 → 진료시간표 버튼 순서로 숨깁니다 (전체메뉴에는 그대로 있음) */
+@media (max-width:1499px){
+  #hkHd .hk_bBlog{display:none !important;}
+}
+@media (max-width:1319px){
+  #hkHd .hk_bSchool{display:none !important;}
+}
+@media (max-width:1399px){
+  #hkHd{--hk-pad:26px;}
+  #hkHd .hk_gnb > li > a{padding:10px 11px !important;font-size:14.5px !important;}
+}
+@media (max-width:1240px){
+  #hkHd .hk_bTime{display:none !important;}
+  #hkHd .hk_gnb > li > a{padding:10px 9px !important;font-size:14px !important;}
+  #hkHd .hk_bar .hk_wrap{gap:16px !important;}
+  #hkHd .hk_btn{height:38px !important;padding:0 12px !important;font-size:12px !important;}
+  #hkHd .hk_mcols{gap:8px 12px !important;}
+  #hkHd .hk_mcol > b{font-size:13.5px !important;}
+  #hkHd .hk_mcol a{font-size:12.5px !important;}
+}
+@media (max-width:1024px){
+  #hkHd .hk_gnb,#hkHd .hk_act,#hkHd .hk_mega{display:none !important;}
+  #hkHd .hk_burger{display:block !important;}
+}
+@media (max-width:860px){
+  #hkHd{--hk-pad:20px;--hk-h:66px;}
+  #hkHd.hk_solid .hk_bar{height:62px !important;}
+  #hkHd .hk_logo img,#hkHd.hk_solid .hk_logo img{height:38px !important;}
+}
+</style>
+
+<div id="hkHd">
+  <div class="hk_rainbow"></div>
+  <header class="hk_bar">
+    <div class="hk_wrap">
+      <a class="hk_logo" href="/">
+        <img src="/images/logo_m.png" alt="행복한어린이병원">
+      </a>
+
+      <nav aria-label="주요 메뉴">
+        <ul class="hk_gnb">
+          <li data-g="0"><a href="/about/">병원소개</a></li>
+          <li data-g="1"><a href="/outpatient/">진료안내</a></li>
+          <li data-g="2"><a href="/wellzone/">Well Zone</a></li>
+          <li data-g="3"><a href="/sickzone/">Sick Zone</a></li>
+          <li data-g="4"><a href="/development/">아동발달 클리닉</a></li>
+          <li data-g="5"><a href="/notice/">병원소식</a></li>
+        </ul>
+      </nav>
+
+      <div class="hk_act">
+        <a class="hk_btn hk_bBlog" href="https://blog.naver.com/jooya057" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.27 4.3v6.52L7.74 4.3H3v15.4h4.72v-6.52l8.53 6.52H21V4.3z"/></svg>
+          블로그
+        </a>
+        <a class="hk_btn hk_bSchool" href="https://eo-m.com/2022/HSP/HSP_Student.asp?hNo=21203369" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10l9-5 9 5-9 5z"/><path d="M7 12.2V17c0 1.2 2.2 2.5 5 2.5s5-1.3 5-2.5v-4.8"/></svg>
+          학생검진 문진표
+        </a>
+        <a class="hk_btn hk_bTime" href="/schedule/">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+          진료시간표
+        </a>
+        <a class="hk_btn hk_bApp" href="https://goodoc.onelink.me/7srm/u0yjku3b" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="3"/><path d="M11 18h2"/></svg>
+          굿닥 앱 예약
+        </a>
+        <a class="hk_btn hk_bTel" href="tel:051-264-9500">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.13.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.11L8.1 9.9a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.9z"/></svg>
+          051-264-9500
+        </a>
+      </div>
+
+      <button class="hk_burger" type="button" aria-label="메뉴 열기" aria-expanded="false"><i></i><i></i><i></i></button>
+    </div>
+  </header>
+
+  <div class="hk_mega">
+    <div class="hk_wrap">
+      <div class="hk_mcols">
+        <div class="hk_mcol" data-g="0">
+          <b><i></i>병원소개</b>
+          <a href="/about/">인사말 · 비전</a>
+          <a href="/doctors/">의료진 소개</a>
+          <a href="/ci/">CI 소개</a>
+          <a href="/tour/">둘러보기</a>
+          <a href="/location/">오시는 길 · 주차안내</a>
+        </div>
+        <div class="hk_mcol" data-g="1">
+          <b><i></i>진료안내</b>
+          <a href="/outpatient/">외래진료 안내</a>
+          <a href="/schedule/">진료시간표</a>
+          <a href="/reservation/">진료예약 안내</a>
+          <a href="/admission/">입퇴원 안내</a>
+          <a href="/certificate/">증명서 발급 안내</a>
+          <a href="/fees/">비급여 진료비</a>
+        </div>
+        <div class="hk_mcol" data-g="2">
+          <b><i></i>Well Zone · 튼튼클리닉</b>
+          <a href="/wellzone/">Well Zone 소개</a>
+          <a href="/vaccination/">예방접종</a>
+          <a href="/infant-checkup/">영유아 건강검진</a>
+          <a href="/school-checkup/">학교검진</a>
+          <a href="/checkup/">소아청소년 종합검진</a>
+          <a href="/growth/">성장(저신장)</a>
+          <a href="/puberty/">성조숙</a>
+          <a href="/obesity/">비만</a>
+        </div>
+        <div class="hk_mcol" data-g="3">
+          <b><i></i>Sick Zone · 호흡기/일반</b>
+          <a href="/sickzone/">Sick Zone 소개</a>
+          <a href="/iv-therapy/">맞춤형 영양수액 클리닉</a>
+          <a href="/allergy/">알레르기 클리닉</a>
+          <a class="hk_sm" href="/sickzone/#resp">호흡기 클리닉</a>
+          <a class="hk_sm" href="/sickzone/#ent">소아 귀목코 클리닉</a>
+          <a class="hk_sm" href="/sickzone/#infect">소아 감염</a>
+          <a class="hk_sm" href="/sickzone/#gi">소화기 영양 클리닉</a>
+          <a class="hk_sm" href="/sickzone/#kidney">소아 신장 클리닉</a>
+          <a class="hk_sm" href="/sickzone/#hema">혈액 종양 클리닉</a>
+          <a class="hk_sm" href="/sickzone/#newborn">신생아 클리닉</a>
+          <a class="hk_sm" href="/sickzone/#heart">선천성 심장질환 클리닉</a>
+        </div>
+        <div class="hk_mcol" data-g="4">
+          <b><i></i>아동발달 클리닉</b>
+          <a href="/development/">언어심리 발달센터</a>
+          <a href="/development/#screen">언어발달 선별검사</a>
+        </div>
+        <div class="hk_mcol" data-g="5">
+          <b><i></i>병원소식</b>
+          <a href="/notice/">공지사항</a>
+          <a href="/news/">우리병원 소식</a>
+          <a href="https://blog.naver.com/jooya057" target="_blank" rel="noopener">공식 블로그</a>
+          <a href="https://eo-m.com/2022/HSP/HSP_Student.asp?hNo=21203369" target="_blank" rel="noopener">학생검진 문진표 작성</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hk_mm">
+    <div class="hk_mg">
+      <button class="hk_mh" type="button">병원소개<svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button>
+      <div class="hk_mc">
+        <a href="/about/">인사말 · 비전</a>
+        <a href="/doctors/">의료진 소개</a>
+        <a href="/ci/">CI 소개</a>
+        <a href="/tour/">둘러보기</a>
+        <a href="/location/">오시는 길 · 주차안내</a>
+      </div>
+    </div>
+    <div class="hk_mg">
+      <button class="hk_mh" type="button">진료안내<svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button>
+      <div class="hk_mc">
+        <a href="/outpatient/">외래진료 안내</a>
+        <a href="/schedule/">진료시간표</a>
+        <a href="/reservation/">진료예약 안내</a>
+        <a href="/admission/">입퇴원 안내</a>
+        <a href="/certificate/">증명서 발급 안내</a>
+        <a href="/fees/">비급여 진료비</a>
+      </div>
+    </div>
+    <div class="hk_mg">
+      <button class="hk_mh" type="button">Well Zone · 튼튼클리닉<svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button>
+      <div class="hk_mc">
+        <a href="/wellzone/">Well Zone 소개</a>
+        <a href="/vaccination/">예방접종</a>
+        <a href="/infant-checkup/">영유아 건강검진</a>
+        <a href="/school-checkup/">학교검진</a>
+        <a href="/checkup/">소아청소년 종합검진</a>
+        <a href="/growth/">성장(저신장)</a>
+        <a href="/puberty/">성조숙</a>
+        <a href="/obesity/">비만</a>
+      </div>
+    </div>
+    <div class="hk_mg">
+      <button class="hk_mh" type="button">Sick Zone · 호흡기/일반<svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button>
+      <div class="hk_mc">
+        <a href="/sickzone/">Sick Zone 소개</a>
+        <a href="/iv-therapy/">맞춤형 영양수액 클리닉</a>
+        <a href="/allergy/">알레르기 클리닉</a>
+        <a href="/sickzone/#resp">호흡기 클리닉</a>
+        <a href="/sickzone/#ent">소아 귀목코 클리닉</a>
+        <a href="/sickzone/#infect">소아 감염</a>
+        <a href="/sickzone/#gi">소화기 영양 클리닉</a>
+        <a href="/sickzone/#kidney">소아 신장 클리닉</a>
+        <a href="/sickzone/#hema">혈액 종양 클리닉</a>
+        <a href="/sickzone/#newborn">신생아 클리닉</a>
+        <a href="/sickzone/#heart">선천성 심장질환 클리닉</a>
+      </div>
+    </div>
+    <div class="hk_mg">
+      <button class="hk_mh" type="button">아동발달 클리닉<svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button>
+      <div class="hk_mc">
+        <a href="/development/">언어심리 발달센터</a>
+        <a href="/development/#screen">언어발달 선별검사</a>
+      </div>
+    </div>
+    <div class="hk_mg">
+      <button class="hk_mh" type="button">병원소식<svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button>
+      <div class="hk_mc">
+        <a href="/notice/">공지사항</a>
+        <a href="/news/">우리병원 소식</a>
+        <a href="https://eo-m.com/2022/HSP/HSP_Student.asp?hNo=21203369" target="_blank" rel="noopener">학생검진 문진표 작성</a>
+      </div>
+    </div>
+    <div class="hk_mtel">
+      <a class="hk_p" href="tel:051-264-9500"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.13.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.11L8.1 9.9a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.9z"/></svg>전화 051-264-9500</a>
+      <a class="hk_a" href="https://goodoc.onelink.me/7srm/u0yjku3b" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="3"/><path d="M11 18h2"/></svg>굿닥 앱 예약</a>
+      <a class="hk_t" href="/schedule/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>진료시간표</a>
+      <a class="hk_g" href="https://blog.naver.com/jooya057" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.27 4.3v6.52L7.74 4.3H3v15.4h4.72v-6.52l8.53 6.52H21V4.3z"/></svg>블로그</a>
+      <a class="hk_s" href="https://eo-m.com/2022/HSP/HSP_Student.asp?hNo=21203369" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10l9-5 9 5-9 5z"/><path d="M7 12.2V17c0 1.2 2.2 2.5 5 2.5s5-1.3 5-2.5v-4.8"/></svg>학생검진 문진표</a>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  var root = document.getElementById('hkHd');
+  if (!root || root.dataset.hkReady) return;   /* 아임웹에서 두 번 실행되는 것 방지 */
+  root.dataset.hkReady = '1';
+
+  /* 스크롤하면 헤더를 조금 낮게 */
+  function onScroll() {
+    if (window.pageYOffset > 40) root.classList.add('hk_solid');
+    else root.classList.remove('hk_solid');
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  /* PC 전체메뉴 — 마우스를 올리면 세부 페이지가 펼쳐집니다 */
+  var gnbItems = root.querySelectorAll('.hk_gnb > li');
+  var cols = root.querySelectorAll('.hk_mcol');
+  var timer = null;
+
+  function hot(g) {
+    for (var i = 0; i < gnbItems.length; i++) gnbItems[i].classList[gnbItems[i].getAttribute('data-g') === g ? 'add' : 'remove']('hk_hot');
+    for (var j = 0; j < cols.length; j++) cols[j].classList[cols[j].getAttribute('data-g') === g ? 'add' : 'remove']('hk_hot');
+  }
+  function open(g) { if (window.innerWidth <= 1024) return; clearTimeout(timer); root.classList.add('hk_open'); hot(g); }
+  function close(delay) {
+    clearTimeout(timer);
+    timer = setTimeout(function () { root.classList.remove('hk_open'); hot(null); }, delay === undefined ? 140 : delay);
+  }
+  Array.prototype.forEach.call(gnbItems, function (li) {
+    var g = li.getAttribute('data-g');
+    li.addEventListener('mouseenter', function () { open(g); });
+    var a = li.querySelector('a');
+    if (a) a.addEventListener('focus', function () { open(g); });
+  });
+  Array.prototype.forEach.call(cols, function (c) { c.addEventListener('mouseenter', function () { open(c.getAttribute('data-g')); }); });
+  root.addEventListener('mouseenter', function () { clearTimeout(timer); });
+  root.addEventListener('mouseleave', function () { close(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(0); });
+
+  /* 모바일 메뉴 + 아코디언 */
+  var burger = root.querySelector('.hk_burger');
+  var groups = root.querySelectorAll('.hk_mg');
+  burger.addEventListener('click', function () {
+    var on = root.classList.toggle('hk_mo');
+    burger.setAttribute('aria-expanded', on ? 'true' : 'false');
+    burger.setAttribute('aria-label', on ? '메뉴 닫기' : '메뉴 열기');
+    document.documentElement.style.overflow = on ? 'hidden' : '';
+    if (on && groups.length && !root.querySelector('.hk_mg.hk_on')) groups[0].classList.add('hk_on');
+  });
+  Array.prototype.forEach.call(groups, function (g) {
+    g.querySelector('.hk_mh').addEventListener('click', function () {
+      var was = g.classList.contains('hk_on');
+      Array.prototype.forEach.call(groups, function (x) { x.classList.remove('hk_on'); });
+      if (!was) g.classList.add('hk_on');
+    });
+  });
+  Array.prototype.forEach.call(root.querySelectorAll('.hk_mm a'), function (a) {
+    a.addEventListener('click', function () {
+      root.classList.remove('hk_mo');
+      document.documentElement.style.overflow = '';
+      burger.setAttribute('aria-expanded', 'false');
+    });
+  });
+})();
+</script>
+
+
+
+<div id="hkBlank" aria-hidden="true" style="display:none !important;height:0 !important;margin:0 !important;padding:0 !important;"></div>
+
+
+
+<style>
+@import url('https://cdn.jsdelivr.net/gh/sun-typeface/suit@2/fonts/variable/woff2/SUIT-Variable.css');
+
+/* ══════════════════════════════════════════════════════════════
+   세부페이지 공통 스타일  (23개 세부페이지가 모두 동일)
+   ══════════════════════════════════════════════════════════════ */
+#hkSub{
+  --hk-sky:#3FA7E6; --hk-sky-d:#1E7FC2; --hk-sky-l:#EAF6FD;
+  --hk-sun:#FFC93C; --hk-sun-l:#FFF6DE;
+  --hk-well:#2FBF9B; --hk-well-l:#E4F8F2;
+  --hk-sick:#FF7A6B; --hk-sick-l:#FFEDEA;
+  --hk-ink:#1F3A4D; --hk-body:#4A5E6B; --hk-gray:#8697A2;
+  --hk-line:#E6EDF1; --hk-paper2:#F5F9FB;
+  --hk-ease:cubic-bezier(.16,1,.3,1);
+  --hk-maxw:1400px; --hk-pad:32px; --hk-hd:88px;
+  line-height:1.8 !important;
+
+  display:block !important; position:relative !important;
+  float:none !important; clear:both !important;
+  width:100% !important; max-width:100% !important;
+  margin:0 !important; padding:0 !important;
+  background:#fff !important; overflow:visible !important;
+  box-sizing:border-box !important; z-index:auto !important;
+}
+#hkSub,#hkSub *,#hkSub *::before,#hkSub *::after{
+  box-sizing:border-box !important;
+  font-family:'SUIT Variable','SUIT',-apple-system,BlinkMacSystemFont,'Pretendard','Apple SD Gothic Neo',sans-serif !important;
+  word-break:keep-all !important;
+}
+#hkSub ul,#hkSub ol,#hkSub li{list-style:none !important;margin:0 !important;padding:0 !important;background-image:none !important;}
+#hkSub li::before,#hkSub li::after{display:none !important;content:none !important;}
+#hkSub p,#hkSub h1,#hkSub h2,#hkSub h3,#hkSub h4,#hkSub span,#hkSub div,#hkSub a,#hkSub em,#hkSub b,#hkSub strong,#hkSub small{margin:0 !important;padding:0 !important;}
+#hkSub a{text-decoration:none !important;color:inherit !important;}
+#hkSub img{max-width:100% !important;display:block !important;border:0 !important;}
+#hkSub svg{display:inline-block !important;}
+
+#hkSub .hk_wrap{max-width:var(--hk-maxw) !important;margin:0 auto !important;padding:0 var(--hk-pad) !important;width:100% !important;}
+#hkSub .hk_narrow{max-width:1040px !important;margin:0 auto !important;padding:0 var(--hk-pad) !important;width:100% !important;}
+
+#hkSub .hk_rv{opacity:0 !important;transform:translateY(26px) !important;transition:opacity .9s var(--hk-ease),transform .9s var(--hk-ease) !important;}
+#hkSub .hk_rv.hk_in{opacity:1 !important;transform:none !important;}
+#hkSub .hk_d1{transition-delay:.08s !important;}
+#hkSub .hk_d2{transition-delay:.16s !important;}
+#hkSub .hk_d3{transition-delay:.24s !important;}
+
+/* ── 서브 히어로 ── */
+#hkSub .hk_hero{
+  position:relative !important;overflow:hidden !important;
+  padding:calc(var(--hk-hd) + 76px) 0 84px !important;
+  background:linear-gradient(135deg,#EAF6FD 0%,#F7FCFF 55%,#FFFDF4 100%) !important;
+}
+#hkSub .hk_hero::before{
+  content:'' !important;position:absolute !important;right:-160px !important;top:-180px !important;
+  width:620px !important;height:620px !important;border-radius:50% !important;
+  background:radial-gradient(circle,rgba(63,167,230,.18),rgba(63,167,230,0) 68%) !important;pointer-events:none !important;
+}
+#hkSub .hk_hero::after{
+  content:'' !important;position:absolute !important;left:-120px !important;bottom:-220px !important;
+  width:480px !important;height:480px !important;border-radius:50% !important;
+  background:radial-gradient(circle,rgba(255,201,60,.22),rgba(255,201,60,0) 66%) !important;pointer-events:none !important;
+}
+#hkSub .hk_hero .hk_wrap{position:relative !important;z-index:2 !important;}
+#hkSub .hk_bc{display:flex !important;align-items:center !important;gap:8px !important;font-size:13px !important;color:var(--hk-gray) !important;font-weight:600 !important;}
+#hkSub .hk_bc i{display:block !important;width:4px !important;height:4px !important;border-radius:50% !important;background:var(--hk-line) !important;font-style:normal !important;}
+#hkSub .hk_bc b{color:var(--hk-sky-d) !important;font-weight:800 !important;}
+#hkSub .hk_eyebrow{
+  display:flex !important;align-items:center !important;gap:10px !important;margin-top:26px !important;
+  font-size:12px !important;font-weight:800 !important;letter-spacing:.16em !important;color:var(--hk-sky-d) !important;
+}
+#hkSub .hk_eyebrow::before{content:'' !important;display:block !important;width:22px !important;height:2px !important;border-radius:2px !important;background:var(--hk-sun) !important;}
+#hkSub .hk_h1{
+  display:block !important;margin-top:14px !important;
+  font-size:clamp(32px,4.6vw,54px) !important;font-weight:800 !important;
+  line-height:1.24 !important;letter-spacing:-.05em !important;color:var(--hk-ink) !important;
+}
+#hkSub .hk_hlead{display:block !important;margin-top:18px !important;max-width:720px !important;font-size:clamp(15px,1.7vw,17.5px) !important;color:var(--hk-body) !important;}
+
+/* ── 섹션 공통 ── */
+#hkSub .hk_sec{display:block !important;padding:104px 0 !important;background:#fff !important;}
+#hkSub .hk_sec.hk_tint{background:var(--hk-paper2) !important;}
+#hkSub .hk_eyebrow2{
+  display:flex !important;align-items:center !important;gap:10px !important;
+  font-size:12px !important;font-weight:800 !important;letter-spacing:.16em !important;color:var(--hk-sky-d) !important;
+}
+#hkSub .hk_eyebrow2::before{content:'' !important;display:block !important;width:22px !important;height:2px !important;border-radius:2px !important;background:var(--hk-sun) !important;}
+#hkSub .hk_h2{
+  display:block !important;margin-top:14px !important;
+  font-size:clamp(26px,3.4vw,40px) !important;font-weight:800 !important;
+  line-height:1.35 !important;letter-spacing:-.045em !important;color:var(--hk-ink) !important;
+}
+#hkSub .hk_lead{display:block !important;margin-top:12px !important;font-size:clamp(14.5px,1.6vw,16.5px) !important;color:var(--hk-body) !important;}
+
+/* ── 하단 CTA (세부페이지 공통) ── */
+#hkSub .hk_cta{
+  position:relative !important;overflow:hidden !important;padding:88px 0 !important;
+  background:linear-gradient(120deg,#1E7FC2 0%,#3FA7E6 60%,#5FC0F0 100%) !important;
+}
+#hkSub .hk_cta::before{
+  content:'' !important;position:absolute !important;right:-140px !important;bottom:-200px !important;
+  width:560px !important;height:560px !important;border-radius:50% !important;
+  background:radial-gradient(circle,rgba(255,201,60,.28),rgba(255,201,60,0) 66%) !important;pointer-events:none !important;
+}
+#hkSub .hk_cta .hk_wrap{position:relative !important;z-index:2 !important;text-align:center !important;}
+#hkSub .hk_cta b{display:block !important;font-size:clamp(24px,3.2vw,36px) !important;font-weight:800 !important;color:#fff !important;letter-spacing:-.045em !important;line-height:1.35 !important;}
+#hkSub .hk_cta p{display:block !important;margin-top:14px !important;font-size:clamp(14.5px,1.6vw,16.5px) !important;color:rgba(255,255,255,.88) !important;}
+#hkSub .hk_btns{display:flex !important;flex-wrap:wrap !important;justify-content:center !important;gap:12px !important;margin-top:32px !important;}
+#hkSub .hk_btn{
+  display:inline-flex !important;align-items:center !important;gap:8px !important;
+  height:56px !important;padding:0 28px !important;border-radius:999px !important;
+  font-size:15.5px !important;font-weight:800 !important;letter-spacing:-.03em !important;
+  transition:transform .25s var(--hk-ease),box-shadow .25s var(--hk-ease),background .25s var(--hk-ease) !important;
+}
+#hkSub .hk_btn svg{width:19px !important;height:19px !important;flex:none !important;}
+#hkSub .hk_b1{background:#fff !important;color:var(--hk-sky-d) !important;box-shadow:0 18px 30px -18px rgba(12,45,70,.5) !important;}
+#hkSub .hk_b1:hover{transform:translateY(-3px) !important;box-shadow:0 26px 40px -20px rgba(12,45,70,.6) !important;}
+#hkSub .hk_b2{background:var(--hk-sun) !important;color:#5A4200 !important;box-shadow:0 18px 30px -18px rgba(12,45,70,.5) !important;}
+#hkSub .hk_b2:hover{transform:translateY(-3px) !important;box-shadow:0 26px 40px -20px rgba(12,45,70,.6) !important;}
+#hkSub .hk_b3{background:rgba(255,255,255,.14) !important;color:#fff !important;border:1.5px solid rgba(255,255,255,.55) !important;}
+#hkSub .hk_b3:hover{background:rgba(255,255,255,.24) !important;transform:translateY(-3px) !important;}
+
+/* ══════════════════════════════════════════════════════════════
+   이 페이지 전용 (아동발달 클리닉)
+   ══════════════════════════════════════════════════════════════ */
+/* 히어로 2단 + 교과서 인용 카드 */
+#hkSub .hk_hgrid{display:grid !important;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr) !important;gap:56px !important;align-items:center !important;}
+#hkSub .hk_hchips{display:flex !important;flex-wrap:wrap !important;gap:8px !important;margin-top:26px !important;}
+#hkSub .hk_hchips i{
+  display:inline-flex !important;align-items:center !important;gap:8px !important;height:36px !important;padding:0 16px !important;border-radius:999px !important;
+  background:#fff !important;border:1px solid var(--hk-line) !important;font-style:normal !important;
+  font-size:14px !important;font-weight:800 !important;color:var(--hk-ink) !important;letter-spacing:-.03em !important;
+}
+#hkSub .hk_hchips i::before{content:'' !important;display:block !important;width:8px !important;height:8px !important;border-radius:50% !important;background:var(--hk-well) !important;}
+#hkSub .hk_hchips i:nth-child(2)::before{background:var(--hk-sun) !important;}
+#hkSub .hk_hchips i:nth-child(3)::before{background:var(--hk-sky) !important;}
+#hkSub .hk_hgo{
+  display:inline-flex !important;align-items:center !important;gap:10px !important;margin-top:28px !important;
+  height:52px !important;padding:0 24px !important;border-radius:999px !important;background:var(--hk-ink) !important;
+  font-size:15px !important;font-weight:800 !important;color:#fff !important;letter-spacing:-.03em !important;
+  transition:transform .25s var(--hk-ease) !important;
+}
+#hkSub .hk_hgo:hover{transform:translateY(-3px) !important;}
+#hkSub .hk_hgo svg{width:17px !important;height:17px !important;}
+#hkSub .hk_quote{
+  position:relative !important;margin:0 !important;padding:44px 40px 36px !important;border-radius:30px !important;
+  background:#fff !important;border:1px solid var(--hk-line) !important;box-shadow:0 40px 60px -48px rgba(31,58,77,.55) !important;
+}
+#hkSub .hk_quote .hk_qm{
+  display:inline-flex !important;align-items:center !important;justify-content:center !important;
+  width:54px !important;height:54px !important;border-radius:18px !important;background:var(--hk-well-l) !important;color:var(--hk-well) !important;
+}
+#hkSub .hk_quote .hk_qm svg{width:26px !important;height:26px !important;}
+#hkSub .hk_quote blockquote{
+  display:block !important;margin:22px 0 0 !important;padding:0 !important;border:0 !important;
+  font-size:clamp(20px,2.1vw,26px) !important;font-weight:800 !important;line-height:1.5 !important;letter-spacing:-.03em !important;color:var(--hk-ink) !important;
+}
+#hkSub .hk_quote blockquote em{font-style:normal !important;color:#1E8E73 !important;}
+#hkSub .hk_quote p{
+  display:block !important;margin-top:20px !important;padding-top:18px !important;border-top:1px dashed var(--hk-line) !important;
+  font-size:14.5px !important;line-height:1.75 !important;color:var(--hk-body) !important;letter-spacing:-.025em !important;
+}
+
+/* 소개 + 사진 */
+#hkSub .hk_intro{display:grid !important;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr) !important;gap:64px !important;align-items:start !important;}
+#hkSub .hk_intro p{display:block !important;font-size:17px !important;line-height:1.95 !important;color:var(--hk-body) !important;letter-spacing:-.025em !important;}
+#hkSub .hk_intro p + p{margin-top:16px !important;}
+#hkSub .hk_intro p em{font-style:normal !important;font-weight:800 !important;color:var(--hk-ink) !important;}
+#hkSub .hk_pics{display:grid !important;grid-template-columns:1.3fr 1fr 1fr !important;gap:12px !important;margin-top:56px !important;}
+#hkSub .hk_pic{position:relative !important;border-radius:24px !important;overflow:hidden !important;background:var(--hk-paper2) !important;aspect-ratio:4 / 3 !important;}
+#hkSub .hk_pic img{width:100% !important;height:100% !important;object-fit:cover !important;transition:transform .8s var(--hk-ease) !important;}
+#hkSub .hk_pic:hover img{transform:scale(1.04) !important;}
+#hkSub .hk_pic span{
+  position:absolute !important;left:14px !important;bottom:14px !important;display:inline-flex !important;align-items:center !important;
+  height:30px !important;padding:0 13px !important;border-radius:999px !important;background:rgba(31,58,77,.78) !important;
+  font-size:12.5px !important;font-weight:800 !important;color:#fff !important;
+}
+
+/* 언어발달 선별검사 표 */
+#hkSub #screen{scroll-margin-top:calc(var(--hk-hd) + 16px) !important;}
+#hkSub .hk_scr{margin-top:48px !important;border-radius:28px !important;overflow:hidden !important;background:#fff !important;border:1px solid var(--hk-line) !important;}
+#hkSub .hk_sh,#hkSub .hk_sr{display:grid !important;grid-template-columns:150px minmax(0,1fr) minmax(0,1fr) !important;}
+#hkSub .hk_sh > div{
+  display:flex !important;align-items:center !important;gap:10px !important;padding:20px 28px !important;background:var(--hk-ink) !important;
+  font-size:15px !important;font-weight:800 !important;color:#fff !important;letter-spacing:-.02em !important;
+}
+#hkSub .hk_sh > div small{font-size:12.5px !important;font-weight:700 !important;color:rgba(255,255,255,.6) !important;}
+#hkSub .hk_sh > div i{display:block !important;width:10px !important;height:10px !important;border-radius:50% !important;font-style:normal !important;}
+#hkSub .hk_sh .hk_c1 i{background:var(--hk-sky) !important;}
+#hkSub .hk_sh .hk_c2 i{background:var(--hk-sun) !important;}
+#hkSub .hk_sr{border-top:1px solid var(--hk-line) !important;}
+#hkSub .hk_sr:first-of-type{border-top:0 !important;}
+#hkSub .hk_age{display:flex !important;align-items:center !important;padding:24px 28px !important;background:var(--hk-paper2) !important;}
+#hkSub .hk_age b{display:block !important;font-size:26px !important;font-weight:800 !important;line-height:1 !important;letter-spacing:-.04em !important;color:var(--hk-ink) !important;}
+#hkSub .hk_age b small{font-size:14px !important;font-weight:800 !important;margin-left:3px !important;color:var(--hk-gray) !important;}
+#hkSub .hk_cell{display:flex !important;flex-direction:column !important;justify-content:center !important;gap:8px !important;padding:22px 28px !important;}
+#hkSub .hk_cell + .hk_cell{border-left:1px solid var(--hk-line) !important;}
+#hkSub .hk_cell > em{display:none !important;}
+#hkSub .hk_cell p{
+  display:flex !important;align-items:flex-start !important;gap:10px !important;
+  font-size:16px !important;font-weight:700 !important;line-height:1.6 !important;color:var(--hk-ink) !important;letter-spacing:-.035em !important;
+}
+#hkSub .hk_cell p::before{content:'' !important;flex:none !important;width:7px !important;height:7px !important;margin-top:9px !important;border-radius:50% !important;background:var(--hk-sky) !important;}
+#hkSub .hk_cell.hk_ex p::before{background:var(--hk-sun) !important;}
+#hkSub .hk_cell p small{display:block !important;font-size:13.5px !important;font-weight:600 !important;color:var(--hk-gray) !important;}
+#hkSub .hk_sr.hk_last .hk_age{background:var(--hk-sun-l) !important;}
+#hkSub .hk_sr.hk_last .hk_cell.hk_ex p:last-child{color:#C2473A !important;}
+#hkSub .hk_sr.hk_last .hk_cell.hk_ex p:last-child::before{background:var(--hk-sick) !important;}
+
+/* 선별 후 안내 */
+#hkSub .hk_next{display:grid !important;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr) auto minmax(0,1fr) !important;align-items:stretch !important;gap:12px !important;margin-top:20px !important;}
+#hkSub .hk_nx{padding:24px 24px 22px !important;border-radius:22px !important;background:#fff !important;border:1px solid var(--hk-line) !important;}
+#hkSub .hk_nx span{
+  display:inline-flex !important;align-items:center !important;height:28px !important;padding:0 12px !important;border-radius:999px !important;
+  background:var(--hk-sky-l) !important;font-size:12.5px !important;font-weight:800 !important;color:var(--hk-sky-d) !important;
+}
+#hkSub .hk_nx:nth-child(3) span{background:var(--hk-sun-l) !important;color:#A87400 !important;}
+#hkSub .hk_nx:nth-child(5){background:var(--hk-well-l) !important;border-color:transparent !important;}
+#hkSub .hk_nx:nth-child(5) span{background:#fff !important;color:#1E8E73 !important;}
+#hkSub .hk_nx b{display:block !important;margin-top:12px !important;font-size:17.5px !important;font-weight:800 !important;line-height:1.45 !important;letter-spacing:-.045em !important;color:var(--hk-ink) !important;}
+#hkSub .hk_nx p{display:block !important;margin-top:6px !important;font-size:14.5px !important;line-height:1.7 !important;color:var(--hk-body) !important;letter-spacing:-.025em !important;}
+#hkSub .hk_arr{display:flex !important;align-items:center !important;color:var(--hk-gray) !important;}
+#hkSub .hk_arr svg{width:22px !important;height:22px !important;}
+#hkSub .hk_memo{
+  display:flex !important;align-items:flex-start !important;gap:14px !important;margin-top:16px !important;
+  padding:22px 26px !important;border-radius:22px !important;background:var(--hk-ink) !important;
+  font-size:15px !important;font-weight:600 !important;line-height:1.8 !important;color:rgba(255,255,255,.86) !important;letter-spacing:-.025em !important;
+}
+#hkSub .hk_memo svg{width:22px !important;height:22px !important;flex:none !important;margin-top:3px !important;color:var(--hk-sun) !important;}
+#hkSub .hk_memo em{font-style:normal !important;font-weight:800 !important;color:#fff !important;}
+
+/* 언어발달지연의 이해 */
+#hkSub .hk_types{display:grid !important;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr) !important;gap:16px !important;margin-top:48px !important;}
+#hkSub .hk_ty{display:flex !important;flex-direction:column !important;padding:32px 30px 28px !important;border-radius:26px !important;background:#fff !important;border:1px solid var(--hk-line) !important;}
+#hkSub .hk_ty .hk_tyh{display:flex !important;align-items:center !important;gap:14px !important;}
+#hkSub .hk_ty .hk_ico{
+  display:inline-flex !important;align-items:center !important;justify-content:center !important;flex:none !important;
+  width:48px !important;height:48px !important;border-radius:15px !important;background:var(--hk-sky-l) !important;color:var(--hk-sky-d) !important;
+}
+#hkSub .hk_ty.hk_t2 .hk_ico{background:#EFEAFB !important;color:#6B55C4 !important;}
+#hkSub .hk_ty .hk_ico svg{width:24px !important;height:24px !important;}
+#hkSub .hk_ty .hk_tyh span{display:block !important;font-size:12.5px !important;font-weight:800 !important;color:var(--hk-gray) !important;letter-spacing:-.01em !important;}
+#hkSub .hk_ty .hk_tyh b{display:block !important;font-size:20px !important;font-weight:800 !important;line-height:1.35 !important;letter-spacing:-.045em !important;color:var(--hk-ink) !important;}
+#hkSub .hk_ty > p{display:block !important;margin-top:16px !important;font-size:15px !important;line-height:1.8 !important;color:var(--hk-body) !important;letter-spacing:-.025em !important;}
+#hkSub .hk_ty .hk_chips{display:grid !important;grid-template-columns:1fr 1fr !important;gap:8px !important;margin-top:20px !important;}
+#hkSub .hk_ty .hk_chips i{
+  display:flex !important;align-items:center !important;min-height:48px !important;padding:10px 16px !important;border-radius:14px !important;
+  background:var(--hk-sky-l) !important;font-style:normal !important;font-size:15px !important;font-weight:800 !important;line-height:1.4 !important;color:var(--hk-ink) !important;letter-spacing:-.035em !important;
+}
+#hkSub .hk_ty .hk_sub2{display:flex !important;flex-direction:column !important;gap:10px !important;margin-top:20px !important;}
+#hkSub .hk_ty .hk_sub2 div{padding:16px 18px !important;border-radius:16px !important;background:#F6F3FD !important;}
+#hkSub .hk_ty .hk_sub2 b{display:block !important;font-size:16px !important;font-weight:800 !important;color:#4E3AA3 !important;letter-spacing:-.04em !important;}
+#hkSub .hk_ty .hk_sub2 p{display:block !important;margin-top:4px !important;font-size:14.5px !important;line-height:1.7 !important;color:var(--hk-body) !important;letter-spacing:-.025em !important;}
+#hkSub .hk_warn{
+  display:grid !important;grid-template-columns:auto minmax(0,1fr) !important;align-items:center !important;gap:22px !important;margin-top:16px !important;
+  padding:28px 30px !important;border-radius:26px !important;background:linear-gradient(120deg,#FFF6DE 0%,#FFFBEF 100%) !important;border:1px solid #FBE7B0 !important;
+}
+#hkSub .hk_warn .hk_wi{
+  display:inline-flex !important;align-items:center !important;justify-content:center !important;
+  width:56px !important;height:56px !important;border-radius:50% !important;background:var(--hk-sun) !important;color:#5A4200 !important;
+}
+#hkSub .hk_warn .hk_wi svg{width:26px !important;height:26px !important;}
+#hkSub .hk_warn b{display:block !important;font-size:18.5px !important;font-weight:800 !important;line-height:1.5 !important;letter-spacing:-.04em !important;color:var(--hk-ink) !important;}
+#hkSub .hk_warn .hk_tx{display:flex !important;flex-wrap:wrap !important;gap:8px !important;margin-top:12px !important;}
+#hkSub .hk_warn .hk_tx i{
+  display:inline-flex !important;align-items:center !important;height:34px !important;padding:0 15px !important;border-radius:999px !important;
+  background:#fff !important;font-style:normal !important;font-size:14px !important;font-weight:800 !important;color:#8A5E00 !important;letter-spacing:-.03em !important;
+}
+
+/* 검사 · 치료 프로그램 */
+#hkSub .hk_prog{display:grid !important;grid-template-columns:minmax(0,1fr) minmax(0,1fr) !important;gap:16px !important;margin-top:48px !important;}
+#hkSub .hk_pg{padding:32px 30px 30px !important;border-radius:26px !important;background:#fff !important;border:1px solid var(--hk-line) !important;}
+#hkSub .hk_pg .hk_pgh{display:flex !important;align-items:center !important;justify-content:space-between !important;gap:12px !important;}
+#hkSub .hk_pg .hk_pgh b{display:block !important;font-size:21px !important;font-weight:800 !important;letter-spacing:-.045em !important;color:var(--hk-ink) !important;}
+#hkSub .hk_pg .hk_pgh span{
+  display:inline-flex !important;align-items:center !important;height:30px !important;padding:0 13px !important;border-radius:999px !important;
+  background:var(--hk-sky-l) !important;font-size:12.5px !important;font-weight:800 !important;color:var(--hk-sky-d) !important;letter-spacing:.06em !important;
+}
+#hkSub .hk_pg.hk_p2 .hk_pgh span{background:var(--hk-well-l) !important;color:#1E8E73 !important;}
+#hkSub .hk_pg ul{display:flex !important;flex-direction:column !important;gap:8px !important;margin-top:22px !important;}
+#hkSub .hk_pg li{
+  display:flex !important;align-items:center !important;gap:12px !important;padding:13px 16px !important;border-radius:14px !important;background:var(--hk-paper2) !important;
+  font-size:15.5px !important;font-weight:700 !important;line-height:1.5 !important;color:var(--hk-ink) !important;letter-spacing:-.035em !important;
+}
+#hkSub .hk_pg li svg{width:18px !important;height:18px !important;flex:none !important;color:var(--hk-sky) !important;}
+#hkSub .hk_pg.hk_p2 li svg{color:var(--hk-well) !important;}
+#hkSub .hk_pg li small{margin-left:auto !important;font-size:13px !important;font-weight:700 !important;color:var(--hk-gray) !important;white-space:nowrap !important;}
+#hkSub .hk_pnote{display:block !important;margin-top:14px !important;font-size:13.5px !important;color:var(--hk-gray) !important;letter-spacing:-.02em !important;}
+
+/* 관련 비용 */
+#hkSub .hk_cost{
+  display:flex !important;flex-wrap:wrap !important;align-items:center !important;gap:12px 28px !important;margin-top:28px !important;
+  padding:22px 28px !important;border-radius:22px !important;background:#fff !important;border:1px solid var(--hk-line) !important;
+}
+#hkSub .hk_cost > span{width:100% !important;font-size:13px !important;font-weight:800 !important;letter-spacing:.08em !important;color:var(--hk-gray) !important;}
+#hkSub .hk_cost div{display:flex !important;align-items:baseline !important;gap:10px !important;}
+#hkSub .hk_cost div b{font-size:15px !important;font-weight:700 !important;color:var(--hk-body) !important;letter-spacing:-.03em !important;}
+#hkSub .hk_cost div strong{font-size:18px !important;font-weight:800 !important;color:var(--hk-ink) !important;letter-spacing:-.03em !important;}
+#hkSub .hk_cost a{margin-left:auto !important;display:inline-flex !important;align-items:center !important;gap:6px !important;font-size:14.5px !important;font-weight:800 !important;color:var(--hk-sky-d) !important;}
+#hkSub .hk_cost a svg{width:15px !important;height:15px !important;}
+
+/* 예약 및 상담문의 (Well Zone 공통) */
+#hkSub .hk_ask{
+  display:grid !important;grid-template-columns:minmax(0,1fr) minmax(0,1fr) !important;gap:0 !important;margin-top:44px !important;
+  border-radius:28px !important;overflow:hidden !important;background:#fff !important;border:1px solid var(--hk-line) !important;
+}
+#hkSub .hk_ak1{padding:40px 40px 38px !important;background:linear-gradient(140deg,#E4F8F2 0%,#F3FCF9 100%) !important;}
+#hkSub .hk_ak1 span{display:block !important;font-size:12px !important;font-weight:800 !important;letter-spacing:.14em !important;color:#1E8E73 !important;}
+#hkSub .hk_ak1 a.hk_tel{
+  display:inline-flex !important;align-items:center !important;gap:12px !important;margin-top:12px !important;
+  font-size:clamp(28px,3.2vw,38px) !important;font-weight:800 !important;letter-spacing:-.04em !important;color:var(--hk-ink) !important;
+}
+#hkSub .hk_ak1 a.hk_tel svg{width:30px !important;height:30px !important;color:var(--hk-well) !important;}
+#hkSub .hk_ak1 .hk_ext{display:flex !important;flex-wrap:wrap !important;gap:8px !important;margin-top:14px !important;}
+#hkSub .hk_ak1 .hk_ext em{
+  display:inline-flex !important;align-items:center !important;height:32px !important;padding:0 14px !important;border-radius:999px !important;
+  background:#fff !important;font-style:normal !important;font-size:14px !important;font-weight:800 !important;color:#1E8E73 !important;
+}
+#hkSub .hk_ak2{padding:36px 40px !important;}
+#hkSub .hk_ak2 table{width:100% !important;border-collapse:separate !important;border-spacing:0 !important;}
+#hkSub .hk_ak2 th,#hkSub .hk_ak2 td{
+  padding:17px 4px !important;border:0 !important;border-bottom:1px solid var(--hk-line) !important;background:transparent !important;
+  font-size:16px !important;text-align:left !important;vertical-align:middle !important;
+}
+#hkSub .hk_ak2 tr:last-child th,#hkSub .hk_ak2 tr:last-child td{border-bottom:0 !important;}
+#hkSub .hk_ak2 th{font-weight:700 !important;color:var(--hk-body) !important;letter-spacing:-.03em !important;}
+#hkSub .hk_ak2 td{text-align:right !important;font-weight:800 !important;color:var(--hk-ink) !important;letter-spacing:-.03em !important;}
+#hkSub .hk_ak2 td.hk_off{color:var(--hk-sick) !important;}
+#hkSub .hk_ak2 .hk_akh{display:flex !important;align-items:center !important;gap:10px !important;margin-bottom:6px !important;font-size:17px !important;font-weight:800 !important;color:var(--hk-ink) !important;letter-spacing:-.04em !important;}
+#hkSub .hk_ak2 .hk_akh svg{width:20px !important;height:20px !important;color:var(--hk-well) !important;}
+
+/* ── 반응형 ── */
+@media (max-width:1180px){
+  #hkSub{--hk-pad:26px;}
+  #hkSub .hk_hgrid{gap:36px !important;}
+  #hkSub .hk_intro{gap:40px !important;}
+  #hkSub .hk_next{grid-template-columns:1fr !important;gap:10px !important;}
+  #hkSub .hk_arr{justify-content:center !important;transform:rotate(90deg) !important;}
+  #hkSub .hk_types{grid-template-columns:1fr !important;}
+}
+@media (max-width:860px){
+  #hkSub{--hk-pad:20px;--hk-hd:66px;}
+  #hkSub .hk_hero{padding:calc(var(--hk-hd) + 42px) 0 54px !important;}
+  #hkSub .hk_eyebrow{margin-top:18px !important;}
+  #hkSub .hk_hgrid{grid-template-columns:1fr !important;gap:28px !important;}
+  #hkSub .hk_hchips{margin-top:20px !important;}
+  #hkSub .hk_hchips i{height:32px !important;padding:0 13px !important;font-size:13px !important;}
+  #hkSub .hk_hgo{margin-top:20px !important;height:48px !important;padding:0 20px !important;font-size:14.5px !important;}
+  #hkSub .hk_quote{padding:26px 22px 22px !important;border-radius:22px !important;}
+  #hkSub .hk_quote .hk_qm{width:44px !important;height:44px !important;border-radius:14px !important;}
+  #hkSub .hk_quote blockquote{margin-top:16px !important;}
+  #hkSub .hk_quote p{font-size:13.5px !important;}
+  #hkSub .hk_sec{padding:64px 0 !important;}
+  #hkSub .hk_intro{grid-template-columns:1fr !important;gap:20px !important;}
+  #hkSub .hk_intro p{font-size:15px !important;}
+  #hkSub .hk_pics{grid-template-columns:1fr 1fr !important;gap:8px !important;margin-top:32px !important;}
+  #hkSub .hk_pic{border-radius:16px !important;}
+  #hkSub .hk_pic:first-child{grid-column:1 / -1 !important;}
+  #hkSub .hk_pic span{left:10px !important;bottom:10px !important;height:26px !important;font-size:11.5px !important;padding:0 10px !important;}
+
+  /* 표 → 월령별 카드 */
+  #hkSub .hk_scr{margin-top:28px !important;border:0 !important;border-radius:0 !important;background:transparent !important;overflow:visible !important;display:flex !important;flex-direction:column !important;gap:10px !important;}
+  #hkSub .hk_sh{display:none !important;}
+  #hkSub .hk_sr{grid-template-columns:1fr !important;border:1px solid var(--hk-line) !important;border-radius:18px !important;overflow:hidden !important;background:#fff !important;}
+  #hkSub .hk_sr:first-of-type{border-top:1px solid var(--hk-line) !important;}
+  #hkSub .hk_age{padding:14px 18px !important;}
+  #hkSub .hk_age b{font-size:21px !important;}
+  #hkSub .hk_cell{padding:16px 18px !important;gap:6px !important;}
+  #hkSub .hk_cell + .hk_cell{border-left:0 !important;border-top:1px dashed var(--hk-line) !important;}
+  #hkSub .hk_cell > em{display:block !important;font-style:normal !important;font-size:12px !important;font-weight:800 !important;letter-spacing:.06em !important;color:var(--hk-sky-d) !important;}
+  #hkSub .hk_cell.hk_ex > em{color:#A87400 !important;}
+  #hkSub .hk_cell p{font-size:15px !important;}
+  #hkSub .hk_cell p::before{margin-top:8px !important;}
+
+  #hkSub .hk_nx{padding:18px !important;border-radius:18px !important;}
+  #hkSub .hk_nx b{font-size:16px !important;margin-top:10px !important;}
+  #hkSub .hk_nx p{font-size:14px !important;}
+  #hkSub .hk_memo{padding:18px !important;border-radius:16px !important;font-size:14px !important;gap:10px !important;}
+  #hkSub .hk_types{margin-top:28px !important;gap:10px !important;}
+  #hkSub .hk_ty{padding:22px 18px 20px !important;border-radius:20px !important;}
+  #hkSub .hk_ty .hk_ico{width:42px !important;height:42px !important;border-radius:13px !important;}
+  #hkSub .hk_ty .hk_tyh b{font-size:17.5px !important;}
+  #hkSub .hk_ty > p{font-size:14.5px !important;}
+  #hkSub .hk_ty .hk_chips i{min-height:44px !important;padding:8px 12px !important;font-size:14px !important;}
+  #hkSub .hk_warn{grid-template-columns:1fr !important;gap:14px !important;padding:22px 18px !important;border-radius:20px !important;}
+  #hkSub .hk_warn .hk_wi{width:46px !important;height:46px !important;}
+  #hkSub .hk_warn b{font-size:16.5px !important;}
+  #hkSub .hk_prog{grid-template-columns:1fr !important;margin-top:28px !important;gap:10px !important;}
+  #hkSub .hk_pg{padding:22px 18px !important;border-radius:20px !important;}
+  #hkSub .hk_pg .hk_pgh b{font-size:18px !important;}
+  #hkSub .hk_pg li{padding:12px 14px !important;font-size:14.5px !important;}
+  #hkSub .hk_cost{padding:18px !important;border-radius:16px !important;gap:8px 16px !important;}
+  #hkSub .hk_cost div{width:100% !important;justify-content:space-between !important;}
+  #hkSub .hk_cost a{margin-left:0 !important;}
+  #hkSub .hk_ask{grid-template-columns:1fr !important;margin-top:28px !important;border-radius:20px !important;}
+  #hkSub .hk_ak1{padding:28px 22px 26px !important;}
+  #hkSub .hk_ak1 a.hk_tel svg{width:24px !important;height:24px !important;}
+  #hkSub .hk_ak2{padding:22px 22px 12px !important;}
+  #hkSub .hk_ak2 th,#hkSub .hk_ak2 td{padding:14px 2px !important;font-size:15px !important;}
+  #hkSub .hk_cta{padding:62px 0 !important;}
+  #hkSub .hk_btns{margin-top:24px !important;gap:9px !important;}
+  #hkSub .hk_btn{height:50px !important;padding:0 20px !important;font-size:14.5px !important;}
+}
+</style>
+
+<div id="hkSub">
+
+  
+  <section class="hk_hero">
+    <div class="hk_wrap hk_hgrid">
+      <div>
+        <nav class="hk_bc hk_rv"><a href="/">홈</a><i></i><a href="/wellzone/">Well Zone</a><i></i><b>아동발달 클리닉</b></nav>
+        <span class="hk_eyebrow hk_rv hk_d1">CHILD DEVELOPMENT CLINIC</span>
+        <h1 class="hk_h1 hk_rv hk_d1">아동발달 클리닉</h1>
+        <span class="hk_hlead hk_rv hk_d2">어린이 한 명 한 명의 정상적인 성장과 발달을 최적화하여, 건강한 사회 구성원이 되도록 돕는 언어심리 발달센터입니다.</span>
+        <div class="hk_hchips hk_rv hk_d2"><i>언어 치료</i><i>감각통합 치료</i><i>신경발달 치료</i></div>
+        <a class="hk_hgo hk_rv hk_d3" href="#screen">언어발달 선별검사 확인하기
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+        </a>
+      </div>
+      <figure class="hk_quote hk_rv hk_d2">
+        <span class="hk_qm"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9.5 6C6.5 6.8 4.5 9.4 4.5 12.6V18h6v-6H7.6c.2-1.9 1.4-3.3 3.1-3.8L9.5 6zm9 0c-3 .8-5 3.4-5 6.6V18h6v-6h-2.9c.2-1.9 1.4-3.3 3.1-3.8L18.5 6z"/></svg></span>
+        <blockquote lang="en">The field of pediatrics is dedicated to optimizing the <em>growth and development</em> of each child.</blockquote>
+        <p>소아청소년과 전문의들의 기본 교과서 중 ‘성장과 발달’ 편에 나오는 첫 문장입니다.</p>
+      </figure>
+    </div>
+  </section>
+
+  
+  <section class="hk_sec">
+    <div class="hk_wrap">
+      <div class="hk_intro">
+        <div class="hk_rv">
+          <span class="hk_eyebrow2">WHY IT MATTERS</span>
+          <h2 class="hk_h2">언어발달은<br>조기에 살펴야 합니다</h2>
+        </div>
+        <div class="hk_rv hk_d1">
+          <p>요즘 시기는 여러 가지 환경 변화로 인해, 어린이들의 정상적인 성장과 발달을 방해하는 요소들이 늘어나고 있습니다. 특히 영유아들(발달 단계: 감각-운동기)은 <em>물리적, 감각적 경험의 부족과 스마트폰에 이른 노출</em> 등으로 정상적인 인지, 언어 발달이 위협받고 있습니다.</p>
+          <p>영유아의 언어발달은 <em>인지(지능)발달과 밀접한 관계</em>가 있으며, 정서, 사회성 발달을 촉진하고 학령기 소아의 학습 능력과도 연결되는 중요한 역할을 합니다.</p>
+          <p>언어발달지연이 있을 경우, <em>조기에 원인을 파악하여 적절한 치료 프로그램</em>을 받으면 향후 정상적인 성장 발달이 가능합니다. 그러나 적절한 치료 시기를 놓칠 경우에는 더 심각한 문제들이 많이 발생할 수 있습니다. 행복한어린이병원에서는 어린이 한 명 한 명의 정상적인 성장과 발달을 최적화하여, 건강한 사회 구성원이 되도록 하는 데 헌신하고자 아동발달 클리닉을 열게 되었습니다.</p>
+        </div>
+      </div>
+
+      <div class="hk_pics">
+        <div class="hk_pic hk_rv"><img src="/images/sub/est18.jpg" alt="언어심리 발달센터" loading="lazy"><span>언어심리 발달센터</span></div>
+        <div class="hk_pic hk_rv hk_d1"><img src="/images/sub/est19.jpg" alt="언어심리 발달센터" loading="lazy"></div>
+        <div class="hk_pic hk_rv hk_d2"><img src="/images/sub/est20.jpg" alt="언어심리 발달센터" loading="lazy"></div>
+      </div>
+    </div>
+  </section>
+
+  
+  <section class="hk_sec hk_tint" id="screen">
+    <div class="hk_wrap">
+      <div class="hk_rv">
+        <span class="hk_eyebrow2">SCREENING</span>
+        <h2 class="hk_h2">언어발달 선별검사가 필요한 경우</h2>
+        <span class="hk_lead">우리 아이 월령에서 아래 항목에 해당하는지 확인해 보세요.</span>
+      </div>
+
+      <div class="hk_scr hk_rv hk_d1" role="table" aria-label="월령별 언어발달 선별검사 기준">
+        <div class="hk_sh" role="row">
+          <div role="columnheader">구분</div>
+          <div class="hk_c1" role="columnheader"><i></i>수용 언어 <small>알아듣기</small></div>
+          <div class="hk_c2" role="columnheader"><i></i>표현 언어 <small>말하기</small></div>
+        </div>
+        <div class="hk_sr" role="row">
+          <div class="hk_age" role="rowheader"><b>15<small>개월</small></b></div>
+          <div class="hk_cell" role="cell"><em>수용 언어</em><p>5~10개 사물을 가리키지 못할 경우</p></div>
+          <div class="hk_cell hk_ex" role="cell"><em>표현 언어</em><p>3개 단어를 사용하지 못할 경우</p></div>
+        </div>
+        <div class="hk_sr" role="row">
+          <div class="hk_age" role="rowheader"><b>18<small>개월</small></b></div>
+          <div class="hk_cell" role="cell"><em>수용 언어</em><p>단순 지시를 따르지 못할 경우</p></div>
+          <div class="hk_cell hk_ex" role="cell"><em>표현 언어</em><p>엄마, 아빠, 다른 이름을 말하지 못할 경우</p></div>
+        </div>
+        <div class="hk_sr" role="row">
+          <div class="hk_age" role="rowheader"><b>24<small>개월</small></b></div>
+          <div class="hk_cell" role="cell"><em>수용 언어</em><p>신체부위를 지적하지 못할 경우</p></div>
+          <div class="hk_cell hk_ex" role="cell"><em>표현 언어</em><p>25개 단어를 말하지 못할 경우</p></div>
+        </div>
+        <div class="hk_sr" role="row">
+          <div class="hk_age" role="rowheader"><b>30<small>개월</small></b></div>
+          <div class="hk_cell" role="cell"><em>수용 언어</em><p><span>질문에 말로 답하지 못할 경우<small>(고개를 끄덕여 답하는 경우)</small></span></p></div>
+          <div class="hk_cell hk_ex" role="cell"><em>표현 언어</em><p>2단어 문장을 말하지 못할 경우</p></div>
+        </div>
+        <div class="hk_sr hk_last" role="row">
+          <div class="hk_age" role="rowheader"><b>36<small>개월</small></b></div>
+          <div class="hk_cell" role="cell"><em>수용 언어</em><p>전치사나 동사를 이해하지 못할 경우</p><p>2단계 지시를 따르지 못할 경우</p></div>
+          <div class="hk_cell hk_ex" role="cell"><em>표현 언어</em><p>200개 단어를 사용하지 못할 경우</p><p>2단어 문장을 말한 후 언어 퇴행이 따르는 경우</p></div>
+        </div>
+      </div>
+
+      <div class="hk_next hk_rv">
+        <div class="hk_nx"><span>위 표에 해당하면</span><b>언어 발달지연을<br>의심해야 합니다</b></div>
+        <div class="hk_arr" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+        <div class="hk_nx"><span>15~24개월</span><b>주의 관찰</b><p>아이의 반응과 말의 변화를 주의 깊게 지켜봅니다.</p></div>
+        <div class="hk_arr" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+        <div class="hk_nx"><span>그 이후</span><b>언어전반 진단검사</b><p>발달지연이 있을 경우 조기 중재치료를 하는 것이 좋습니다.</p></div>
+      </div>
+
+      <div class="hk_memo hk_rv">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v5h1"/></svg>
+        <span>영유아의 발달은 개인적인 편차가 크고 한 가지 검사만으로 소아의 발달을 정확히 평가할 수 없으며, 어느 한 시점의 평가만으로 장래를 완전히 예측할 수도 없습니다. <em>정기적인 검사와 함께 부모님과 전문가의 지속적인 관찰이 가장 좋은 평가 방법</em>입니다.</span>
+      </div>
+    </div>
+  </section>
+
+  
+  <section class="hk_sec">
+    <div class="hk_wrap">
+      <div class="hk_rv">
+        <span class="hk_eyebrow2">UNDERSTANDING</span>
+        <h2 class="hk_h2">언어발달지연, 원인에 따라 달라집니다</h2>
+      </div>
+
+      <div class="hk_types">
+        <div class="hk_ty hk_rv">
+          <div class="hk_tyh">
+            <span class="hk_ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1.1-4.6A8 8 0 1 1 21 12z"/><path d="M8.5 12h.01M12 12h.01M15.5 12h.01"/></svg></span>
+            <div><span>인지발달 · 행동문제가 없는 경우</span><b>의사소통장애</b></div>
+          </div>
+          <p>언어 발달지연 중 인지발달이나 행동문제가 없는 경우는 의사소통장애로 진단되며, 다음과 같이 분류됩니다.</p>
+          <div class="hk_chips"><i>단순 언어장애</i><i>말소리 장애</i><i>유창성 장애 (말더듬)</i><i>사회적 화용 의사소통장애</i></div>
+        </div>
+        <div class="hk_ty hk_t2 hk_rv hk_d1">
+          <div class="hk_tyh">
+            <span class="hk_ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18"/></svg></span>
+            <div><span>초기 증상이 언어발달지연으로 나타나는</span><b>다른 경우</b></div>
+          </div>
+          <div class="hk_sub2">
+            <div><b>인지 장애</b><p>언어, 인지 발달과 함께 운동발달 지연이 동반되기도 합니다.</p></div>
+            <div><b>자폐 스펙트럼</b><p>특히 사회성 발달지연이 동반되어 전반적 발달 장애로 진단될 수 있습니다.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hk_warn hk_rv">
+        <span class="hk_wi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.3 3.9L1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v4M12 17h.01"/></svg></span>
+        <div>
+          <b>언어발달지연이 지속될수록 인지발달지연이나 사회성 문제는 심각해지므로,<br>이런 소아들은 언어치료와 함께 다음 치료가 조기에 병행되어야 합니다.</b>
+          <div class="hk_tx"><i>언어치료</i><i>놀이 치료</i><i>감각통합 치료</i></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+  <section class="hk_sec hk_tint">
+    <div class="hk_wrap">
+      <div class="hk_rv">
+        <span class="hk_eyebrow2">PROGRAM</span>
+        <h2 class="hk_h2">검사 · 치료 프로그램</h2>
+        <span class="hk_lead">아이의 발달 상태를 정확히 평가하고, 필요한 치료를 이어서 진행합니다.</span>
+      </div>
+
+      <div class="hk_prog">
+        <div class="hk_pg hk_rv">
+          <div class="hk_pgh"><b>발달 검사</b><span>ASSESSMENT</span></div>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>언어전반 진단검사</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>감각통합 전반검사</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>심리발달 검사</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>덴버발달 검사</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>주의력검사</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>웩슬러 지능검사</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>학업성취 검사</li>
+          </ul>
+        </div>
+        <div class="hk_pg hk_p2 hk_rv hk_d1">
+          <div class="hk_pgh"><b>발달 치료</b><span>THERAPY</span></div>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>언어치료<small>개인 40·60분 / 그룹</small></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>감각통합 중재치료<small>40·60분</small></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>신경발달 중재치료<small>개인 / 그룹 40분</small></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>전산화 인지 재활치료<small>40·60분</small></li>
+          </ul>
+        </div>
+      </div>
+      <span class="hk_pnote hk_rv">※ 검사와 치료는 진료 후 아이의 상태에 맞춰 정해집니다. 항목별 비용은 비급여 진료비 페이지에서 확인하실 수 있습니다.</span>
+    </div>
+  </section>
+
+  
+  <section class="hk_sec">
+    <div class="hk_narrow">
+      <div class="hk_rv">
+        <span class="hk_eyebrow2">CONTACT</span>
+        <h2 class="hk_h2">아동발달 클리닉<br>예약 및 상담문의</h2>
+      </div>
+
+      <div class="hk_ask hk_rv hk_d1">
+        <div class="hk_ak1">
+          <span>아동발달 클리닉</span>
+          <a class="hk_tel" href="tel:051-264-9500">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .3 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.4 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
+            051-264-9500
+          </a>
+          <div class="hk_ext"><em>내선 861번</em></div>
+        </div>
+        <div class="hk_ak2">
+          <div class="hk_akh">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+            상담 가능 시간
+          </div>
+          <table>
+            <tbody>
+              <tr><th>평일</th><td>9시 ~ 18시</td></tr>
+              <tr><th>토요일</th><td class="hk_off">검진 없음</td></tr>
+              <tr><th>일 / 공휴일</th><td class="hk_off">검진 없음</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="hk_cost hk_rv">
+        <span>관련 비용</span>
+        <div><b>언어전반 진단검사</b><strong>60,000~150,000원</strong></div>
+        <div><b>감각통합 전반검사</b><strong>120,000~160,000원</strong></div>
+        <div><b>언어치료1 (40분)</b><strong>80,000원</strong></div>
+        <div><b>감각통합 중재치료1 (40분)</b><strong>100,000원</strong></div>
+        <a href="/fees/#act">비급여 진료비 보기
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  
+  <section class="hk_cta">
+    <div class="hk_wrap hk_rv">
+      <b>우리 아이 말이 늦은 것 같다면,<br>조기에 확인하는 것이 가장 좋습니다</b>
+      <p>언어발달 선별검사부터 치료까지, 아동발달 클리닉이 함께합니다.</p>
+      <div class="hk_btns">
+        <a class="hk_btn hk_b1" href="tel:051-264-9500">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .3 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.4 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
+          051-264-9500 (내선 861)
+        </a>
+        <a class="hk_btn hk_b2" href="/reservation/">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="3"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+          진료예약 안내
+        </a>
+        <a class="hk_btn hk_b3" href="/infant-checkup/">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          영유아 건강검진
+        </a>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<script>
+(function () {
+  var root = document.getElementById('hkSub');
+  if (!root || root.dataset.hkReady) return;
+  root.dataset.hkReady = '1';
+  var els = root.querySelectorAll('.hk_rv');
+  if (!('IntersectionObserver' in window)) { Array.prototype.forEach.call(els, function (e) { e.classList.add('hk_in'); }); }
+  else {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('hk_in'); io.unobserve(en.target); } });
+    }, { threshold: 0.08 });
+    Array.prototype.forEach.call(els, function (e) { io.observe(e); });
+  }
+
+  /* /development#screen 으로 들어오면 선별검사 섹션으로 (아임웹 로딩 뒤 한 번 더) */
+  function go() {
+    if ((location.hash || '') !== '#screen') return;
+    var el = document.getElementById('screen');
+    if (el && root.contains(el)) setTimeout(function () { el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 250);
+  }
+  window.addEventListener('hashchange', go);
+  go();
+})();
+</script>
+
+
+
+<style>
+@import url('https://cdn.jsdelivr.net/gh/sun-typeface/suit@2/fonts/variable/woff2/SUIT-Variable.css');
+
+#hkLoc{
+  --hk-sky:#3FA7E6; --hk-sky-d:#1E7FC2; --hk-sky-l:#EAF6FD;
+  --hk-sun:#FFC93C; --hk-well:#2FBF9B; --hk-well-d:#1C8F72; --hk-well-l:#E4F8F2; --hk-sick:#FF7A6B;
+  --hk-ink:#1F3A4D; --hk-body:#4A5E6B; --hk-gray:#8697A2; --hk-line:#E6EDF1; --hk-line2:#F0F4F6; --hk-paper2:#F5F9FB;
+  --hk-ease:cubic-bezier(.16,1,.3,1);
+  --hk-maxw:1400px; --hk-pad:32px; --hk-r:22px; --hk-r2:16px;
+  line-height:1.75 !important;
+
+  display:block !important;position:relative !important;float:none !important;clear:both !important;
+  width:100% !important;max-width:100% !important;margin:0 !important;padding:110px 0 120px !important;
+  background:var(--hk-paper2) !important;box-sizing:border-box !important;overflow:hidden !important;
+}
+#hkLoc,#hkLoc *,#hkLoc *::before,#hkLoc *::after{
+  box-sizing:border-box !important;
+  font-family:'SUIT Variable','SUIT',-apple-system,BlinkMacSystemFont,'Pretendard','Apple SD Gothic Neo',sans-serif !important;
+  word-break:keep-all !important;
+}
+#hkLoc ul,#hkLoc li{list-style:none !important;margin:0 !important;padding:0 !important;background-image:none !important;}
+#hkLoc li::before,#hkLoc li::after{display:none !important;content:none !important;}
+#hkLoc p,#hkLoc h2,#hkLoc h3,#hkLoc span,#hkLoc div,#hkLoc a,#hkLoc em,#hkLoc b,#hkLoc small,#hkLoc table,#hkLoc th,#hkLoc td{margin:0 !important;padding:0 !important;}
+#hkLoc a{text-decoration:none !important;color:inherit !important;}
+#hkLoc svg{display:inline-block !important;flex:none !important;}
+#hkLoc iframe{display:block !important;border:0 !important;margin:0 !important;padding:0 !important;}
+#hkLoc .hk_wrap{max-width:var(--hk-maxw) !important;margin:0 auto !important;padding:0 var(--hk-pad) !important;width:100% !important;}
+#hkLoc .hk_rv{opacity:0 !important;transform:translateY(26px) !important;transition:opacity .9s var(--hk-ease),transform .9s var(--hk-ease) !important;}
+#hkLoc .hk_rv.hk_in{opacity:1 !important;transform:none !important;}
+#hkLoc .hk_d1{transition-delay:.08s !important;}
+#hkLoc .hk_d2{transition-delay:.16s !important;}
+#hkLoc .hk_d3{transition-delay:.24s !important;}
+
+/* 배경 장식 */
+#hkLoc .hk_blob{position:absolute !important;border-radius:50% !important;pointer-events:none !important;z-index:0 !important;}
+#hkLoc .hk_blob.hk_b1{width:520px !important;height:520px !important;right:-160px !important;top:-180px !important;background:radial-gradient(circle,rgba(63,167,230,.14),rgba(63,167,230,0) 68%) !important;}
+#hkLoc .hk_blob.hk_b2{width:420px !important;height:420px !important;left:-140px !important;bottom:-120px !important;background:radial-gradient(circle,rgba(255,201,60,.18),rgba(255,201,60,0) 68%) !important;}
+#hkLoc .hk_wrap{position:relative !important;z-index:1 !important;}
+
+/* 머리 */
+#hkLoc .hk_head{display:flex !important;align-items:flex-end !important;justify-content:space-between !important;gap:40px !important;margin-bottom:40px !important;flex-wrap:wrap !important;}
+#hkLoc .hk_eyebrow{display:flex !important;align-items:center !important;gap:10px !important;font-size:12px !important;font-weight:800 !important;letter-spacing:.16em !important;color:var(--hk-sky-d) !important;}
+#hkLoc .hk_eyebrow::before{content:'' !important;display:block !important;width:22px !important;height:2px !important;border-radius:2px !important;background:var(--hk-sun) !important;}
+#hkLoc .hk_h2{display:block !important;margin-top:12px !important;font-size:clamp(26px,3.4vw,38px) !important;font-weight:800 !important;line-height:1.35 !important;letter-spacing:-.045em !important;color:var(--hk-ink) !important;}
+#hkLoc .hk_lead{display:block !important;margin-top:12px !important;font-size:clamp(14.5px,1.5vw,16.5px) !important;line-height:1.85 !important;color:var(--hk-body) !important;}
+#hkLoc .hk_badges{display:flex !important;flex-wrap:wrap !important;gap:8px !important;max-width:560px !important;justify-content:flex-end !important;}
+#hkLoc .hk_badge{
+  display:inline-flex !important;align-items:center !important;gap:7px !important;
+  height:36px !important;padding:0 15px !important;border-radius:999px !important;
+  background:#fff !important;border:1px solid var(--hk-line) !important;
+  font-size:12.5px !important;font-weight:800 !important;color:var(--hk-ink) !important;letter-spacing:-.03em !important;
+}
+#hkLoc .hk_badge svg{width:14px !important;height:14px !important;color:var(--hk-well) !important;}
+#hkLoc .hk_badge.hk_moon{background:var(--hk-ink) !important;border-color:var(--hk-ink) !important;color:#fff !important;}
+#hkLoc .hk_badge.hk_moon svg{color:var(--hk-sun) !important;}
+
+/* 지도 + 주소 */
+#hkLoc .hk_main{display:grid !important;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr) !important;gap:20px !important;}
+#hkLoc .hk_map{border-radius:var(--hk-r) !important;overflow:hidden !important;border:1px solid var(--hk-line) !important;min-height:400px !important;background:#fff !important;position:relative !important;}
+#hkLoc .hk_map iframe{width:100% !important;height:100% !important;min-height:400px !important;}
+#hkLoc .root_daum_roughmap{width:100% !important;height:100% !important;min-height:400px !important;margin:0 !important;padding:0 !important;float:none !important;}
+#hkLoc .root_daum_roughmap .wrap_map{height:400px !important;width:100% !important;}
+#hkLoc .root_daum_roughmap .wrap_map iframe{min-height:0 !important;height:400px !important;}
+#hkLoc .root_daum_roughmap .map_border{display:none !important;}
+#hkLoc .root_daum_roughmap .wrap_controllers{border:0 !important;border-top:1px solid var(--hk-line) !important;background:#fff !important;font-family:inherit !important;}
+#hkLoc .root_daum_roughmap{position:relative !important;z-index:1 !important;background:transparent !important;}
+#hkLoc .hk_map.hk_nomap .root_daum_roughmap{display:none !important;}
+
+/* 지도가 안 뜰 때 보이는 안내 (지도 아래에 깔려 있다가, 지도가 안 오면 그대로 보임) */
+#hkLoc .hk_mapfb{
+  position:absolute !important;inset:0 !important;z-index:0 !important;
+  display:flex !important;flex-direction:column !important;align-items:center !important;justify-content:center !important;gap:10px !important;
+  padding:24px !important;text-align:center !important;
+  background:linear-gradient(135deg,var(--hk-sky-l),#fff 60%,var(--hk-well-l)) !important;
+}
+#hkLoc .hk_mapfb .hk_pin{display:flex !important;align-items:center !important;justify-content:center !important;width:54px !important;height:54px !important;border-radius:50% !important;background:#fff !important;box-shadow:0 10px 24px -12px rgba(31,58,77,.45) !important;color:var(--hk-sky-d) !important;}
+#hkLoc .hk_mapfb .hk_pin svg{width:24px !important;height:24px !important;}
+#hkLoc .hk_mapfb b{display:block !important;font-size:17px !important;font-weight:800 !important;color:var(--hk-ink) !important;letter-spacing:-.03em !important;}
+#hkLoc .hk_mapfb small{display:block !important;font-size:13.5px !important;color:var(--hk-body) !important;}
+#hkLoc .hk_kbtn{
+  display:inline-flex !important;align-items:center !important;gap:7px !important;
+  height:44px !important;padding:0 20px !important;border-radius:999px !important;margin-top:6px !important;
+  background:#FEE500 !important;color:#191919 !important;font-size:14px !important;font-weight:800 !important;letter-spacing:-.03em !important;
+  box-shadow:0 10px 22px -12px rgba(0,0,0,.45) !important;
+  transition:transform .25s var(--hk-ease),box-shadow .25s var(--hk-ease) !important;
+}
+#hkLoc .hk_kbtn:hover{transform:translateY(-2px) !important;box-shadow:0 14px 26px -12px rgba(0,0,0,.5) !important;}
+#hkLoc .hk_kbtn svg{width:14px !important;height:14px !important;}
+
+/* 지도 왼쪽 위 '카카오맵에서 보기' (항상 보임) */
+#hkLoc .hk_mapgo{
+  position:absolute !important;top:12px !important;left:12px !important;z-index:2 !important;
+  display:inline-flex !important;align-items:center !important;gap:6px !important;
+  height:36px !important;padding:0 14px !important;border-radius:999px !important;
+  background:#FEE500 !important;color:#191919 !important;font-size:12.5px !important;font-weight:800 !important;letter-spacing:-.03em !important;
+  box-shadow:0 8px 18px -8px rgba(0,0,0,.4) !important;
+  transition:transform .25s var(--hk-ease) !important;
+}
+#hkLoc .hk_mapgo:hover{transform:translateY(-2px) !important;}
+#hkLoc .hk_mapgo svg{width:13px !important;height:13px !important;}
+#hkLoc .hk_map.hk_nomap .hk_mapgo{display:none !important;}
+#hkLoc .hk_side{display:flex !important;flex-direction:column !important;gap:12px !important;}
+#hkLoc .hk_card{
+  position:relative !important;overflow:hidden !important;
+  background:var(--hk-ink) !important;color:#fff !important;border-radius:var(--hk-r) !important;padding:30px 28px 28px !important;
+  flex:1 1 auto !important;display:flex !important;flex-direction:column !important;justify-content:space-between !important;
+}
+#hkLoc .hk_card::after{content:'' !important;position:absolute !important;right:-70px !important;top:-70px !important;width:220px !important;height:220px !important;border-radius:50% !important;background:radial-gradient(circle,rgba(63,167,230,.45),rgba(63,167,230,0) 70%) !important;pointer-events:none !important;}
+#hkLoc .hk_card > *{position:relative !important;z-index:1 !important;}
+#hkLoc .hk_k{display:block !important;font-size:11px !important;font-weight:800 !important;letter-spacing:.16em !important;color:var(--hk-sun) !important;margin-bottom:12px !important;}
+#hkLoc .hk_addr{display:block !important;font-size:20px !important;font-weight:800 !important;letter-spacing:-.045em !important;line-height:1.6 !important;}
+#hkLoc .hk_addr em{font-style:normal !important;color:var(--hk-sky) !important;}
+#hkLoc .hk_sub{display:block !important;margin-top:8px !important;font-size:13.5px !important;color:rgba(255,255,255,.66) !important;letter-spacing:-.03em !important;line-height:1.7 !important;}
+#hkLoc .hk_apps{display:grid !important;grid-template-columns:repeat(3,1fr) !important;gap:8px !important;margin-top:24px !important;}
+#hkLoc .hk_app{
+  display:flex !important;align-items:center !important;justify-content:center !important;gap:7px !important;
+  height:46px !important;border-radius:12px !important;
+  background:rgba(255,255,255,.09) !important;border:1px solid rgba(255,255,255,.18) !important;
+  font-size:13px !important;font-weight:800 !important;color:#fff !important;letter-spacing:-.03em !important;
+  transition:background .3s var(--hk-ease) !important;
+}
+#hkLoc .hk_app:hover{background:rgba(255,255,255,.2) !important;}
+#hkLoc .hk_ic{display:flex !important;width:20px !important;height:20px !important;border-radius:6px !important;align-items:center !important;justify-content:center !important;font-size:10.5px !important;font-weight:800 !important;flex:none !important;}
+#hkLoc .hk_icN{background:#03C75A !important;color:#fff !important;}
+#hkLoc .hk_icK{background:#FEE500 !important;color:#3C1E1E !important;}
+#hkLoc .hk_icG{background:#fff !important;color:#4285F4 !important;}
+#hkLoc .hk_tels{display:grid !important;grid-template-columns:1fr 1fr !important;gap:12px !important;flex:0 0 auto !important;}
+#hkLoc .hk_tel{
+  background:#fff !important;border:1px solid var(--hk-line) !important;border-radius:var(--hk-r2) !important;padding:16px 20px !important;
+  display:flex !important;flex-direction:column !important;justify-content:center !important;gap:3px !important;line-height:1.35 !important;
+  transition:border-color .3s var(--hk-ease),background .3s var(--hk-ease),transform .3s var(--hk-ease) !important;
+}
+#hkLoc .hk_tel:hover{border-color:var(--hk-sky) !important;background:var(--hk-sky-l) !important;transform:translateY(-2px) !important;}
+#hkLoc .hk_tel .hk_tk{font-size:10.5px !important;font-weight:800 !important;letter-spacing:.14em !important;color:var(--hk-sky-d) !important;line-height:1.4 !important;}
+#hkLoc .hk_tel .hk_tv{font-size:19px !important;font-weight:800 !important;letter-spacing:-.04em !important;color:var(--hk-ink) !important;line-height:1.3 !important;}
+#hkLoc .hk_tel .hk_ts{font-size:12px !important;color:var(--hk-gray) !important;letter-spacing:-.02em !important;}
+#hkLoc .hk_tel.hk_ddoc .hk_tk{color:var(--hk-well-d) !important;}
+#hkLoc .hk_tel.hk_ddoc:hover{border-color:var(--hk-well) !important;background:var(--hk-well-l) !important;}
+
+/* 진료시간 · 접수안내 */
+#hkLoc .hk_hours{display:grid !important;grid-template-columns:3fr 2fr !important;gap:20px !important;margin-top:20px !important;}
+#hkLoc .hk_hg{background:#fff !important;border:1px solid var(--hk-line) !important;border-radius:var(--hk-r) !important;padding:28px 26px 26px !important;display:flex !important;flex-direction:column !important;}
+#hkLoc .hk_hcards{flex:1 1 auto !important;align-items:stretch !important;}
+#hkLoc .hk_sched{
+  display:flex !important;align-items:center !important;justify-content:space-between !important;gap:12px !important;
+  margin-top:16px !important;padding:14px 18px !important;border-radius:var(--hk-r2) !important;
+  background:var(--hk-sun) !important;color:var(--hk-ink) !important;
+  font-size:14px !important;font-weight:800 !important;letter-spacing:-.03em !important;
+  transition:transform .3s var(--hk-ease),box-shadow .3s var(--hk-ease) !important;
+}
+#hkLoc .hk_sched:hover{transform:translateY(-2px) !important;box-shadow:0 14px 26px -18px rgba(255,201,60,.9) !important;}
+#hkLoc .hk_sched small{display:block !important;font-size:12px !important;font-weight:600 !important;color:rgba(31,58,77,.7) !important;margin-top:2px !important;}
+#hkLoc .hk_sched svg{width:18px !important;height:18px !important;transition:transform .3s var(--hk-ease) !important;}
+#hkLoc .hk_sched:hover svg{transform:translateX(4px) !important;}
+#hkLoc .hk_hg.hk_b{background:var(--hk-sky-l) !important;border-color:rgba(63,167,230,.28) !important;}
+#hkLoc .hk_hh{display:flex !important;align-items:center !important;gap:10px !important;font-size:15px !important;font-weight:800 !important;color:var(--hk-ink) !important;letter-spacing:-.035em !important;margin-bottom:18px !important;}
+#hkLoc .hk_hh svg{width:18px !important;height:18px !important;color:var(--hk-sky-d) !important;}
+#hkLoc .hk_hcards{display:grid !important;gap:10px !important;grid-template-columns:repeat(3,1fr) !important;}
+#hkLoc .hk_hc{background:var(--hk-paper2) !important;border:1px solid var(--hk-line2) !important;border-radius:var(--hk-r2) !important;padding:18px 18px 20px !important;}
+#hkLoc .hk_hc .hk_d{display:block !important;font-size:12.5px !important;font-weight:800 !important;color:var(--hk-sky-d) !important;letter-spacing:-.02em !important;}
+#hkLoc .hk_hc .hk_t{display:block !important;margin-top:6px !important;font-size:18px !important;font-weight:800 !important;color:var(--hk-ink) !important;letter-spacing:-.045em !important;white-space:nowrap !important;}
+#hkLoc .hk_hc.hk_night{background:var(--hk-ink) !important;border-color:var(--hk-ink) !important;}
+#hkLoc .hk_hc.hk_night .hk_d{color:var(--hk-sun) !important;}
+#hkLoc .hk_hc.hk_night .hk_t{color:#fff !important;}
+#hkLoc .hk_bd{display:inline-flex !important;align-items:center !important;gap:5px !important;height:22px !important;margin-top:9px !important;padding:0 9px !important;border-radius:999px !important;background:var(--hk-sun) !important;color:var(--hk-ink) !important;font-size:10.5px !important;font-weight:800 !important;letter-spacing:-.02em !important;}
+#hkLoc .hk_bd svg{width:11px !important;height:11px !important;}
+#hkLoc .hk_steps{display:flex !important;flex-direction:column !important;gap:10px !important;}
+#hkLoc .hk_step{display:flex !important;gap:12px !important;align-items:flex-start !important;background:#fff !important;border-radius:var(--hk-r2) !important;padding:14px 16px !important;}
+#hkLoc .hk_step i{display:flex !important;align-items:center !important;justify-content:center !important;flex:none !important;width:28px !important;height:28px !important;border-radius:9px !important;background:var(--hk-sky) !important;color:#fff !important;font-style:normal !important;font-size:12px !important;font-weight:800 !important;margin-top:1px !important;}
+#hkLoc .hk_step b{display:block !important;font-size:14px !important;font-weight:800 !important;color:var(--hk-ink) !important;letter-spacing:-.03em !important;line-height:1.5 !important;}
+#hkLoc .hk_step span{display:block !important;margin-top:2px !important;font-size:13px !important;color:var(--hk-body) !important;letter-spacing:-.02em !important;line-height:1.65 !important;}
+#hkLoc .hk_step span em{font-style:normal !important;font-weight:800 !important;color:var(--hk-sky-d) !important;}
+
+/* 교통 · 주차 */
+#hkLoc .hk_way{display:grid !important;grid-template-columns:minmax(0,1fr) minmax(0,1.45fr) !important;gap:20px !important;margin-top:20px !important;align-items:stretch !important;}
+#hkLoc .hk_wl{display:flex !important;flex-direction:column !important;gap:20px !important;}
+#hkLoc .hk_wl .hk_wc{flex:1 1 auto !important;}
+#hkLoc .hk_wc{background:#fff !important;border:1px solid var(--hk-line) !important;border-radius:var(--hk-r) !important;padding:26px 26px 24px !important;}
+#hkLoc .hk_wh{display:flex !important;align-items:center !important;gap:10px !important;font-size:15px !important;font-weight:800 !important;color:var(--hk-ink) !important;letter-spacing:-.035em !important;margin-bottom:14px !important;}
+#hkLoc .hk_wh .hk_wi{display:flex !important;align-items:center !important;justify-content:center !important;width:36px !important;height:36px !important;border-radius:11px !important;background:var(--hk-sky-l) !important;color:var(--hk-sky-d) !important;flex:none !important;}
+#hkLoc .hk_wh .hk_wi svg{width:18px !important;height:18px !important;}
+#hkLoc .hk_wc.hk_park .hk_wh .hk_wi{background:var(--hk-well-l) !important;color:var(--hk-well-d) !important;}
+#hkLoc .hk_wc.hk_car .hk_wh .hk_wi{background:#FFF6DA !important;color:#B88600 !important;}
+#hkLoc .hk_chips{display:flex !important;flex-wrap:wrap !important;gap:6px !important;}
+#hkLoc .hk_chip{display:inline-flex !important;align-items:center !important;height:32px !important;padding:0 13px !important;border-radius:999px !important;background:var(--hk-paper2) !important;font-size:13.5px !important;font-weight:800 !important;color:var(--hk-ink) !important;letter-spacing:-.02em !important;}
+#hkLoc .hk_chip.hk_red{background:#FDECEA !important;color:#C8372A !important;}
+#hkLoc .hk_wp{display:block !important;font-size:13.5px !important;color:var(--hk-body) !important;line-height:1.75 !important;letter-spacing:-.02em !important;}
+#hkLoc .hk_wp + .hk_wp{margin-top:4px !important;}
+#hkLoc .hk_wp em{font-style:normal !important;font-weight:800 !important;color:var(--hk-ink) !important;}
+#hkLoc .hk_wp code{font-family:inherit !important;background:var(--hk-paper2) !important;border-radius:6px !important;padding:1px 7px !important;font-weight:800 !important;color:var(--hk-ink) !important;font-size:13px !important;}
+#hkLoc .hk_lots{display:grid !important;grid-template-columns:1fr 1fr !important;gap:8px !important;margin-bottom:14px !important;}
+#hkLoc .hk_lot{background:var(--hk-paper2) !important;border-radius:var(--hk-r2) !important;padding:12px 14px !important;display:flex !important;align-items:center !important;justify-content:space-between !important;gap:8px !important;}
+#hkLoc .hk_lot span{font-size:13px !important;font-weight:700 !important;color:var(--hk-body) !important;letter-spacing:-.02em !important;}
+#hkLoc .hk_lot b{font-size:17px !important;font-weight:800 !important;color:var(--hk-well-d) !important;letter-spacing:-.03em !important;white-space:nowrap !important;}
+#hkLoc .hk_lot b small{font-size:12px !important;font-weight:700 !important;margin-left:2px !important;}
+#hkLoc table.hk_fee{width:100% !important;border-collapse:collapse !important;border-spacing:0 !important;font-size:13.5px !important;line-height:1.5 !important;table-layout:fixed !important;border:0 !important;background:none !important;}
+#hkLoc table.hk_fee th,#hkLoc table.hk_fee td{border:0 !important;border-top:1px solid var(--hk-line2) !important;padding:10px 6px !important;text-align:left !important;vertical-align:middle !important;background:none !important;letter-spacing:-.02em !important;}
+#hkLoc table.hk_fee th{font-weight:700 !important;color:var(--hk-body) !important;width:52% !important;}
+#hkLoc table.hk_fee td{font-weight:800 !important;color:var(--hk-ink) !important;}
+#hkLoc table.hk_fee td .hk_free{display:inline-flex !important;align-items:center !important;height:24px !important;padding:0 9px !important;border-radius:999px !important;background:var(--hk-well-l) !important;color:var(--hk-well-d) !important;font-size:12.5px !important;font-weight:800 !important;}
+#hkLoc table.hk_fee td .hk_paid{display:inline-flex !important;align-items:center !important;height:24px !important;padding:0 9px !important;border-radius:999px !important;background:#FDECEA !important;color:#C8372A !important;font-size:12.5px !important;font-weight:800 !important;}
+#hkLoc table.hk_fee tr:first-child th,#hkLoc table.hk_fee tr:first-child td{border-top:0 !important;}
+#hkLoc table.hk_fee th br{display:block !important;}
+
+#hkLoc .hk_notes{margin-top:20px !important;display:flex !important;flex-wrap:wrap !important;gap:6px 24px !important;}
+#hkLoc .hk_notes li{font-size:13px !important;color:var(--hk-gray) !important;letter-spacing:-.02em !important;}
+#hkLoc .hk_notes li a{color:var(--hk-sky-d) !important;font-weight:800 !important;border-bottom:1px solid currentColor !important;}
+
+@media (max-width:1180px){#hkLoc{--hk-pad:26px;}}
+@media (max-width:1024px){
+  #hkLoc .hk_main{grid-template-columns:1fr !important;}
+  #hkLoc .hk_map,#hkLoc .hk_map iframe{min-height:320px !important;}
+  #hkLoc .root_daum_roughmap{min-height:320px !important;}
+  #hkLoc .root_daum_roughmap .wrap_map,#hkLoc .root_daum_roughmap .wrap_map iframe{height:320px !important;}
+  #hkLoc .hk_hours{grid-template-columns:1fr !important;}
+  #hkLoc .hk_head{flex-direction:column !important;align-items:flex-start !important;gap:20px !important;}
+  #hkLoc .hk_badges{justify-content:flex-start !important;max-width:none !important;}
+}
+@media (max-width:860px){
+  #hkLoc{--hk-pad:20px;--hk-r:18px;padding:70px 0 80px !important;}
+  #hkLoc .hk_card{padding:24px 22px !important;}
+  #hkLoc .hk_addr{font-size:18px !important;}
+  #hkLoc .hk_tels{gap:10px !important;}
+  #hkLoc .hk_tel{padding:14px 14px !important;}
+  #hkLoc .hk_tel .hk_tv{font-size:16.5px !important;}
+  #hkLoc .hk_hg,#hkLoc .hk_wc{padding:22px 20px !important;}
+  #hkLoc .hk_hcards{grid-template-columns:1fr !important;}
+  #hkLoc .hk_way{grid-template-columns:1fr !important;}
+  #hkLoc .hk_wl{gap:14px !important;}
+  #hkLoc .hk_way{gap:14px !important;}
+  #hkLoc .hk_sched{font-size:13.5px !important;padding:12px 14px !important;}
+  #hkLoc .hk_lots{grid-template-columns:1fr !important;}
+  #hkLoc .hk_notes{flex-direction:column !important;gap:6px !important;}
+}
+@media (max-width:420px){
+  #hkLoc .hk_apps{grid-template-columns:1fr !important;}
+  #hkLoc .hk_tels{grid-template-columns:1fr !important;}
+  #hkLoc table.hk_fee th{width:48% !important;}
+}
+</style>
+
+<section id="hkLoc">
+  <span class="hk_blob hk_b1"></span>
+  <span class="hk_blob hk_b2"></span>
+  <div class="hk_wrap">
+
+    <div class="hk_head">
+      <div>
+        <span class="hk_eyebrow hk_rv">VISIT US</span>
+        <h2 class="hk_h2 hk_rv hk_d1">진료시간 · 오시는 길</h2>
+        <p class="hk_lead hk_rv hk_d2">부산 강서구 명지 우진메디컬프라자 8~9층. 밤 11시까지, 주말과 공휴일에도 아이들을 기다립니다.</p>
+      </div>
+      <div class="hk_badges hk_rv hk_d2">
+        <span class="hk_badge hk_moon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>달빛어린이병원 · 야간진료</span>
+        <span class="hk_badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>호흡기전담클리닉</span>
+        <span class="hk_badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>국민안심병원</span>
+        <span class="hk_badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>토 · 일 · 공휴일 진료</span>
+      </div>
+    </div>
+
+    
+    <div class="hk_main hk_rv hk_d1">
+      <div class="hk_map">
+        <div class="hk_mapfb">
+          <span class="hk_pin"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+          <b>행복한어린이병원</b>
+          <small>부산 강서구 명지국제1로 25 · 우진메디컬프라자 8~9층</small>
+          <a class="hk_kbtn" href="https://map.kakao.com/?q=%ED%96%89%EB%B3%B5%ED%95%9C%EC%96%B4%EB%A6%B0%EC%9D%B4%EB%B3%91%EC%9B%90%20%EB%AA%85%EC%A7%80" target="_blank" rel="noopener">카카오맵에서 보기<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M8 7h9v9"/></svg></a>
+        </div>
+        <div id="daumRoughmapContainer1607930741646" class="root_daum_roughmap root_daum_roughmap_landing"></div>
+        <a class="hk_mapgo" href="https://map.kakao.com/?q=%ED%96%89%EB%B3%B5%ED%95%9C%EC%96%B4%EB%A6%B0%EC%9D%B4%EB%B3%91%EC%9B%90%20%EB%AA%85%EC%A7%80" target="_blank" rel="noopener">카카오맵에서 보기<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M8 7h9v9"/></svg></a>
+      </div>
+
+      <div class="hk_side">
+        <div class="hk_card">
+          <div>
+            <span class="hk_k">ADDRESS</span>
+            <span class="hk_addr">부산 강서구 명지국제1로 25<br><em>우진메디컬프라자 8~9층</em></span>
+            <span class="hk_sub">지번 : 부산 강서구 명지동 3593-1 · 네비게이션에 '명지동 3593-1' 또는 '우진메디컬프라자' 검색</span>
+          </div>
+          <div class="hk_apps">
+            <a class="hk_app" href="https://map.naver.com/v5/search/%ED%96%89%EB%B3%B5%ED%95%9C%EC%96%B4%EB%A6%B0%EC%9D%B4%EB%B3%91%EC%9B%90%20%EB%AA%85%EC%A7%80" target="_blank" rel="noopener"><span class="hk_ic hk_icN">N</span>네이버 지도</a>
+            <a class="hk_app" href="https://map.kakao.com/?q=%ED%96%89%EB%B3%B5%ED%95%9C%EC%96%B4%EB%A6%B0%EC%9D%B4%EB%B3%91%EC%9B%90%20%EB%AA%85%EC%A7%80" target="_blank" rel="noopener"><span class="hk_ic hk_icK">K</span>카카오맵</a>
+            <a class="hk_app" href="https://www.google.com/maps/search/?api=1&query=%EB%B6%80%EC%82%B0%20%EA%B0%95%EC%84%9C%EA%B5%AC%20%EB%AA%85%EC%A7%80%EA%B5%AD%EC%A0%9C1%EB%A1%9C%2025" target="_blank" rel="noopener"><span class="hk_ic hk_icG">G</span>구글 지도</a>
+          </div>
+        </div>
+
+        <div class="hk_tels">
+          <a class="hk_tel" href="tel:051-264-9500"><span class="hk_tk">대표전화</span><span class="hk_tv">051-264-9500</span><span class="hk_ts">FAX 051-264-9100</span></a>
+          <a class="hk_tel hk_ddoc" href="https://goodoc.onelink.me/7srm/u0yjku3b" target="_blank" rel="noopener"><span class="hk_tk">진료예약</span><span class="hk_tv">굿닥 앱 예약</span><span class="hk_ts">스마트폰 [굿닥] 앱에서 가능</span></a>
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="hk_hours hk_rv hk_d2">
+      <div class="hk_hg">
+        <div class="hk_hh"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>진료시간</div>
+        <div class="hk_hcards">
+          <div class="hk_hc hk_night">
+            <span class="hk_d">월 ~ 금요일</span>
+            <span class="hk_t">09:00 – 23:00</span>
+            <span class="hk_bd"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>달빛어린이병원 야간진료</span>
+          </div>
+          <div class="hk_hc"><span class="hk_d">토 · 일 · 공휴일</span><span class="hk_t">09:00 – 18:00</span></div>
+          <div class="hk_hc"><span class="hk_d">점심시간</span><span class="hk_t">13:00 – 14:00</span></div>
+        </div>
+        <a class="hk_sched" href="/schedule/">
+          <span>이달의 원장님별 진료시간표 보기<small>Well Zone · Sick Zone 원장님 진료시간은 매월 달라집니다</small></span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+      <div class="hk_hg hk_b">
+        <div class="hk_hh"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>접수 · 예약 안내</div>
+        <div class="hk_steps">
+          <div class="hk_step"><i>1</i><div><b>진료예약</b><span>스마트폰 <em>[굿닥] 앱</em>에서 예약하실 수 있습니다.</span></div></div>
+          <div class="hk_step"><i>2</i><div><b>당일접수</b><span><em>오전 5시부터</em> 원무과에 비치된 태블릿에서 직접 접수 가능합니다.</span></div></div>
+          <div class="hk_step"><i>3</i><div><b>예방접종 · 영유아검진 · 종합검진</b><span>모두 <em>예약 없이 당일 접수</em> 가능합니다.</span></div></div>
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="hk_way hk_rv hk_d3">
+      <div class="hk_wl">
+      <div class="hk_wc hk_bus">
+        <div class="hk_wh"><span class="hk_wi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="15" rx="3"/><path d="M4 10h16M8 18v2M16 18v2M8 14h.01M16 14h.01"/></svg></span>버스</div>
+        <div class="hk_chips">
+          <span class="hk_chip hk_red">급행 1011</span>
+          <span class="hk_chip hk_red">급행 2000</span>
+          <span class="hk_chip hk_red">급행 2000 (연산-하단)</span>
+        </div>
+        <p class="hk_wp" style="margin-top:12px !important;">급행버스 이용 시 <em>명지 우진메디컬프라자</em> 인근 정류장에서 내리시면 됩니다.</p>
+      </div>
+
+      <div class="hk_wc hk_car">
+        <div class="hk_wh"><span class="hk_wi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l1.5-5A2 2 0 0 1 8.4 6.5h7.2a2 2 0 0 1 1.9 1.5L19 13"/><rect x="3" y="13" width="18" height="6" rx="2"/><path d="M6 19v2M18 19v2M7 16h.01M17 16h.01"/></svg></span>자가용</div>
+        <p class="hk_wp">네비게이션에 <code>명지동 3593-1</code> 을 검색하세요.</p>
+        <p class="hk_wp">우진메디컬프라자 <em>지하 1층 · 2층</em> 전용주차장을 이용하시면 됩니다.</p>
+      </div>
+      </div>
+
+      <div class="hk_wc hk_park">
+        <div class="hk_wh"><span class="hk_wi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M9 17V7h4.5a3 3 0 0 1 0 6H9"/></svg></span>전용주차장 · 주차요금</div>
+        <div class="hk_lots">
+          <div class="hk_lot"><span>지하 1층 노면식 주차장</span><b>72<small>대</small></b></div>
+          <div class="hk_lot"><span>지하 2층 노면식 주차장</span><b>72<small>대</small></b></div>
+        </div>
+        <table class="hk_fee">
+          <tr><th>외래환자</th><td><span class="hk_free">1시간 무료</span></td></tr>
+          <tr><th>외래환자 · 수액치료</th><td><span class="hk_free">2시간 무료</span></td></tr>
+          <tr><th>입 · 퇴원 수속 당일</th><td><span class="hk_free">3시간 무료</span></td></tr>
+          <tr><th>상기 시간 초과분<br>면회객 및 방문자<br>입원환자 야간주차</th><td><span class="hk_paid">유료 · 1시간당 1,000원</span></td></tr>
+        </table>
+      </div>
+    </div>
+
+    <ul class="hk_notes hk_rv hk_d3">
+      <li>ㆍ진료 시간은 병원 사정에 따라 변경될 수 있습니다.</li>
+      <li>ㆍ진료예약은 <a href="https://goodoc.onelink.me/7srm/u0yjku3b" target="_blank" rel="noopener">[굿닥] 앱</a>에서, 당일접수는 원무과 태블릿에서 가능합니다.</li>
+      <li>ㆍ주차요금은 주차장 정산 기준에 따르며, 무료 시간 초과분은 유료입니다.</li>
+    </ul>
+
+  </div>
+</section>
+
+<script>
+(function () {
+  var root = document.getElementById('hkLoc');
+  if (!root || root.dataset.hkReady) return;
+  root.dataset.hkReady = '1';
+
+  /* ── 카카오맵(다음 약도) ──
+     roughmapLoader.js 는 document.write 로 Lander 를 불러오는데,
+     아임웹 코드 위젯은 페이지 로드 후 삽입되어 document.write 가 무시됩니다.
+     그래서 로더가 넣어 준 설정값(cdn/phase)으로 Lander 를 직접 붙입니다. */
+  (function () {
+    var box = root.querySelector('#daumRoughmapContainer1607930741646');
+    if (!box) return;
+
+    function add(src, cls) {
+      if (document.querySelector('script[data-hk-km="' + cls + '"]')) return;
+      var s = document.createElement('script');
+      s.charset = 'UTF-8';
+      s.src = src;
+      s.setAttribute('data-hk-km', cls);
+      if (cls === 'loader') s.className = 'daum_roughmap_loader_script';
+      document.head.appendChild(s);
+    }
+
+    function render() {
+      if (box.children.length) return;
+      try {
+        new daum.roughmap.Lander({
+          'timestamp': '1607930741646',
+          'key': '23gkj',
+          'mapWidth': '100%',
+          'mapHeight': '400'
+        }).render();
+      } catch (e) {}
+    }
+
+    var n = 0;
+    function tick() {
+      var rm = window.daum && window.daum.roughmap;
+      if (rm && rm.Lander) { render(); return; }
+      if (rm && rm.cdn && rm.phase) {
+        add((rm.url_protocal || 'https:') + '//t1.kakaocdn.net/kakaomapweb/roughmap/place/'
+            + rm.phase + '/' + rm.cdn + '/roughmapLander.js', 'lander');
+      }
+      if (++n > 120) return;
+      setTimeout(tick, 150);
+    }
+
+    /* 18초가 지나도 지도가 안 붙으면 지도 칸을 치우고 '카카오맵에서 보기' 안내만 남김
+       (그 전에도 지도가 비어 있는 동안은 아래에 깔린 안내가 그대로 보입니다)
+       지도는 iframe 이 아니라 .wrap_map 안에 직접 그려지므로 그것으로 확인합니다. */
+    setTimeout(function () {
+      if (!box.querySelector('.wrap_map')) box.parentNode.classList.add('hk_nomap');
+    }, 18000);
+
+    add('https://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js', 'loader');
+    tick();
+  })();
+
+  var els = root.querySelectorAll('.hk_rv');
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !window.IntersectionObserver) {
+    Array.prototype.forEach.call(els, function (el) { el.classList.add('hk_in'); }); return;
+  }
+  var obs = new IntersectionObserver(function (es) {
+    es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('hk_in'); obs.unobserve(e.target); } });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  Array.prototype.forEach.call(els, function (el) { obs.observe(el); });
+})();
+</script>
+
+
+
+<style>
+@import url('https://cdn.jsdelivr.net/gh/sun-typeface/suit@2/fonts/variable/woff2/SUIT-Variable.css');
+
+#hkFt{
+  --hk-sky:#3FA7E6; --hk-sky-d:#1E7FC2; --hk-sun:#FFC93C; --hk-well:#2FBF9B; --hk-sick:#FF7A6B;
+  --hk-ink:#1F3A4D; --hk-ink2:#173042; --hk-line:rgba(255,255,255,.12);
+  --hk-ease:cubic-bezier(.16,1,.3,1);
+  --hk-maxw:1400px; --hk-pad:32px;
+  line-height:1.8 !important;
+
+  display:block !important;position:relative !important;float:none !important;clear:both !important;
+  width:100% !important;max-width:100% !important;margin:0 !important;padding:0 0 46px !important;
+  background:var(--hk-ink) !important;color:#fff !important;
+  overflow:hidden !important;box-sizing:border-box !important;z-index:auto !important;
+}
+#hkFt,#hkFt *,#hkFt *::before,#hkFt *::after,
+#hkCta,#hkCta *{
+  box-sizing:border-box !important;
+  font-family:'SUIT Variable','SUIT',-apple-system,BlinkMacSystemFont,'Pretendard','Apple SD Gothic Neo',sans-serif !important;
+  word-break:keep-all !important;
+}
+#hkFt p,#hkFt span,#hkFt a,#hkFt div,#hkFt b,#hkFt small,#hkFt nav,#hkFt ul,#hkFt li{margin:0 !important;padding:0 !important;}
+#hkFt ul,#hkFt li{list-style:none !important;background-image:none !important;}
+#hkFt li::before,#hkFt li::after{display:none !important;content:none !important;}
+#hkFt a,#hkCta a{text-decoration:none !important;color:inherit !important;}
+#hkFt img{max-width:none !important;display:block !important;border:0 !important;}
+#hkFt svg{display:inline-block !important;flex:none !important;}
+
+/* 맨 위 무지개 줄 (상단메뉴와 같은 색) */
+#hkFt .hk_rainbow{height:4px !important;background:linear-gradient(90deg,#FF7A6B 0%,#FFC93C 30%,#2FBF9B 62%,#3FA7E6 100%) !important;}
+#hkFt .hk_wrap{max-width:var(--hk-maxw) !important;margin:0 auto !important;padding:0 var(--hk-pad) !important;width:100% !important;position:relative !important;}
+#hkFt .hk_glow{position:absolute !important;right:-120px !important;top:-140px !important;width:460px !important;height:460px !important;border-radius:50% !important;background:radial-gradient(circle,rgba(63,167,230,.22),rgba(63,167,230,0) 68%) !important;pointer-events:none !important;}
+
+/* 위 : 로고 + 메뉴 */
+#hkFt .hk_top{display:flex !important;justify-content:space-between !important;gap:48px !important;flex-wrap:wrap !important;padding:64px 0 40px !important;border-bottom:1px solid var(--hk-line) !important;position:relative !important;}
+#hkFt .hk_brand{flex:0 0 auto !important;max-width:360px !important;}
+#hkFt .hk_logo{display:inline-flex !important;align-items:center !important;background:#fff !important;border-radius:16px !important;padding:12px 18px !important;margin-bottom:18px !important;}
+#hkFt .hk_logo img{height:56px !important;width:auto !important;}
+#hkFt .hk_brand b{display:block !important;font-size:21px !important;font-weight:800 !important;letter-spacing:-.045em !important;}
+#hkFt .hk_brand small{display:block !important;font-size:10px !important;font-weight:800 !important;letter-spacing:.22em !important;color:var(--hk-sun) !important;margin-top:6px !important;}
+#hkFt .hk_brand p{display:block !important;margin-top:16px !important;font-size:13.5px !important;color:rgba(255,255,255,.66) !important;letter-spacing:-.02em !important;line-height:1.8 !important;}
+#hkFt .hk_certs{display:flex !important;flex-wrap:wrap !important;gap:6px !important;margin-top:18px !important;}
+#hkFt .hk_cert{display:inline-flex !important;align-items:center !important;gap:6px !important;height:30px !important;padding:0 12px !important;border-radius:999px !important;background:rgba(255,255,255,.08) !important;border:1px solid var(--hk-line) !important;font-size:12px !important;font-weight:700 !important;color:rgba(255,255,255,.85) !important;letter-spacing:-.02em !important;}
+#hkFt .hk_cert svg{width:12px !important;height:12px !important;color:var(--hk-sun) !important;}
+
+#hkFt .hk_cols{display:grid !important;grid-template-columns:repeat(4,auto) !important;gap:24px 56px !important;flex:0 1 auto !important;}
+#hkFt .hk_col b{display:block !important;font-size:13px !important;font-weight:800 !important;letter-spacing:-.02em !important;color:#fff !important;margin-bottom:14px !important;}
+#hkFt .hk_col b i{display:inline-block !important;width:8px !important;height:8px !important;border-radius:50% !important;margin-right:8px !important;vertical-align:1px !important;}
+#hkFt .hk_col a{display:block !important;font-size:13.5px !important;font-weight:500 !important;color:rgba(255,255,255,.66) !important;letter-spacing:-.02em !important;line-height:2 !important;transition:color .25s var(--hk-ease),transform .25s var(--hk-ease) !important;}
+#hkFt .hk_col a:hover{color:#fff !important;transform:translateX(3px) !important;}
+
+/* 아래 : 정보 + 카피 */
+#hkFt .hk_bottom{padding-top:28px !important;display:flex !important;justify-content:space-between !important;gap:24px 40px !important;flex-wrap:wrap !important;align-items:flex-start !important;}
+#hkFt .hk_info{display:flex !important;flex-wrap:wrap !important;gap:6px 22px !important;font-size:13px !important;color:rgba(255,255,255,.62) !important;letter-spacing:-.02em !important;line-height:1.9 !important;}
+#hkFt .hk_info b{font-weight:800 !important;color:rgba(255,255,255,.9) !important;margin-right:6px !important;}
+#hkFt .hk_info a:hover{color:#fff !important;}
+#hkFt .hk_terms{display:flex !important;gap:18px !important;flex:none !important;}
+#hkFt .hk_terms a{font-size:13px !important;font-weight:700 !important;color:rgba(255,255,255,.8) !important;letter-spacing:-.02em !important;transition:color .25s var(--hk-ease) !important;}
+#hkFt .hk_terms a:hover{color:var(--hk-sun) !important;}
+#hkFt .hk_terms a.hk_pv{color:#fff !important;}
+#hkFt .hk_copy{display:block !important;margin-top:22px !important;font-size:12px !important;color:rgba(255,255,255,.45) !important;letter-spacing:.01em !important;line-height:1.9 !important;}
+#hkFt .hk_disc{display:block !important;margin-top:10px !important;font-size:11.5px !important;color:rgba(255,255,255,.38) !important;line-height:1.9 !important;letter-spacing:-.02em !important;max-width:820px !important;}
+
+/* 모바일 하단 고정 버튼 */
+#hkCta{
+  display:none !important;
+  position:fixed !important;left:0 !important;right:0 !important;bottom:0 !important;
+  z-index:8000 !important;background:#fff !important;border-top:1px solid #E6EDF1 !important;
+  padding:8px 10px calc(8px + env(safe-area-inset-bottom)) !important;
+  gap:8px !important;box-shadow:0 -10px 28px -18px rgba(31,58,77,.5) !important;
+}
+#hkCta a{
+  flex:1 !important;display:flex !important;flex-direction:column !important;
+  align-items:center !important;justify-content:center !important;gap:3px !important;
+  height:56px !important;border-radius:14px !important;
+  font-size:13px !important;font-weight:800 !important;letter-spacing:-.035em !important;
+}
+#hkCta a em{font-style:normal !important;font-size:10px !important;font-weight:700 !important;letter-spacing:.02em !important;opacity:.62 !important;}
+#hkCta a.hk_p{background:#3FA7E6 !important;color:#fff !important;}
+#hkCta a.hk_p em{opacity:.85 !important;}
+#hkCta a.hk_s{background:#F5F9FB !important;color:#1F3A4D !important;}
+#hkCta a.hk_y{background:#FFC93C !important;color:#1F3A4D !important;}
+
+@media (max-width:1180px){#hkFt{--hk-pad:26px;}#hkFt .hk_cols{gap:24px 36px !important;}}
+@media (max-width:1024px){
+  #hkFt .hk_top{flex-direction:column !important;gap:36px !important;}
+  #hkFt .hk_cols{grid-template-columns:repeat(2,1fr) !important;gap:26px 24px !important;}
+}
+@media (max-width:860px){
+  #hkFt{--hk-pad:20px;padding:0 0 108px !important;}
+  #hkFt .hk_top{padding:48px 0 32px !important;}
+  #hkFt .hk_logo img{height:46px !important;}
+  #hkFt .hk_bottom{flex-direction:column !important;gap:18px !important;}
+  #hkFt .hk_info{flex-direction:column !important;gap:4px !important;}
+  #hkCta{display:flex !important;}
+}
+@media (max-width:420px){#hkFt .hk_cols{grid-template-columns:1fr 1fr !important;}}
+</style>
+
+<footer id="hkFt">
+  <div class="hk_rainbow"></div>
+  <div class="hk_wrap">
+    <span class="hk_glow"></span>
+
+    <div class="hk_top">
+      <div class="hk_brand">
+        <a class="hk_logo" href="/"><img src="/images/logo_m.png" alt="행복한어린이병원"></a>
+        <b>행복한어린이병원</b>
+        <small>HAPPY CHILD HOSPITAL</small>
+        <p>튼튼한 아이는 Well Zone에서, 아픈 아이는 Sick Zone에서.<br>부산 강서구 명지에서 밤 11시까지, 주말과 공휴일에도 아이들 곁에 있습니다.</p>
+        <div class="hk_certs">
+          <span class="hk_cert"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>달빛어린이병원</span>
+          <span class="hk_cert"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>호흡기전담클리닉</span>
+          <span class="hk_cert"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>국민안심병원</span>
+        </div>
+      </div>
+
+      <nav class="hk_cols" aria-label="푸터 메뉴">
+        <div class="hk_col">
+          <b><i style="background:#3FA7E6 !important;"></i>병원소개</b>
+          <a href="/about/">인사말 · 비전</a>
+          <a href="/doctors/">의료진 소개</a>
+          <a href="/tour/">둘러보기</a>
+          <a href="/location/">오시는 길 · 주차안내</a>
+        </div>
+        <div class="hk_col">
+          <b><i style="background:#FFC93C !important;"></i>진료안내</b>
+          <a href="/schedule/">진료시간표</a>
+          <a href="/reservation/">진료예약 안내</a>
+          <a href="/admission/">입퇴원 안내</a>
+          <a href="/certificate/">증명서 발급 안내</a>
+          <a href="/fees/">비급여 진료비</a>
+        </div>
+        <div class="hk_col">
+          <b><i style="background:#2FBF9B !important;"></i>Well Zone</b>
+          <a href="/vaccination/">예방접종</a>
+          <a href="/infant-checkup/">영유아 건강검진</a>
+          <a href="/checkup/">소아청소년 종합검진</a>
+          <a href="/growth/">성장 · 성조숙 · 비만</a>
+        </div>
+        <div class="hk_col">
+          <b><i style="background:#FF7A6B !important;"></i>Sick Zone · 발달</b>
+          <a href="/sickzone/">Sick Zone 클리닉</a>
+          <a href="/iv-therapy/">맞춤형 영양수액</a>
+          <a href="/allergy/">알레르기 클리닉</a>
+          <a href="/development/">아동발달 클리닉</a>
+        </div>
+      </nav>
+    </div>
+
+    <div class="hk_bottom">
+      <div class="hk_info">
+        <span><b>주소</b>부산 강서구 명지국제1로 25 우진메디컬프라자 8~9층</span>
+        <span><b>TEL</b><a href="tel:051-264-9500">051-264-9500</a></span>
+        <span><b>FAX</b>051-264-9100</span>
+        <span><b>블로그</b><a href="https://blog.naver.com/jooya057" target="_blank" rel="noopener">blog.naver.com/jooya057</a></span>
+      </div>
+      <div class="hk_terms">
+        <a class="hk_pv" href="/privacy/">개인정보취급방침</a>
+        <a href="/terms/">이용약관</a>
+        <a href="/notice/">공지사항</a>
+      </div>
+    </div>
+
+    <span class="hk_copy">Copyright © 행복한어린이병원. All Rights Reserved.</span>
+    <span class="hk_disc">본 홈페이지의 의학 정보는 일반적인 이해를 돕기 위한 것으로, 아이의 상태에 따라 진단과 치료 방법은 달라질 수 있습니다. 정확한 진단과 치료는 반드시 의료진과 상담하시기 바랍니다.</span>
+  </div>
+</footer>
+
+<nav id="hkCta" aria-label="빠른 연결">
+  <a class="hk_s" href="tel:051-264-9500"><em>대표전화</em>051-264-9500</a>
+  <a class="hk_y" href="/schedule/"><em>이달의</em>진료시간표</a>
+  <a class="hk_p" href="https://goodoc.onelink.me/7srm/u0yjku3b" target="_blank" rel="noopener"><em>[굿닥] 앱</em>진료예약</a>
+</nav>
+
+
+<style>
+#hkQm{
+  --hk-sky:#3FA7E6; --hk-sky-d:#1E7FC2; --hk-sky-l:#EAF6FD; --hk-sun:#FFC93C;
+  --hk-ink:#1F3A4D; --hk-gray:#8697A2; --hk-line:#E6EDF1; --hk-paper2:#F5F9FB;
+  --hk-ease:cubic-bezier(.16,1,.3,1);
+
+  position:fixed !important;
+  right:26px !important;bottom:28px !important;
+  z-index:8500 !important;
+  display:flex !important;flex-direction:column !important;align-items:flex-end !important;
+  gap:10px !important;margin:0 !important;padding:0 !important;
+  width:auto !important;max-width:none !important;
+  box-sizing:border-box !important;line-height:1.6 !important;
+}
+#hkQm,#hkQm *{
+  box-sizing:border-box !important;margin:0 !important;padding:0 !important;
+  font-family:'SUIT Variable','SUIT',-apple-system,BlinkMacSystemFont,'Pretendard','Apple SD Gothic Neo',sans-serif !important;
+  word-break:keep-all !important;
+}
+#hkQm a{text-decoration:none !important;color:inherit !important;}
+#hkQm button{font:inherit !important;color:inherit !important;background:none !important;border:0 !important;cursor:pointer !important;}
+#hkQm svg{display:block !important;}
+
+/* ── 패널 ── */
+#hkQm .hk_panel{
+  width:164px !important;
+  background:rgba(255,255,255,.94) !important;
+  -webkit-backdrop-filter:blur(16px) saturate(180%);backdrop-filter:blur(16px) saturate(180%);
+  border:1px solid var(--hk-line) !important;
+  border-radius:18px !important;
+  padding:8px !important;
+  display:flex !important;flex-direction:column !important;gap:6px !important;
+  box-shadow:0 18px 40px -12px rgba(31,58,77,.25) !important;
+}
+#hkQm .hk_items{
+  display:flex !important;flex-direction:column !important;gap:5px !important;
+  max-height:0 !important;opacity:0 !important;overflow:hidden !important;
+  transition:max-height .38s var(--hk-ease),opacity .3s var(--hk-ease),margin .38s var(--hk-ease) !important;
+}
+#hkQm .hk_panel.hk_on .hk_items{max-height:380px !important;opacity:1 !important;margin-bottom:3px !important;}
+
+/* ── 항목 ── */
+#hkQm .hk_it{
+  display:flex !important;align-items:center !important;gap:10px !important;
+  padding:9px 10px !important;border-radius:12px !important;
+  background:var(--hk-paper2) !important;border:1px solid transparent !important;
+  color:var(--hk-ink) !important;
+  transition:background .22s var(--hk-ease),border-color .22s var(--hk-ease),transform .22s var(--hk-ease) !important;
+}
+#hkQm .hk_it span{font-size:13px !important;font-weight:800 !important;letter-spacing:-.035em !important;line-height:1 !important;}
+#hkQm .hk_ico{
+  display:flex !important;width:30px !important;height:30px !important;flex:none !important;
+  border-radius:9px !important;background:#fff !important;border:1px solid var(--hk-line) !important;
+  align-items:center !important;justify-content:center !important;color:var(--hk-ink) !important;
+  transition:background .22s var(--hk-ease),border-color .22s var(--hk-ease),color .22s var(--hk-ease) !important;
+}
+#hkQm .hk_ico svg{width:15px !important;height:15px !important;stroke:currentColor !important;fill:none !important;stroke-width:2 !important;stroke-linecap:round !important;stroke-linejoin:round !important;}
+#hkQm .hk_ico.hk_fill svg{stroke:none !important;fill:currentColor !important;}
+#hkQm .hk_it:hover{background:var(--hk-sky-l) !important;border-color:rgba(63,167,230,.4) !important;transform:translateX(-2px) !important;}
+#hkQm .hk_it:hover .hk_ico{background:var(--hk-sky) !important;border-color:var(--hk-sky) !important;color:#fff !important;}
+
+/* 굿닥 예약 : 항상 강조 */
+#hkQm .hk_it.hk_dd{background:var(--hk-sun) !important;}
+#hkQm .hk_it.hk_dd .hk_ico{background:#fff !important;border-color:#fff !important;color:var(--hk-ink) !important;}
+#hkQm .hk_it.hk_dd:hover{background:#FFD65E !important;border-color:#FFD65E !important;}
+#hkQm .hk_it.hk_dd:hover .hk_ico{background:var(--hk-ink) !important;border-color:var(--hk-ink) !important;color:#fff !important;}
+
+/* 학교검진 : Well Zone 초록 */
+#hkQm .hk_it.hk_sc:hover{background:#E4F8F2 !important;border-color:rgba(47,191,155,.45) !important;}
+#hkQm .hk_it.hk_sc:hover .hk_ico{background:#2FBF9B !important;border-color:#2FBF9B !important;color:#fff !important;}
+
+/* 네이버 블로그 */
+#hkQm .hk_it.hk_nv:hover{background:#F0FDF4 !important;border-color:#BBF7D0 !important;}
+#hkQm .hk_it.hk_nv:hover .hk_ico{background:#03C75A !important;border-color:#03C75A !important;color:#fff !important;}
+#hkQm .hk_it.hk_nv:hover span{color:#02843C !important;}
+
+/* ── 토글 ── */
+#hkQm .hk_toggle{
+  display:flex !important;width:100% !important;height:42px !important;border-radius:12px !important;
+  background:var(--hk-ink) !important;color:#fff !important;
+  align-items:center !important;justify-content:center !important;gap:7px !important;
+  transition:background .22s var(--hk-ease) !important;
+}
+#hkQm .hk_toggle:hover{background:var(--hk-sky-d) !important;}
+#hkQm .hk_toggle b{font-size:12.5px !important;font-weight:800 !important;letter-spacing:-.02em !important;}
+#hkQm .hk_toggle svg{width:14px !important;height:14px !important;stroke:currentColor !important;fill:none !important;stroke-width:2.4 !important;transition:transform .3s var(--hk-ease) !important;}
+#hkQm .hk_panel.hk_on .hk_toggle svg{transform:rotate(180deg) !important;}
+
+/* ── TOP 버튼 ── */
+#hkQm .hk_top{
+  display:flex !important;width:42px !important;height:42px !important;border-radius:14px !important;
+  background:rgba(255,255,255,.94) !important;
+  -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);
+  border:1px solid var(--hk-line) !important;color:var(--hk-gray) !important;
+  align-items:center !important;justify-content:center !important;
+  box-shadow:0 10px 22px -10px rgba(31,58,77,.3) !important;
+  opacity:0 !important;visibility:hidden !important;transform:translateY(8px) !important;
+  transition:opacity .25s var(--hk-ease),visibility .25s,transform .25s var(--hk-ease),color .25s var(--hk-ease),border-color .25s var(--hk-ease) !important;
+}
+#hkQm .hk_top.hk_show{opacity:1 !important;visibility:visible !important;transform:none !important;}
+#hkQm .hk_top:hover{color:var(--hk-sky-d) !important;border-color:var(--hk-sky) !important;background:#fff !important;}
+#hkQm .hk_top svg{width:19px !important;height:19px !important;stroke:currentColor !important;fill:none !important;stroke-width:2.2 !important;stroke-linecap:round !important;stroke-linejoin:round !important;}
+
+/* 푸터가 화면에 들어오면 살짝 감춰 푸터 메뉴를 가리지 않게 합니다 */
+#hkQm.hk_away{opacity:0 !important;visibility:hidden !important;pointer-events:none !important;transform:translateX(12px) !important;}
+#hkQm{transition:opacity .3s var(--hk-ease),visibility .3s,transform .3s var(--hk-ease) !important;}
+
+/* 모바일 : 하단 고정 버튼과 겹치므로 숨김 */
+@media (max-width:860px){
+  #hkQm{display:none !important;}
+}
+</style>
+
+<div id="hkQm">
+  <div class="hk_panel hk_on">
+    <div class="hk_items">
+
+      <a class="hk_it hk_dd" href="https://goodoc.onelink.me/7srm/u0yjku3b" target="_blank" rel="noopener">
+        <span class="hk_ico"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="17" rx="3"/><path d="M8 2v4M16 2v4M3 10h18M9 15l2 2 4-4"/></svg></span>
+        <span>굿닥 진료예약</span>
+      </a>
+
+      <a class="hk_it" href="/schedule/">
+        <span class="hk_ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+        <span>진료시간표</span>
+      </a>
+
+      <a class="hk_it hk_sc" href="https://eo-m.com/2022/HSP/HSP_Student.asp?hNo=21203369" target="_blank" rel="noopener">
+        <span class="hk_ico"><svg viewBox="0 0 24 24"><path d="M3 10l9-5 9 5-9 5z"/><path d="M7 12.2V17c0 1.2 2.2 2.5 5 2.5s5-1.3 5-2.5v-4.8"/></svg></span>
+        <span>학생검진 문진표</span>
+      </a>
+
+      <a class="hk_it" href="tel:051-264-9500">
+        <span class="hk_ico"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.13.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.11L8.1 9.9a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.9z"/></svg></span>
+        <span>전화 문의</span>
+      </a>
+
+      <a class="hk_it" href="/location/">
+        <span class="hk_ico"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+        <span>오시는 길</span>
+      </a>
+
+      <a class="hk_it hk_nv" href="https://blog.naver.com/jooya057" target="_blank" rel="noopener">
+        <span class="hk_ico hk_fill"><svg viewBox="0 0 24 24"><path d="M16.27 4.3v6.52L7.74 4.3H3v15.4h4.72v-6.52l8.53 6.52H21V4.3z"/></svg></span>
+        <span>공식 블로그</span>
+      </a>
+
+    </div>
+
+    <button class="hk_toggle" type="button" aria-label="빠른 메뉴 접기/펼치기" aria-expanded="true">
+      <b>빠른 메뉴</b>
+      <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+  </div>
+
+  <button class="hk_top" type="button" aria-label="페이지 맨 위로 이동">
+    <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+</div>
+
+<script>
+(function () {
+  var root = document.getElementById('hkQm');
+  if (!root || root.dataset.hkReady) return;
+  root.dataset.hkReady = '1';
+
+  var panel  = root.querySelector('.hk_panel');
+  var toggle = root.querySelector('.hk_toggle');
+  var top    = root.querySelector('.hk_top');
+
+  toggle.addEventListener('click', function () {
+    var on = panel.classList.toggle('hk_on');
+    toggle.setAttribute('aria-expanded', on ? 'true' : 'false');
+  });
+
+  top.addEventListener('click', function () {
+    try { window.scrollTo({ top: 0, behavior: 'smooth' }); }
+    catch (e) { window.scrollTo(0, 0); }
+  });
+
+  function onScroll() {
+    if (window.pageYOffset > 250) top.classList.add('hk_show');
+    else top.classList.remove('hk_show');
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  /* 푸터가 보이면 퀵메뉴를 감춰 푸터 메뉴를 가리지 않게 합니다 */
+  var ft = document.getElementById('hkFt');
+  if (ft && window.IntersectionObserver) {
+    new IntersectionObserver(function (es) {
+      es.forEach(function (e) { root.classList[e.isIntersecting ? 'add' : 'remove']('hk_away'); });
+    }, { threshold: 0 }).observe(ft);
+  }
+})();
+</script>
+
+</body>
+</html>
