@@ -1552,8 +1552,8 @@
 #hkQm .hk_top:hover{color:var(--hk-sky-d) !important;border-color:var(--hk-sky) !important;background:#fff !important;}
 #hkQm .hk_top svg{width:19px !important;height:19px !important;stroke:currentColor !important;fill:none !important;stroke-width:2.2 !important;stroke-linecap:round !important;stroke-linejoin:round !important;}
 
-/* 첫 화면(슬라이드·페이지 상단)이나 푸터가 보이면 감춰 본문을 가리지 않게 합니다 */
-#hkQm.hk_away,#hkQm.hk_hide{opacity:0 !important;visibility:hidden !important;pointer-events:none !important;transform:translateX(12px) !important;}
+/* 푸터가 화면에 들어오면 살짝 감춰 푸터 메뉴를 가리지 않게 합니다 */
+#hkQm.hk_away{opacity:0 !important;visibility:hidden !important;pointer-events:none !important;transform:translateX(12px) !important;}
 #hkQm{transition:opacity .3s var(--hk-ease),visibility .3s,transform .3s var(--hk-ease) !important;}
 
 /* 모바일 : 하단 고정 버튼과 겹치므로 숨김 */
@@ -1563,7 +1563,7 @@
 </style>
 
 <div id="hkQm">
-  <div class="hk_panel">
+  <div class="hk_panel hk_on">
     <div class="hk_items">
 
       <a class="hk_it hk_dd" href="https://goodoc.onelink.me/7srm/u0yjku3b" target="_blank" rel="noopener">
@@ -1598,7 +1598,7 @@
 
     </div>
 
-    <button class="hk_toggle" type="button" aria-label="빠른 메뉴 접기/펼치기" aria-expanded="false">
+    <button class="hk_toggle" type="button" aria-label="빠른 메뉴 접기/펼치기" aria-expanded="true">
       <b>빠른 메뉴</b>
       <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
     </button>
@@ -1623,12 +1623,15 @@
     panel.classList[on ? 'add' : 'remove']('hk_on');
     toggle.setAttribute('aria-expanded', on ? 'true' : 'false');
   }
-  /* 본문(최대 1400px) 옆에 메뉴가 들어갈 자리가 있는 넓은 화면에서만 펼친 채 시작 */
+  /* 홈 첫 화면(메인 슬라이드)에서는 펼침. 아래로 내려가면 본문을 가리지 않게 접음
+     세부페이지는 상단 카드를 가리므로 본문 옆에 자리가 있는 넓은 화면에서만 펼침
+     (직접 누른 뒤에는 자동으로 바꾸지 않음) */
   var wide = window.matchMedia('(min-width:1760px)');
-  var touched = false;
-  setOpen(wide.matches);
-  var onWide = function (e) { if (!touched) setOpen(e.matches); };
-  if (wide.addEventListener) wide.addEventListener('change', onWide); else wide.addListener(onWide);
+  var home = document.querySelector('#hkHero .hk_stage');
+  var touched = false, atTop = !!home;
+  function auto() { if (!touched) setOpen(atTop || wide.matches); }
+  if (wide.addEventListener) wide.addEventListener('change', auto); else wide.addListener(auto);
+  auto();
 
   toggle.addEventListener('click', function () {
     touched = true;
@@ -1655,12 +1658,11 @@
     }, { threshold: 0 }).observe(ft);
   }
 
-  /* 첫 화면(홈 슬라이드 · 세부페이지 상단)이 보이는 동안은 감춤 — 상단메뉴에 같은 버튼이 있음 */
-  var hero = document.querySelector('#hkHero .hk_stage, #hkSub .hk_hero, #hkDoc .hk_dhero');
-  if (hero && window.IntersectionObserver) {
+  /* 홈 슬라이드가 보이는지 확인 */
+  if (home && window.IntersectionObserver) {
     new IntersectionObserver(function (es) {
-      es.forEach(function (e) { root.classList[e.isIntersecting ? 'add' : 'remove']('hk_hide'); });
-    }, { threshold: 0, rootMargin: '-120px 0px 0px 0px' }).observe(hero);
+      es.forEach(function (e) { atTop = e.isIntersecting; auto(); });
+    }, { threshold: 0, rootMargin: '-120px 0px 0px 0px' }).observe(home);
   }
 })();
 </script>
