@@ -498,7 +498,7 @@
 #hkHero .hk_wrap{max-width:var(--hk-maxw) !important;margin:0 auto !important;padding:0 var(--hk-pad) !important;width:100% !important;}
 
 /* ── 슬라이드 무대 ── */
-#hkHero .hk_stage{position:relative !important;height:clamp(520px,62vh,720px) !important;overflow:hidden !important;background:var(--hk-ink) !important;}
+#hkHero .hk_stage{position:relative !important;height:clamp(624px,74.4vh,864px) !important;overflow:hidden !important;background:var(--hk-ink) !important;}
 #hkHero .hk_slide{position:absolute !important;inset:0 !important;opacity:0 !important;visibility:hidden !important;transition:opacity .9s var(--hk-ease),visibility .9s !important;}
 #hkHero .hk_slide.hk_on{opacity:1 !important;visibility:visible !important;}
 #hkHero .hk_bg{
@@ -610,7 +610,7 @@
 }
 @media (max-width:860px){
   #hkHero{--hk-pad:20px;padding-top:70px !important;}
-  #hkHero .hk_stage{height:78vh !important;height:78svh !important;min-height:520px !important;max-height:680px !important;}
+  #hkHero .hk_stage{height:93.6vh !important;height:93.6svh !important;min-height:624px !important;max-height:816px !important;}
   #hkHero .hk_body{padding-bottom:70px !important;align-items:flex-end !important;}
   #hkHero .hk_body .hk_wrap{padding-bottom:24px !important;}
   #hkHero .hk_h1{margin:16px 0 12px !important;}
@@ -635,6 +635,11 @@
 @media (max-width:420px){
   #hkHero .hk_h1{font-size:27px !important;}
   #hkHero .hk_sub{font-size:14px !important;}
+}
+/* '애니메이션 줄이기' 설정 : 슬라이드는 넘어가되 확대·떠오르는 움직임은 뺌 */
+@media (prefers-reduced-motion:reduce){
+  #hkHero .hk_bg,#hkHero .hk_slide.hk_on .hk_bg{transform:none !important;transition:none !important;}
+  #hkHero .hk_badge,#hkHero .hk_h1,#hkHero .hk_sub,#hkHero .hk_ctaBox{transform:none !important;}
 }
 </style>
 
@@ -739,7 +744,6 @@
   root.dataset.hkReady = '1';
 
   var MS = 5000;
-  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var slides = root.querySelectorAll('.hk_slide');
   var tabs = root.querySelectorAll('.hk_tab');
   var idx = 0, timer = null;
@@ -752,7 +756,7 @@
       if (m === idx) { void tabs[m].offsetWidth; tabs[m].classList.add('hk_on'); }
     }
     if (timer) clearTimeout(timer);
-    if (!reduce) timer = setTimeout(function () { go(idx + 1); }, MS);
+    timer = setTimeout(function () { go(idx + 1); }, MS);
   }
   Array.prototype.forEach.call(tabs, function (t) {
     t.addEventListener('click', function () { go(parseInt(t.getAttribute('data-go'), 10)); });
