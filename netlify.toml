@@ -1,0 +1,5 @@
+# Netlify 배포 설정 : 빌드 없이 이 폴더를 그대로 올립니다.
+# GitHub main 브랜치에 올리면 https://happykiz-imweb.netlify.app 에 자동 반영됩니다.
+[build]
+  publish = "."
+  command = ""
