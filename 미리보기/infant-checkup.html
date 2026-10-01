@@ -1415,9 +1415,10 @@
     }
 
     /* 18초가 지나도 지도가 안 붙으면 지도 칸을 치우고 '카카오맵에서 보기' 안내만 남김
-       (그 전에도 지도가 비어 있는 동안은 아래에 깔린 안내가 그대로 보입니다) */
+       (그 전에도 지도가 비어 있는 동안은 아래에 깔린 안내가 그대로 보입니다)
+       지도는 iframe 이 아니라 .wrap_map 안에 직접 그려지므로 그것으로 확인합니다. */
     setTimeout(function () {
-      if (!box.querySelector('iframe')) box.parentNode.classList.add('hk_nomap');
+      if (!box.querySelector('.wrap_map')) box.parentNode.classList.add('hk_nomap');
     }, 18000);
 
     add('https://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js', 'loader');
