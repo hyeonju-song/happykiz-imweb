@@ -569,8 +569,8 @@
 #hkHero .hk_tab::before{content:'' !important;position:absolute !important;left:0 !important;top:-1px !important;height:2px !important;width:0 !important;background:var(--hk-sun) !important;}
 #hkHero .hk_tab.hk_on::before{width:100% !important;transition:width 5s linear !important;}
 
-/* ── 빠른 안내 바 (슬라이드 아래에 살짝 겹침) ── */
-#hkHero .hk_quick{position:relative !important;z-index:6 !important;margin-top:-34px !important;padding-bottom:10px !important;}
+/* ── 빠른 안내 바 (슬라이드 탭과 겹치지 않게 아래에 붙임) ── */
+#hkHero .hk_quick{position:relative !important;z-index:6 !important;margin-top:22px !important;padding-bottom:10px !important;}
 #hkHero .hk_qgrid{
   display:grid !important;grid-template-columns:1.4fr 1fr 1fr 1fr !important;gap:0 !important;
   background:#fff !important;border-radius:22px !important;overflow:hidden !important;
@@ -620,7 +620,7 @@
   #hkHero .hk_tab i{padding:0 !important;font-size:11px !important;}
   #hkHero .hk_tab::before{display:none !important;}
   #hkHero .hk_tab.hk_on{background:rgba(255,201,60,.25) !important;}
-  #hkHero .hk_quick{margin-top:-18px !important;}
+  #hkHero .hk_quick{margin-top:16px !important;}
   #hkHero .hk_qgrid{grid-template-columns:1fr !important;border-radius:18px !important;}
   #hkHero .hk_q{border-right:0 !important;border-bottom:1px solid var(--hk-line) !important;padding:16px 18px !important;}
   #hkHero .hk_q:last-child{border-bottom:0 !important;}
@@ -2442,8 +2442,8 @@
 #hkQm .hk_top:hover{color:var(--hk-sky-d) !important;border-color:var(--hk-sky) !important;background:#fff !important;}
 #hkQm .hk_top svg{width:19px !important;height:19px !important;stroke:currentColor !important;fill:none !important;stroke-width:2.2 !important;stroke-linecap:round !important;stroke-linejoin:round !important;}
 
-/* 푸터가 화면에 들어오면 살짝 감춰 푸터 메뉴를 가리지 않게 합니다 */
-#hkQm.hk_away{opacity:0 !important;visibility:hidden !important;pointer-events:none !important;transform:translateX(12px) !important;}
+/* 첫 화면(슬라이드·페이지 상단)이나 푸터가 보이면 감춰 본문을 가리지 않게 합니다 */
+#hkQm.hk_away,#hkQm.hk_hide{opacity:0 !important;visibility:hidden !important;pointer-events:none !important;transform:translateX(12px) !important;}
 #hkQm{transition:opacity .3s var(--hk-ease),visibility .3s,transform .3s var(--hk-ease) !important;}
 
 /* 모바일 : 하단 고정 버튼과 겹치므로 숨김 */
@@ -2453,7 +2453,7 @@
 </style>
 
 <div id="hkQm">
-  <div class="hk_panel hk_on">
+  <div class="hk_panel">
     <div class="hk_items">
 
       <a class="hk_it hk_dd" href="https://goodoc.onelink.me/7srm/u0yjku3b" target="_blank" rel="noopener">
@@ -2488,7 +2488,7 @@
 
     </div>
 
-    <button class="hk_toggle" type="button" aria-label="빠른 메뉴 접기/펼치기" aria-expanded="true">
+    <button class="hk_toggle" type="button" aria-label="빠른 메뉴 접기/펼치기" aria-expanded="false">
       <b>빠른 메뉴</b>
       <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
     </button>
@@ -2509,9 +2509,20 @@
   var toggle = root.querySelector('.hk_toggle');
   var top    = root.querySelector('.hk_top');
 
-  toggle.addEventListener('click', function () {
-    var on = panel.classList.toggle('hk_on');
+  function setOpen(on) {
+    panel.classList[on ? 'add' : 'remove']('hk_on');
     toggle.setAttribute('aria-expanded', on ? 'true' : 'false');
+  }
+  /* 본문(최대 1400px) 옆에 메뉴가 들어갈 자리가 있는 넓은 화면에서만 펼친 채 시작 */
+  var wide = window.matchMedia('(min-width:1760px)');
+  var touched = false;
+  setOpen(wide.matches);
+  var onWide = function (e) { if (!touched) setOpen(e.matches); };
+  if (wide.addEventListener) wide.addEventListener('change', onWide); else wide.addListener(onWide);
+
+  toggle.addEventListener('click', function () {
+    touched = true;
+    setOpen(!panel.classList.contains('hk_on'));
   });
 
   top.addEventListener('click', function () {
@@ -2532,6 +2543,14 @@
     new IntersectionObserver(function (es) {
       es.forEach(function (e) { root.classList[e.isIntersecting ? 'add' : 'remove']('hk_away'); });
     }, { threshold: 0 }).observe(ft);
+  }
+
+  /* 첫 화면(홈 슬라이드 · 세부페이지 상단)이 보이는 동안은 감춤 — 상단메뉴에 같은 버튼이 있음 */
+  var hero = document.querySelector('#hkHero .hk_stage, #hkSub .hk_hero, #hkDoc .hk_dhero');
+  if (hero && window.IntersectionObserver) {
+    new IntersectionObserver(function (es) {
+      es.forEach(function (e) { root.classList[e.isIntersecting ? 'add' : 'remove']('hk_hide'); });
+    }, { threshold: 0, rootMargin: '-120px 0px 0px 0px' }).observe(hero);
   }
 })();
 </script>
